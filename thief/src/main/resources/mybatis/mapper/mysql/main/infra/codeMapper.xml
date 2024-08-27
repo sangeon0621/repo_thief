@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.maple.infra.code.CodeDao">
+
+	<resultMap type="com.maple.infra.code.CodeDto" id="resultObj2"></resultMap>
+	
+	<select id = "selectList2" resultMap = "resultObj2">
+		select
+			b.ifcdSeq
+			,b.ifcdName
+			,b.ifcdUseNy
+			,b.ifcdOrder
+			,b.ifcdDesc
+			,b.ifcdDatetime
+			,b.ifcdDatetimeSvr
+			,b.ifcdDelNy
+		    ,b.codegroup_ifcgSeq
+		from
+			code b
+		order by
+			b.ifcdSeq desc
+		
+	</select>
+	  
+</mapper>

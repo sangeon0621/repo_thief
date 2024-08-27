@@ -1,18 +1,19 @@
 package com.maple.infra.codegroup;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class CodeGroupService {
 	
-//	CodeGroupDao codegroupdao = new CodeGroupDao();
 	@Autowired
-	CodeGroupDao dao;
+	CodeGroupDao codeGroupDao;
 	
-	public void selectList() {
-//		codeGroupDao.selectList();
-		dao.selectList();
+	public List<CodeGroupDto> selectList() {
+		List<CodeGroupDto> codeGroups = codeGroupDao.selectList();
+		return codeGroups;
 	}
 	
 }

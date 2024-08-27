@@ -1,12 +1,12 @@
 package com.maple.infra.code;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class CodeDao {
-	
-	public void codeDao() {
-		
-	}
+public interface CodeDao {
+
+	public List<CodeDto> selectList2();
 	
 }

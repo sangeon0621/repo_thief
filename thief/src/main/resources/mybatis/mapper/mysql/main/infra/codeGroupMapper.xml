@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="test">
+<mapper namespace="com.maple.infra.codegroup.CodeGroupDao"> 
+<!-- xml에서 주석 단축키 : ctrl + shift + c -->
+<!-- Mapper와 연결될 Dao -->
+	  
+	  <resultMap type="com.maple.infra.codegroup.CodeGroupDto" id="resultMapObj"></resultMap>
+	  
+	  <select id = "selectList" resultMap = "resultMapObj">
+	  	select
+			a.ifcgSeq
+			,a.ifcgName
+			,a.ifcgUseNy
+			,a.ifcgOrder
+			,a.ifcgDesc
+			,a.regDatetime
+			,a.regDatetimeSvr
+			,a.ifcgDelNy
+		from
+			codegroup a
+		order by
+			a.ifcgSeq desc
+	  </select>
+	  
+	  
 	  
 </mapper>
