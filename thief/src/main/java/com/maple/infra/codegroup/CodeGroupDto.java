@@ -55,11 +55,11 @@ public class CodeGroupDto {
 	public void setRegDatetimeSvr(Date regDatetimeSvr) {
 		this.regDatetimeSvr = regDatetimeSvr;
 	}
-	public Integer getDelNy() {
+	public Integer getIfcgDelNy() {
 		return ifcgDelNy;
 	}
-	public void setDelNy(Integer delNy) {
-		ifcgDelNy = ifcgDelNy;
+	public void setIfcgDelNy(Integer ifcgDelNy) {
+		this.ifcgDelNy = ifcgDelNy;
 	}
 	
 	

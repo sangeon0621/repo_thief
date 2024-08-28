@@ -9,11 +9,12 @@ import org.springframework.stereotype.Service;
 public class CodeGroupService {
 	
 	@Autowired
-	CodeGroupDao codeGroupDao;
+	CodeGroupDao codegroupdao;
 	
 	public List<CodeGroupDto> selectList() {
-		List<CodeGroupDto> codeGroups = codeGroupDao.selectList();
+		List<CodeGroupDto> codeGroups = codegroupdao.selectList();
 		return codeGroups;
 	}
+	
 	
 }

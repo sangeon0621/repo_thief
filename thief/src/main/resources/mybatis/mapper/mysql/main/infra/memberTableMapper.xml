@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.maple.infra.test.member.MemberTableDao">
+
+	<resultMap type="com.maple.infra.test.member.MemberTableDto" id="resultObj3"></resultMap>
+	
+	<select id = "selectList3" resultMap = "resultObj3">
+		select
+			c.ifmtSeq
+			,c.ifmtAdm
+		    ,c.ifmtName
+		    ,c.ifmtId
+		    ,c.ifmtPassword
+		    ,c.ifmtGender
+		    ,c.ifmtBirth
+		    ,c.ifmtEmail
+		    ,c.ifmtPhoneNum
+		    ,c.ifmtDatetime
+		    ,c.ifmtDatetimeSvr
+		    ,c.ifmtDelNy
+		from
+			memberTable c
+		order by
+			c.ifmtSeq desc
+	</select>
+  
+</mapper>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.maple.infra.test.classcg.ClassCGDao">
+
+	<resultMap type="com.maple.infra.test.classcg.ClassCGDto" id="resultObj4"></resultMap>
+	 
+	 <select id = "selectList4" resultMap = "resultObj4">
+		 select
+			d.ifccgEdu
+		    ,d.ifccgName
+		    ,d.ifccgPrice
+		    ,d.ifccgInstructor
+		    ,d.ifccgApplication
+		    ,d.ifccgApplicationEnd
+		    ,d.ifccgLearnStart
+		    ,d.ifccgLearnEnd
+		    ,d.ifccgPlace
+		    ,d.ifccgDesc
+		    ,d.ifccgDatetime
+		    ,d.ifccgDatetimeSvr
+		from
+			classcg d
+		order by
+			d.ifccgSeq desc
+	 </select>
+	  
+</mapper>

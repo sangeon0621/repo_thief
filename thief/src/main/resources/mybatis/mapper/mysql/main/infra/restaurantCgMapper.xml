@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.maple.infra.test.restaurantcg.RestaurantCgDao">
+
+	<resultMap type="com.maple.infra.test.restaurantcg.RestaurantCgDto" id="resultObj6"></resultMap>
+	  
+	<select id = "selectList6" resultMap = "resultObj6">
+		select
+			f.ifrcgSeq
+			,f.ifrcgType
+		    ,f.ifrcgName
+		    ,f.ifrcgOpen
+		    ,f.ifrcgClose
+		    ,f.ifrcgPhone
+		    ,f.ifrcgAddr
+		    ,f.ifrcgParking
+		    ,f.ifrcgReserve
+		    ,f.ifrcgFreeCol
+		    ,f.ifrcgDesc
+		    ,f.ifrcgDatetime
+		    ,f.ifrcgDatetimeSvr
+		    ,f.ifrcgDelNy
+		from
+			restaurantcg f
+		order by
+			f.ifrcgSeq desc
+	</select>
+</mapper>

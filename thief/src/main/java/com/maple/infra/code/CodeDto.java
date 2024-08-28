@@ -12,7 +12,7 @@ public class CodeDto {
 	private Date ifcdDatetime;
 	private Date ifcdDatetimeSvr;
 	private Integer ifcdDelNy;
-	private String codegroup_ifcgSeq;
+	private String codeGroup_ifcgSeq;
 //	-----
 	public String getIfcdSeq() {
 		return ifcdSeq;
@@ -62,11 +62,11 @@ public class CodeDto {
 	public void setIfcdDelNy(Integer ifcdDelNy) {
 		this.ifcdDelNy = ifcdDelNy;
 	}
-	public String getCodegroup_ifcgSeq() {
-		return codegroup_ifcgSeq;
+	public String getCodeGroup_ifcgSeq() {
+		return codeGroup_ifcgSeq;
 	}
-	public void setCodegroup_ifcgSeq(String codegroup_ifcgSeq) {
-		this.codegroup_ifcgSeq = codegroup_ifcgSeq;
+	public void setCodeGroup_ifcgSeq(String codeGroup_ifcgSeq) {
+		this.codeGroup_ifcgSeq = codeGroup_ifcgSeq;
 	}
 	
 	

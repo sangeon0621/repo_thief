@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.maple.infra.test.classcd.ClassCdDao">
+
+	<resultMap type="com.maple.infra.test.classcd.ClassCdDto" id="resultObj5"></resultMap>
+	
+	<select id = "selectList5" resultMap = "resultObj5">
+		select
+			e.ifccdSeq
+			,e.ifccdEdu
+		    ,e.ifccdName
+		    ,e.ifccdPrice
+		    ,e.ifccdInstructor
+		    ,e.ifccdApplication
+		    ,e.ifccdApplicationEnd
+		    ,e.ifccdLearnStart
+		    ,e.ifccdLearnEnd
+		    ,e.ifccdPlace
+		    ,e.ifccdDesc
+		    ,e.ifccdDatetime
+		    ,e.ifccdDatetimeSvr
+		    ,e.ifccdDelNy
+		from
+			classcd e
+		order by
+			e.ifccdSeq desc
+	</select>
+	  
+</mapper>
