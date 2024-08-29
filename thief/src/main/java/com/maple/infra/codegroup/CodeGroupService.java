@@ -16,5 +16,9 @@ public class CodeGroupService {
 		return codeGroups;
 	}
 	
+//	public List<CodeGroupDto> selectList() {
+//		return codegroupdao.selectList();
+//	}
+	
 	
 }
