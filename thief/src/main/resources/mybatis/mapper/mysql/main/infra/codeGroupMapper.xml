@@ -23,6 +23,24 @@
 			a.ifcgSeq desc
 	  </select>
 	  
-	  
+	  <insert id="insert">
+		  insert into codegroup (
+			ifcgName
+		    ,ifcgUseNy
+		    ,ifcgOrder
+		    ,ifcgDesc
+		    ,regDatetime
+		    ,regDatetimeSvr
+		    ,ifcgDelNy
+		) values (
+			#{ifcgName}
+		    ,#{ifcgUseNy}
+		    ,#{ifcgOrder}
+		    ,#{ifcgDesc}
+		    ,now()
+		    ,now()
+		    ,0
+		);
+	  </insert>
 	  
 </mapper>

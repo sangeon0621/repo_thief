@@ -20,5 +20,13 @@ public class CodeGroupService {
 //		return codegroupdao.selectList();
 //	}
 	
+//	public int insert(CodeGroupDto codeGroupDto) {
+//		int result = codegroupdao.insert(codeGroupDto)
+//		return result;
+//	}
+	
+	public int insert(CodeGroupDto codeGroupDto) {
+		return codegroupdao.insert(codeGroupDto);
+	}
 	
 }

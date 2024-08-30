@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 
 	<head>
 		<!-- Required meta tags -->
@@ -509,211 +509,89 @@
 
 				<!-- Content wrapper scroll start -->
 				<div class="content-wrapper-scroll">
-
 					<!-- Content wrapper start -->
-					<div class="content-wrapper">
-						<div class="card">
-							<div class="row" style="padding: 20px;">
-								<div class="col-sm-12 col-12">
-									&nbsp;<font color="blue">Page 1</font> > 
-									<font color="blue">Page 2</font> > Defalut
-								</div>
-								</div>
+					<form id = "form" name = "form" method = "post" action = "/v1/infra/codegroup/codeGroupXdmInst">
+						<div class="content-wrapper">
+							<div class="card">
 								<div class="row" style="padding: 20px;">
-								<div class="col-sm-12 col-12">
-									<h1>&nbsp;Code</h1>
-								</div>
-							</div>
-							<div class="card-body">
-								<div class="row">
-									<div class="col-sm-3 col-3">
-										<div class="was-validated">
-											<label for="validationCustom04" class="form-label">코드 그룹<font color ="red">*</font></label>
-											<select class="form-select" id="validationCustom04" required="">
-												<option selected="" disabled="" value="">선택하세요</option>
-												<option>167</option>
-											</select>
-											<div class="invalid-feedback">코드그룹을 선택하세요</div>
-										</div>
+									<div class="col-sm-12 col-12">
+										&nbsp;<font color="blue">Page 1</font> > 
+										<font color="blue">Page 2</font> > Defalut
+									</div>
+									</div>
+									<div class="row" style="padding: 20px;">
+									<div class="col-sm-12 col-12">
+										<h1>&nbsp;Code</h1>
 									</div>
 								</div>
-								<div class="row">
-									<div class="col-sm-3 col-3">
-										<div class="was-validated">
-											<label for="validationCustom01" class="form-label">코드<font color ="red">*</font></label>
-											<input type="text" class="form-control" id="validationCustom01" value="자동생성" required="">
-											<div class="valid-feedback"></div>
+								<div class="card-body">
+<!-- 									<div class="row"> -->
+<!-- 										<div class="col-sm-3 col-3"> -->
+<!-- 											<div class="was-validated"> -->
+<!-- 												<label for="validationCustom04" class="form-label">코드 그룹<font color ="red">*</font></label> -->
+<!-- 												<select class="form-select" id="validationCustom04" > -->
+<!-- 													<option selected="" disabled="" value="">선택하세요</option> -->
+<!-- 													<option>167</option> -->
+<!-- 												</select> -->
+<!-- 												<div class="invalid-feedback">코드그룹을 선택하세요</div> -->
+<!-- 											</div> -->
+<!-- 										</div> -->
+<!-- 									</div> -->
+									<div class="row">
+										<div class="col-sm-3 col-3">
+											<div class="was-validated">
+												<label for="validationCustom01" class="form-label">코드이름<font color ="red">*</font></label>
+												<input type="text" name = "ifcgName" class="form-control" id="validationCustom01" placeholder="한글,영대소문자,숫자" >
+												<div class="invalid-feedback">코드 이름을 입력하시오</div>
+											</div>
 										</div>
 									</div>
-									<div class="col-sm-3 col-3">
-										<div class="m-0">
-											<label class="form-label">코드 (ANOTHER)</label>
-											<input type="text" class="form-control" placeholder="영대소문자,숫자">
+									<div class="row">
+										<div class="col-sm-3 col-3">
+											<div class="was-validated">
+												<label for="validationCustom04" class="form-label">사용 여부<font color ="red">*</font></label>
+												<select name = "ifcgUseNy" class="form-select" id="validationCustom04" >
+													<option selected="" disabled="" value="">선택하세요</option>
+													<option value ="1" th:selected = "${item?.ifcgUseNy == 1}">사용</option>
+													<option value ="0" th:selected = "${item?.ifcgUseNy == 0}">미사용</option>
+												</select>
+												<div class="invalid-feedback">사용여부를 선택하세요</div>
+											</div>
+										</div>
+										<div class="col-sm-3 col-3">
+											<div class="was-validated">
+												<label for="validationCustom01" class="form-label">순서<font color ="red">*</font></label>
+												<input type="text" name = "ifcgOrder" class="form-control" id="validationCustom01" >
+												<div class="invalid-feedback">순서를 입력하시오</div>
+											</div>
 										</div>
 									</div>
-									<div class="col-sm-3 col-3">
-										<div class="was-validated">
-											<label for="validationCustom01" class="form-label">코드이름<font color ="red">*</font></label>
-											<input type="text" class="form-control" id="validationCustom01" placeholder="한글,영대소문자,숫자" required="">
-											<div class="invalid-feedback">코드 이름을 입력하시오</div>
+									<div class="row">
+										<div class="col-sm-6 col-6">
+											<div class="m-0">
+												<label class="form-label">설명</label>
+												<textarea name = "ifcgDesc" class="form-control" rows="5"></textarea>
+											</div>
 										</div>
 									</div>
-									<div class="col-sm-3 col-3">
-										<div class="m-0">
-											<label class="form-label">코드 이름 (영문)</label>
-											<input type="text" class="form-control" placeholder="영대소문자,숫자">
+									<div class="row" style="padding-top: 20px;">
+										<div class="col-sm-1 col-1">
+											<button type="button" class="btn btn-outline-dark">
+												<i class="bi bi-list-ul"></i>
+											</button>
 										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-sm-3 col-3">
-										<div class="was-validated">
-											<label for="validationCustom04" class="form-label">사용 여부<font color ="red">*</font></label>
-											<select class="form-select" id="validationCustom04" required="">
-												<option selected="" disabled="" value="">선택하세요</option>
-												<option>사용</option>
-												<option>미사용</option>
-											</select>
-											<div class="invalid-feedback">사용여부를 선택하세요</div>
+										<div class="col-sm-10 col-10"></div>
+										<div class="col-sm-1 col-1" style="text-align: right;">
+											<button type="summit" class="btn btn-info">
+												<i class="bi bi-server"></i>
+											</button>
 										</div>
-									</div>
-									<div class="col-sm-3 col-3">
-										<div class="was-validated">
-											<label for="validationCustom01" class="form-label">순서<font color ="red">*</font></label>
-											<input type="text" class="form-control" id="validationCustom01" required="">
-											<div class="invalid-feedback">순서를 입력하시오</div>
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-sm-6 col-6">
-										<div class="m-0">
-											<label class="form-label">설명</label>
-											<textarea class="form-control" rows="5"></textarea>
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-sm-3 col-3">
-										<div class="m-0">
-											<label class="form-label">다국어1</label>
-											<input type="text" class="form-control">
-										</div>
-									</div>
-									<div class="col-sm-3 col-3">
-										<div class="m-0">
-											<label class="form-label">다국어2</label>
-											<input type="text" class="form-control">
-										</div>
-									</div>
-									<div class="col-sm-3 col-3">
-										<div class="m-0">
-											<label class="form-label">다국어3</label>
-											<input type="text" class="form-control">
-										</div>
-									</div>
-									<div class="col-sm-3 col-3">
-										<div class="m-0">
-											<label class="form-label">다국어4</label>
-											<input type="text" class="form-control">
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-sm-3 col-3">
-										<div class="m-0">
-											<label class="form-label">다국어5</label>
-											<input type="text" class="form-control">
-										</div>
-									</div>
-									<div class="col-sm-3 col-3">
-										<div class="m-0">
-											<label class="form-label">다국어6</label>
-											<input type="text" class="form-control">
-										</div>
-									</div>
-									<div class="col-sm-3 col-3">
-										<div class="m-0">
-											<label class="form-label">다국어7</label>
-											<input type="text" class="form-control">
-										</div>
-									</div>
-									<div class="col-sm-3 col-3">
-										<div class="m-0">
-											<label class="form-label">다국어8</label>
-											<input type="text" class="form-control">
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-sm-3 col-3">
-										<div class="m-0">
-											<label class="form-label">예비1 (VARCHAR TYPE)</label>
-											<input type="text" class="form-control">
-										</div>
-									</div>
-									<div class="col-sm-3 col-3">
-										<div class="m-0">
-											<label class="form-label">예비2 (VARCHAR TYPE)</label>
-											<input type="text" class="form-control">
-										</div>
-									</div>
-									<div class="col-sm-3 col-3">
-										<div class="m-0">
-											<label class="form-label">예비3 (VARCHAR TYPE)</label>
-											<input type="text" class="form-control">
-										</div>
-									</div>
-									<div class="col-sm-3 col-3">
-										<div class="m-0">
-											<label class="form-label">예비4 (VARCHAR TYPE)</label>
-											<input type="text" class="form-control">
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-sm-3 col-3">
-										<div class="m-0">
-											<label class="form-label">예비1 (INT TYPE)</label>
-											<input type="text" class="form-control">
-										</div>
-									</div>
-									<div class="col-sm-3 col-3">
-										<div class="m-0">
-											<label class="form-label">예비2 (INT TYPE)</label>
-											<input type="text" class="form-control">
-										</div>
-									</div>
-									<div class="col-sm-3 col-3">
-										<div class="m-0">
-											<label class="form-label">예비3 (INT TYPE)</label>
-											<input type="text" class="form-control">
-										</div>
-									</div>
-									<div class="col-sm-3 col-3">
-										<div class="m-0">
-											<label class="form-label">예비4 (INT TYPE)</label>
-											<input type="text" class="form-control">
-										</div>
-									</div>
-								</div>
-								<div class="row" style="padding-top: 20px;">
-									<div class="col-sm-1 col-1">
-										<button type="button" class="btn btn-outline-dark">
-											<i class="bi bi-list-ul"></i>
-										</button>
-									</div>
-									<div class="col-sm-10 col-10"></div>
-									<div class="col-sm-1 col-1" style="text-align: right;">
-										<button type="button" class="btn btn-info">
-											<i class="bi bi-server"></i>
-										</button>
 									</div>
 								</div>
 							</div>
+								
 						</div>
-							
-					</div>
+					</form>
 					<!-- Content wrapper end -->
 
 					<!-- App Footer start -->
