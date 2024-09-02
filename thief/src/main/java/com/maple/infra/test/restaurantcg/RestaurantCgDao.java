@@ -7,6 +7,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RestaurantCgDao {
 	
-	List<RestaurantCgDto> selectList6();
+	public List<RestaurantCgDto> selectList6();
+	
+	public int insert4(RestaurantCgDto restaurantCgDto);
 	
 }

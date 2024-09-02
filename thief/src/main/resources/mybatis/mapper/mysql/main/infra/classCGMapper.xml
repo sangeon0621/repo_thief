@@ -25,4 +25,37 @@
 			d.ifccgSeq desc
 	 </select>
 	  
+	  <insert id="insert4">
+		  insert into classcg (
+		    ifccgEdu
+		    ,ifccgName
+		    ,ifccgPrice
+		    ,ifccgInstructor
+		    ,ifccgApplication
+		    ,ifccgApplicationEnd
+		    ,ifccgLearnStart
+		    ,ifccgLearnEnd
+		    ,ifccgPlace
+		    ,ifccgDesc
+		    ,ifccgDatetime
+		    ,ifccgDatetimeSvr
+		    ,ifccgDelNy
+		) values (
+			#{ifccgEdu}
+		    ,#{ifccgName}
+		    ,#{ifccgPrice}
+		    ,#{ifccgInstructor}
+		    ,#{ifccgApplication}
+		    ,#{ifccgApplicationEnd}
+		    ,#{ifccgLearnStart}
+		    ,#{ifccgLearnEnd}
+		    ,#{ifccgPlace}
+		    ,#{ifccgDesc}
+			,#{ifccgDatetime}
+		    ,#{ifccgDatetimeSvr}
+		    ,0
+		);
+
+	  </insert>
+	  
 </mapper>

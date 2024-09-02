@@ -7,6 +7,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ClassCGDao {
 
-	List<ClassCGDto> selectList4();
+	public List<ClassCGDto> selectList4();
+	
+	public int insert4(ClassCGDto classCgDto);
 	
 }

@@ -11,9 +11,13 @@ public class RestaurantCgService {
 	@Autowired
 	RestaurantCgDao restaurantCgDao;
 	
-	public List<RestaurantCgDto> selectList5() {
+	public List<RestaurantCgDto> selectList6() {
 		List<RestaurantCgDto> restaurantCgDto = restaurantCgDao.selectList6();
 		return restaurantCgDto;
+	}
+	
+	public int insert4(RestaurantCgDto restaurantCgDto) {
+		return restaurantCgDao.insert4(restaurantCgDto);
 	}
 	
 }

@@ -16,4 +16,8 @@ public class MemberTableService {
 		return members;
 	}
 	
+	public int insert3(MemberTableDto memberTableDto) {
+		return memberTableDao.insert3(memberTableDto);
+	}
+	
 }

@@ -617,19 +617,19 @@
 <!--                                                             <tr> -->
 <!--                                                                 <th>Total: 171</th> -->
 <!--                                                             </tr> -->
-<!--                                                             <tr> -->
-<!--                                                                 <th><input type="checkbox"></th> -->
+                                                            <tr>
+                                                                <th><input type="checkbox"></th>
 <!--                                                                 <th>#</th> -->
-<!--                                                                 <th>코드그룹코드</th> -->
-<!--                                                                 <th>코드그룹 이름</th> -->
+                                                                <th>코드그룹코드</th>
+                                                                <th>코드그룹 이름</th>
 <!--                                                                 <th>코드</th> -->
 <!--                                                                 <th>대체코드</th> -->
 <!--                                                                 <th>코드 이름</th> -->
 <!--                                                                 <th>코드 이름(영문)</th> -->
-<!--                                                                 <th>사용</th> -->
-<!--                                                                 <th>순서</th> -->
-<!--                                                                 <th>등록일</th> -->
-<!--                                                             </tr> -->
+                                                                <th>사용</th>
+                                                                <th>순서</th>
+                                                                <th>등록일</th>
+                                                            </tr>
                                                         </thead>
                                                         <tbody>
                                                         	<tr th:if = "${#lists.isEmpty(list)}" class = "hover-actions-trigger btn-reveal-trigger position">
@@ -640,9 +640,9 @@
                                                             <tr th:each = "list : ${list}" th:if = "${!#lists.isEmpty(list)}">
                                                                 <td><input type="checkbox"></td>
                                                                 <td th:text = "${list.ifcgSeq}"></td>
-                                                                <td th:text = "${list.ifcgName}"></td>
-                                                                <td th:text = "${list.ifcgOrder}"></td>
-                                                                <td th:text = "${list.ifDesc}"></td>
+                                                                <td><a th:href = "@{/v1/infra/codegroup/codeGroupXdmMForm(ifcgSeq= ${list.ifcgSeq})}" th:text = "${list.ifcgName}"></a></td>
+<!--                                                                 <td th:text = "${list.ifcgOrder}"></td> "/xdm/v1/infra/codegroup/codeGroupXdmMForm?ifcgSeq=1" -->
+<!--                                                                 <td th:text = "${list.ifDesc}"></td> -->
                                                                 <td th:if = "${list.ifcgUseNy eq 0}" class = "ifcgUseNy align-middle">Y</td>
                                                                 <td th:unless = "${list.ifcgUseNy eq 0}" class = "ifcgUseNy align-middle">N</td>
                                                                 <td th:text = "${#dates.format(list.regDatetime, 'yyyy-MM-dd HH:mm:ss')}" class = "regDatetime align-middle"} ></td>

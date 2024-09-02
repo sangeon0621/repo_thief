@@ -16,4 +16,9 @@ public class ClassCGService {
 		return classCGDto;
 	}
 	
+	public int insert4(ClassCGDto classCgDto) {
+		return classCGDao.insert4(classCgDto);
+	}
+	
+	
 }

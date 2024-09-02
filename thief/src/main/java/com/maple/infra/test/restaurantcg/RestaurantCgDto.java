@@ -12,7 +12,7 @@ public class RestaurantCgDto {
 	private Integer ifrcgParking;
 	private Integer ifrcgReserve;
 	private Integer ifrcgFreeCol;
-	private String Desc;
+	private String ifrcgDesc;
 	private String ifrcgDatetime;
 	private String ifrcgDatetimeSvr;
 //	-----
@@ -76,11 +76,11 @@ public class RestaurantCgDto {
 	public void setIfrcgFreeCol(Integer ifrcgFreeCol) {
 		this.ifrcgFreeCol = ifrcgFreeCol;
 	}
-	public String getDesc() {
-		return Desc;
+	public String getIfrcgDesc() {
+		return ifrcgDesc;
 	}
-	public void setDesc(String desc) {
-		Desc = desc;
+	public void setIfrcgDesc(String ifrcgdesc) {
+		ifrcgDesc = ifrcgdesc;
 	}
 	public String getIfrcgDatetime() {
 		return ifrcgDatetime;

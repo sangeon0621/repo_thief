@@ -26,4 +26,37 @@
 		order by
 			f.ifrcgSeq desc
 	</select>
+	
+	<insert id="insert4">
+		insert into restaurantcg (
+		    ifrcgType
+		    ,ifrcgName
+		    ,ifrcgOpen
+		    ,ifrcgClose
+		    ,ifrcgPhone
+		    ,ifrcgAddr
+		    ,ifrcgParking
+		    ,ifrcgReserve
+		    ,ifrcgFreeCol
+		    ,ifrcgDesc
+		    ,ifrcgDatetime
+		    ,ifrcgDatetimeSvr
+		    ,ifrcgDelNy
+		) values (
+			#{ifrcgType}
+		    ,#{ifrcgName}
+		    ,#{ifrcgOpen}
+		    ,#{ifrcgClose}
+		    ,#{ifrcgPhone}
+		    ,#{ifrcgAddr}
+		    ,#{ifrcgParking}
+		    ,#{ifrcgReserve}
+		    ,#{ifrcgFreeCol}
+		    ,#{ifrcgDesc}
+		    ,#{ifrcgDatetime}
+		    ,#{ifrcgDatetimeSvr}
+		    ,0
+		);
+	</insert>
+	
 </mapper>

@@ -1,9 +1,8 @@
 package com.maple.infra.test.restaurantcg;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -12,13 +11,26 @@ public class RestaurantCgController {
 	@Autowired
 	RestaurantCgService restaurantCgService;
 	
-	@RequestMapping(value = "/infra/restaurantCg/restaurantCg")
-	public String restaurantCg() {
-		List<RestaurantCgDto> restaurantCgDto = restaurantCgService.selectList5();
-		for(RestaurantCgDto restaurantCgDto2 : restaurantCgDto) {
-			System.out.println(restaurantCgDto2.getIfrcgName());
-		}
+	@RequestMapping(value = "/infra/restaurantCg/restaurantCgList")
+	public String restaurantCg(Model model) {
+		model.addAttribute("list4", restaurantCgService.selectList6());
 		return "/v1/infra/restaurantCg/restaurantCg";
+	}
+	
+	@RequestMapping(value = "/infra/restaurantCg/restaurantCgForm")
+	public String restaurantCgForm() {
+		return "/v1/infra/restaurantCg/restaurantCgForm";
+	}
+	
+	@RequestMapping(value = "/infra/restaurantCg/restaurantCgInst")
+	String restaurantCgInst(RestaurantCgDto restaurantCgDto) {
+		restaurantCgService.insert4(restaurantCgDto);
+		return "redirect:/infra/restaurantCg/restaurantCgList";
+	}
+	
+	@RequestMapping(value = "/infra/restaurantCg/restaurantCgMForm")
+	public String restaurantCgMForm() {
+		return"/v1/infra/restaurantCg/restaurantCgMForm";
 	}
 	
 }

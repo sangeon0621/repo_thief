@@ -29,4 +29,20 @@ public class MemberTableController {
 //		return "/v1/infra/memberTable/memberTable";
 //	}
 	
+	@RequestMapping(value = "/infra/memberTable/memberTableForm")
+	public String memberTableForm() {
+		return "/v1/infra/memberTable/memberTableForm";
+	}
+	
+	@RequestMapping(value = "/infra/memberTable/memberTableInst")
+	public String memberTableInst(MemberTableDto memberTableDto) {
+		memberTableService.insert3(memberTableDto);
+		return "redirect:/infra/memberTable/memberTable";
+	}
+	
+	@RequestMapping(value = "/infra/memberTable/memberTableMForm")
+	public String memberTableMForm() {
+		return "/v1/infra/memberTable/memberTableMForm";
+	}
+	
 }

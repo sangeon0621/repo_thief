@@ -24,5 +24,33 @@
 		order by
 			c.ifmtSeq desc
 	</select>
-  
+  	
+  	<insert id="insert3">
+  	insert into memberTable (
+		ifmtAdm
+	    ,ifmtName
+	    ,ifmtId
+	    ,ifmtPassword
+	    ,ifmtGender
+	    ,ifmtBirth
+	    ,ifmtEmail
+	    ,ifmtPhoneNum
+	    ,ifmtDatetime
+	    ,ifmtDatetimeSvr
+	    ,ifmtDelNy
+	) values (
+		#{ifmtAdm}
+	    ,#{ifmtName}
+	    ,#{ifmtId}
+	    ,#{ifmtPassword}
+	    ,#{ifmtGender}
+	    ,now()
+	    ,#{ifmtEmail}
+	    ,#{ifmtPhoneNum}
+	    ,now()
+	    ,now()
+	    ,0
+	);
+  	</insert>
+  	
 </mapper>
