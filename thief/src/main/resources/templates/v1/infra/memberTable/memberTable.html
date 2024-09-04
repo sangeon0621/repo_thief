@@ -618,7 +618,7 @@
 <!--                                                                 <th>Total: 171</th> -->
 <!--                                                             </tr> -->
                                                             <tr>
-                                                                <th><input type="checkbox"></th>
+<!--                                                                 <th><input type="checkbox"></th> -->
 <!--                                                                 <th>#</th> -->
 <!--                                                                 <th>코드그룹코드</th> -->
 <!--                                                                 <th>코드그룹 이름</th> -->
@@ -639,13 +639,20 @@
                                                         	</tr>
                                                             <tr th:each = "list3 : ${list3}" th:if = "${!#lists.isEmpty(list3)}">
                                                                 <td th:text = "${list3.ifmtSeq}"></td>
-                                                                <td><a th:href = "@{/v1/infra/memberTable/memberTableForm(ifmtSeq= ${list3.ifmtSeq})}" th:text = "${list3.ifmtName}"></a></td>
+                                                                <td><a th:href = "@{/infra/memberTable/memberTableMForm(ifmtSeq= ${list3.ifmtSeq})}" th:text = "${list3.ifmtName}"></a></td>
 <!--                                                                 <td th:text = "${list.ifcgOrder}"></td> "/xdm/v1/infra/codegroup/codeGroupXdmMForm?ifcgSeq=1" -->
 <!--                                                                 <td th:text = "${list.ifDesc}"></td> -->
-                                                                <td th:if = "${list3.ifmtAdm eq 0}" class = "ifcgUseNy align-middle">Y</td>
-                                                                <td th:unless = "${list3.ifmtAdm eq 0}" class = "ifcgUseNy align-middle">N</td>
-                                                                <td th:text = "${#dates.format(list3.ifmtDatetime, 'yyyy-MM-dd HH:mm:ss')}" class = "regDatetime align-middle"} ></td>
-                                                                <td th:text = "${#dates.format(list3.ifmtDatetimeSvr, 'yyyy-MM-dd HH:mm:ss')}" class = "regDatetime align-middle"} ></td>
+                                                                <td th:if = "${list3.ifmtAdm eq 0}" class = "ifcgUseNy align-middle">N</td>
+                                                                <td th:unless = "${list3.ifmtAdm eq 0}" class = "ifcgUseNy align-middle">Y</td>
+                                                                <td th:text="${list3.ifmtId}"></td>
+                                                                <td th:text="${list3.ifmtPassword}"></td>
+                                                                <td th:text="${list3.ifmtGender}"></td>
+                                                                <td th:text = "${#dates.format(list3.ifmtBirth, 'yyyy-MM-dd HH:mm:ss')}" class = "ifmtBirth align-middle"} ></td>
+                                                                <td th:text="${list3.ifmtEmail}"></td>
+                                                                <td th:text="${list3.ifmtPhoneNum}"></td>
+                                                                <td th:text="${list3.ifmtDesc}"></td>
+                                                                <td th:text = "${#dates.format(list3.ifmtDatetime, 'yyyy-MM-dd HH:mm:ss')}" class = "ifmtDatetime align-middle"} ></td>
+                                                                <td th:text = "${#dates.format(list3.ifmtDatetimeSvr, 'yyyy-MM-dd HH:mm:ss')}" class = "ifmtDatetimeSvr align-middle"} ></td>
                                                             </tr>
                                                         </tbody>
                                                     </table>

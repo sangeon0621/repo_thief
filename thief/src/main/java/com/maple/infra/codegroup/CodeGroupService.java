@@ -29,4 +29,12 @@ public class CodeGroupService {
 		return codegroupdao.insert(codeGroupDto);
 	}
 	
+	public CodeGroupDto selectOne(CodeGroupDto codeGroupDto) {
+		return codegroupdao.selectOne(codeGroupDto);
+	}
+	
+	public int update(CodeGroupDto codeGroupDto) {
+		return codegroupdao.update(codeGroupDto);
+	}
+	
 }

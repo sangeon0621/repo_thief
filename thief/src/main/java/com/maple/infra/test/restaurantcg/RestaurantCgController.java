@@ -29,8 +29,15 @@ public class RestaurantCgController {
 	}
 	
 	@RequestMapping(value = "/infra/restaurantCg/restaurantCgMForm")
-	public String restaurantCgMForm() {
+	public String restaurantCgMForm(RestaurantCgDto restaurantCgDto, Model model) {
+		model.addAttribute("item", restaurantCgService.selectOne(restaurantCgDto));
 		return"/v1/infra/restaurantCg/restaurantCgMForm";
+	}
+	
+	@RequestMapping(value = "/infra/restaurantCg/restaurantCgUpdt")
+	String restaurantCgUpdt(RestaurantCgDto restaurantCgDto) {
+		restaurantCgService.update(restaurantCgDto);
+		return "redirect:/infra/restaurantCg/restaurantCgList";
 	}
 	
 }

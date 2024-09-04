@@ -11,4 +11,8 @@ public interface MemberTableDao {
 	
 	public int insert3(MemberTableDto memberTableDto);
 	
+	public MemberTableDto selectOne(MemberTableDto memberTableDto);
+	
+	public int update(MemberTableDto memberTableDto);
+	
 }

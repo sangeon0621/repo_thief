@@ -5,6 +5,7 @@ import java.util.Date;
 public class ClassCGDto {
 
 	private String ifccgSeq;
+	private String ifccgEdu;
 	private String ifccgName;
 	private String ifccgPrice;
 	private String ifccgInstructor;
@@ -18,8 +19,15 @@ public class ClassCGDto {
 	private String ifccgDatetimeSvr;
 	private Integer ifccgDelNy;
 //	-----
+	
 	public String getIfccgSeq() {
 		return ifccgSeq;
+	}
+	public String getIfccgEdu() {
+		return ifccgEdu;
+	}
+	public void setIfccgEdu(String ifccgEdu) {
+		this.ifccgEdu = ifccgEdu;
 	}
 	public void setIfccgSeq(String ifccgSeq) {
 		this.ifccgSeq = ifccgSeq;

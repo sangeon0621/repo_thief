@@ -11,4 +11,7 @@ public interface ClassCGDao {
 	
 	public int insert4(ClassCGDto classCgDto);
 	
+	public ClassCGDto selectOne(ClassCGDto classCgDto);
+	
+	public int update(ClassCGDto classCgDto);
 }

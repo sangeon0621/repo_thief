@@ -43,17 +43,23 @@ public class CodeGroupController {
 	@RequestMapping(value = "/v1/infra/codegroup/codeGroupXdmInst")
 	public String codeGroupXdmInst(CodeGroupDto codeGroupDto) {
 		
-		System.out.println("codeGroupDto.getIfcgName():" + codeGroupDto.getIfcgName());
 		codeGroupService.insert(codeGroupDto);
 		
 		return "redirect:/v1/infra/codegroup/codeGroupXdmList";
 	}
 	
 	@RequestMapping(value = "/v1/infra/codegroup/codeGroupXdmMForm")
-	public String codeGroupXdmMForm(CodeGroupDto codeGroupDto) {
-		codeGroupService.insert(codeGroupDto);
+	public String codeGroupXdmMForm(CodeGroupDto codeGroupDto, Model model) {
+		model.addAttribute("item",codeGroupService.selectOne(codeGroupDto));
 		return "/xdm/v1/infra/codegroup/codeGroupXdmMForm";
 	}
 	
+	@RequestMapping(value = "/v1/infra/codegroup/codeGroupXdmUpdt")
+	public String codeGroupXdmUpdt(CodeGroupDto codeGroupDto) {
+		
+		codeGroupService.update(codeGroupDto);
+		
+		return "redirect:/v1/infra/codegroup/codeGroupXdmList";
+	}
 	
 }

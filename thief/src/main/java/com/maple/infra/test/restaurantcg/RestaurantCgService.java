@@ -20,4 +20,12 @@ public class RestaurantCgService {
 		return restaurantCgDao.insert4(restaurantCgDto);
 	}
 	
+	public RestaurantCgDto selectOne(RestaurantCgDto restaurantCgDto) {
+		return restaurantCgDao.selectOne(restaurantCgDto);
+	}
+	
+	public int update(RestaurantCgDto restaurantCgDto) {
+		return restaurantCgDao.update(restaurantCgDto);
+	}
+	
 }

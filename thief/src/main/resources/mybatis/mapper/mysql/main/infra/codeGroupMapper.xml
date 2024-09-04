@@ -40,7 +40,34 @@
 		    ,now()
 		    ,now()
 		    ,0
-		);
+		)
 	  </insert>
+	  
+	  <select id="selectOne" resultMap="resultMapObj">
+		  select
+				a.ifcgSeq
+				,a.ifcgName
+				,a.ifcgUseNy
+				,a.ifcgOrder
+				,a.ifcgDesc
+				,a.regDatetime
+				,a.regDatetimeSvr
+				,a.ifcgDelNy
+			from
+				codegroup a
+			where 1=1
+			AND a.ifcgSeq = #{ifcgSeq}
+	  </select>
+	  
+	  <update id="update">
+	  	update codegroup
+	  	set
+	  		ifcgName = #{ifcgName}
+	  		,ifcgUseNy = #{ifcgUseNy}
+	  		,ifcgOrder = #{ifcgOrder}
+	  		,ifcgDesc = #{ifcgDesc}
+	  	where 1=1
+	  		and ifcgSeq = #{ifcgSeq}
+	  </update>
 	  
 </mapper>

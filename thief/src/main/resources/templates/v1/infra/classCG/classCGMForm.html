@@ -510,7 +510,7 @@
 				<!-- Content wrapper scroll start -->
 				<div class="content-wrapper-scroll">
 					<!-- Content wrapper start -->
-					<form id = "form" name = "form" method = "post" action = "/infra/classCG/classCGInst">
+					<form id = "form" name = "form" method = "post" action = "/infra/classCG/classCGUpdt">
 						<div class="content-wrapper">
 							<div class="card">
 								<div class="row" style="padding: 20px;">
@@ -521,55 +521,111 @@
 									</div>
 									<div class="row" style="padding: 20px;">
 									<div class="col-sm-12 col-12">
-										<h1>&nbsp;Code</h1>
+										<h1>&nbsp;Code M Form</h1>
 									</div>
 								</div>
 								<div class="card-body">
-<!-- 									<div class="row"> -->
-<!-- 										<div class="col-sm-3 col-3"> -->
-<!-- 											<div class="was-validated"> -->
-<!-- 												<label for="validationCustom04" class="form-label">코드 그룹<font color ="red">*</font></label> -->
-<!-- 												<select class="form-select" id="validationCustom04" > -->
-<!-- 													<option selected="" disabled="" value="">선택하세요</option> -->
-<!-- 													<option>167</option> -->
-<!-- 												</select> -->
-<!-- 												<div class="invalid-feedback">코드그룹을 선택하세요</div> -->
-<!-- 											</div> -->
-<!-- 										</div> -->
-<!-- 									</div> -->
 									<div class="row">
 										<div class="col-sm-3 col-3">
 											<div class="was-validated">
-												<label for="validationCustom01" class="form-label">코드이름<font color ="red">*</font></label>
-												<input type="text" name = "ifccgEdu" class="form-control" id="validationCustom01" placeholder="한글,영대소문자,숫자" >
-												<div class="invalid-feedback">코드 이름을 입력하시오</div>
+												<label for="validationCustom01" class="form-label">code<font color ="red">*</font></label>
+												<input type="text" name = "ifccgSeq" th:value="${item.ifccgSeq}" class="form-control" id="validationCustom01">
 											</div>
 										</div>
 									</div>
 									<div class="row">
-<!-- 										<div class="col-sm-3 col-3"> -->
-<!-- 											<div class="was-validated"> -->
-<!-- 												<label for="validationCustom04" class="form-label">사용 여부<font color ="red">*</font></label> -->
-<!-- 												<select name = "ifccgApplication" class="form-select" id="validationCustom04" > -->
-<!-- 													<option selected="" disabled="" value="">선택하세요</option> -->
-<!-- 													<option value ="1" th:selected = "${item?.ifccgDelNy == 1}">사용</option> -->
-<!-- 													<option value ="0" th:selected = "${item?.ifccgDelNy == 0}">미사용</option> -->
-<!-- 												</select> -->
-<!-- 											</div> -->
-<!-- 										</div> -->
 										<div class="col-sm-3 col-3">
 											<div class="was-validated">
-												<label for="validationCustom01" class="form-label">순서<font color ="red">*</font></label>
-												<input type="text" name = "ifccgName" class="form-control" id="validationCustom01" >
-												<div class="invalid-feedback">순서를 입력하시오</div>
+												<label for="validationCustom01" class="form-label">강의형태<font color ="red">*</font></label>
+												<input type="text" name = "ifccgEdu" th:value="${item.ifccgEdu}" class="form-control" id="validationCustom01">
 											</div>
 										</div>
 									</div>
 									<div class="row">
-										<div class="col-sm-6 col-6">
-											<div class="m-0">
-												<label class="form-label">설명</label>
-												<textarea name = "ifccgDesc" class="form-control" rows="5"></textarea>
+										<div class="col-sm-3 col-3">
+											<div class="was-validated">
+												<label for="validationCustom01" class="form-label">강의명<font color ="red">*</font></label>
+												<input type="text" name = "ifccgName" th:value="${item.ifccgName}" class="form-control" id="validationCustom01">
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-3 col-3">
+											<div class="was-validated">
+												<label for="validationCustom01" class="form-label">가격<font color ="red">*</font></label>
+												<input type="text" name = "ifccgPrice" th:value="${item.ifccgPrice}" class="form-control" id="validationCustom01">
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-3 col-3">
+											<div class="was-validated">
+												<label for="validationCustom01" class="form-label">강사<font color ="red">*</font></label>
+												<input type="text" name = "ifccgInstructor" th:value="${item.ifccgInstructor}" class="form-control" id="validationCustom01">
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-3 col-3">
+											<div class="was-validated">
+												<label for="validationCustom01" class="form-label">수강신청 기간(시작)<font color ="red">*</font></label>
+												<input type="text" name = "ifccgApplication" th:value="${item.ifccgApplication}" class="form-control" id="validationCustom01">
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-3 col-3">
+											<div class="was-validated">
+												<label for="validationCustom01" class="form-label">수강신청 기간(끝)<font color ="red">*</font></label>
+												<input type="text" name = "ifccgApplicationEnd" th:value="${item.ifccgApplicationEnd}" class="form-control" id="validationCustom01">
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-3 col-3">
+											<div class="was-validated">
+												<label for="validationCustom01" class="form-label">학습시간(시작)<font color ="red">*</font></label>
+												<input type="text" name = "ifccgLearnStart" th:value="${item.ifccgLearnStart}" class="form-control" id="validationCustom01">
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-3 col-3">
+											<div class="was-validated">
+												<label for="validationCustom01" class="form-label">학습시간(끝)<font color ="red">*</font></label>
+												<input type="text" name = "ifccgLearnEnd" th:value="${item.ifccgLearnEnd}" class="form-control" id="validationCustom01">
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-3 col-3">
+											<div class="was-validated">
+												<label for="validationCustom01" class="form-label">장소<font color ="red">*</font></label>
+												<input type="text" name = "ifccgPlace" th:value="${item.ifccgPlace}" class="form-control" id="validationCustom01">
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-3 col-3">
+											<div class="was-validated">
+												<label for="validationCustom01" class="form-label">설명<font color ="red">*</font></label>
+												<input type="text" name = "ifccgDesc" th:value="${item.ifccgDesc}" class="form-control" id="validationCustom01">
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-3 col-3">
+											<div class="was-validated">
+												<label for="validationCustom01" class="form-label">등록일<font color ="red">*</font></label>
+												<input type="text" name = "ifccgDatetime" th:value="${item.ifccgDatetime}" class="form-control" id="validationCustom01">
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-3 col-3">
+											<div class="was-validated">
+												<label for="validationCustom01" class="form-label">수정일<font color ="red">*</font></label>
+												<input type="text" name = "ifccgDatetimeSvr" th:value="${item.ifccgDatetimeSvr}" class="form-control" id="validationCustom01">
 											</div>
 										</div>
 									</div>

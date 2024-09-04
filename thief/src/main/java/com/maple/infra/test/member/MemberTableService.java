@@ -20,4 +20,12 @@ public class MemberTableService {
 		return memberTableDao.insert3(memberTableDto);
 	}
 	
+	public MemberTableDto selectOne(MemberTableDto memberTableDto) {
+		return memberTableDao.selectOne(memberTableDto);
+	}
+	
+	public int update(MemberTableDto memberTableDto) {
+		return memberTableDao.update(memberTableDto);
+	}
+	
 }

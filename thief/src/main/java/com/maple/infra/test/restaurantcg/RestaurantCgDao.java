@@ -11,4 +11,8 @@ public interface RestaurantCgDao {
 	
 	public int insert4(RestaurantCgDto restaurantCgDto);
 	
+	public RestaurantCgDto selectOne(RestaurantCgDto restaurantCgDto); 
+	
+	public int update(RestaurantCgDto restaurantCgDto);
+	
 }

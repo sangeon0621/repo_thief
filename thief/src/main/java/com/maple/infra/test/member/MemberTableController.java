@@ -41,8 +41,15 @@ public class MemberTableController {
 	}
 	
 	@RequestMapping(value = "/infra/memberTable/memberTableMForm")
-	public String memberTableMForm() {
+	public String memberTableMForm(MemberTableDto memberTableDto, Model model) {
+		model.addAttribute("item", memberTableService.selectOne(memberTableDto));
 		return "/v1/infra/memberTable/memberTableMForm";
+	}
+	
+	@RequestMapping(value = "/infra/memberTable/memberTableUpdt")
+	public String memberTableUpdt(MemberTableDto memberTableDto) {
+		memberTableService.update(memberTableDto);
+		return "redirect:/infra/memberTable/memberTable";
 	}
 	
 }

@@ -16,6 +16,7 @@
 		    ,c.ifmtBirth
 		    ,c.ifmtEmail
 		    ,c.ifmtPhoneNum
+		    ,c.ifmtDesc
 		    ,c.ifmtDatetime
 		    ,c.ifmtDatetimeSvr
 		    ,c.ifmtDelNy
@@ -35,6 +36,7 @@
 	    ,ifmtBirth
 	    ,ifmtEmail
 	    ,ifmtPhoneNum
+	    ,ifmtDesc
 	    ,ifmtDatetime
 	    ,ifmtDatetimeSvr
 	    ,ifmtDelNy
@@ -47,10 +49,47 @@
 	    ,now()
 	    ,#{ifmtEmail}
 	    ,#{ifmtPhoneNum}
+	    ,#{ifmtDesc}
 	    ,now()
 	    ,now()
 	    ,0
 	);
   	</insert>
   	
+  	<select id="selectOne" resultMap="resultObj3">
+  		select
+			c.ifmtSeq
+			,c.ifmtAdm
+		    ,c.ifmtName
+		    ,c.ifmtId
+		    ,c.ifmtPassword
+		    ,c.ifmtGender
+		    ,c.ifmtBirth
+		    ,c.ifmtEmail
+		    ,c.ifmtPhoneNum
+		    ,c.ifmtDesc
+		    ,c.ifmtDatetime
+		    ,c.ifmtDatetimeSvr
+		    ,c.ifmtDelNy
+		from
+			memberTable c
+		WHERE 1=1
+			AND c.ifmtSeq = #{ifmtSeq}
+  	</select>
+  	
+  	<update id="update">
+  		update memberTable
+  		set
+  			ifmtAdm = #{ifmtAdm}
+  			,ifmtName = #{ifmtName}
+  			,ifmtId = #{ifmtId}
+  			,ifmtPassword = #{ifmtPassword}
+  			,ifmtGender = #{ifmtGender}
+  			,ifmtEmail = #{ifmtEmail}
+  			,ifmtPhoneNum = #{ifmtPhoneNum}
+  			,ifmtDesc = #{ifmtDesc}
+  		where 1=1
+  			and ifmtSeq = #{ifmtSeq}
+  	</update>
+  		
 </mapper>

@@ -7,7 +7,8 @@
 	 
 	 <select id = "selectList4" resultMap = "resultObj4">
 		 select
-			d.ifccgEdu
+		 	d.ifccgSeq
+			,d.ifccgEdu
 		    ,d.ifccgName
 		    ,d.ifccgPrice
 		    ,d.ifccgInstructor
@@ -54,8 +55,45 @@
 			,#{ifccgDatetime}
 		    ,#{ifccgDatetimeSvr}
 		    ,0
-		);
-
+		)
 	  </insert>
+	  
+	  <select id="selectOne" resultMap="resultObj4">
+	  	select
+	  		d.ifccgSeq
+			,d.ifccgEdu
+		    ,d.ifccgName
+		    ,d.ifccgPrice
+		    ,d.ifccgInstructor
+		    ,d.ifccgApplication
+		    ,d.ifccgApplicationEnd
+		    ,d.ifccgLearnStart
+		    ,d.ifccgLearnEnd
+		    ,d.ifccgPlace
+		    ,d.ifccgDesc
+		    ,d.ifccgDatetime
+		    ,d.ifccgDatetimeSvr
+		from
+			classcg d
+		WHERE 1=1
+		 AND d.ifccgSeq = #{ifccgSeq}
+	  </select>
+	  
+	  <update id="update">
+	  	update classcg
+	  	set
+	  		ifccgEdu = #{ifccgEdu}
+	  		,ifccgName = #{ifccgName}
+	  		,ifccgPrice = #{ifccgPrice}
+	  		,ifccgInstructor = #{ifccgInstructor}
+	  		,ifccgApplication = #{ifccgApplication}
+	  		,ifccgApplicationEnd = #{ifccgApplicationEnd}
+	  		,ifccgLearnStart = #{ifccgLearnStart}
+	  		,ifccgLearnEnd = #{ifccgLearnEnd}
+	  		,ifccgPlace = #{ifccgPlace}
+	  		,ifccgDesc = #{ifccgDesc}
+  		where 1=1
+  			and ifccgSeq = #{ifccgSeq}
+	  </update>
 	  
 </mapper>

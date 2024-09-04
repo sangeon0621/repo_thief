@@ -647,12 +647,13 @@
 																<td th:text = "${list4.ifrcgClose}"></td>
 																<td th:text = "${list4.ifrcgPhone}"></td>
 																<td th:text = "${list4.ifrcgAddr}"></td>
-                                                                <td th:if = "${list4.ifrcgParking eq 0}" class = "ifrcgParking align-middle">Y</td>
-                                                                <td th:unless = "${list4.ifrcgParking eq 0}" class = "ifrcgParking align-middle">N</td>
-                                                                <td th:if = "${list4.ifrcgReserve eq 0}" class = "ifrcgReserve align-middle">Y</td>
-                                                                <td th:unless = "${list4.ifrcgReserve eq 0}" class = "ifrcgReserve align-middle">N</td>
-                                                                <td th:if = "${list4.ifrcgFreeCol eq 0}" class = "ifrcgFreeCol align-middle">Y</td>
-                                                                <td th:unless = "${list4.ifrcgFreeCol eq 0}" class = "ifrcgFreeCol align-middle">N</td>
+                                                                <td th:if = "${list4.ifrcgParking eq 0}" class = "ifrcgParking align-middle">N</td>
+                                                                <td th:unless = "${list4.ifrcgParking eq 0}" class = "ifrcgParking align-middle">Y</td>
+                                                                <td th:if = "${list4.ifrcgReserve eq 0}" class = "ifrcgReserve align-middle">N</td>
+                                                                <td th:unless = "${list4.ifrcgReserve eq 0}" class = "ifrcgReserve align-middle">Y</td>
+                                                                <td th:if = "${list4.ifrcgFreeCol eq 0}" class = "ifrcgFreeCol align-middle">N</td>
+                                                                <td th:unless = "${list4.ifrcgFreeCol eq 0}" class = "ifrcgFreeCol align-middle">Y</td>
+                                                                <td th:text="${list4.ifrcgDesc}"></td>
                                                                 <td th:text = "${list4.ifrcgDatetime}"></td>
                                                                 <td th:text = "${list4.ifrcgDatetimeSvr}"></td>
                                                             </tr>

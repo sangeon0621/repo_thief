@@ -59,4 +59,43 @@
 		);
 	</insert>
 	
+	<select id="selectOne" resultMap="resultObj6">
+		select
+			f.ifrcgSeq
+			,f.ifrcgType
+		    ,f.ifrcgName
+		    ,f.ifrcgOpen
+		    ,f.ifrcgClose
+		    ,f.ifrcgPhone
+		    ,f.ifrcgAddr
+		    ,f.ifrcgParking
+		    ,f.ifrcgReserve
+		    ,f.ifrcgFreeCol
+		    ,f.ifrcgDesc
+		    ,f.ifrcgDatetime
+		    ,f.ifrcgDatetimeSvr
+		    ,f.ifrcgDelNy
+		from
+			restaurantcg f
+		WHERE 1=1
+			AND f.ifrcgSeq = #{ifrcgSeq}
+	</select>
+	
+	<update id="update">
+	update restaurantcg
+	set
+		ifrcgType = #{ifrcgType}
+		,ifrcgName = #{ifrcgName}
+		,ifrcgOpen = #{ifrcgOpen}
+		,ifrcgClose = #{ifrcgClose}
+		,ifrcgPhone = #{ifrcgPhone}
+		,ifrcgAddr = #{ifrcgAddr}
+		,ifrcgParking = #{ifrcgParking}
+		,ifrcgReserve = #{ifrcgReserve}
+		,ifrcgFreeCol = #{ifrcgFreeCol}
+		,ifrcgDesc = #{ifrcgDesc}
+	where 1=1
+		and ifrcgSeq = #{ifrcgSeq}
+	</update>
+	
 </mapper>

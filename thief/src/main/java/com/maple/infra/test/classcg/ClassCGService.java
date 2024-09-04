@@ -20,5 +20,12 @@ public class ClassCGService {
 		return classCGDao.insert4(classCgDto);
 	}
 	
+	public ClassCGDto selectOne(ClassCGDto classCgDto) {
+		return classCGDao.selectOne(classCgDto);
+	}
+	
+	public int update(ClassCGDto classCgDto) {
+		return classCGDao.update(classCgDto);
+	}
 	
 }
