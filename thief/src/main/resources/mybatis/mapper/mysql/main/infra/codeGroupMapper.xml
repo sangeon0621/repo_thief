@@ -66,6 +66,9 @@
 	  		,ifcgUseNy = #{ifcgUseNy}
 	  		,ifcgOrder = #{ifcgOrder}
 	  		,ifcgDesc = #{ifcgDesc}
+	  		,regDatetime = now()
+	  		,regDatetimeSvr = now()
+	  		,ifcgDelNy = #{ifcgDelNy}
 	  	where 1=1
 	  		and ifcgSeq = #{ifcgSeq}
 	  </update>

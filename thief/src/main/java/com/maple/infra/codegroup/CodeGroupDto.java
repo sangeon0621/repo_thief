@@ -2,6 +2,8 @@ package com.maple.infra.codegroup;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class CodeGroupDto {
 	
 	private String ifcgSeq;
@@ -9,7 +11,9 @@ public class CodeGroupDto {
 	private Integer ifcgUseNy;
 	private Integer ifcgOrder;
 	private String ifcgDesc;
+//	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date regDatetime;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date regDatetimeSvr;
 	private Integer ifcgDelNy;
 //	-----

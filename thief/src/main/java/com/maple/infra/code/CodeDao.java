@@ -9,4 +9,10 @@ public interface CodeDao {
 	
 	public List<CodeDto> selectList2();
 	
+	public int insert(CodeDto codeDto);
+	
+	public CodeDto selectOne(CodeDto codeDto);
+	
+	public int update(CodeDto codeDto);
+	
 }

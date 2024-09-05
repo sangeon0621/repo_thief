@@ -619,6 +619,7 @@
 <!--                                                                 <th>Total: 171</th> -->
 <!--                                                             </tr> -->
                                                             <tr>
+                                                            	<td><input type="checkbox"></td>
                                                             	<th>#</th>
                                                             	<th>코드그룹 코드</th>
                                                                 <th>코드그룹 이름</th>
@@ -640,6 +641,7 @@
                                                         		</td>
                                                         	</tr>
                                                             <tr th:each = "list : ${list}" th:if = "${!#lists.isEmpty(list)}">
+                                                            	<td><input type="checkbox"></td>
                                                             	<td></td>
                                                                 <td th:text = "${list.ifcgSeq}"></td>
                                                                 <td><a th:href = "@{/v1/infra/codegroup/codeGroupXdmMForm(ifcgSeq= ${list.ifcgSeq})}" th:text = "${list.ifcgName}"></a></td>
@@ -649,7 +651,8 @@
                                                                 <td th:unless = "${list.ifcgUseNy eq 0}" class = "ifcgUseNy align-middle">Y</td>
 																<td th:text="${list.ifcgOrder}"></td>
 <!-- 																<td th:text="${list.ifcgDesc}"></td> -->
-																<td th:text=${list.ifcgDelNy}></td>
+																<td th:if = "${list.ifcgDelNy eq 0}" class = "ifcgDelNy align-middle">N</td>
+                                                                <td th:unless = "${list.ifcgDelNy eq 0}" class = "ifcgDelNy align-middle">Y</td>
                                                                 <td th:text = "${#dates.format(list.regDatetime, 'yyyy-MM-dd HH:mm:ss')}" class = "regDatetime align-middle"} ></td>
                                                                 <td th:text = "${#dates.format(list.regDatetimeSvr, 'yyyy-MM-dd HH:mm:ss')}" class = "regDatetime align-middle"} ></td>
                                                             </tr>
@@ -685,7 +688,7 @@
                                             <button type="button" class="btn btn-danger">
                                                 <i class="bi bi-x-square-fill"></i>
                                             </button>
-                                            <button type="button" class="btn btn-danger">
+                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#verticallyCentered">
                                                 <i class="bi bi-trash"></i>
                                             </button>
                                         </div>
@@ -717,6 +720,26 @@
 
                 </div>
                 <!-- Content wrapper scroll end -->
+                <div class="modals-placeholder">
+                	<div class="modal fade" id="verticallyCentered"  tabindex="-1" aria-labelledby="verticallyCenteredLabel"
+						aria-hidden="true">
+						<div class="modal-dialog modal-dialog-centered">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="verticallyCenteredLabel">삭제</h5>
+									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+								</div>
+								<div class="modal-body">
+									정말 삭제하시겠습니까?
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-dark" data-bs-dismiss="modal">닫기</button>
+									<button type="button" class="btn btn-danger" data-bs-dismiss="modal">삭제하기</button>
+								</div>
+							</div>
+						</div>
+					</div>
+                </div>
 
             </div>
             <!-- *************

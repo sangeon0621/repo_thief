@@ -524,6 +524,7 @@
                 <div class="content-wrapper-scroll">
 
                     <!-- Content wrapper start -->
+                    <form >
                     <div class="content-wrapper">
                                 <!-- Card start -->
                                 <div class="card">
@@ -617,41 +618,45 @@
 <!--                                                             <tr> -->
 <!--                                                                 <th>Total: 171</th> -->
 <!--                                                             </tr> -->
-<!--                                                             <tr> -->
-<!--                                                                 <th><input type="checkbox"></th> -->
-<!--                                                                 <th>#</th> -->
-<!--                                                                 <th>코드그룹코드</th> -->
-<!--                                                                 <th>코드그룹 이름</th> -->
-<!--                                                                 <th>코드</th> -->
+                                                            <tr>
+                                                            	<td><input type="checkbox"></td>
+                                                            	<th>#</th>
+                                                            	<th>코드그룹 코드</th>
+                                                                <th>코드그룹 이름</th>
+                                                                <th>코드</th>
 <!--                                                                 <th>대체코드</th> -->
 <!--                                                                 <th>코드 이름</th> -->
 <!--                                                                 <th>코드 이름(영문)</th> -->
-<!--                                                                 <th>사용</th> -->
-<!--                                                                 <th>순서</th> -->
-<!--                                                                 <th>등록일</th> -->
-<!--                                                             </tr> -->
+                                                                <th>사용</th>
+                                                                <th>순서</th>
+                                                                <th>삭제여부</th>
+                                                                <th>등록일</th>
+                                                                <th>수정일</th>
+                                                            </tr>
                                                         </thead>
                                                         <tbody>
-                                                        	<tr th:if= "${#lists2.isEmpty(list2)}" class = "hover-actions-trigger btn-reveal-trigger">
+                                                        	<tr th:if = "${#lists.isEmpty(list)}" class = "hover-actions-trigger btn-reveal-trigger position">
                                                         		<td colspan = "10">
-                                                        			<p class = "fs-0" style = "padding-top: 12px;">There are no data!</p>
+                                                        			<p class = "fs-0" style = "padding-top: 12px;"> There are no data!</p>
                                                         		</td>
                                                         	</tr>
-                                                            <tr th:each = "list2 : ${list2}" th:if = "${!#lists2.inEmpty(list2)}">
-                                                                <td><input type="checkbox"></td>
-                                                                <td th:text = "${list2.ifcdSeq}"></td>
-                                                                <td th:text = "${list2.ifcdName}"></td>
-                                                                <td>278</td>
-                                                                <td></td>
-                                                                <td><font color="blue">ㅁㄴㅇㄹ</font></td>
-                                                                <td></td>
-                                                                <td >Y</td>
-                                                                <td >N</td>
-                                                                <td>1</td>
-                                                                <td  ></td>
-                                                                <td  ></td>
+                                                            <tr th:each = "list : ${list}" th:if = "${!#lists.isEmpty(list)}">
+                                                            	<td><input type="checkbox"></td>
+                                                            	<td></td>
+                                                                <td th:text = "${list.codegroup_ifcgSeq}"></td>
+                                                                <td><a th:href = "@{/v1/infra/code/codeXdmMForm(ifcdSeq= ${list.ifcdSeq})}" th:text = "${list.ifcdName}"></a></td>
+<!--                                                                 <td th:text = "${list.ifcgOrder}"></td> "/xdm/v1/infra/codegroup/codeGroupXdmMForm?ifcgSeq=1" -->
+<!--                                                                 <td th:text = "${list.ifDesc}"></td> -->
+                                                                <td th:if = "${list.ifcdUseNy eq 0}" class = "ifcdUseNy align-middle">N</td>
+                                                                <td th:unless = "${list.ifcdUseNy eq 0}" class = "ifcdUseNy align-middle">Y</td>
+																<td th:text="${list.ifcdOrder}"></td>
+<!-- 																<td th:text="${list.ifcgDesc}"></td> -->
+																<td th:if = "${list.ifcdDelNy eq 0}" class = "ifcdDelNy align-middle">N</td>
+                                                                <td th:unless = "${list.ifcdDelNy eq 0}" class = "ifcdDelNy align-middle">Y</td>
+                                                                <td th:text = "${#dates.format(list.ifcdDatetime, 'yyyy-MM-dd HH:mm:ss')}"} ></td>
+                                                                <td th:text = "${#dates.format(list.ifcdDatetimeSvr, 'yyyy-MM-dd HH:mm:ss')}"} ></td>
                                                             </tr>
-<!--                                                	</tbody>
+                                                        </tbody>
                                                     </table>
                                                     <nav aria-label="Page Navigation">
                                                         <ul class="pagination justify-content-center">
@@ -683,7 +688,7 @@
                                             <button type="button" class="btn btn-danger">
                                                 <i class="bi bi-x-square-fill"></i>
                                             </button>
-                                            <button type="button" class="btn btn-danger">
+                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#verticallyCentered">
                                                 <i class="bi bi-trash"></i>
                                             </button>
                                         </div>
@@ -692,7 +697,7 @@
                                             <button type="button" class="btn btn-success">
                                                 <i class="bi bi-clipboard-plus"></i>
                                             </button>
-                                            <button type="button" class="btn btn-primary">
+                                            <button type="button" class="btn btn-primary" onclick="location.href='/v1/infra/code/codeXdmForm'">
                                                 <i class="bi bi-plus"></i>
                                             </button>
                                         </div>
@@ -704,6 +709,7 @@
                         <!-- Row end -->
 
                     </div>
+                    </form>
                     <!-- Content wrapper end -->
 
                     <!-- App Footer start -->
@@ -714,6 +720,26 @@
 
                 </div>
                 <!-- Content wrapper scroll end -->
+                <div class="modals-placeholder">
+                	<div class="modal fade" id="verticallyCentered"  tabindex="-1" aria-labelledby="verticallyCenteredLabel"
+						aria-hidden="true">
+						<div class="modal-dialog modal-dialog-centered">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="verticallyCenteredLabel">삭제</h5>
+									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+								</div>
+								<div class="modal-body">
+									정말 삭제하시겠습니까?
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-dark" data-bs-dismiss="modal">닫기</button>
+									<button type="button" class="btn btn-danger" data-bs-dismiss="modal">삭제하기</button>
+								</div>
+							</div>
+						</div>
+					</div>
+                </div>
 
             </div>
             <!-- *************

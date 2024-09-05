@@ -15,7 +15,7 @@ public class CodeController {
 	
 	@RequestMapping(value = "/v1/infra/code/codeXdmList")
 	public String codeXdmList(Model model) {
-		model.addAttribute("list2", codeService.selectList2());
+		model.addAttribute("list", codeService.selectList2());
 		
 		return "/xdm/v1/infra/code/codeXdmList";
 	}
@@ -30,5 +30,28 @@ public class CodeController {
 //		
 //		return "/xdm/v1/infra/code/codeXdmList";
 //	}
+	
+	@RequestMapping(value = "/v1/infra/code/codeXdmForm")
+	public String codeXdmForm() {
+		return "/xdm/v1/infra/code/codeXdmForm";
+	}
+	
+	@RequestMapping(value = "v1/infra/code/codeXdmInst")
+	public String codeXdmInst(CodeDto codeDto) {
+		codeService.insert(codeDto);
+		return "redirect:/v1/infra/code/codeXdmList";
+	}
+	
+	@RequestMapping(value = "/v1/infra/code/codeXdmMForm")
+	public String codeXdmMForm(CodeDto codeDto, Model model) {
+		model.addAttribute("item", codeService.selectOne(codeDto));
+		return "";
+	}
+	
+	@RequestMapping(value = "/v1/infra/code/codeXdmUpdt")
+	public String codeXdmUpdt(CodeDto codeDto) {
+		codeService.update(codeDto);
+		return "redirect:/v1/infra/code/codeXdmList";
+	}
 	
 }

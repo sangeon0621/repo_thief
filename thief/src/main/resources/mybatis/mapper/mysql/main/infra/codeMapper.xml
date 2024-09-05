@@ -23,4 +23,56 @@
 		
 	</select>
 	  
+	  <insert id="insert">
+		  insert into code (
+			ifcdName
+		    ,ifcdUseNy
+		    ,ifcdOrder
+		    ,ifcdDesc
+		    ,ifcdDatetime
+		    ,ifcdDatetimeSvr
+		    ,ifcdDelNy
+		    ,codegroup_ifcgSeq
+		) values (
+			#{ifcdName}
+		    ,#{ifcdUseNy}
+		    ,#{ifcdOrder}
+		    ,#{ifcdDesc}
+		    ,now()
+		    ,now()
+		    ,0
+		    ,#{codegroup_ifcgSeq}
+		)
+	  </insert>
+	  
+	  <select id="selectOne" resultMap="resultObj2">
+		  select
+				b.ifcdSeq
+				,b.ifcdName
+				,b.ifcdUseNy
+				,b.ifcdOrder
+				,b.ifcdDesc
+				,b.ifcdDatetime
+				,b.ifcdDatetimeSvr
+				,b.ifcdDelNy
+			from
+				code b
+			where 1=1
+			AND b.ifcdSeq = #{ifcdSeq}
+	  </select>
+	  
+	  <update id="update">
+	  	update code
+	  	set
+	  		ifcdName = #{ifcdName}
+	  		,ifcdUseNy = #{ifcdUseNy}
+	  		,ifcdOrder = #{ifcdOrder}
+	  		,ifcdDesc = #{ifcdDesc}
+	  		,ifcdDatetime = now()
+	  		,ifcdDatetimeSvr = now()
+	  		,ifcdDelNy = #{ifcdDelNy}
+	  	where 1=1
+	  		and ifcdSeq = #{ifcdSeq}
+	  </update>
+	  
 </mapper>

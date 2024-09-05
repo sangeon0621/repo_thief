@@ -510,7 +510,7 @@
 				<!-- Content wrapper scroll start -->
 				<div class="content-wrapper-scroll">
 					<!-- Content wrapper start -->
-					<form id = "form" name = "form" method = "post" action = "/v1/infra/codegroup/codeGroupXdmUpdt">
+					<form id = "form" name = "form" method = "post" action = "/v1/infra/code/codeXdmUpdt">
 						<div class="content-wrapper">
 							<div class="card">
 								<div class="row" style="padding: 20px;">
@@ -521,7 +521,7 @@
 								</div>
 								<div class="row" style="padding: 20px;">
 									<div class="col-sm-12 col-12">
-										<h1>&nbsp;CodeGroup</h1>
+										<h1>&nbsp;Code</h1>
 									</div>
 								</div>
 								<div class="card-body">
@@ -540,23 +540,23 @@
 									<div class="row">
 										<div class="col-sm-3 col-3">
 											<label for="validationCustom01" class="form-label">코드그룹 코드<font color ="red">*</font></label>
-											<input readonly type="text" name = "ifcgSeq" th:value="${item.ifcgSeq}" class="form-control" id="validationCustom01" placeholder="한글,영대소문자,숫자" >
+											<input readonly type="text" name = "ifcdSeq" th:value="${item.ifcdSeq}" class="form-control" id="validationCustom01" placeholder="한글,영대소문자,숫자" >
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-sm-3 col-3">
 											<label for="validationCustom01" class="form-label">코드이름<font color ="red">*</font></label>
-											<input type="text" name = "ifcgName" th:value="${item.ifcgName}" class="form-control" id="validationCustom01" placeholder="한글,영대소문자,숫자" >
+											<input type="text" name = "ifcdName" th:value="${item.ifcdName}" class="form-control" id="validationCustom01" placeholder="한글,영대소문자,숫자" >
 										</div>
 										<div class="col-sm-3 col-3">
 											<label for="validationCustom01" class="form-label">순서<font color ="red">*</font></label>
-											<input type="text" name = "ifcgOrder" th:value="${item.ifcgOrder}" class="form-control" id="validationCustom01" placeholder="한글,영대소문자,숫자" >
+											<input type="text" name = "ifcdOrder" th:value="${item.ifcdOrder}" class="form-control" id="validationCustom01" placeholder="한글,영대소문자,숫자" >
 										</div>
 										<div class="col-sm-3 col-3">
 											<label for="validationCustom04" class="form-label">사용 여부<font color ="red">*</font></label>
-											<select name = "ifcgUseNy" class="form-select" id="validationCustom04" >
-												<option value ="1" th:selected = "${item?.ifcgUseNy == 1}">사용</option>
-												<option value ="0" th:selected = "${item?.ifcgUseNy == 0}">미사용</option>
+											<select name = "ifcdUseNy" class="form-select" id="validationCustom04" >
+												<option value ="1" th:selected = "${item?.ifcdUseNy == 1}">사용</option>
+												<option value ="0" th:selected = "${item?.ifcdUseNy == 0}">미사용</option>
 											</select>
 										</div>
 									</div>
@@ -564,30 +564,30 @@
 										<div class="col-sm-6 col-6">
 											<div class="m-0">
 												<label class="form-label">설명</label>
-												<textarea name = "ifcgDesc" th:text="${item.ifcgDesc}" class="form-control" rows="5"></textarea>
+												<textarea name = "ifcdDesc" th:text="${item.ifcdDesc}" class="form-control" rows="5"></textarea>
 											</div>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-sm-3 col-3">
 											<label for="validationCustom04" class="form-label">삭제 여부<font color ="red">*</font></label>
-											<select name = "ifcgDelNy" class="form-select" id="validationCustom04" >
-												<option value ="1" th:selected = "${item?.ifcgDelNy == 1}">삭제</option>
-												<option value ="0" th:selected = "${item?.ifcgDelNy == 0}">미삭제</option>
+											<select name = "ifcdDelNy" class="form-select" id="validationCustom04" >
+												<option value ="1" th:selected = "${item?.ifcdDelNy == 1}">삭제</option>
+												<option value ="0" th:selected = "${item?.ifcdDelNy == 0}">미삭제</option>
 											</select>
 										</div>
 										<div class="col-sm-3 col-3">
 											<label for="validationCustom01" class="form-label">등록일<font color ="red">*</font></label>
-											<input disabled type="text" name = "regDatetime" th:value = "${#dates.format(item.regDatetime, 'yyyy-MM-dd HH:mm:ss')}" class="form-control" id="validationCustom01" >
+											<input disabled type="text" name = "ifcdDatetime" th:value = "${#dates.format(item.ifcdDatetime, 'yyyy-MM-dd HH:mm:ss')}" class="form-control" id="validationCustom01" >
 										</div>
 										<div class="col-sm-3 col-3">
 											<label for="validationCustom01" class="form-label">수정일<font color ="red">*</font></label>
-											<input readonly type="text" name = "regDatetimeSvr" th:value="${#dates.format(item.regDatetimeSvr, 'yyyy-MM-dd HH:mm:ss')}" class="form-control" id="validationCustom01" >
+											<input readonly type="text" name = "ifcdDatetimeSvr" th:value="${#dates.format(item.ifcdDatetimeSvr, 'yyyy-MM-dd HH:mm:ss')}" class="form-control" id="validationCustom01" >
 										</div>
 									</div>
 									<div class="row" style="padding-top: 20px;">
 										<div class="col-sm-1 col-1">
-											<button type="button" class="btn btn-outline-dark" onclick="location.href='/v1/infra/codegroup/codeGroupXdmList'">
+											<button type="button" class="btn btn-outline-dark" onclick="location.href='/v1/infra/code/codeXdmList'">
 												<i class="bi bi-list-ul"></i>
 											</button>
 										</div>
