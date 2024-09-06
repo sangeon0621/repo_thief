@@ -539,18 +539,25 @@
 <!-- 									</div> -->
 									<div class="row">
 										<div class="col-sm-3 col-3">
-											<label for="validationCustom01" class="form-label">코드그룹 코드<font color ="red">*</font></label>
-											<input readonly type="text" name = "ifcdSeq" th:value="${item.ifcdSeq}" class="form-control" id="validationCustom01" placeholder="한글,영대소문자,숫자" >
+											<label for="validationCustom04" class="form-label">코드그룹 코드<font color ="red">*</font></label>
+											<select name = "ifcgSeq" class="form-select" id="validationCustom04" >
+												<option value ="">선택하세요</option>
+												<option th:each="item : ${listCodeGroup}" th:value="${item.ifcgSeq}" th:text="${item.ifcgName}">미사용</option>
+											</select>
+										</div>
+											<div class="col-sm-3 col-3">
+											<label for="validationCustom01" class="form-label">코드<font color ="red">*</font></label>
+											<input readonly type="text" name = "ifcdSeq" th:value="${item.ifcdSeq}" class="form-control" id="validationCustom01" >
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-sm-3 col-3">
 											<label for="validationCustom01" class="form-label">코드이름<font color ="red">*</font></label>
-											<input type="text" name = "ifcdName" th:value="${item.ifcdName}" class="form-control" id="validationCustom01" placeholder="한글,영대소문자,숫자" >
+											<input readonly type="text" name = "ifcdName" th:value="${item.ifcdName}" class="form-control" id="validationCustom01" >
 										</div>
 										<div class="col-sm-3 col-3">
 											<label for="validationCustom01" class="form-label">순서<font color ="red">*</font></label>
-											<input type="text" name = "ifcdOrder" th:value="${item.ifcdOrder}" class="form-control" id="validationCustom01" placeholder="한글,영대소문자,숫자" >
+											<input type="text" name = "ifcdOrder" th:value="${item.ifcdOrder}" class="form-control" id="validationCustom01" >
 										</div>
 										<div class="col-sm-3 col-3">
 											<label for="validationCustom04" class="form-label">사용 여부<font color ="red">*</font></label>

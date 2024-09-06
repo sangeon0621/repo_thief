@@ -41,7 +41,7 @@
 		    ,now()
 		    ,now()
 		    ,0
-		    ,#{codegroup_ifcgSeq}
+		    ,#{ifcgSeq}
 		)
 	  </insert>
 	  
@@ -74,5 +74,17 @@
 	  	where 1=1
 	  		and ifcdSeq = #{ifcdSeq}
 	  </update>
+	  
+	  <select id = "selectListCodeGroup" resultMap = "resultObj2">
+		select
+			a.ifcgSeq
+			,a.ifcgName
+		from codegroup a
+		where 1=1
+			and a.ifcgDelNy = 0
+		order by
+			a.ifcgOrder desc
+		
+	</select>
 	  
 </mapper>

@@ -28,4 +28,8 @@ public class CodeService {
 		return codeDao.update(codeDto);
 	}
 	
+	public List<CodeDto> selectListCodeGroup() {
+		return codeDao.selectListCodeGroup();
+	}
+	
 }

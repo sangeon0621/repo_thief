@@ -2,6 +2,8 @@ package com.maple.infra.code;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class CodeDto {
 	
 	private String ifcdSeq;
@@ -10,9 +12,12 @@ public class CodeDto {
 	private Integer ifcdOrder;
 	private String ifcdDesc;
 	private Date ifcdDatetime;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date ifcdDatetimeSvr;
 	private Integer ifcdDelNy;
-	private String codeGroup_ifcgSeq;
+	private String codegroup_ifcgSeq;
+	private String ifcgSeq;
+	private String ifcgName;
 //	-----
 	public String getIfcdSeq() {
 		return ifcdSeq;
@@ -62,11 +67,23 @@ public class CodeDto {
 	public void setIfcdDelNy(Integer ifcdDelNy) {
 		this.ifcdDelNy = ifcdDelNy;
 	}
-	public String getCodeGroup_ifcgSeq() {
-		return codeGroup_ifcgSeq;
+	public String getIfcgSeq() {
+		return ifcgSeq;
 	}
-	public void setCodeGroup_ifcgSeq(String codeGroup_ifcgSeq) {
-		this.codeGroup_ifcgSeq = codeGroup_ifcgSeq;
+	public void setIfcgSeq(String ifcgSeq) {
+		this.ifcgSeq = ifcgSeq;
+	}
+	public String getIfcgName() {
+		return ifcgName;
+	}
+	public void setIfcgName(String ifcgName) {
+		this.ifcgName = ifcgName;
+	}
+	public String getCodegroup_ifcgSeq() {
+		return codegroup_ifcgSeq;
+	}
+	public void setCodegroup_ifcgSeq(String codegroup_ifcgSeq) {
+		this.codegroup_ifcgSeq = codegroup_ifcgSeq;
 	}
 	
 	

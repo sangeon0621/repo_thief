@@ -625,7 +625,7 @@
                                                                 <th>코드그룹 이름</th>
                                                                 <th>코드</th>
 <!--                                                                 <th>대체코드</th> -->
-<!--                                                                 <th>코드 이름</th> -->
+                                                                <th>코드 이름</th>
 <!--                                                                 <th>코드 이름(영문)</th> -->
                                                                 <th>사용</th>
                                                                 <th>순서</th>
@@ -644,6 +644,8 @@
                                                             	<td><input type="checkbox"></td>
                                                             	<td></td>
                                                                 <td th:text = "${list.codegroup_ifcgSeq}"></td>
+                                                                <td th:text="${list.ifcgName}"></td>
+                                                                <td th:text="${list.ifcdSeq}"></td>
                                                                 <td><a th:href = "@{/v1/infra/code/codeXdmMForm(ifcdSeq= ${list.ifcdSeq})}" th:text = "${list.ifcdName}"></a></td>
 <!--                                                                 <td th:text = "${list.ifcgOrder}"></td> "/xdm/v1/infra/codegroup/codeGroupXdmMForm?ifcgSeq=1" -->
 <!--                                                                 <td th:text = "${list.ifDesc}"></td> -->

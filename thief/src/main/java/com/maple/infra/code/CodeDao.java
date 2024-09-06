@@ -15,4 +15,6 @@ public interface CodeDao {
 	
 	public int update(CodeDto codeDto);
 	
+	public List<CodeDto> selectListCodeGroup();
+	
 }
