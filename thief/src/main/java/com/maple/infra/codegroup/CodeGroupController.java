@@ -62,4 +62,17 @@ public class CodeGroupController {
 		return "redirect:/v1/infra/codegroup/codeGroupXdmList";
 	}
 	
+	@RequestMapping(value = "/v1/infra/codegroup/codeGroupXdmUele")
+	public String codeGroupXdmUele(CodeGroupDto codeGroupDto, Model model) {
+		codeGroupService.uelete(codeGroupDto);
+		return "redirect:/v1/infra/codegroup/codeGroupXdmList";
+	}
+	
+	@RequestMapping(value = "/v1/infra/codegroup/codeGroupXdmDele")
+	public String codeGroupXdmDele(CodeGroupDto codeGroupDto) {
+		codeGroupService.delete(codeGroupDto);
+		
+		return "redirect:/v1/infra/codegroup/codeGroupXdmList";
+	}
+	
 }

@@ -3,6 +3,17 @@ $(function() {
 	$("#loading-wrapper").fadeOut(1000);
 });
 
+document.getElementById("btnUelete").onclick = function () {
+	let form = document.querySelector("form[name=form]")
+	form.action ="/v1/infra/codegroup/codeGroupXdmUele";
+	form.submit();
+}
+
+document.getElementById("btnDelete").onclick = function () {
+	let form = document.querySelector("form[name=form]")
+	form.action ="/v1/infra/codegroup/codeGroupXdmDele";
+	form.submit();
+}
 
 // Toggle sidebar
 $("#toggle-sidebar").on('click', function () {

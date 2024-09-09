@@ -5,10 +5,10 @@
 <!-- xml에서 주석 단축키 : ctrl + shift + c -->
 <!-- Mapper와 연결될 Dao -->
 	  
-	  <resultMap type="com.maple.infra.codegroup.CodeGroupDto" id="resultMapObj"></resultMap>
+	<resultMap type="com.maple.infra.codegroup.CodeGroupDto" id="resultMapObj"></resultMap>
 	  
-	  <select id = "selectList" resultMap = "resultMapObj">
-	  	select
+ 	<select id = "selectList" resultMap = "resultMapObj">
+		select
 			a.ifcgSeq
 			,a.ifcgName
 			,a.ifcgUseNy
@@ -21,17 +21,17 @@
 			codegroup a
 		order by
 			a.ifcgSeq desc
-	  </select>
+	</select>
 	  
-	  <insert id="insert">
-		  insert into codegroup (
+	<insert id="insert">
+		insert into codegroup (
 			ifcgName
-		    ,ifcgUseNy
-		    ,ifcgOrder
-		    ,ifcgDesc
-		    ,regDatetime
-		    ,regDatetimeSvr
-		    ,ifcgDelNy
+			,ifcgUseNy
+			,ifcgOrder
+			,ifcgDesc
+			,regDatetime
+			,regDatetimeSvr
+			,ifcgDelNy
 		) values (
 			#{ifcgName}
 		    ,#{ifcgUseNy}
@@ -41,28 +41,28 @@
 		    ,now()
 		    ,0
 		)
-	  </insert>
+	</insert>
 	  
-	  <select id="selectOne" resultMap="resultMapObj">
-		  select
-				a.ifcgSeq
-				,a.ifcgName
-				,a.ifcgUseNy
-				,a.ifcgOrder
-				,a.ifcgDesc
-				,a.regDatetime
-				,a.regDatetimeSvr
-				,a.ifcgDelNy
-			from
-				codegroup a
-			where 1=1
+	<select id="selectOne" resultMap="resultMapObj">
+		select
+			a.ifcgSeq
+			,a.ifcgName
+			,a.ifcgUseNy
+			,a.ifcgOrder
+			,a.ifcgDesc
+			,a.regDatetime
+			,a.regDatetimeSvr
+			,a.ifcgDelNy
+		from
+			codegroup a
+		where 1=1
 			AND a.ifcgSeq = #{ifcgSeq}
-	  </select>
+	</select>
 	  
-	  <update id="update">
-	  	update codegroup
+	<update id="update">
+		update codegroup
 	  	set
-	  		ifcgName = #{ifcgName}
+			ifcgName = #{ifcgName}
 	  		,ifcgUseNy = #{ifcgUseNy}
 	  		,ifcgOrder = #{ifcgOrder}
 	  		,ifcgDesc = #{ifcgDesc}
@@ -71,6 +71,20 @@
 	  		,ifcgDelNy = #{ifcgDelNy}
 	  	where 1=1
 	  		and ifcgSeq = #{ifcgSeq}
-	  </update>
+	</update>
+	  
+	<update id="uelete">
+		update codegroup
+	  	set
+	  		ifcgDelNy = 1
+	  	where 1=1
+	  		and ifcgSeq = #{ifcgSeq}
+	</update>
+	  
+	<delete id="delete">
+		delete from codegroup
+	  	where 1=1
+	  		and ifcgSeq = #{ifcgSeq}
+	</delete>
 	  
 </mapper>
