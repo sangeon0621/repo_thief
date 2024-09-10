@@ -12,9 +12,9 @@ public class CodeDto {
 	private Integer ifcdOrder;
 	private String ifcdDesc;
 	private Date ifcdDatetime;
+	private Integer ifcdDelNy;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date ifcdDatetimeSvr;
-	private Integer ifcdDelNy;
 	private String codegroup_ifcgSeq;
 	private String ifcgSeq;
 	private String ifcgName;

@@ -538,14 +538,14 @@
 <!-- 										</div> -->
 <!-- 									</div> -->
 									<div class="row">
+<!-- 										<div class="col-sm-3 col-3"> -->
+<!-- 											<label for="validationCustom04" class="form-label">코드그룹 코드<font color ="red">*</font></label> -->
+<!-- 											<select name = "ifcgSeq" class="form-select" id="validationCustom04" > -->
+<!-- 												<option value ="">선택하세요</option> -->
+<!-- 												<option th:each="item : ${listCodeGroup}" th:value="${item.ifcgName}" th:text="${item.ifcgName}">미사용</option> -->
+<!-- 											</select> -->
+<!-- 										</div> -->
 										<div class="col-sm-3 col-3">
-											<label for="validationCustom04" class="form-label">코드그룹 코드<font color ="red">*</font></label>
-											<select name = "ifcgSeq" class="form-select" id="validationCustom04" >
-												<option value ="">선택하세요</option>
-												<option th:each="item : ${listCodeGroup}" th:value="${item.ifcgName}" th:text="${item.ifcgName}">미사용</option>
-											</select>
-										</div>
-											<div class="col-sm-3 col-3">
 											<label for="validationCustom01" class="form-label">코드<font color ="red">*</font></label>
 											<input readonly type="text" name = "ifcdSeq" th:value="${item.ifcdSeq}" class="form-control" id="validationCustom01" >
 										</div>
@@ -578,7 +578,7 @@
 									<div class="row">
 										<div class="col-sm-3 col-3">
 											<label for="validationCustom04" class="form-label">삭제 여부<font color ="red">*</font></label>
-											<select name = "ifcdDelNy" class="form-select" id="validationCustom04" >
+											<select disabled name = "ifcdDelNy" class="form-select" id="validationCustom04" >
 												<option value ="1" th:selected = "${item?.ifcdDelNy == 1}">삭제</option>
 												<option value ="0" th:selected = "${item?.ifcdDelNy == 0}">미삭제</option>
 											</select>
@@ -593,21 +593,26 @@
 										</div>
 									</div>
 									<div class="row" style="padding-top: 20px;">
-										<div class="col-sm-1 col-1">
+										<div class="col-sm-3 col-3">
 											<button type="button" class="btn btn-outline-dark" onclick="location.href='/v1/infra/code/codeXdmList'">
 												<i class="bi bi-list-ul"></i>
 											</button>
+											<button id="Delete" type="button" name="${item.ifcdSeq}" class="btn btn-danger">
+                                                <i class="bi bi-x-square-fill"></i>
+                                            </button>
+                                            <button id="Uelete" type="button" name="ifcdDelNy" class="btn btn-danger">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
 										</div>
-										<div class="col-sm-10 col-10"></div>
+										<div class="col-sm-8 col-8"></div>
 										<div class="col-sm-1 col-1" style="text-align: right;">
-											<button type="summit" class="btn btn-info">
-												<i class="bi bi-server"></i>
+											<button type="submit" class="btn btn-info">
+												<i class="bi bi-server"></i>	
 											</button>
 										</div>
 									</div>
 								</div>
 							</div>
-								
 						</div>
 					</form>
 					<!-- Content wrapper end -->
@@ -617,10 +622,8 @@
 						<span>© Bootstrap Gallery 2023</span>
 					</div>
 					<!-- App footer end -->
-
 				</div>
 				<!-- Content wrapper scroll end -->
-
 			</div>
 			<!-- *************
 				************ Main container end *************

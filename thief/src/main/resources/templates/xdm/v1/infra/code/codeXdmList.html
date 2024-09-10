@@ -644,7 +644,7 @@
                                                             	<td><input type="checkbox"></td>
                                                             	<td></td>
                                                                 <td th:text = "${list.codegroup_ifcgSeq}"></td>
-                                                                <td th:text="ifcgName"></td>
+                                                                <td th:text = "${list.ifcgName}"></td>
                                                                 <td th:text="${list.ifcdSeq}"></td>
                                                                 <td><a th:href = "@{/v1/infra/code/codeXdmMForm(ifcdSeq= ${list.ifcdSeq})}" th:text = "${list.ifcdName}"></a></td>
 <!--                                                                 <td th:text = "${list.ifcgOrder}"></td> "/xdm/v1/infra/codegroup/codeGroupXdmMForm?ifcgSeq=1" -->

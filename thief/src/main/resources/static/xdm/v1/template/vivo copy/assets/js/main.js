@@ -15,6 +15,7 @@ document.getElementById("btnDelete").onclick = function () {
 	form.submit();
 }
 
+
 // Toggle sidebar
 $("#toggle-sidebar").on('click', function () {
 	$(".page-wrapper").toggleClass("toggled");

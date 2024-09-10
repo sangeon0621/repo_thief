@@ -16,8 +16,9 @@
 			,b.ifcdDatetimeSvr
 			,b.ifcdDelNy
 		    ,b.codegroup_ifcgSeq
+		    ,a.ifcgName
 		from
-			code b
+			code b left join codegroup a on a.ifcgSeq = b.codegroup_ifcgSeq
 		order by
 			b.ifcdSeq desc
 		
@@ -86,5 +87,19 @@
 			a.ifcgOrder desc
 		
 	</select>
+	  
+	<update id="uelete">
+		update code
+	  	set
+	  		ifcdDelNy = 1
+	  	where 1=1
+	  		and ifcdSeq = #{ifcdSeq}
+	</update>
+	  
+	<delete id="delete">
+		delete from code
+	  	where 1=1
+	  		and ifcdSeq = #{ifcdSeq}
+	</delete>	  
 	  
 </mapper>

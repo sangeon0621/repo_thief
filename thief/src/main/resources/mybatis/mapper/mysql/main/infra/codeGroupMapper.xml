@@ -17,6 +17,7 @@
 			,a.regDatetime
 			,a.regDatetimeSvr
 			,a.ifcgDelNy
+			,(select count(aa.ifcdSeq) from code aa where 1=1 and aa.codegroup_ifcgSeq = a.ifcgSeq) as count
 		from
 			codegroup a
 		order by
@@ -86,5 +87,6 @@
 	  	where 1=1
 	  		and ifcgSeq = #{ifcgSeq}
 	</delete>
-	  
+
+
 </mapper>

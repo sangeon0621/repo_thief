@@ -32,4 +32,12 @@ public class CodeService {
 		return codeDao.selectListCodeGroup();
 	}
 	
+	public int uelete(CodeDto codeDto) {
+		return codeDao.uelete(codeDto);
+	}
+	
+	public int delete(CodeDto codeDto) {
+		return codeDao.delete(codeDto);
+	}
+	
 }

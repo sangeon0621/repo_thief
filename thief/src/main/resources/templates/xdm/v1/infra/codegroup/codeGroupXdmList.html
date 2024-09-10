@@ -623,7 +623,7 @@
                                                             	<th>#</th>
                                                             	<th>코드그룹 코드</th>
                                                                 <th>코드그룹 이름</th>
-<!--                                                                 <th>코드</th> -->
+                                                                <th>개수</th>
 <!--                                                                 <th>대체코드</th> -->
 <!--                                                                 <th>코드 이름</th> -->
 <!--                                                                 <th>코드 이름(영문)</th> -->
@@ -647,6 +647,7 @@
                                                                 <td><a th:href = "@{/v1/infra/codegroup/codeGroupXdmMForm(ifcgSeq= ${list.ifcgSeq})}" th:text = "${list.ifcgName}"></a></td>
 <!--                                                                 <td th:text = "${list.ifcgOrder}"></td> "/xdm/v1/infra/codegroup/codeGroupXdmMForm?ifcgSeq=1" -->
 <!--                                                                 <td th:text = "${list.ifDesc}"></td> -->
+                                                                <td th:text="${list.count}"></td>
                                                                 <td th:if = "${list.ifcgUseNy eq 0}" class = "ifcgUseNy align-middle">N</td>
                                                                 <td th:unless = "${list.ifcgUseNy eq 0}" class = "ifcgUseNy align-middle">Y</td>
 																<td th:text="${list.ifcgOrder}"></td>

@@ -17,4 +17,8 @@ public interface CodeDao {
 	
 	public List<CodeDto> selectListCodeGroup();
 	
+	public int uelete(CodeDto codeDto);
+	
+	public int delete(CodeDto codeDto);
+	
 }

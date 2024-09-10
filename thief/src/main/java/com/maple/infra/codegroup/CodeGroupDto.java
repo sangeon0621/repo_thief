@@ -16,6 +16,7 @@ public class CodeGroupDto {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date regDatetimeSvr;
 	private Integer ifcgDelNy;
+	private Integer count;
 //	-----
 	public String getIfcgSeq() {
 		return ifcgSeq;
@@ -65,6 +66,13 @@ public class CodeGroupDto {
 	public void setIfcgDelNy(Integer ifcgDelNy) {
 		this.ifcgDelNy = ifcgDelNy;
 	}
+	public Integer getCount() {
+		return count;
+	}
+	public void setCount(Integer count) {
+		this.count = count;
+	}
+	
 	
 	
 }
