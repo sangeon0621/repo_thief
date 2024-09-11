@@ -524,36 +524,34 @@
                 <div class="content-wrapper-scroll">
 
                     <!-- Content wrapper start -->
-                    <form >
+                    <form id="form" name="form" method="post" action="/v1/infra/code/codeXdmList">
                     <div class="content-wrapper">
                                 <!-- Card start -->
                                 <div class="card">
                                     <div class="row" style="padding: 20px;">
                                         <div class="col-sm-12 col-12">
-                                            &nbsp;<font color="blue">Page 1</font> > 
+                                            <font color="blue">Page 1</font> > 
                                             <font color="blue">Page 2</font> > Defalut
                                         </div>
                                         </div>
                                         <div class="row" style="padding: 20px;">
                                         <div class="col-sm-12 col-12">
-                                            <h1>&nbsp;Code</h1>
+                                            <h1>Code</h1>
                                         </div>
                                         </div>
                                         <div class="row" style="padding: 20px;">
                                         <div class="col-sm-2 col-2">
-                                            <select class="form-select" aria-label="Default select example">
-                                                <option selected>N</option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
+                                            <select name="shDelNy" class="form-select" aria-label="Default select example">
+                                                <option value="">삭제여부</option>
+                                                <option value="1">Y</option>
+                                                <option value="0">N</option>
                                             </select>
                                         </div>
                                         <div class="col-sm-2 col-2">
-                                            <select class="form-select" aria-label="Default select example">
-                                                <option selected>Y</option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
+                                            <select name="shUseNy" class="form-select" aria-label="Default select example">
+                                                <option value="">사용여부</option>
+                                                <option value="1">Y</option>
+                                                <option value="0">N</option>
                                             </select>
                                         </div>
                                         <div class="col-sm-2 col-2">
@@ -577,20 +575,21 @@
                                         </div>
                                         <div class="row" style="padding: 20px;">
                                         <div class="col-sm-2 col-2">
-                                            <select class="form-select" aria-label="Default select example">
-                                                <option selected>검색구분</option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
+                                            <select name="shOption" class="form-select" aria-label="Default select example">
+                                                <option value="">검색구분</option>
+                                                <option value="1">코드</option>
+                                                <option value="2">코드 이름</option>
+                                                <option value="3">코드그룹 코드</option>
+                                                <option value="4">코드그룹 이름</option>
                                             </select>
                                         </div>
                                         <div class="col-sm-2 col-2">
                                             <div class="input-group">
-                                                <input type="text" class="form-control" placeholder="Search">
+                                                <input name="shValue" type="text" class="form-control" placeholder="Search">
                                             </div>
                                         </div>
                                         <div class="col-sm-2 col-2">
-                                            <button type="button" class="btn btn-secondary">
+                                            <button type="submit" class="btn btn-secondary">
                                                 <i class="bi bi-search"></i>
                                             </button>
                                             <button type="button" class="btn btn-secondary">

@@ -19,6 +19,16 @@
 		    ,a.ifcgName
 		from
 			code b left join codegroup a on a.ifcgSeq = b.codegroup_ifcgSeq
+		where 1=1
+			<if test="shDelNy != null and !shDelNy.equals('')">AND ifcdDelNy = #{shDelNy}</if>
+			<if test="shUseNy != null and !shUseNy.equals('')">AND ifcdUseNy = #{shUseNy}</if>
+			
+			<choose>
+				<when test="shOption == 1">AND ifcdSeq = #{shValue}</when>
+				<when test="shOption == 2">AND ifcdName LIKE CONCAT('%',#{shValue},'%')</when>
+				<when test="shOption == 3">AND codegroup_ifcgSeq = #{shValue}</when>
+				<when test="shOption == 4">AND ifcgName LIKE CONCAT('%',#{shValue},'%')</when>
+			</choose>
 		order by
 			b.ifcdSeq desc
 		

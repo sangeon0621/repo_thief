@@ -11,8 +11,8 @@ public class CodeService {
 	@Autowired
 	CodeDao codeDao;
 	
-	public List<CodeDto> selectList2() {
-		List<CodeDto> codes = codeDao.selectList2();
+	public List<CodeDto> selectList2(CodeVo vo) {
+		List<CodeDto> codes = codeDao.selectList2(vo);
 		return codes;
 	}
 	

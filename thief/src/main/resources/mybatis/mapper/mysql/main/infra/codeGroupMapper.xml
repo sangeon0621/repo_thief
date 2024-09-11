@@ -6,6 +6,8 @@
 <!-- Mapper와 연결될 Dao -->
 	  
 	<resultMap type="com.maple.infra.codegroup.CodeGroupDto" id="resultMapObj"></resultMap>
+	
+	
 	  
  	<select id = "selectList" resultMap = "resultMapObj">
 		select
@@ -20,6 +22,15 @@
 			,(select count(aa.ifcdSeq) from code aa where 1=1 and aa.codegroup_ifcgSeq = a.ifcgSeq) as count
 		from
 			codegroup a
+		where 1=1
+			<if test="shDelNy != null and !shDelNy.equals('')">AND ifcgDelNy = #{shDelNy}</if>
+			<if test="shUseNy != null and !shUseNy.equals('')">AND ifcgUseNy = #{shUseNy}</if>
+			
+			<choose>
+				<when test="shOption == 1">AND ifcgSeq = #{shValue}</when>
+				<when test="shOption == 2">AND ifcgName LIKE CONCAT('%',#{shValue},'%')</when>
+			</choose>
+			
 		order by
 			a.ifcgSeq desc
 	</select>
