@@ -1,0 +1,144 @@
+2024-09-12T16:00:38.577 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+81. select
+			b.ifcdSeq
+			,b.ifcdName
+			,b.ifcdUseNy
+			,b.ifcdOrder
+			,b.ifcdDesc
+			,b.ifcdDatetime
+			,b.ifcdDatetimeSvr
+			,b.ifcdDelNy
+		    ,b.codegroup_ifcgSeq
+		    ,a.ifcgName
+		from
+			code b left join codegroup a on a.ifcgSeq = b.codegroup_ifcgSeq
+		where 1=1
+
+		order by
+			b.ifcdSeq desc
+ {executed in 1 msec} 
+2024-09-12T16:00:42.554 [http-nio-8080-exec-1] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+81. select
+			a.ifcgSeq
+			,a.ifcgName
+		from codegroup a
+		where 1=1
+			and a.ifcgDelNy = 0
+		order by
+			a.ifcgOrder desc
+ {executed in 10 msec} 
+2024-09-12T16:00:45.825 [http-nio-8080-exec-3] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+81. select
+			b.ifcdSeq
+			,b.ifcdName
+			,b.ifcdUseNy
+			,b.ifcdOrder
+			,b.ifcdDesc
+			,b.ifcdDatetime
+			,b.ifcdDatetimeSvr
+			,b.ifcdDelNy
+		    ,b.codegroup_ifcgSeq
+		    ,a.ifcgName
+		from
+			code b left join codegroup a on a.ifcgSeq = b.codegroup_ifcgSeq
+		where 1=1
+
+		order by
+			b.ifcdSeq desc
+ {executed in 1 msec} 
+2024-09-12T16:00:47.297 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+81. select
+				b.ifcdSeq
+				,b.ifcdName
+				,b.ifcdUseNy
+				,b.ifcdOrder
+				,b.ifcdDesc
+				,b.ifcdDatetime
+				,b.ifcdDatetimeSvr
+				,b.ifcdDelNy
+			from
+				code b
+			where 1=1
+			AND b.ifcdSeq = '6'
+ {executed in 1 msec} 
+2024-09-12T16:01:29.476 [http-nio-8080-exec-10] DEBUG j.sqltiming -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+81. select
+			b.ifcdSeq
+			,b.ifcdName
+			,b.ifcdUseNy
+			,b.ifcdOrder
+			,b.ifcdDesc
+			,b.ifcdDatetime
+			,b.ifcdDatetimeSvr
+			,b.ifcdDelNy
+		    ,b.codegroup_ifcgSeq
+		    ,a.ifcgName
+		from
+			code b left join codegroup a on a.ifcgSeq = b.codegroup_ifcgSeq
+		where 1=1
+
+		order by
+			b.ifcdSeq desc
+ {executed in 1 msec} 
+2024-09-12T16:01:53.150 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+2024-09-12T16:01:53.152 [Thread-59] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2024-09-12T16:01:53.234 [Thread-59] INFO c.z.h.HikariDataSource - HikariPool-7 - Shutdown initiated... 
+2024-09-12T16:01:53.238 [Thread-59] INFO c.z.h.HikariDataSource - HikariPool-7 - Shutdown completed. 
+2024-09-12T16:01:53.296 [restartedMain] INFO c.m.ThiefApplication - Starting ThiefApplication using Java 17.0.11 with PID 14520 (C:\factory\ws_sts4_4240\repo_thief\thief\bin\main started by lbh09 in C:\factory\ws_sts4_4240\repo_thief\thief) 
+2024-09-12T16:01:53.296 [restartedMain] INFO c.m.ThiefApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-09-12T16:01:53.420 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2024-09-12T16:01:53.421 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2024-09-12T16:01:53.421 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2024-09-12T16:01:53.421 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.28] 
+2024-09-12T16:01:53.428 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2024-09-12T16:01:53.428 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 130 ms 
+2024-09-12T16:01:53.525 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2024-09-12T16:01:53.531 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2024-09-12T16:01:53.534 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2024-09-12T16:01:53.539 [restartedMain] INFO c.m.ThiefApplication - Started ThiefApplication in 0.256 seconds (process running for 12751.526) 
+2024-09-12T16:01:53.540 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2024-09-12T16:02:41.967 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+2024-09-12T16:02:41.968 [Thread-63] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2024-09-12T16:02:42.117 [restartedMain] INFO c.m.ThiefApplication - Starting ThiefApplication using Java 17.0.11 with PID 14520 (C:\factory\ws_sts4_4240\repo_thief\thief\bin\main started by lbh09 in C:\factory\ws_sts4_4240\repo_thief\thief) 
+2024-09-12T16:02:42.117 [restartedMain] INFO c.m.ThiefApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-09-12T16:02:42.235 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2024-09-12T16:02:42.236 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2024-09-12T16:02:42.236 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2024-09-12T16:02:42.236 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.28] 
+2024-09-12T16:02:42.242 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2024-09-12T16:02:42.242 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 123 ms 
+2024-09-12T16:02:42.339 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2024-09-12T16:02:42.343 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2024-09-12T16:02:42.345 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2024-09-12T16:02:42.349 [restartedMain] INFO c.m.ThiefApplication - Started ThiefApplication in 0.249 seconds (process running for 12800.335) 
+2024-09-12T16:02:42.350 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2024-09-12T16:03:03.518 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+2024-09-12T16:03:03.523 [Thread-67] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2024-09-12T16:03:03.671 [restartedMain] INFO c.m.ThiefApplication - Starting ThiefApplication using Java 17.0.11 with PID 14520 (C:\factory\ws_sts4_4240\repo_thief\thief\bin\main started by lbh09 in C:\factory\ws_sts4_4240\repo_thief\thief) 
+2024-09-12T16:03:03.671 [restartedMain] INFO c.m.ThiefApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-09-12T16:03:03.791 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2024-09-12T16:03:03.791 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2024-09-12T16:03:03.792 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2024-09-12T16:03:03.792 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.28] 
+2024-09-12T16:03:03.798 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2024-09-12T16:03:03.798 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 126 ms 
+2024-09-12T16:03:03.875 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2024-09-12T16:03:03.879 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2024-09-12T16:03:03.881 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2024-09-12T16:03:03.886 [restartedMain] INFO c.m.ThiefApplication - Started ThiefApplication in 0.227 seconds (process running for 12821.872) 
+2024-09-12T16:03:03.887 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
+2024-09-12T16:03:25.114 [File Watcher] INFO o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification) 
+2024-09-12T16:03:25.116 [Thread-71] INFO o.a.c.h.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"] 
+2024-09-12T16:03:25.252 [restartedMain] INFO c.m.ThiefApplication - Starting ThiefApplication using Java 17.0.11 with PID 14520 (C:\factory\ws_sts4_4240\repo_thief\thief\bin\main started by lbh09 in C:\factory\ws_sts4_4240\repo_thief\thief) 
+2024-09-12T16:03:25.252 [restartedMain] INFO c.m.ThiefApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-09-12T16:03:25.355 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2024-09-12T16:03:25.355 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2024-09-12T16:03:25.355 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2024-09-12T16:03:25.355 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.28] 
+2024-09-12T16:03:25.362 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2024-09-12T16:03:25.362 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 108 ms 
+2024-09-12T16:03:25.443 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2024-09-12T16:03:25.448 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2024-09-12T16:03:25.451 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2024-09-12T16:03:25.455 [restartedMain] INFO c.m.ThiefApplication - Started ThiefApplication in 0.214 seconds (process running for 12843.441) 
+2024-09-12T16:03:25.456 [restartedMain] INFO o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged 
