@@ -18,5 +18,6 @@ public interface CodeGroupDao {
 	
 	public int delete(CodeGroupDto codeGroupDto);
 	
+	public String add00Time(String date);
 	
 }

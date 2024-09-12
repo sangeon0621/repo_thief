@@ -16,6 +16,8 @@ public class CodeGroupController {
 	
 	@RequestMapping(value = "/v1/infra/codegroup/codeGroupXdmList")
 	public String codeGroupXdmList(CodeGroupVo vo, Model model) {
+		vo.setShDateStart(vo.getShDateStart()+ " 00:00:00");
+		vo.setShDateEnd(vo.getShDateEnd()+ " 23:59:59");
 		
 		model.addAttribute("list", codeGroupService.selectList(vo));
 		return "/xdm/v1/infra/codegroup/codeGroupXdmList";

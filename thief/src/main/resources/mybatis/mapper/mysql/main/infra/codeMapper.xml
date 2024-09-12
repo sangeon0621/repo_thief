@@ -24,6 +24,11 @@
 			<if test="shUseNy != null and !shUseNy.equals('')">AND ifcdUseNy = #{shUseNy}</if>
 			
 			<choose>
+				<when test="shOptionDate == 1">AND b.ifcdDatetime BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+				<when test="shOptionDate == 2">AND b.ifcdDatetimeSvr BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+			</choose>
+			
+			<choose>
 				<when test="shOption == 1">AND ifcdSeq = #{shValue}</when>
 				<when test="shOption == 2">AND ifcdName LIKE CONCAT('%',#{shValue},'%')</when>
 				<when test="shOption == 3">AND codegroup_ifcgSeq = #{shValue}</when>

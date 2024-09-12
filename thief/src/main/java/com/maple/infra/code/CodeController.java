@@ -15,6 +15,9 @@ public class CodeController {
 	
 	@RequestMapping(value = "/v1/infra/code/codeXdmList")
 	public String codeXdmList(CodeVo vo, Model model) {
+		vo.setShDateStart(vo.getShDateStart() + "00:00:00");
+		vo.setShDateEnd(vo.getShDateEnd() + "00:00:00");
+		
 		model.addAttribute("list", codeService.selectList2(vo));
 		
 		return "/xdm/v1/infra/code/codeXdmList";

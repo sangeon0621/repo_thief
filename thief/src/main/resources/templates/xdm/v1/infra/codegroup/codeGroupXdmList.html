@@ -40,6 +40,9 @@
         <!-- Data Tables -->
         <link rel="stylesheet" href="/xdm/v1/template/vivo copy/assets/vendor/datatables/dataTables.bs5.css" />
         <link rel="stylesheet" href="/xdm/v1/template/vivo copy/assets/vendor/datatables/dataTables.bs5-custom.css" />
+        
+        <!-- by developer -->
+        <link rel="stylesheet" href="/xdm/v1/css/datetimepicker/jquery.datetimepicker.min.css">
 
     </head>
 
@@ -555,21 +558,20 @@
                                         </select>
                                      </div>
                                      <div class="col-sm-2 col-2">
-	                                     <select class="form-select" aria-label="Default select example">
-	                                         <option selected>수정일</option>
-	                                         <option value="1">One</option>
-	                                         <option value="2">Two</option>
-	                                         <option value="3">Three</option>
+	                                     <select name="shOptionDate" class="form-select" aria-label="Default select example">
+	                                     	 <option value="">날짜</option>
+	                                         <option value="1">등록일</option>
+	                                         <option value="2">수정일</option>
 	                                     </select>
                                      </div>
                                      <div class="col-sm-2 col-2">
 	                                     <div class="input-group">
-	                                         <input type="date" class="form-control">
+	                                         <input type="text" id="shDateStart" name="shDateStart" placeholder="시작일" class="form-control" autocomplete="off">
 	                                     </div>
                                      </div>
                                         <div class="col-sm-2 col-2">
                                             <div class="input-group">
-                                                <input type="date" class="form-control">
+                                                <input type="text" id="shDateEnd" name="shDateEnd" placeholder="종료일" class="form-control" autocomplete="off">
                                             </div>
                                         </div>
                                         </div>
@@ -583,10 +585,10 @@
                                         </div>
                                         <div class="col-sm-2 col-2">
                                             <div class="input-group">
-                                                <input name="shValue" type="text" class="form-control" placeholder="Search">
+                                                <input name="shValue" type="text" class="form-control" placeholder="Search" autocomplete="off">
                                             </div>
                                         </div>
-                                        <div class="col-sm-2 col-2">
+                                        <div class="col-sm-4 col-4">
                                             <button type="submit" class="btn btn-secondary">
                                                 <i class="bi bi-search"></i>
                                             </button>
@@ -773,6 +775,21 @@
 
         <!-- Main Js Required -->
         <script src="/xdm/v1/template/vivo copy/assets/js/main.js"></script>
+        
+		<!-- by developer -->
+		<script src="/xdm/v1/js/datetimepicker/jquery.datetimepicker.full.min.js"></script>
+		
+		<script type="text/javascript">
+			
+			window.addEventListener('load', function() {
+				$.datetimepicker.setLocale('ko');
+				
+				$("#shDateStart, #shDateEnd").datetimepicker({
+					timepicker:false,
+					format: 'Y-m-d'
+				});
+			});
+		</script>
 
     </body>
 
