@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.maple.infra.productCg.ProductCgDao"> 
+<!-- xml에서 주석 단축키 : ctrl + shift + c -->
+<!-- Mapper와 연결될 Dao -->
+	  
+	<resultMap type="com.maple.infra.productCg.ProductCgDto" id="resultMapObj2"></resultMap>
+	
+	
+	  
+ 	<select id = "selectList" resultMap = "resultMapObj2">
+		select
+			a.pdSeq
+			,a.pdCategory
+			,a.pdUseNy
+			,a.pdOrder
+			,a.pdDesc
+			,a.pdDatetime
+			,a.pdDatetimeSvr
+			,a.pdDelNy
+		from
+			productCg a
+		where 1=1
+			<if test="shDelNy != null and !shDelNy.equals('')">AND pdDelNy = #{shDelNy}</if>
+			<if test="shUseNy != null and !shUseNy.equals('')">AND pdUseNy = #{shUseNy}</if>
+			
+			<choose>
+				<when test="shOptionDate == 1">AND a.pdDatetime BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+				<when test="shOptionDate == 2">AND a.pdDatetimeSvr BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+			</choose>
+			
+			<choose>
+				<when test="shOption == 1">AND pdSeq = #{shValue}</when>
+				<when test="shOption == 2">AND pdCategory LIKE CONCAT('%',#{shValue},'%')</when>
+			</choose>
+			
+		order by
+			a.pdSeq desc
+	</select>
+	  
+	<insert id="insert">
+		insert into productCg (
+			pdCategory
+			,pdUseNy
+			,pdOrder
+			,pdDesc
+			,pdDatetime
+			,pdDatetimeSvr
+			,pdDelNy
+		) values (
+			#{pdCategory}
+		    ,#{pdUseNy}
+		    ,#{pdOrder}
+		    ,#{pdDesc}
+		    ,now()
+		    ,now()
+		    ,0
+		)
+	</insert>
+	  
+	<select id="selectOne" resultMap="resultMapObj2">
+		select
+			a.pdSeq
+			,a.pdCategory
+			,a.pdUseNy
+			,a.pdOrder
+			,a.pdDesc
+			,a.pdDatetime
+			,a.pdDatetimeSvr
+			,a.pdDelNy
+		from
+			productCg a
+		where 1=1
+			AND a.pdSeq = #{pdSeq}
+	</select>
+	  
+	<update id="update">
+		update productCg
+	  	set
+			pdCategory = #{pdCategory}
+	  		,pdUseNy = #{pdUseNy}
+	  		,pdOrder = #{pdOrder}
+	  		,pdDesc = #{pdDesc}
+	  		,pdDatetime = now()
+	  		,pdDatetimeSvr = now()
+	  		,pdDelNy = #{pdDelNy}
+	  	where 1=1
+	  		and pdSeq = #{pdSeq}
+	</update>
+	  
+	<update id="uelete">
+		update productCg
+	  	set
+	  		pdDelNy = 1
+	  	where 1=1
+	  		and pdSeq = #{pdSeq}
+	</update>
+	  
+	<delete id="delete">
+		delete from productCg
+	  	where 1=1
+	  		and pdSeq = #{pdSeq}
+	</delete>
+
+
+</mapper>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.maple.infra.productCd.ProductCdDao">
+
+	<resultMap type="com.maple.infra.productCd.ProductCdDto" id="productObj"></resultMap>
+	
+	<select id = "selectList2" resultMap = "productObj">
+		select
+			b.pddSeq
+			,b.pddName
+			,b.pddCategory
+			,b.pddUseNy
+			,b.pddOrder
+			,b.pddDesc
+			,b.pddPrice
+			,b.pddCount
+			,b.pddTotalPrice
+			,b.pddDatetime
+			,b.pddDatetimeSvr
+			,b.pddDelNy
+		    ,b.productCg_pdSeq
+		    ,a.pdCategory
+		from
+			productCd b left join productCg a on a.pdSeq = b.productCg_pdSeq
+		where 1=1
+			<if test="shDelNy != null and !shDelNy.equals('')">AND pddDelNy = #{shDelNy}</if>
+			<if test="shUseNy != null and !shUseNy.equals('')">AND pddUseNy = #{shUseNy}</if>
+			
+			<choose>
+				<when test="shOptionDate == 1">AND b.pddDatetime BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+				<when test="shOptionDate == 2">AND b.pddDatetimeSvr BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+			</choose>
+			
+			<choose>
+				<when test="shOption == 1">AND pddSeq = #{shValue}</when>
+				<when test="shOption == 2">AND pddName LIKE CONCAT('%',#{shValue},'%')</when>
+				<when test="shOption == 3">AND productCg_pdSeq = #{shValue}</when>
+				<when test="shOption == 4">AND pddCategory LIKE CONCAT('%',#{shValue},'%')</when>
+			</choose>
+		order by
+			b.pddSeq desc
+		
+	</select>
+	  
+	  <insert id="insert">
+		  insert into productCd (
+			pddName
+			,pddCategory
+		    ,pddUseNy
+		    ,pddOrder
+		    ,pddDesc
+		    ,pddPrice
+		    ,pddCount
+		    ,pddTotalPrice
+		    ,pddDatetime
+		    ,pddDatetimeSvr
+		    ,pddDelNy
+		    ,productCg_pdSeq
+		) values (
+			#{pddName}
+			,#{pddCategory}
+		    ,#{pddUseNy}
+		    ,#{pddOrder}
+		    ,#{pddDesc}
+		    ,#{pddPrice}
+		    ,#{pddCount}
+		    ,#{pddTotalPrice}
+		    ,now()
+		    ,now()
+		    ,0
+		    ,#{pddSeq}
+		)
+	  </insert>
+	  
+	  <select id="selectOne" resultMap="productObj">
+		  select
+				b.pddSeq
+				,b.pddName
+				,b.pddCategory
+				,b.pddUseNy
+				,b.pddOrder
+				,b.pddDesc
+				,b.pddPrice
+				,b.pddCount
+				,b.pddTotalPrice
+				,b.pddDatetime
+				,b.pddDatetimeSvr
+				,b.pddDelNy
+			from
+				productCd b
+			where 1=1
+			AND b.pddSeq = #{pddSeq}
+	  </select>
+	  
+	  <update id="update">
+	  	update productCd
+	  	set
+	  		pddName = #{pddName}
+	  		,pddCategory = #{pddCategory}
+	  		,pddUseNy = #{pddUseNy}
+	  		,pddOrder = #{pddOrder}
+	  		,pddDesc = #{pddDesc}
+	  		,pddPrice = #{pddPrice}
+	  		,pddCount = #{pddCount}
+	  		,pddTotalPrice = #{pddTotalPrice}
+	  		,pddDatetime = now()
+	  		,pddDatetimeSvr = now()
+	  		,pddDelNy = #{pddDelNy}
+	  	where 1=1
+	  		and pddSeq = #{pddSeq}
+	  </update>
+	  
+	  <select id = "selectListCodeGroup" resultMap = "productObj">
+		select
+			a.pdSeq
+			,a.pdName
+		from productCg a
+		where 1=1
+			and a.pdDelNy = 0
+		order by
+			a.pdOrder desc
+		
+	</select>
+	  
+	<update id="uelete">
+		update productCd
+	  	set
+	  		pddDelNy = 1
+	  	where 1=1
+	  		and pddSeq = #{pddSeq}
+	</update>
+	  
+	<delete id="delete">
+		delete from productCd
+	  	where 1=1
+	  		and pddSeq = #{pddSeq}
+	</delete>	  
+	  
+</mapper>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.maple.infra.member.MemberDao">
+
+	<resultMap type="com.maple.infra.member.MemberDto" id="resultObj"></resultMap>
+	
+	<select id = "selectList3" resultMap = "resultObj">	
+		select
+			a.seq
+			,a.name
+		    ,a.nickName
+		    ,a.id
+		    ,a.password
+		    ,a.checkingpassword
+		    ,a.email
+		    ,a.birthday
+		    ,a.gender
+		    ,a.telephone
+		    ,a.memberDatetime
+		    ,a.memberDatetimeSvr
+		    ,a.delNy
+		from
+			member a
+		where 1=1
+			<if test="shDelNy != null and !shDelNy.equals('')">AND delNy = #{shDelNy}</if>
+			<if test="shGender != null and !shGender.equals('')">AND gender = #{shGender}</if>
+			
+			<choose>
+				<when test="shOptionDate == 1">AND a.memberDatetime BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+				<when test="shOptionDate == 2">AND a.memberDatetimeSvr BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+			</choose>
+			
+			<choose>
+				<when test="shOption == 1">AND seq = #{shValue}</when>
+				<when test="shOption == 2">AND name LIKE CONCAT('%',#{shValue},'%')</when>
+			</choose>
+		order by
+			a.seq desc
+	</select>
+  	
+  	<insert id="insert2">
+		insert into member (
+			name
+		    ,nickName
+		    ,id
+		    ,password
+		    ,checkingpassword
+		    ,email
+		    ,birthday
+		    ,gender
+		    ,telephone
+		    ,memberDatetime
+		    ,memberDatetimeSvr
+		    ,delNy
+		) values (
+			#{name}
+			,#{nickName}
+		    ,#{id}
+		    ,#{password}
+		    ,#{checkingpassword}
+		    ,#{email}
+		    ,#{birthday}
+		    ,#{gender}
+		    ,#{telephone}
+		    ,now()
+		    ,now()
+		    ,0
+		)
+	</insert>
+	  
+	<select id="selectOne2" resultMap="resultObj">
+		select
+			a.seq
+			,a.name
+		    ,a.nickName
+		    ,a.id
+		    ,a.password
+		    ,a.checkingpassword
+		    ,a.email
+		    ,a.birthday
+		    ,a.gender
+		    ,a.telephone
+		    ,a.memberDatetime
+		    ,a.memberDatetimeSvr
+		    ,a.delNy
+		from
+			member a
+		where 1=1
+			AND a.seq = #{seq}
+	</select>
+	  
+	<update id="update2">
+		update member
+	  	set
+			name = #{name}
+		    ,nickName = #{nickName}
+		    ,id = #{id}
+		    ,password = #{password}
+		    ,checkingpassword = #{checkingpassword}
+		    ,email = #{email}
+		    ,birthday = #{birthday}
+		    ,gender = #{gender}
+		    ,telephone = #{telephone}
+		    ,memberDatetime = now()
+		    ,memberDatetimeSvr = now()
+		    ,delNy = #{delNy}
+	  	where 1=1
+	  		and seq = #{seq}
+	</update>
+	  
+	<update id="uelete2">
+		update member
+	  	set
+	  		delNy = 1
+	  	where 1=1
+	  		and seq = #{seq}
+	</update>
+	  
+	<delete id="delete2">
+		delete from member
+	  	where 1=1
+	  		and seq = #{seq}
+	</delete>
+</mapper>

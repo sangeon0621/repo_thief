@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="ko">
+
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Meta -->
+		<meta name="description" content="Vivo - Responsive Bootstrap 5 Dashboard Template">
+		<meta name="author" content="Bootstrap Gallery" />
+		<link rel="canonical" href="https://www.bootstrap.gallery/">
+		<meta property="og:url" content="https://www.bootstrap.gallery">
+		<meta property="og:title" content="Admin Templates - Dashboard Templates | Bootstrap Gallery">
+		<meta property="og:description" content="Marketplace for Bootstrap Admin Dashboards">
+		<meta property="og:type" content="Website">
+		<meta property="og:site_name" content="Bootstrap Gallery">
+		<link rel="shortcut icon" href="/xdm/v1/template/vivo copy/assets/images/favicon.svg">
+
+		<!-- Title -->
+		<title>Vivo Admin Template - Admin Dashboard</title>
+
+
+		<!-- *************
+			************ Common Css Files *************
+		************ -->
+
+		<!-- Animated css -->
+		<link rel="stylesheet" href="/xdm/v1/template/vivo copy/assets/css/animate.css">
+
+		<!-- Bootstrap font icons css -->
+		<link rel="stylesheet" href="/xdm/v1/template/vivo copy/assets/fonts/bootstrap/bootstrap-icons.css">
+
+		<!-- Main css -->
+		<link rel="stylesheet" href="/xdm/v1/template/vivo copy/assets/css/main.min.css">
+
+
+	</head>
+
+	<body class="login-container">
+
+		<!-- Loading wrapper start -->
+		<!-- <div id="loading-wrapper">
+			<div class="spinner">
+                <div class="line1"></div>
+				<div class="line2"></div>
+				<div class="line3"></div>
+				<div class="line4"></div>
+				<div class="line5"></div>
+				<div class="line6"></div>
+            </div>
+		</div> -->
+		<!-- Loading wrapper end -->
+
+		<!-- Login box start -->
+		<form id = "form" name = "form" method = "post" action = "/v1/infra/member/memberXdmInst">
+			<div class="login-box">
+				<div class="login-form">
+					<a href="index.html" class="login-logo">
+						<img src="/xdm/v1/template/vivo copy/assets/images/logo.svg" alt="Vico Admin" />
+					</a>
+					<div class="login-welcome">
+						회원가입
+					</div>
+					<div class="mb-3">
+						<label class="form-label">이름</label>
+						<input type="text" name="name" class="form-control" autocomplete="off">
+					</div>
+					<div class="mb-3">
+						<label class="form-label">닉네임</label>
+						<input type="text" name="nickName" class="form-control" autocomplete="off">
+					</div>
+					<div class="mb-3">
+						<label class="form-label">아이디</label>
+						<input type="text" name="id" class="form-control" autocomplete="off">
+					</div>				
+					<div class="mb-3">
+						<label class="form-label">비밀번호</label>
+						<input type="password" name="password" class="form-control" autocomplete="off">
+					</div>
+					<div class="mb-3">
+						<label class="form-label">비밀번호 확인</label>
+						<input type="password" name="checkingpassword" class="form-control" autocomplete="off">
+					</div>
+					<div class="mb-3">
+						<label class="form-label">이메일</label>
+						<input type="email" name="email" class="form-control" autocomplete="off">
+					</div>
+					<div class="mb-3">
+						<label class="form-label">생년월일</label>
+						<input type="text" name="birthday" class="form-control" autocomplete="off">
+					</div>
+					<div class="mb-3">
+						<label for="validationCustom04" class="form-label">성별<font color ="red">*</font></label>
+						<select name = "gender" class="form-select" id="validationCustom04" >
+							<option value ="1" th:selected = "${item?.gender == 1}">남자</option>
+							<option value ="2" th:selected = "${item?.gender == 2}">여자</option>
+						</select>
+					</div>
+					<div class="mb-3">
+						<label class="form-label">전화번호</label>
+						<input type="text" name="telephone" class="form-control" autocomplete="off">
+					</div>
+					<div class="login-form-actions">
+						<button type="submit" class="btn"> <span class="icon"> <i class="bi bi-arrow-right-circle"></i> </span>
+							Signup</button>
+					</div>
+					<div class="login-form-actions">
+						<button type="submit" class="btn"> <img src="/xdm/v1/template/vivo copy/assets/images/google.svg" class="login-icon"
+								alt="Signup using Gmail">
+							Signup using Gmail</button>
+					</div>
+					<div class="login-form-footer">
+						<div class="additional-link">
+							Already have an account? <a href="login.html"> Login</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+		<!-- Login box end -->
+
+		<!-- *************
+			************ Required JavaScript Files *************
+		************* -->
+		<!-- Required jQuery first, then Bootstrap Bundle JS -->
+		<script src="/xdm/v1/template/vivo copy/assets/js/jquery.min.js"></script>
+		<script src="/xdm/v1/template/vivo copy/assets/js/bootstrap.bundle.min.js"></script>
+		<script src="/xdm/v1/template/vivo copy/assets/js/modernizr.js"></script>
+		<script src="/xdm/v1/template/vivo copy/assets/js/moment.js"></script>
+
+		<!-- *************
+			************ Vendor Js Files *************
+		************* -->
+
+		<!-- Main Js Required -->
+		<script src="/xdm/v1/template/vivo copy/assets/js/main.js"></script>
+
+	</body>
+
+</html>
