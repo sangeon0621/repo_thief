@@ -1,0 +1,14 @@
+2024-09-22T18:59:46.881 [restartedMain] INFO c.m.ThiefApplication - Starting ThiefApplication using Java 17.0.11 with PID 9324 (C:\factory\ws_sts4_4240\repo_thief\thief\bin\main started by lbh09 in C:\factory\ws_sts4_4240\repo_thief\thief) 
+2024-09-22T18:59:46.883 [restartedMain] INFO c.m.ThiefApplication - No active profile set, falling back to 1 default profile: "default" 
+2024-09-22T18:59:46.927 [restartedMain] INFO o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
+2024-09-22T18:59:46.936 [restartedMain] INFO o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
+2024-09-22T18:59:48.371 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port 8080 (http) 
+2024-09-22T18:59:48.409 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2024-09-22T18:59:48.417 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2024-09-22T18:59:48.418 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.28] 
+2024-09-22T18:59:48.576 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2024-09-22T18:59:48.578 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1641 ms 
+2024-09-22T18:59:49.930 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2024-09-22T18:59:49.965 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2024-09-22T18:59:50.011 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/' 
+2024-09-22T18:59:50.027 [restartedMain] INFO c.m.ThiefApplication - Started ThiefApplication in 3.643 seconds (process running for 4.545) 
