@@ -21,6 +21,7 @@ public class ProductCdDto {
 	private String pddDesc;
 	private String productCg_pdSeq;
 	private String pdCategory;
+	private String pdSeq;
 //	-----
 	public String getPddSeq() {
 		return pddSeq;
@@ -105,6 +106,12 @@ public class ProductCdDto {
 	}
 	public void setPdCategory(String pdCategory) {
 		this.pdCategory = pdCategory;
+	}
+	public String getPdSeq() {
+		return pdSeq;
+	}
+	public void setPdSeq(String pdSeq) {
+		this.pdSeq = pdSeq;
 	}
 	
 	
