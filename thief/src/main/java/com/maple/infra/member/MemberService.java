@@ -5,12 +5,18 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.maple.infra.code.CodeVo;
+
 
 @Service
 public class MemberService {
 
 	@Autowired
 	MemberDao memberDao;
+	
+	public int selectOneCount(MemberVo vo) { 
+    	return memberDao.selectOneCount(vo); 
+    }
 	
 	public List<MemberDto> selectList3(MemberVo vo) {
 		return memberDao.selectList3(vo);

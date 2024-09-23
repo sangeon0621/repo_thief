@@ -4,8 +4,12 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import com.maple.infra.member.MemberVo;
+
 @Repository
 public interface ProductCgDao {
+	
+	public int selectOneCount(ProductCgVo vo);
 
 	public List<ProductCgDto> selectList(ProductCgVo vo);
 	

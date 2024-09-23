@@ -3,6 +3,7 @@ package com.maple.infra.productCd;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
@@ -13,9 +14,15 @@ public class ProductCdController {
 	ProductCdService productCdService;
 	
 	@RequestMapping(value = "/v1/infra/productCd/productCdXdmList")
-	public String productCdXdmList(ProductCdVo vo, Model model) {
+	public String productCdXdmList(@ModelAttribute("vo") ProductCdVo vo, Model model) {
 		vo.setShDateStart(vo.getShDateStart() + "00:00:00");
 		vo.setShDateEnd(vo.getShDateEnd() + "00:00:00");
+		
+		vo.setParamsPaging(productCdService.selectOneCount(vo));
+		
+		if (vo.getTotalRows() > 0) {
+			model.addAttribute("list", productCdService.selectList2(vo));
+		}
 		
 		model.addAttribute("list", productCdService.selectList2(vo));
 		

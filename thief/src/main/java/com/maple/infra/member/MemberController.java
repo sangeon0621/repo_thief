@@ -3,6 +3,7 @@ package com.maple.infra.member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
@@ -13,9 +14,15 @@ public class MemberController {
 	MemberService memberService;
 	
 	@RequestMapping(value="/v1/infra/member/memberXdmList")
-	public String memberXdmList(MemberVo vo, Model model) {
+	public String memberXdmList(@ModelAttribute("vo") MemberVo vo, Model model) {
 		vo.setShDateStart(vo.getShDateStart()+ " 00:00:00");
 		vo.setShDateEnd(vo.getShDateEnd()+ " 23:59:59");
+		
+		vo.setParamsPaging(memberService.selectOneCount(vo));
+		
+		if (vo.getTotalRows() > 0) {
+			model.addAttribute("list", memberService.selectList3(vo));
+		}
 		
 		model.addAttribute("list", memberService.selectList3(vo));
 		return "/xdm/v1/infra/member/memberXdmList";

@@ -5,21 +5,7 @@
 
 	<resultMap type="com.maple.infra.member.MemberDto" id="resultObj"></resultMap>
 	
-	<select id = "selectList3" resultMap = "resultObj">	
-		select
-			a.seq
-			,a.name
-		    ,a.nickName
-		    ,a.id
-		    ,a.password
-		    ,a.checkingpassword
-		    ,a.email
-		    ,a.birthday
-		    ,a.gender
-		    ,a.telephone
-		    ,a.memberDatetime
-		    ,a.memberDatetimeSvr
-		    ,a.delNy
+	<sql id="selectCommon">
 		from
 			member a
 		where 1=1
@@ -35,8 +21,34 @@
 				<when test="shOption == 1">AND seq = #{shValue}</when>
 				<when test="shOption == 2">AND name LIKE CONCAT('%',#{shValue},'%')</when>
 			</choose>
-		order by
-			a.seq desc
+	</sql>
+	
+	<select id="selectOneCount">
+		select count(*)
+		<include refid="selectCommon"></include>
+	</select>
+	
+	<select id = "selectList3" resultMap = "resultObj">
+		select aa.* from (
+			select
+				a.seq
+				,a.name
+			    ,a.nickName
+			    ,a.id
+			    ,a.password
+			    ,a.checkingpassword
+			    ,a.email
+			    ,a.birthday
+			    ,a.gender
+			    ,a.telephone
+			    ,a.memberDatetime
+			    ,a.memberDatetimeSvr
+			    ,a.delNy
+			<include refid="selectCommon"></include>
+			order by
+				a.seq desc
+		) aa
+		limit #{rowNumToShow} offset #{startRnumForMysql}
 	</select>
   	
   	<insert id="insert2">

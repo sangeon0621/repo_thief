@@ -4,9 +4,13 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import com.maple.infra.code.CodeVo;
+
 
 @Repository
 public interface MemberDao {
+	
+	public int selectOneCount(MemberVo vo);
 	
 	public List<MemberDto> selectList3(MemberVo vo);
 

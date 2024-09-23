@@ -5,22 +5,7 @@
 
 	<resultMap type="com.maple.infra.productCd.ProductCdDto" id="productObj"></resultMap>
 	
-	<select id = "selectList2" resultMap = "productObj">
-		select
-			b.pddSeq
-			,b.pddName
-			,b.pddCategory
-			,b.pddUseNy
-			,b.pddOrder
-			,b.pddDesc
-			,b.pddPrice
-			,b.pddCount
-			,b.pddTotalPrice
-			,b.pddDatetime
-			,b.pddDatetimeSvr
-			,b.pddDelNy
-		    ,b.productCg_pdSeq
-		    ,a.pdCategory
+	<sql id="selectCommon">
 		from
 			productCd b left join productCg a on a.pdSeq = b.productCg_pdSeq
 		where 1=1
@@ -38,9 +23,35 @@
 				<when test="shOption == 3">AND productCg_pdSeq = #{shValue}</when>
 				<when test="shOption == 4">AND pddCategory LIKE CONCAT('%',#{shValue},'%')</when>
 			</choose>
-		order by
-			b.pddSeq desc
-		
+	</sql>
+	
+	<select id="selectOneCount">
+		select count(*)
+		<include refid="selectCommon"></include>
+	</select>
+	
+	<select id = "selectList2" resultMap = "productObj">
+		select bb.* from (
+			select
+				b.pddSeq
+				,b.pddName
+				,b.pddCategory
+				,b.pddUseNy
+				,b.pddOrder
+				,b.pddDesc
+				,b.pddPrice
+				,b.pddCount
+				,b.pddTotalPrice
+				,b.pddDatetime
+				,b.pddDatetimeSvr
+				,b.pddDelNy
+			    ,b.productCg_pdSeq
+			    ,a.pdCategory
+			<include refid="selectCommon"></include>
+			order by
+				b.pddSeq desc
+		) bb
+		limit #{rowNumToShow} offset #{startRnumForMysql}
 	</select>
 	  
 	  <insert id="insert">

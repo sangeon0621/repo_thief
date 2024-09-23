@@ -7,19 +7,7 @@
 	  
 	<resultMap type="com.maple.infra.codegroup.CodeGroupDto" id="resultMapObj"></resultMap>
 	
-	
-	  
- 	<select id = "selectList" resultMap = "resultMapObj">
-		select
-			a.ifcgSeq
-			,a.ifcgName
-			,a.ifcgUseNy
-			,a.ifcgOrder
-			,a.ifcgDesc
-			,a.regDatetime
-			,a.regDatetimeSvr
-			,a.ifcgDelNy
-			,(select count(aa.ifcdSeq) from code aa where 1=1 and aa.codegroup_ifcgSeq = a.ifcgSeq) as count
+	<sql id="selectCommon">
 		from
 			codegroup a
 		where 1=1
@@ -35,11 +23,33 @@
 				<when test="shOption == 1">AND ifcgSeq = #{shValue}</when>
 				<when test="shOption == 2">AND ifcgName LIKE CONCAT('%',#{shValue},'%')</when>
 			</choose>
-			
-		order by
-			a.ifcgSeq desc
+	</sql>
+	
+	<select id="selectOneCount">
+		select count(*)
+		<include refid="selectCommon"></include>
 	</select>
 	  
+ 	<select id = "selectList" resultMap = "resultMapObj">
+ 		select aa.* from (
+			select
+				a.ifcgSeq
+				,a.ifcgName
+				,a.ifcgUseNy
+				,a.ifcgOrder
+				,a.ifcgDesc
+				,a.regDatetime
+				,a.regDatetimeSvr
+				,a.ifcgDelNy
+				,(select count(aa.ifcdSeq) from code aa where 1=1 and aa.codegroup_ifcgSeq = a.ifcgSeq) as count
+			<include refid="selectCommon"></include>	
+			order by
+				a.ifcgSeq desc
+		) aa
+		limit #{rowNumToShow} offset #{startRnumForMysql}
+	</select>
+	
+	
 	<insert id="insert">
 		insert into codegroup (
 			ifcgName

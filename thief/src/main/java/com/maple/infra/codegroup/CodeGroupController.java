@@ -1,10 +1,10 @@
 package com.maple.infra.codegroup;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
@@ -15,9 +15,15 @@ public class CodeGroupController {
 	CodeGroupService codeGroupService;
 	
 	@RequestMapping(value = "/v1/infra/codegroup/codeGroupXdmList")
-	public String codeGroupXdmList(CodeGroupVo vo, Model model) {
+	public String codeGroupXdmList(@ModelAttribute("vo") CodeGroupVo vo, Model model) {
 		vo.setShDateStart(vo.getShDateStart()+ " 00:00:00");
 		vo.setShDateEnd(vo.getShDateEnd()+ " 23:59:59");
+		
+		vo.setParamsPaging(codeGroupService.selectOneCount(vo));
+		
+		if (vo.getTotalRows() > 0) {
+			model.addAttribute("list", codeGroupService.selectList(vo));
+		}
 		
 		model.addAttribute("list", codeGroupService.selectList(vo));
 		return "/xdm/v1/infra/codegroup/codeGroupXdmList";

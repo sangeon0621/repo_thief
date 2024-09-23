@@ -5,11 +5,17 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.maple.infra.member.MemberVo;
+
 @Service
 public class ProductCgService {
 
 	@Autowired
 	ProductCgDao productCgDao;
+	
+	public int selectOneCount(ProductCgVo vo) { 
+    	return productCgDao.selectOneCount(vo); 
+    }
 	
 	public List<ProductCgDto> selectList(ProductCgVo vo) {
 		
