@@ -6,6 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.maple.common.util.UtilDateTime;
+
 
 @Controller
 public class MemberController {
@@ -15,8 +17,10 @@ public class MemberController {
 	
 	@RequestMapping(value="/v1/infra/member/memberXdmList")
 	public String memberXdmList(@ModelAttribute("vo") MemberVo vo, Model model) {
-		vo.setShDateStart(vo.getShDateStart()+ " 00:00:00");
-		vo.setShDateEnd(vo.getShDateEnd()+ " 23:59:59");
+		vo.setShDateStart(vo.getShDateStart() == null || vo.getShDateStart() == "" ? null : UtilDateTime.add00TimeString(vo.getShDateStart()));
+		vo.setShDateEnd(vo.getShDateEnd() == null || vo.getShDateEnd() == "" ? null : UtilDateTime.add59TimeString(vo.getShDateEnd()));
+//		vo.setShDateStart(vo.getShDateStart()+ " 00:00:00");
+//		vo.setShDateEnd(vo.getShDateEnd()+ " 23:59:59");
 		
 		vo.setParamsPaging(memberService.selectOneCount(vo));
 		

@@ -23,7 +23,8 @@ public class MemberVo {
 	private int totalRows;										// 전체 데이터 갯수
 	private int totalPages;										// 전체 페이지 번호
 	private int startPage;										// 시작 페이지 번호
-	private int endPage;										// 마지막 페이지 번호
+	private int endPage;
+	private int changeRowNum;// 마지막 페이지 번호
 
 	private int startRnumForMysql = 0;	
 	

@@ -25,7 +25,9 @@ public class CodeGroupVo {
 	private int startPage;										// 시작 페이지 번호
 	private int endPage;										// 마지막 페이지 번호
 
-	private int startRnumForMysql = 0;							// 쿼리 시작 row
+	private int startRnumForMysql = 0;
+	private int changeRowNum;
+	// 쿼리 시작 row
 //	-----
 	public void setParamsPaging(int totalRows) {
 		
@@ -201,6 +203,14 @@ public class CodeGroupVo {
 
 	public void setStartRnumForMysql(int startRnumForMysql) {
 		this.startRnumForMysql = startRnumForMysql;
+	}
+
+	public int getChangeRowNum() {
+		return changeRowNum;
+	}
+
+	public void setChangeRowNum(int changeRowNum) {
+		this.changeRowNum = changeRowNum;
 	}
 
 	

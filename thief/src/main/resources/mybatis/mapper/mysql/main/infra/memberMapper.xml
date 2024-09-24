@@ -20,6 +20,8 @@
 			<choose>
 				<when test="shOption == 1">AND seq = #{shValue}</when>
 				<when test="shOption == 2">AND name LIKE CONCAT('%',#{shValue},'%')</when>
+				<when test="shOption == 3">AND id LIKE CONCAT('%',#{shValue},'%')</when>
+				<when test="shOption == 4">AND password LIKE CONCAT('%',#{shValue},'%')</when>
 			</choose>
 	</sql>
 	

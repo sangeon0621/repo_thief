@@ -546,57 +546,57 @@
                                         </div>
                                         <div class="row" style="padding: 20px;">
                                         <div class="col-sm-2 col-2">
-                                            <select name="shDelNy" class="form-select" aria-label="Default select example">
-                                                <option value="">삭제여부</option>
-                                                <option value="1">Y</option>
-                                                <option value="0">N</option>
+                                            <select id="shDelNy" name="shDelNy" class="form-select" aria-label="Default select example">
+                                                <option value="" th:selected="${vo.shDelNy == null}">삭제여부</option>
+                                                <option value="1" th:selected="${vo.shDelNy == 1}">Y</option>
+                                                <option value="0" th:selected="${vo.shDelNy == 0}">N</option>
                                             </select>
                                         </div>
                                         <div class="col-sm-2 col-2">
-                                            <select name="shUseNy" class="form-select" aria-label="Default select example">
-                                                <option value="">사용여부</option>
-                                                <option value="1">Y</option>
-                                                <option value="0">N</option>
+                                            <select id="shUseNy" name="shUseNy" class="form-select" aria-label="Default select example">
+                                                <option value="" th:selected="${vo.shUseNy == null}">사용여부</option>
+                                                <option value="1" th:selected="${vo.shUseNy == 1}">Y</option>
+                                                <option value="0" th:selected="${vo.shUseNy == 0}">N</option>
                                             </select>
                                         </div>
                                         <div class="col-sm-2 col-2">
-                                            <select name="shOptionDate" class="form-select" aria-label="Default select example">
-                                                <option value="">날짜</option>
-                                                <option value="1">등록일</option>
-                                                <option value="2">수정일</option>
+                                            <select id="shOptionDate" name="shOptionDate" class="form-select" aria-label="Default select example">
+                                                <option value="" th:selected="${vo.shOptionDate == null}">날짜</option>
+                                                <option value="1" th:selected="${vo.shOptionDate == 1}">등록일</option>
+                                                <option value="2" th:selected="${vo.shOptionDate == 2}">수정일</option>
                                             </select>
                                         </div>
                                         <div class="col-sm-2 col-2">
                                             <div class="input-group">
-                                                <input type="text" id="shDateStart" name="shDateStart" class="form-control" autocomplete="off">
+                                                <input type="text" id="shDateStart" name="shDateStart" th:value="${vo.shDateStart}" class="form-control" autocomplete="off">
                                             </div>
                                         </div>
                                         <div class="col-sm-2 col-2">
                                             <div class="input-group">
-                                                <input type="text" id="shDateEnd" name="shDateEnd" class="form-control" autocomplete="off">
+                                                <input type="text" id="shDateEnd" name="shDateEnd" th:value="${vo.shDateEnd}" class="form-control" autocomplete="off">
                                             </div>
                                         </div>
                                         </div>
                                         <div class="row" style="padding: 20px;">
                                         <div class="col-sm-2 col-2">
                                             <select name="shOption" class="form-select" aria-label="Default select example">
-                                                <option value="">검색구분</option>
-                                                <option value="1">코드</option>
-                                                <option value="2">코드 이름</option>
-                                                <option value="3">코드그룹 코드</option>
-                                                <option value="4">코드그룹 이름</option>
+                                                <option value="" th:selected="${vo.shOption == null}">검색구분</option>
+                                                <option value="1" th:selected="${vo.shOption == 1}">코드</option>
+                                                <option value="2" th:selected="${vo.shOption == 2}">코드 이름</option>
+                                                <option value="3" th:selected="${vo.shOption == 3}">코드그룹 코드</option>
+                                                <option value="4" th:selected="${vo.shOption == 4}">코드그룹 이름</option>
                                             </select>
                                         </div>
                                         <div class="col-sm-2 col-2">
                                             <div class="input-group">
-                                                <input name="shValue" type="text" class="form-control" placeholder="Search" autocomplete="off">
+                                                <input id="shValue" name="shValue" th:value="${vo.shValue}" type="text" class="form-control" placeholder="Search" autocomplete="off">
                                             </div>
                                         </div>
                                         <div class="col-sm-2 col-2">
                                             <button type="submit" class="btn btn-secondary">
                                                 <i class="bi bi-search"></i>
                                             </button>
-                                            <button type="button" class="btn btn-secondary">
+                                            <button id="btnreset" type="button" class="btn btn-secondary">
                                                 <i class="bi bi-arrow-clockwise"></i>
                                             </button>
                                         </div>
@@ -604,11 +604,13 @@
                                         <div class="row">
                                         <div class="col-sm-10 col-10" style="padding: 20px;"><h4 th:text="'Total:' + ${vo.totalRows}"></h4></div>
                                         <div class="col-sm-2 col-2">
-                                            <select class="form-select" aria-label="Default select example">
-                                                <option selected>5</option>
-                                                <option value="1">10</option>
-                                                <option value="2">25</option>
-                                                <option value="3">50</option>
+                                            <select class="form-select"  id="changeRowNum" name="changeRowNum">
+                                                <option value="5" th:selected="${vo.rowNumToShow eq 5}">5</option>
+                                                <option value="10"  th:selected="${vo.rowNumToShow eq 10}">10</option>
+                                                <option value="30"  th:selected="${vo.rowNumToShow eq 30}">30</option>
+                                                <option value="50"  th:selected="${vo.rowNumToShow eq 50}">50</option>
+                                                <option value="80"  th:selected="${vo.rowNumToShow eq 80}">80</option>
+                                                <option value="100"  th:selected="${vo.rowNumToShow eq 100}">100</option>
                                             </select>
                                         </div>
                                     </div>
@@ -796,6 +798,18 @@
 			    document.querySelector("input[name=thisPage]").value = thisPage;
 			    document.querySelector("form[name=form]").action = "/v1/infra/code/codeXdmList";
 			    document.querySelector("form[name=form]").submit();
+			}
+			
+			document.getElementById("changeRowNum").onchange = function () {
+			    document.getElementById("rowNumToShow").value = document.getElementById("changeRowNum").value;
+			    form.action = "/v1/infra/code/codeXdmList";
+			    form.submit();
+			}
+			
+			document.getElementById("btnreset").onclick = function () {
+				let form = document.querySelector("form[name=form]")
+				form.action ="/v1/infra/code/codeXdmDele";
+				form.submit();
 			}
 		</script>
 
