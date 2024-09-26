@@ -71,6 +71,9 @@
 		    ,0
 		    ,#{ifcgSeq}
 		)
+		<selectKey resultType="String" keyProperty="ifcdSeq" order="AFTER">
+				SELECT last_insert_id()
+		 </selectKey>
 	  </insert>
 	  
 	  <select id="selectOne" resultMap="resultObj2">
@@ -128,5 +131,17 @@
 	  	where 1=1
 	  		and ifcdSeq = #{ifcdSeq}
 	</delete>	  
+	
+	<select id="selectListCachedCodeArrayList" resultMap="resultObj2">
+		SELECT 
+			ifcdSeq
+			, ifcdName
+			, codegroup_ifcgSeq
+		FROM
+			code
+		WHERE 1=1
+			AND ifcdDelNy = 0
+		    AND ifcdUseNy = 1
+   </select>
 	  
 </mapper>

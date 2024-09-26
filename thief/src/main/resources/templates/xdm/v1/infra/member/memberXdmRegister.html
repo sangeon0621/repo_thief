@@ -91,10 +91,10 @@
 						<input type="text" name="birthday" class="form-control" autocomplete="off">
 					</div>
 					<div class="mb-3">
-						<label for="validationCustom04" class="form-label">성별<font color ="red">*</font></label>
+						<label for="gender" class="form-label">성별<font color ="red">*</font></label>
 						<select name = "gender" class="form-select" id="validationCustom04" >
-							<option value ="1" th:selected = "${item?.gender == 1}">남자</option>
-							<option value ="2" th:selected = "${item?.gender == 2}">여자</option>
+							<option value="">선택하세요</option>
+							<option th:each="list : ${@codeService.selectListCachedCode(2)}" th:value="${list.ifcdSeq}" th:text="${list.ifcdName}" th:selected="${list.ifcdSeq} == ${item?.gender}"></option>
 						</select>
 					</div>
 					<div class="mb-3">

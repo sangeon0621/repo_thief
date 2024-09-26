@@ -81,6 +81,9 @@
 		    ,now()
 		    ,0
 		)
+		<selectKey resultType="String" keyProperty="seq" order="AFTER">
+				SELECT last_insert_id()
+		 </selectKey>
 	</insert>
 	  
 	<select id="selectOne2" resultMap="resultObj">

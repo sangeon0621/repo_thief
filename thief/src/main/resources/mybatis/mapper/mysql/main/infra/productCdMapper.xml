@@ -82,6 +82,9 @@
 		    ,0
 		    ,#{pdSeq}
 		)
+		<selectKey resultType="String" keyProperty="pddSeq" order="AFTER">
+				SELECT last_insert_id()
+		</selectKey>
 	  </insert>
 	  
 	  <select id="selectOne" resultMap="productObj">

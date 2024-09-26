@@ -647,7 +647,7 @@
                                                         	</tr>
                                                             <tr th:each = "list : ${list}" th:if = "${!#lists.isEmpty(list)}">
                                                             	<td><input type="checkbox"></td>
-                                                            	<td></td>
+                                                            	<td th:text="${vo.totalRows - ((vo.thisPage - 1) * vo.rowNumToShow + listStat.index)}" class="align-middle"></td>
                                                                 <td th:text = "${list.codegroup_ifcgSeq}"></td>
                                                                 <td th:text = "${list.ifcgName}"></td>
                                                                 <td th:text="${list.ifcdSeq}"></td>

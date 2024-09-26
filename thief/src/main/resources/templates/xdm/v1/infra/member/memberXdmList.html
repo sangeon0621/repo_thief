@@ -651,7 +651,7 @@
                                                         	</tr>
                                                             <tr th:each = "list : ${list}" th:if = "${!#lists.isEmpty(list)}">
                                                             	<td><input type="checkbox"></td>
-                                                            	<td></td>
+                                                            	<td th:text="${vo.totalRows - ((vo.thisPage - 1) * vo.rowNumToShow + listStat.index)}" class="align-middle"></td>
                                                                 <td th:text = "${list.seq}"></td>
                                                                 <td><a th:href = "@{/v1/infra/member/memberXdmMForm(seq= ${list.seq})}" th:text = "${list.name}"></a></td>
                                                                 <td th:text="${list.nickName}"></td>
@@ -660,7 +660,8 @@
                                                                 <td th:text="${list.email}"></td>
                                                                 <td th:text="${list.birthday}"></td>
                                                                 <td th:text="${list.telephone}"></td>
-                                                                <td th:text="${list.gender}"></td>
+                                                                <td th:if="${list.gender != null}" th:text="${@codeService.selectOneCachedCode(list.gender)}" class="gender align-middle"></td>
+                                                                <td th:unless="${list.gender != null}" class="gender align-middle"></td>
 <!--                                                                 <td th:text = "${list.ifcgOrder}"></td> "/xdm/v1/infra/codegroup/codeGroupXdmMForm?ifcgSeq=1" -->
 <!--                                                                 <td th:text = "${list.ifDesc}"></td> -->
 <!--                                                                 <td th:text="${list.count}"></td> -->

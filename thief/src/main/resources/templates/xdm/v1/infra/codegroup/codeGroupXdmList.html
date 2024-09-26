@@ -642,7 +642,7 @@
                                                         	</tr>
                                                             <tr th:each = "list : ${list}" th:if = "${!#lists.isEmpty(list)}">
                                                             	<td><input type="checkbox"></td>
-                                                            	<td></td>
+                                                            	<td th:text="${vo.totalRows - ((vo.thisPage - 1) * vo.rowNumToShow + listStat.index)}" class="align-middle"></td>
                                                                 <td th:text = "${list.ifcgSeq}"></td>
                                                                 <td><a th:href = "@{/v1/infra/codegroup/codeGroupXdmMForm(ifcgSeq= ${list.ifcgSeq})}" th:text = "${list.ifcgName}"></a></td>
 <!--                                                                 <td th:text = "${list.ifcgOrder}"></td> "/xdm/v1/infra/codegroup/codeGroupXdmMForm?ifcgSeq=1" -->

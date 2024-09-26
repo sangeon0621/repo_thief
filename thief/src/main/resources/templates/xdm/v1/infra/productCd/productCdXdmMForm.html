@@ -525,35 +525,24 @@
 									</div>
 								</div>
 								<div class="card-body">
-<!-- 									<div class="row"> -->
-<!-- 										<div class="col-sm-3 col-3"> -->
-<!-- 											<div class="was-validated"> -->
-<!-- 												<label for="validationCustom04" class="form-label">코드 그룹<font color ="red">*</font></label> -->
-<!-- 												<select class="form-select" id="validationCustom04" > -->
-<!-- 													<option selected="" disabled="" value="">선택하세요</option> -->
-<!-- 													<option>167</option> -->
-<!-- 												</select> -->
-<!-- 												<div class="invalid-feedback">코드그룹을 선택하세요</div> -->
-<!-- 											</div> -->
-<!-- 										</div> -->
-<!-- 									</div> -->
 									<div class="row">
-<!-- 										<div class="col-sm-3 col-3"> -->
-<!-- 											<label for="validationCustom04" class="form-label">코드그룹 코드<font color ="red">*</font></label> -->
-<!-- 											<select name = "ifcgSeq" class="form-select" id="validationCustom04" > -->
-<!-- 												<option value ="">선택하세요</option> -->
-<!-- 												<option th:each="item : ${listCodeGroup}" th:value="${item.ifcgName}" th:text="${item.ifcgName}">미사용</option> -->
-<!-- 											</select> -->
-<!-- 										</div> -->
 										<div class="col-sm-3 col-3">
-											<label for="validationCustom01" class="form-label">코드<font color ="red">*</font></label>
+											<label for="validationCustom01" class="form-label">상품코드<font color ="red">*</font></label>
 											<input readonly type="text" name = "pddSeq" th:value="${item.pddSeq}" class="form-control" id="validationCustom01" >
+										</div>
+										<div class="col-sm-3 col-3">
+											<label for="validationCustom01" class="form-label">상품이름<font color ="red">*</font></label>
+											<input readonly type="text" name = "pddName" th:value="${item.pddName}" class="form-control" id="validationCustom01" autocomplete="off" >
+										</div>
+										<div class="col-sm-3 col-3">
+											<label for="validationCustom01" class="form-label">상품가격<font color ="red">*</font></label>
+											<input readonly type="text" name = "pddPrice" th:value="${item.pddPrice}" class="form-control" id="validationCustom01" >
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-sm-3 col-3">
-											<label for="validationCustom01" class="form-label">코드이름<font color ="red">*</font></label>
-											<input readonly type="text" name = "pddName" th:value="${item.pddName}" class="form-control" id="validationCustom01" autocomplete="off" >
+											<label for="validationCustom01" class="form-label">상품수량<font color ="red">*</font></label>
+											<input readonly type="text" name = "pddCount" th:value="${item.pddCount}" class="form-control" id="validationCustom01" >
 										</div>
 										<div class="col-sm-3 col-3">
 											<label for="validationCustom01" class="form-label">순서<font color ="red">*</font></label>
