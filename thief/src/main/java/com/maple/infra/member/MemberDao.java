@@ -10,6 +10,10 @@ import com.maple.infra.code.CodeVo;
 @Repository
 public interface MemberDao {
 	
+	public MemberDto selectoneId(MemberDto memberDto);
+	
+	public MemberDto selectOneLogin(MemberDto memberDto);
+	
 	public int selectOneCount(MemberVo vo);
 	
 	public List<MemberDto> selectList3(MemberVo vo);

@@ -1,0 +1,11 @@
+.validation-note {
+	visibility: hidden;
+}
+
+.invalid-form input:invalid {
+	border: 1px solid red;
+}
+
+.invalid-form input:invalid + .validation-note {
+	visibility: viaible;
+}

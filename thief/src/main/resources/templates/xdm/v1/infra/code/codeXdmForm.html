@@ -33,6 +33,8 @@
 
 		<!-- Main css -->
 		<link rel="stylesheet" href="/xdm/v1/template/vivo copy/assets/css/main.min.css">
+		
+		<link rel="stylesheet" href="/xdm/v1/template/vivo copy/assets/css/variables.css">
 
 
 		<!-- *************
@@ -548,8 +550,11 @@
 									</div>
 									<div class="row">
 										<div class="col-sm-3 col-3">
-											<label for="validationCustom01" class="form-label">코드이름<font color ="red">*</font></label>
-											<input type="text" id="ifcdName" name = "ifcdName" class="form-control" autocomplete="off" >
+											<div class = ifcdNameDiv>
+												<label for="ifcdName" class="form-label">코드이름<font color ="red">*</font></label>
+												<input type="text" id="ifcdName" name = "ifcdName" class="form-control" autocomplete="off" required="">
+												<div id="ifcdNameError" class="text-danger" style="display: none;">이름을 입력해 주세요.</div>
+											</div>
 										</div>
 										<div class="col-sm-3 col-3">
 											<label for="validationCustom04" class="form-label">사용 여부<font color ="red">*</font></label>
@@ -643,16 +648,32 @@
 		    } else {
 //	 			by pass
 		    }
-		    var ifcdName = document.getElementById("ifcdName");
-		    var ifcdNameValue = document.getElementById("ifcdName").value.trim();
-			
-		    if (ifcdNameValue == "" || ifcdNameValue == null) {
-				alert("이름을 입력해 주세요");
+			const ifcdName =document.getElementById("ifcdName");
+		    const ifcdNameValue = document.getElementById("ifcdName").value.trim();
+		    const ifcdNameError = document.getElementById("ifcdNameError");
+		    const ifcdNameDiv = document.getElementById("ifcdNameDiv");
+		
+		    var ifcdNameRegExp = /^[ㄱ-ㅎ가-힣A-Za-z0-9]+$/;
+			if (!ifcdNameRegExp.test(ifcdNameValue)) {
+				ifcdNameError.innerText = "이름은 한글, 영대소문자, 숫자만 입력해 주세요";
+				ifcdNameError.style.display="";
+				ifcdNameDiv.classList.add("was-validated");
 				ifcdName.focus();
 				return false;
 		    } else {
-	// 			by pass
+		    	ifcdNameError.remove();
 		    }
+// 		    var ifcdName = document.getElementById("ifcdName");
+// 		    var ifcdNameValue = document.getElementById("ifcdName").value.trim();
+			
+// 		    var ifcdNameRegExp = /^[ㄱ-ㅎ가-힣A-Za-z0-9]+$/;
+// 		    if(!ifcdNameRegExp.test(ifcdNameValue)){
+// 				alert("이름은 한글, 영대소문자, 숫자만 입력해 주세요");
+// 				ifcdName.focus();
+// 				return false;
+// 		    } else {
+// //	 	    	by pass
+// 		    }
 		    
 		    
 		    var ifcdUseNy = document.getElementById("ifcdUseNy");
@@ -670,6 +691,8 @@
 			form.submit();
 		 
 	}
+		
+		
 		</script>
 
 		<!-- <div class="was-validated">

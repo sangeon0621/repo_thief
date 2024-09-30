@@ -29,6 +29,14 @@ public class MemberService {
 		return memberDao.selectOne2(memberDto);
 	}
 	
+	public MemberDto selectOneId(MemberDto memberDto) {
+		return memberDao.selectOne2(memberDto);
+	}
+	
+	public MemberDto selectOneLogin(MemberDto memberDto) {
+		return memberDao.selectOne2(memberDto);
+	}
+	
 	public int update2(MemberDto memberDto) {
 		return memberDao.update2(memberDto);
 	}

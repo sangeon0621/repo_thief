@@ -106,6 +106,28 @@
 		where 1=1
 			AND a.seq = #{seq}
 	</select>
+	
+	<select id="selectOneId" resultMap="resultObj">
+		select
+			a.seq
+		    ,a.id
+		from
+			member a
+		where 1=1
+			AND a.seq = #{seq}
+	</select>
+	
+	<select id="selectOneLogin" resultMap="resultObj">
+		select
+			a.seq
+			,a.name
+		    ,a.id
+		    ,a.password
+		from
+			member a
+		where 1=1
+			AND a.seq = #{seq}
+	</select>
 	  
 	<update id="update2">
 		update member
