@@ -125,8 +125,7 @@
 		    ,a.password
 		from
 			member a
-		where 1=1
-			AND a.seq = #{seq}
+		where a.id= #{id} and password = #{password}
 	</select>
 	  
 	<update id="update2">

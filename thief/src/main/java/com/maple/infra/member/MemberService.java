@@ -34,7 +34,7 @@ public class MemberService {
 	}
 	
 	public MemberDto selectOneLogin(MemberDto memberDto) {
-		return memberDao.selectOne2(memberDto);
+		return memberDao.selectOneLogin(memberDto);
 	}
 	
 	public int update2(MemberDto memberDto) {

@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.maple.common.util.UtilDateTime;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 public class CodeController {
 
@@ -16,13 +18,14 @@ public class CodeController {
 	CodeService codeService;
 	
 	@RequestMapping(value = "/v1/infra/code/codeXdmList")
-	public String codeXdmList(@ModelAttribute("vo") CodeVo vo, Model model) {
+	public String codeXdmList(@ModelAttribute("vo") CodeVo vo, Model model, HttpSession httpSession) {
 		vo.setShDateStart(vo.getShDateStart() == null || vo.getShDateStart() == "" ? null : UtilDateTime.add00TimeString(vo.getShDateStart()));
 		vo.setShDateEnd(vo.getShDateEnd() == null || vo.getShDateEnd() == "" ? null : UtilDateTime.add59TimeString(vo.getShDateEnd()));
 //		vo.setShDateStart(vo.getShDateStart() + "00:00:00");
 //		vo.setShDateEnd(vo.getShDateEnd() + "00:00:00");
 		
 		vo.setParamsPaging(codeService.selectOneCount(vo));
+		
 		
 		if (vo.getTotalRows() > 0) {
 			model.addAttribute("list", codeService.selectList2(vo));

@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.maple.common.util.UtilDateTime;
 
+import jakarta.servlet.http.HttpSession;
+
 
 @Controller
 public class CodeGroupController {
@@ -17,11 +19,14 @@ public class CodeGroupController {
 	CodeGroupService codeGroupService;
 	
 	@RequestMapping(value = "/v1/infra/codegroup/codeGroupXdmList")
-	public String codeGroupXdmList(@ModelAttribute("vo") CodeGroupVo vo, Model model) {
+	public String codeGroupXdmList(@ModelAttribute("vo") CodeGroupVo vo, Model model, HttpSession httpSession) {
 		vo.setShDateStart(vo.getShDateStart() == null || vo.getShDateStart() == "" ? null : UtilDateTime.add00TimeString(vo.getShDateStart()));
 		vo.setShDateEnd(vo.getShDateEnd() == null || vo.getShDateEnd() == "" ? null : UtilDateTime.add59TimeString(vo.getShDateEnd()));
 //		vo.setShDateStart(vo.getShDateStart()+ " 00:00:00");
 //		vo.setShDateEnd(vo.getShDateEnd()+ " 23:59:59");
+		System.out.println("sessSeqXdm: " + httpSession.getAttribute("sessSeqXdm"));
+		System.out.println("sessIdXdm: " + httpSession.getAttribute("sessIdXdm"));
+		System.out.println("sessNameXdm: " + httpSession.getAttribute("sessNameXdm"));
 		
 		vo.setParamsPaging(codeGroupService.selectOneCount(vo));
 		

@@ -460,31 +460,12 @@
 						<ul class="header-actions">
 							<li class="dropdown d-none d-md-block">
 								<a href="#" id="countries" data-toggle="dropdown" aria-haspopup="true">
-									<img src="/xdm/v1/template/vivo copy/assets/images/flags/1x1/gb.svg" class="flag-img" alt="AI Admin Dashboards" />
+									<img src="/xdm/v1/template/vivo copy/assets/images/flags/1x1/kr.svg" class="flag-img" alt="AI Admin Dashboards" />
 								</a>
-								<div class="dropdown-menu dropdown-menu-end mini" aria-labelledby="countries">
-									<div class="country-container">
-										<a href="index.html">
-											<img src="/xdm/v1/template/vivo copy/assets/images/flags/1x1/us.svg" alt="Clean Admin Dashboards" />
-										</a>
-										<a href="index.html">
-											<img src="/xdm/v1/template/vivo copy/assets/images/flags/1x1/in.svg" alt="Google Dashboards" />
-										</a>
-										<a href="index.html">
-											<img src="/xdm/v1/template/vivo copy/assets/images/flags/1x1/br.svg" alt="Admin Panels" />
-										</a>
-										<a href="index.html">
-											<img src="assets/images/flags/1x1/tr.svg" alt="Modern Dashboards" />
-										</a>
-										<a href="index.html">
-											<img src="/xdm/v1/template/vivo copy/assets/images/flags/1x1/ca.svg" alt="Best Admin Dashboards" />
-										</a>
-									</div>
-								</div>
 							</li>
 							<li class="dropdown">
 								<a href="#" id="userSettings" class="user-settings" data-toggle="dropdown" aria-haspopup="true">
-									<span class="user-name d-none d-md-block">Admin</span>
+									<span class="user-name d-none d-md-block" th:text="${session.sessNameXdm}"></span>
 									<span class="avatar">
 										<img src="/xdm/v1/template/vivo copy/assets/images/user.png" alt="Admin Templates">
 										<span class="status online"></span>
@@ -492,9 +473,9 @@
 								</a>
 								<div class="dropdown-menu dropdown-menu-end" aria-labelledby="userSettings">
 									<div class="header-profile-actions">
-										<a href="/xdm/v1/template/vivo copy/profile.html">Profile</a>
-										<a href="/xdm/v1/template/vivo copy/account-settings.html">Settings</a>
-										<a href="/xdm/v1/template/vivo copy/login.html">Logout</a>
+										<a href="/xdm/v1/template/vivo copy/profile.html">프로필</a>
+										<a href="/xdm/v1/template/vivo copy/account-settings.html">설정</a>
+										<a href="/xdm/v1/template/vivo copy/login.html">로그아웃</a>
 									</div>
 								</div>
 							</li>

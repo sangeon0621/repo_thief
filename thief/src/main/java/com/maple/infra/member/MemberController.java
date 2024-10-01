@@ -80,8 +80,7 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="/xdmLogin")
-	public String xdmLogin(MemberDto memberDto) {
-		memberService.selectOneLogin(memberDto);
+	public String xdmLogin() {
 		return "/xdm/v1/infra/xdmlogin/xdmLogin";
 	}
 	
@@ -95,12 +94,11 @@ public class MemberController {
 	@RequestMapping(value = "/v1/infra/member/signinXdmProc")
 	public Map<String, Object> signinXdmProc(MemberDto memberDto, HttpSession httpSession) throws Exception {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
-
 //		MemberDto rtMember = memberService.selectOneId(memberDto);
 
-		memberService.selectOneLogin(memberDto);
+		MemberDto rtMember2 = memberService.selectOneLogin(memberDto);
 
-//			if (rtMember2 != null) {
+			if (rtMember2 != null) {
 				
 //				if(dto.getAutoLogin() == true) {
 //					UtilCookie.createCookie(
@@ -113,28 +111,37 @@ public class MemberController {
 //					// by pass
 //				}
 
-//				httpSession.setMaxInactiveInterval(60 * Constants.SESSION_MINUTE_XDM); // 60second * 30 = 30minute
-//				httpSession.setAttribute("sessSeqXdm", rtMember2.getSeq());
-//				httpSession.setAttribute("sessIdXdm", rtMember2.getId());
-//				httpSession.setAttribute("sessNameXdm", rtMember2.getName());
+				httpSession.setMaxInactiveInterval(60 * 30); // 60second * 30 = 30minute
+				httpSession.setAttribute("sessSeqXdm", rtMember2.getSeq());
+				httpSession.setAttribute("sessIdXdm", rtMember2.getId());
+				httpSession.setAttribute("sessNameXdm", rtMember2.getName());
 //
 //				rtMember2.setIfmmSocialLoginCd(103);
 //				rtMember2.setIflgResultNy(1);
 //				memberService.insertLogLogin(rtMember2);
 
-//				returnMap.put("rt", "success");
-//			} else {
+				returnMap.put("rt", "success");
+			} else {
 //				memberDto.setIfmmSocialLoginCd(103);
 //				memberDto.setIfmmSeq(rtMember.getIfmmSeq());
 //				memberDto.setIflgResultNy(0);
 //				memberService.insertLogLogin(memberDto);
-
-//				returnMap.put("rt", "fail");
-//			}
+				returnMap.put("rt", "fail");
+			}
 //			memberDto.setIfmmSocialLoginCd(103);
 //			memberDto.setIflgResultNy(0);
 //			memberService.insertLogLogin(memberDto);
 
 		return returnMap;
 	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/signoutXdmProc")
+	public Map<String, Object> signoutXdmProc(HttpSession httpSession) throws Exception {
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+		httpSession.invalidate();
+		returnMap.put("rt", "success");
+		return returnMap;
+	}
+
 }

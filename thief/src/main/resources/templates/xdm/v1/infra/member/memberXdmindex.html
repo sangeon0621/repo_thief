@@ -294,7 +294,7 @@
 								</div>
 							</li>
 							<li class="sidebar-dropdown">
-								<a href="#">
+								<a href="/v1/infra/member/memberXdmList">
 									<i class="bi bi-window-split"></i>
 									<span class="menu-text">Tables</span>
 								</a>
@@ -449,31 +449,12 @@
 						<ul class="header-actions">
 							<li class="dropdown d-none d-md-block">
 								<a href="#" id="countries" data-toggle="dropdown" aria-haspopup="true">
-									<img src="/xdm/v1/template/vivo copy/assets/images/flags/1x1/br.svg" class="flag-img" alt="Admin Panels" />
+									<img src="/xdm/v1/template/vivo copy/assets/images/flags/1x1/kr.svg" class="flag-img" alt="Admin Panels" />
 								</a>
-								<div class="dropdown-menu dropdown-menu-end mini" aria-labelledby="countries">
-									<div class="country-container">
-										<a href="index.html">
-											<img src="/xdm/v1/template/vivo copy/assets/images/flags/1x1/us.svg" alt="Clean Admin Dashboards" />
-										</a>
-										<a href="index.html">
-											<img src="/xdm/v1/template/vivo copy/assets/images/flags/1x1/in.svg" alt="Google Dashboards" />
-										</a>
-										<a href="index.html">
-											<img src="/xdm/v1/template/vivo copy/assets/images/flags/1x1/gb.svg" alt="AI Admin Dashboards" />
-										</a>
-										<a href="index.html">
-											<img src="/xdm/v1/template/vivo copy/assets/images/flags/1x1/tr.svg" alt="Modern Dashboards" />
-										</a>
-										<a href="index.html">
-											<img src="/xdm/v1/template/vivo copy/assets/images/flags/1x1/ca.svg" alt="Best Admin Dashboards" />
-										</a>
-									</div>
-								</div>
 							</li>
 							<li class="dropdown">
 								<a href="#" id="userSettings" class="user-settings" data-toggle="dropdown" aria-haspopup="true">
-									<span class="user-name d-none d-md-block">Abigale Heaney</span>
+									<span class="user-name d-none d-md-block" th:text="${session.sessNameXdm}"></span>
 									<span class="avatar">
 										<img src="/xdm/v1/template/vivo copy/assets/images/user.png" alt="Admin Templates">
 										<span class="status online"></span>
@@ -481,9 +462,9 @@
 								</a>
 								<div class="dropdown-menu dropdown-menu-end" aria-labelledby="userSettings">
 									<div class="header-profile-actions">
-										<a href="profile.html">Profile</a>
-										<a href="account-settings.html">Settings</a>
-										<a href="login.html">Logout</a>
+										<a href="profile.html">프로필</a>
+										<a href="account-settings.html">설정</a>
+										<button id="btnLogout" type="button" class="btn">로그아웃</button>
 									</div>
 								</div>
 							</li>
@@ -551,21 +532,21 @@
 										<div class="row">
 											<div class="col-sm-4 col-12">
 												<div class="info-stats">
-													<img src="assets/images/flags/1x1/us.svg" class="stats-icon" alt="Clean Dashboards" />
+													<img src="/xdm/v1/template/vivo copy/assets/images/flags/1x1/us.svg" class="stats-icon" alt="Clean Dashboards" />
 													<h5>America</h5>
 													<h3>$9200</h3>
 												</div>
 											</div>
 											<div class="col-sm-4 col-12">
 												<div class="info-stats">
-													<img src="assets/images/flags/1x1/br.svg" class="stats-icon" alt="Admin Panels" />
+													<img src="/xdm/v1/template/vivo copy/assets/images/flags/1x1/br.svg" class="stats-icon" alt="Admin Panels" />
 													<h5>Brazil</h5>
 													<h3>$6700</h3>
 												</div>
 											</div>
 											<div class="col-sm-4 col-12">
 												<div class="info-stats">
-													<img src="assets/images/flags/1x1/gb.svg" class="stats-icon" alt="Admin Panels" />
+													<img src="/xdm/v1/template/vivo copy/assets/images/flags/1x1/gb.svg" class="stats-icon" alt="Admin Panels" />
 													<h5>Great Britain</h5>
 													<h3>$5800</h3>
 												</div>
@@ -930,6 +911,23 @@
 
 		<!-- Main Js Required -->
 		<script src="/xdm/v1/template/vivo copy/assets/js/main.js"></script>
+		
+		<script type="text/javascript">
+		document.getElementById("btnLogout").onclick = function (){
+			$.ajax({
+				async: true 
+				,cache: false
+				,type: "post"
+				,url: "/signoutXdmProc"
+				,success: function(response) {
+					location.href = "/memberXdmindex";
+				}
+				,error : function(jqXHR, textStatus, errorThrown){
+					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+				}
+			});	
+		}
+		</script>
 
 	</body>
 
