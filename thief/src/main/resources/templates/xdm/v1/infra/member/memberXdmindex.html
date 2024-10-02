@@ -920,7 +920,12 @@
 				,type: "post"
 				,url: "/signoutXdmProc"
 				,success: function(response) {
-					location.href = "/memberXdmindex";
+					if(response.rt =="success") {
+					location.href = "/xdmLogin";
+						
+					} else {
+						
+					}
 				}
 				,error : function(jqXHR, textStatus, errorThrown){
 					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
