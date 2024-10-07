@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.maple.infra.usrui.UsrDao">
+
+	<resultMap type="com.maple.infra.usrui.UsrDto" id="resultObj"></resultMap>
+	
+	<sql id="selectCommon">
+		from
+			usrmember a
+		where 1=1
+			<if test="shDelNy != null and !shDelNy.equals('')">AND umDelNy = #{shDelNy}</if>
+			<if test="shGender != null and !shGender.equals('')">AND umGender = #{shGender}</if>
+			
+			<choose>
+				<when test="shOptionDate == 1">AND a.umDatetime BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+				<when test="shOptionDate == 2">AND a.umDatetimeSvr BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+			</choose>
+			
+			<choose>
+				<when test="shOption == 1">AND umSeq = #{shValue}</when>
+				<when test="shOption == 2">AND umName LIKE CONCAT('%',#{shValue},'%')</when>
+				<when test="shOption == 3">AND umId LIKE CONCAT('%',#{shValue},'%')</when>
+				<when test="shOption == 4">AND umPassword LIKE CONCAT('%',#{shValue},'%')</when>
+			</choose>
+	</sql>
+	
+	<select id="selectOneCount">
+		select count(*)
+		<include refid="selectCommon"></include>
+	</select>
+	
+	<select id = "selectList" resultMap = "resultObj">
+		select aa.* from (
+			select
+				a.umSeq
+				,a.umName
+			    ,a.umNickName
+			    ,a.umId
+			    ,a.umPassword
+			    ,a.umCheckingpassword
+			    ,a.umEmail
+			    ,a.umBirthday
+			    ,a.umGender
+			    ,a.umTelephone
+			    ,a.umDatetime
+			    ,a.umDatetimeSvr
+			    ,a.umDelNy
+			<include refid="selectCommon"></include>
+			order by
+				a.umSeq desc
+		) aa
+		limit #{rowNumToShow} offset #{startRnumForMysql}
+	</select>
+  	
+  	<insert id="insert">
+		insert into usrmember (
+			umName
+		    ,umNickName
+		    ,umId
+		    ,umPassword
+		    ,umCheckingpassword
+		    ,umEmail
+		    ,umBirthday
+		    ,umGender
+		    ,umTelephone
+		    ,umDatetime
+		    ,umDatetimeSvr
+		    ,umDelNy
+		) values (
+			#{umName}
+			,#{umNickName}
+		    ,#{umId}
+		    ,#{umPassword}
+		    ,#{umCheckingpassword}
+		    ,#{umEmail}
+		    ,#{umBirthday}
+		    ,#{umGender}
+		    ,#{umTelephone}
+		    ,now()
+		    ,now()
+		    ,0
+		)
+		<selectKey resultType="String" keyProperty="umSeq" order="AFTER">
+				SELECT last_insert_id()
+		 </selectKey>
+	</insert>
+	  
+	<select id="selectOne" resultMap="resultObj">
+		select
+			a.umSeq
+			,a.umName
+		    ,a.umNickName
+		    ,a.umId
+		    ,a.umPassword
+		    ,a.umCheckingpassword
+		    ,a.umEmail
+		    ,a.umBirthday
+		    ,a.umGender
+		    ,a.umTelephone
+		    ,a.umDatetime
+		    ,a.umDatetimeSvr
+		    ,a.umDelNy
+		from
+			usrmember a
+		where 1=1
+			AND a.umSeq = #{umSeq}
+	</select>
+	
+	<select id="selectOneId" resultMap="resultObj">
+		select
+			a.umSeq
+		    ,a.umId
+		from
+			usrmember a
+		where 1=1
+			AND a.umSeq = #{umSeq}
+	</select>
+	
+	<select id="selectOneLogin" resultMap="resultObj">
+		select
+			a.umSeq
+			,a.umName
+		    ,a.umId
+		    ,a.umPassword
+		from
+			usrmember a
+		where a.umId= #{umId} and umPassword = #{umPassword}
+	</select>
+	  
+	<update id="update">
+		update usrmember
+	  	set
+			umName = #{umName}
+		    ,umNickName = #{umNickName}
+		    ,umId = #{umId}
+		    ,umPassword = #{umPassword}
+		    ,umCheckingpassword = #{umCheckingpassword}
+		    ,umEmail = #{umEmail}
+		    ,umBirthday = #{umBirthday}
+		    ,umGender = #{umGender}
+		    ,umTelephone = #{umTelephone}
+		    ,umDatetime = now()
+		    ,umDatetimeSvr = now()
+		    ,umDelNy = #{umDelNy}
+	  	where 1=1
+	  		and umSeq = #{umSeq}
+	</update>
+	  
+	<update id="uelete">
+		update usrmember
+	  	set
+	  		umDelNy = 1
+	  	where 1=1
+	  		and umSeq = #{umSeq}
+	</update>
+	  
+	<delete id="delete">
+		delete from usrmember
+	  	where 1=1
+	  		and umSeq = #{umSeq}
+	</delete>
+</mapper>

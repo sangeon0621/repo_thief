@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.maple.infra.code.CodeVo;
 
 
 @Repository

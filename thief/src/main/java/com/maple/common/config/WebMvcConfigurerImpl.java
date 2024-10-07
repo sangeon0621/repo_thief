@@ -9,17 +9,15 @@ public class WebMvcConfigurerImpl implements WebMvcConfigurer {
 	
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-		registry.addInterceptor(new CheckLoginSessionInterceptor())
+		registry.addInterceptor(new CheckLoginSessionInterceptor()) // 인터셉터 연결 
 //				.order(1)
-				.addPathPatterns("/*/*/*/*Xdm*")
-				.excludePathPatterns(
-//						"/resources/**",
-						"/usr/**",
-						"/xdm/**",
-						"/v1/infra/member/memberXdmRegister",
-						"/xdmLogin",
-						"/v1/infra/member/signinXdmProc"
-		);
-	}
+				.addPathPatterns("/v1/infra/**") // 인터셉터를 적용할 패턴 지정   
+				.excludePathPatterns( // 인터셉터에서 제외할 패턴 지정(예외 처리)
+   					    "/resources/**", 
+//						"/xdm/v1/**", // resources 하위 폴더
+						"/v1/infra/xdmlogin/xdmlogin", // 로그인 페이지 제외 
+						"/v1/infra/member/signinXdmProc" // 로그인 처리 페이지 제외 
+				);
+	}   
 	
 }
