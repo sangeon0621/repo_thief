@@ -8,7 +8,7 @@ public class MemberVo {
 	private Integer shUseNy;
 	private Integer shOption;
 	private String shValue;
-	private Integer shGender;
+	private Integer shAdmNy;
 	
 	private String shDateStart;
 	private String shDateEnd;
@@ -130,13 +130,6 @@ public class MemberVo {
 		this.shOptionDate = shOptionDate;
 	}
 
-	public Integer getShGender() {
-		return shGender;
-	}
-
-	public void setShGender(Integer shGender) {
-		this.shGender = shGender;
-	}
 
 	public int getThisPage() {
 		return thisPage;
@@ -200,6 +193,22 @@ public class MemberVo {
 
 	public void setStartRnumForMysql(int startRnumForMysql) {
 		this.startRnumForMysql = startRnumForMysql;
+	}
+
+	public Integer getShAdmNy() {
+		return shAdmNy;
+	}
+
+	public void setShAdmNy(Integer shAdmNy) {
+		this.shAdmNy = shAdmNy;
+	}
+
+	public int getChangeRowNum() {
+		return changeRowNum;
+	}
+
+	public void setChangeRowNum(int changeRowNum) {
+		this.changeRowNum = changeRowNum;
 	}
 	
 	

@@ -6,99 +6,107 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 public class UsrDto {
 
-	private String umSeq;
-	private String umName;
-	private String umNickName;
-	private String umId;
-	private String umPassword;
-	private String umCheckingpassword;
-	private String umEmail;
-	private String umBirthday;
-	private String umTelephone;
-	private Date umDatetime;
+	private String seq;
+	private String name;
+	private String nickName;
+	private String id;
+	private String password;
+	private String checkingpassword;
+	private String email;
+	private String birthday;
+	private String telephone;
+	private Date memberDatetime;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date umDatetimeSvr;
-	private Integer umGender;
-	private Integer umDelNy;
+	private Date memberDatetimeSvr;
+	private Integer gender;
+	private Integer admNy;
+	private Integer delNy;
 //	-----
-	public String getUmSeq() {
-		return umSeq;
+	public String getSeq() {
+		return seq;
 	}
-	public void setUmSeq(String umSeq) {
-		this.umSeq = umSeq;
+	public void setSeq(String seq) {
+		this.seq = seq;
 	}
-	public String getUmName() {
-		return umName;
+	public String getName() {
+		return name;
 	}
-	public void setUmName(String umName) {
-		this.umName = umName;
+	public void setName(String name) {
+		this.name = name;
 	}
-	public String getUmNickName() {
-		return umNickName;
+	public String getNickName() {
+		return nickName;
 	}
-	public void setUmNickName(String umNickName) {
-		this.umNickName = umNickName;
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
 	}
-	public String getUmId() {
-		return umId;
+	public String getId() {
+		return id;
 	}
-	public void setUmId(String umId) {
-		this.umId = umId;
+	public void setId(String id) {
+		this.id = id;
 	}
-	public String getUmPassword() {
-		return umPassword;
+	public String getPassword() {
+		return password;
 	}
-	public void setUmPassword(String umPassword) {
-		this.umPassword = umPassword;
+	public void setPassword(String password) {
+		this.password = password;
 	}
-	public String getUmCheckingpassword() {
-		return umCheckingpassword;
+	public String getCheckingpassword() {
+		return checkingpassword;
 	}
-	public void setUmCheckingpassword(String umCheckingpassword) {
-		this.umCheckingpassword = umCheckingpassword;
+	public void setCheckingpassword(String checkingpassword) {
+		this.checkingpassword = checkingpassword;
 	}
-	public String getUmEmail() {
-		return umEmail;
+	public String getEmail() {
+		return email;
 	}
-	public void setUmEmail(String umEmail) {
-		this.umEmail = umEmail;
+	public void setEmail(String email) {
+		this.email = email;
 	}
-	public String getUmBirthday() {
-		return umBirthday;
+	public String getBirthday() {
+		return birthday;
 	}
-	public void setUmBirthday(String umBirthday) {
-		this.umBirthday = umBirthday;
+	public void setBirthday(String birthday) {
+		this.birthday = birthday;
 	}
-	public String getUmTelephone() {
-		return umTelephone;
+	public String getTelephone() {
+		return telephone;
 	}
-	public void setUmTelephone(String umTelephone) {
-		this.umTelephone = umTelephone;
+	public void setTelephone(String telephone) {
+		this.telephone = telephone;
 	}
-	public Date getUmDatetime() {
-		return umDatetime;
+	public Date getMemberDatetime() {
+		return memberDatetime;
 	}
-	public void setUmDatetime(Date umDatetime) {
-		this.umDatetime = umDatetime;
+	public void setMemberDatetime(Date memberDatetime) {
+		this.memberDatetime = memberDatetime;
 	}
-	public Date getUmDatetimeSvr() {
-		return umDatetimeSvr;
+	public Date getMemberDatetimeSvr() {
+		return memberDatetimeSvr;
 	}
-	public void setUmDatetimeSvr(Date umDatetimeSvr) {
-		this.umDatetimeSvr = umDatetimeSvr;
+	public void setMemberDatetimeSvr(Date memberDatetimeSvr) {
+		this.memberDatetimeSvr = memberDatetimeSvr;
 	}
-	public Integer getUmGender() {
-		return umGender;
+	public Integer getGender() {
+		return gender;
 	}
-	public void setUmGender(Integer umGender) {
-		this.umGender = umGender;
+	public void setGender(Integer gender) {
+		this.gender = gender;
 	}
-	public Integer getUmDelNy() {
-		return umDelNy;
+	public Integer getAdmNy() {
+		return admNy;
 	}
-	public void setUmDelNy(Integer umDelNy) {
-		this.umDelNy = umDelNy;
+	public void setAdmNy(Integer admNy) {
+		this.admNy = admNy;
 	}
+	public Integer getDelNy() {
+		return delNy;
+	}
+	public void setDelNy(Integer delNy) {
+		this.delNy = delNy;
+	}
+	
 	
 	
 }

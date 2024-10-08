@@ -1,4 +1,4 @@
-<!doctype html>
+	<!doctype html>
 <html class="no-js" lang="ko">
 
 <head>
@@ -49,7 +49,7 @@
                                 <li><a href="#">Riyal (SAR) </a></li>
                                 <li><a href="#">Rupee (INR)  </a></li>
                                 <li><a href="#">Dirham (AED) </a></li>
-                                <li><a href="#">USD (AED) </a></li>
+                                <li><a href="#">USD </a></li>
                             </ul>
                         </div>
                     </div>
@@ -154,7 +154,7 @@
                                         </li>
                                         <li>
                                             <ul>
-                                                <li class="mega-menu-img"><a href="shop.html"><img src="/usr/v1/template/flone/assets/img/banner/banner-12.png" alt=""></a></li>
+                                                <li class="mega-menu-img"><a href="shop.html"><img src="assets/img/banner/banner-12.png" alt=""></a></li>
                                             </ul>
                                         </li>
                                     </ul>
@@ -207,7 +207,7 @@
                 <div class="mobile-menu">
                     <nav id="mobile-menu-active">
                         <ul class="menu-overflow">
-                            <li><a href="0_index.html">HOME</a>
+                            <li><a href="index.html">HOME</a>
                                 <ul>
                                     <li><a href="#">Demo Group 01</a>
                                         <ul>
@@ -256,7 +256,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li><a href="0_shop.html">Shop</a>
+                            <li><a href="shop.html">Shop</a>
                                 <ul>
                                     <li><a href="#">shop layout</a>
                                         <ul>
@@ -324,55 +324,43 @@
                 <li>
                     <a href="index.html">홈</a>
                 </li>
-                <li class="active">
-                    <a href="0_login.html">로그인</a>
-                </li>
-                <li class="active">
-                    <a href="0_register.html">회원가입</a>
-                </li>
+                <li class="active">구매 목록 </li>
             </ul>
         </div>
     </div>
 </div>
-<div class="login-register-area pt-100 pb-100">
+<div class="cart-main-area pt-90 pb-100">
     <div class="container">
+        <h3 class="cart-page-title">구매 목록</h3>
         <div class="row">
-            <div class="col-lg-7 col-md-12 ms-auto me-auto">
-                <div class="login-register-wrapper">
-                    <div class="login-register-tab-list nav">
-                        <a class="active" data-bs-toggle="tab" href="#lg1">
-                            <h4> 로그인 </h4>
-                        </a>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                <form action="#">
+                    <div class="table-content table-responsive cart-table-content">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>이미지</th>
+                                    <th>상품 이름</th>
+                                    <th>가격</th>
+                                    <th>수량</th>
+                                    <th>총 가격</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="product-thumbnail">
+                                        <a href="#"><img src="/usr/v1/template/flone/assets/img/slider/deeprock.png" alt=""></a>
+                                    </td>
+                                    <td class="product-name"><a href="#">Deep Rock Galactic<br>(딥 락 갤럭틱)</a></td>
+                                    <td class="product-price-cart"><span class="amount">&#8361; 10,230</span></td>
+                                    <td>2</td>
+                                    <td class="product-subtotal">&#8361; 20,460</td>
+                                    
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="tab-content">
-                        <div id="lg1" class="tab-pane active">
-                            <div class="login-form-container">
-                                <div class="login-register-form">
-                                    <form name="form" id="form" action="/v1/infra/member/signinUsrProc" method="post">
-                                        <div>
-											<label for="id" class="form-label"></label>
-											<input type="text" id="id" name="id" class="form-control" placeholder="아이디" autocomplete="off" required="">
-										</div>
-                                        <div>
-											<label for="password" class="form-label"></label>
-											<input type="password" id="password" name="password" class="form-control" placeholder="비밀번호" autocomplete="off">
-										</div>
-                                        <div class="button-box">
-                                            <div class="login-toggle-btn">
-                                                <input type="checkbox">
-                                                <label>로그인 정보 저장</label>
-                                                <a href="#">비밀번호 찾기</a>
-                                                <a href="#">아이디 찾기/</a>
-                                                <a href="0_register.html">회원가입/</a>
-                                            </div>
-                                            <button type="button" id="btnSubmit"><span>로그인</span></button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
@@ -435,7 +423,7 @@
                         <!-- Thumbnail Image End -->
                         <div class="quickview-wrap mt-15">
                             <div class="quickview-slide-active owl-carousel nav nav-style-1" role="tablist">
-                                <a class="active" data-bs-toggle="tab" href="#pro-1"><img src="/usr/v1/template/flone/assets/img/product/quickview-s1.jpg" alt=""></a>
+                                <a class="active" data-bs-toggle="tab" href="#pro-1"><img src="assets/img/product/quickview-s1.jpg" alt=""></a>
                                 <a data-bs-toggle="tab" href="#pro-2"><img src="/usr/v1/template/flone/assets/img/product/quickview-s2.jpg" alt=""></a>
                                 <a data-bs-toggle="tab" href="#pro-3"><img src="/usr/v1/template/flone/assets/img/product/quickview-s3.jpg" alt=""></a>
                                 <a data-bs-toggle="tab" href="#pro-4"><img src="/usr/v1/template/flone/assets/img/product/quickview-s2.jpg" alt=""></a>
@@ -563,54 +551,6 @@
 <script src="/usr/v1/template/flone/assets/js/ajax-mail.js"></script>
 <!-- Main JS -->
 <script src="/usr/v1/template/flone/assets/js/main.js"></script>
-
-<script type="text/javascript">
-		document.getElementById("btnSubmit").onclick = function (){
-// 			const umId = document.getElementById("umId");
-// 			const umIdValue = document.getElementById("umId").value.trim();
-// 			const umIdError = document.getElementById("umIdError");
-			
-// 			var idRegExp = /^[a-zA-Z][0-9a-zA-Z]{5,11}$/;
-// 			if(!umIdRegExp.test(umIdValue)){
-// 				umIdError.innerText = "아이디 입력해주세요.";
-// 				umIdError.style.display="";
-// 				umId.classList.add("is-invalid");
-// 				umId.classList.remove("is-valid");
-// 				umId.focus();
-// 				return false;
-// 		    } else {
-// 		    	umIdError.style.display = "none";
-// 		    	umId.classList.remove("is-invalid");
-// 		    	umId.classList.add("is-valid");
-// 		    }
-			
-			$.ajax({
-				async: true 
-				,cache: false
-				,type: "post"
-				/* ,dataType:"json" */
-				,url: "/signinUsrProc"
-				/* ,data : $("#formLogin").serialize() */
-				,data : { "id" : $("#id").val(), "password" : $("#password").val()}
-				,success: function(response) {
-					if(response.rt == "success") {
-						if(response.changePwd == "true") {
-							location.href = "/usrindex";
-						} else {
-							location.href = "/usrUi";
-						}
-					} else {
-				 		document.getElementById("verticallyCenteredLabel").innerText = "확 인";
-				 		document.getElementById("verticallyCenteredLabel2").innerText = "일치하는 회원이 존재 하지 않습니다!";
-				 		$("#verticallyCentered").modal("show");
-					}
-				}
-				,error : function(jqXHR, textStatus, errorThrown){
-					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
-				}
-			});	
-		}
-		</script>
 
 </body>
 

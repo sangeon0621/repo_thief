@@ -23,6 +23,11 @@ public class UsrUiController {
 		return "/usr/v1/infra/usrui/usrUi";
 	}
 	
+	@RequestMapping(value="/v1/infra/usrui/usrBuyList")
+	public String usrBuyList() {
+		return "/usr/v1/infra/usrui/usrBuyList";
+	}
+	
 	@RequestMapping(value="/usrLogin")
 	public String usrLogin() {
 		return "/usr/v1/infra/usrui/usrLogin";
@@ -43,7 +48,7 @@ public class UsrUiController {
 	
 	@ResponseBody
 	@RequestMapping(value = "/signinUsrProc")
-	public Map<String, Object> signinXdmProc(UsrDto usrDto, HttpSession httpSession) throws Exception {
+	public Map<String, Object> signinUsrProc(UsrDto usrDto, HttpSession httpSession) throws Exception {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 //		MemberDto rtMember = memberService.selectOneId(memberDto);
 
@@ -63,9 +68,9 @@ public class UsrUiController {
 //				}
 
 				httpSession.setMaxInactiveInterval(60 * 30); // 60second * 30 = 30minute
-				httpSession.setAttribute("sessSeqXdm", rtMember2.getUmSeq());
-				httpSession.setAttribute("sessIdXdm", rtMember2.getUmId());
-				httpSession.setAttribute("sessNameXdm", rtMember2.getUmName());
+				httpSession.setAttribute("sessSeqUsr", rtMember2.getSeq());
+				httpSession.setAttribute("sessIdUsr", rtMember2.getId());
+				httpSession.setAttribute("sessNameUsr", rtMember2.getName());
 //
 //				rtMember2.setIfmmSocialLoginCd(103);
 //				rtMember2.setIflgResultNy(1);
@@ -83,6 +88,15 @@ public class UsrUiController {
 //			memberDto.setIflgResultNy(0);
 //			memberService.insertLogLogin(memberDto);
 
+		return returnMap;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "signoutUsrProc")
+	public Map<String, Object> signoutUsrProc(HttpSession httpSession) throws Exception {
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+		httpSession.invalidate();
+		returnMap.put("rt", "success");
 		return returnMap;
 	}
 	

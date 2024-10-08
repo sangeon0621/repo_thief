@@ -350,52 +350,52 @@
                                 <div class="login-register-form">
                                     <form id="form" name="form" action="/usrInst" method="post">
                                         <div>
-                                            <label for="umName" class="form-label">이름</label>
-                                            <input type="text" name="umName" id="umName" class="form-control" required="" autocomplete="off">
-                                            <div id="umNameError" class="text-danger" style="display: none;"></div>
+                                            <label for="name" class="form-label">이름</label>
+                                            <input type="text" name="name" id="name" class="form-control" required="" autocomplete="off">
+                                            <div id="nameError" class="text-danger" style="display: none;"></div>
                                         </div>
                                         <div>
-                                            <label for="umNickName" class="form-label">닉네임</label>
-                                            <input type="text" name="umNickName" id="umNickName" class="form-control" required="" autocomplete="off">
-                                            <div id="umNickNameError" class="text-danger" style="display: none;"></div>
+                                            <label for="nickName" class="form-label">닉네임</label>
+                                            <input type="text" name="nickName" id="nickName" class="form-control" required="" autocomplete="off">
+                                            <div id="nickNameError" class="text-danger" style="display: none;"></div>
                                         </div>
                                         <div>
-                                            <label for="umId" class="form-label">아이디</label>
-                                            <input type="text" name="umId" class="form-control" id="umId" required="" autocomplete="off">
-                                            <div id="umIdError" class="text-danger" style="display: none;"></div>
+                                            <label for="id" class="form-label">아이디</label>
+                                            <input type="text" name="id" class="form-control" id="id" required="" autocomplete="off">
+                                            <div id="idError" class="text-danger" style="display: none;"></div>
                                         </div>
                                         <div>
-                                            <label for="umPassword" class="form-label">비밀번호</label>
-											<input type="password" name="umPassword" class="form-control" id="umPassword" required="" autocomplete="off">
-											<div id="umPasswordError" class="text-danger" style="display: none;"></div>
+                                            <label for="password" class="form-label">비밀번호</label>
+											<input type="password" name="password" class="form-control" id="password" required="" autocomplete="off">
+											<div id="passwordError" class="text-danger" style="display: none;"></div>
 										</div>
                                         <div>
-                                            <label for="validationCustom04" class="form-label">비밀번호 확인</label>
-											<input type="password" name="umCheckingpassword" class="form-control" id="umCheckingpassword" required="" autocomplete="off">
-											<div id="umCheckingpasswordError" class="text-danger" style="display: none;"></div>
+                                            <label for="checkingpassword" class="form-label">비밀번호 확인</label>
+											<input type="password" name="checkingpassword" class="form-control" id="checkingpassword" required="" autocomplete="off">
+											<div id="checkingpasswordError" class="text-danger" style="display: none;"></div>
 										</div>
                                         <div>
-											<label for="umEmail" class="form-label">이메일</label>
-											<input type="email" name="umEmail" class="form-control" id="umEmail" required="" autocomplete="off">
-											<div id="umEmailError" class="text-danger" style="display: none;"></div>
+											<label for="email" class="form-label">이메일</label>
+											<input type="email" name="email" class="form-control" id="email" required="" autocomplete="off">
+											<div id="emailError" class="text-danger" style="display: none;"></div>
 										</div>
 										<div>
-											<label for="umGender" class="form-label">성별<font color ="red">*</font></label>
-											<select class="form-select" name="umGender" id="umGender" required="">
+											<label for="gender" class="form-label">성별<font color ="red">*</font></label>
+											<select class="form-select" name="gender" id="gender" required="">
 												<option value="">선택하세요</option>
 												<option th:each="list : ${@codeService.selectListCachedCode(2)}" th:value="${list.ifcdSeq}" th:text="${list.ifcdName}" th:selected="${list.ifcdSeq} == ${item?.gender}"></option>
 											</select>
-											<div id="umGenderError" class="text-danger" style="display: none;"></div>
+											<div id="genderError" class="text-danger" style="display: none;"></div>
 										</div>
 										<div>
-											<label for="umTelephone" class="form-label" style="padding-top: 20px;">전화번호</label>
-											<input type="text" name="umTelephone" id="umTelephone" required="" autocomplete="off">
-											<div id="umTelephoneError" class="text-danger" style="display: none;"></div>
+											<label for="telephone" class="form-label" style="padding-top: 20px;">전화번호</label>
+											<input type="text" name="telephone" id="telephone" required="" autocomplete="off">
+											<div id="telephoneError" class="text-danger" style="display: none;"></div>
 										</div>
                                         <div>
-											<label for="umBirthday" class="form-label">생년월일</label>
-											<input type="text" name="umBirthday" id="umBirthday" required="" autocomplete="off">
-											<div id="umBirthdayError" class="text-danger" style="display: none;"></div>
+											<label for="birthday" class="form-label">생년월일</label>
+											<input type="text" name="birthday" id="birthday" required="" autocomplete="off">
+											<div id="birthdayError" class="text-danger" style="display: none;"></div>
 										</div>
                                         <div class="button-box" style="padding-top: 20px;">
                                             <button type="button" id="btnSubmit"><span>회원가입</span></button>
@@ -599,162 +599,162 @@
 
 <script type="text/javascript">
 		document.getElementById("btnSubmit").onclick = function (){
-			const umName = document.getElementById("umName");
-			const umNameValue = document.getElementById("umName").value.trim();
-			const umNameError = document.getElementById("umNameError");
-			var umNameRegExp = /^[ㄱ-ㅎ가-힣]{2,7}$/;
-			if(!umNameRegExp.test(umNameValue)){
-				umNameError.innerText = "이름을 입력해주세요.";
-				umNameError.style.display="";
-				umName.classList.add("is-invalid");
-				umName.classList.remove("is-valid");
-				umName.focus();
+			const name = document.getElementById("name");
+			const nameValue = document.getElementById("name").value.trim();
+			const nameError = document.getElementById("nameError");
+			var nameRegExp = /^[ㄱ-ㅎ가-힣]{2,7}$/;
+			if(!nameRegExp.test(nameValue)){
+				nameError.innerText = "이름을 입력해주세요.";
+				nameError.style.display="";
+				name.classList.add("is-invalid");
+				name.classList.remove("is-valid");
+				name.focus();
 				return false;
 		    } else {
-		    	umNameError.style.display = "none";
-		    	umName.classList.remove("is-invalid");
-		    	umName.classList.add("is-valid");
+		    	nameError.style.display = "none";
+		    	name.classList.remove("is-invalid");
+		    	name.classList.add("is-valid");
 		    }
 			
-			const umNickName = document.getElementById("umNickName");
-			const umNickNameValue = document.getElementById("umNickName").value.trim();
-			const umNickNameError = document.getElementById("umNickNameError");
-			var umNickNameRegExp = /^[가-힣0-9a-zA-Z]{2,6}$/;
-			if(!umNickNameRegExp.test(umNickNameValue)){
-				umNickNameError.innerText = "닉네임을 입력해주세요.";
-				umNickNameError.style.display="";
-				umNickName.classList.add("is-invalid");
-				umNickName.classList.remove("is-valid");
-				umNickName.focus();
+			const nickName = document.getElementById("nickName");
+			const nickNameValue = document.getElementById("nickName").value.trim();
+			const nickNameError = document.getElementById("nickNameError");
+			var nickNameRegExp = /^[가-힣0-9a-zA-Z]{2,6}$/;
+			if(!nickNameRegExp.test(nickNameValue)){
+				nickNameError.innerText = "닉네임을 입력해주세요.";
+				nickNameError.style.display="";
+				nickName.classList.add("is-invalid");
+				nickName.classList.remove("is-valid");
+				nickName.focus();
 				return false;
 		    } else {
-		    	umNickNameError.style.display = "none";
-		    	umNickName.classList.remove("is-invalid");
-		    	umNickName.classList.add("is-valid");
+		    	nickNameError.style.display = "none";
+		    	nickName.classList.remove("is-invalid");
+		    	nickName.classList.add("is-valid");
 		    }
 			
-			const umId = document.getElementById("umId");
-			const umIdValue = document.getElementById("umId").value.trim();
-			const umIdError = document.getElementById("umIdError");
+			const id = document.getElementById("id");
+			const idValue = document.getElementById("id").value.trim();
+			const idError = document.getElementById("idError");
 			
-			var umIdRegExp = /^[a-zA-Z][0-9a-zA-Z]{5,11}$/;
-			if(!umIdRegExp.test(umIdValue)){
-				umIdError.innerText = "아이디를 입력해주세요.";
-				umIdError.style.display="";
-				umId.classList.add("is-invalid");
-				umId.classList.remove("is-valid");
-				umId.focus();
+			var idRegExp = /^[a-zA-Z][0-9a-zA-Z]{5,11}$/;
+			if(!idRegExp.test(idValue)){
+				idError.innerText = "아이디를 입력해주세요.";
+				idError.style.display="";
+				id.classList.add("is-invalid");
+				id.classList.remove("is-valid");
+				id.focus();
 				return false;
 		    } else {
-		    	umIdError.style.display = "none";
-		    	umId.classList.remove("is-invalid");
-		    	umId.classList.add("is-valid");
+		    	idError.style.display = "none";
+		    	id.classList.remove("is-invalid");
+		    	id.classList.add("is-valid");
 		    }
 			
-			const umPassword = document.getElementById("umPassword");
-			const umPasswordValue = document.getElementById("umPassword").value.trim();
-			const umPasswordError = document.getElementById("umPasswordError");
+			const password = document.getElementById("password");
+			const passwordValue = document.getElementById("password").value.trim();
+			const passwordError = document.getElementById("passwordError");
 			
-			var umPasswordRegExp = /^[a-zA-Z][0-9a-zA-Z]{7,11}$/;
-			if(!umPasswordRegExp.test(umPasswordValue)){
-				umPasswordError.innerText = "비밀번호 입력해주세요.";
-				umPasswordError.style.display="";
-				umPassword.classList.add("is-invalid");
-				umPassword.classList.remove("is-valid");
-				umPassword.focus();
+			var passwordRegExp = /^[a-zA-Z][0-9a-zA-Z]{7,11}$/;
+			if(!passwordRegExp.test(passwordValue)){
+				passwordError.innerText = "비밀번호 입력해주세요.";
+				passwordError.style.display="";
+				password.classList.add("is-invalid");
+				password.classList.remove("is-valid");
+				password.focus();
 				return false;
 		    } else {
-		    	umPasswordError.style.display = "none";
-		    	umPassword.classList.remove("is-invalid");
-		    	umPassword.classList.add("is-valid");
+		    	passwordError.style.display = "none";
+		    	password.classList.remove("is-invalid");
+		    	password.classList.add("is-valid");
 		    }
 			
-			const umCheckingpassword = document.getElementById("umCheckingpassword");
-			const umCheckingpasswordValue = document.getElementById("umCheckingpassword").value.trim();
-			const umCheckingpasswordError = document.getElementById("umCheckingpasswordError");
+			const checkingpassword = document.getElementById("checkingpassword");
+			const checkingpasswordValue = document.getElementById("checkingpassword").value.trim();
+			const checkingpasswordError = document.getElementById("checkingpasswordError");
 			
-			if(umPasswordValue != umCheckingpasswordValue){
-				umCheckingpasswordError.innerText = "비밀번호가 일치하지 않습니다.";
-				umCheckingpasswordError.style.display="";
-				umCheckingpassword.classList.add("is-invalid");
-				umCheckingpassword.classList.remove("is-valid");
-				umCheckingpassword.focus();
+			if(checkingpasswordValue != checkingpasswordValue){
+				checkingpasswordError.innerText = "비밀번호가 일치하지 않습니다.";
+				checkingpasswordError.style.display="";
+				checkingpassword.classList.add("is-invalid");
+				checkingpassword.classList.remove("is-valid");
+				checkingpassword.focus();
 				return false;
 		    } else {
-		    	umCheckingpasswordError.style.display = "none";
-		    	umCheckingpassword.classList.remove("is-invalid");
-		    	umCheckingpassword.classList.add("is-valid");
+		    	checkingpasswordError.style.display = "none";
+		    	checkingpassword.classList.remove("is-invalid");
+		    	checkingpassword.classList.add("is-valid");
 		    }
 			
-			const umEmail = document.getElementById("umEmail");
-			const umEmailValue = document.getElementById("umEmail").value.trim();
-			const umEmailError = document.getElementById("umEmailError");
+			const email = document.getElementById("email");
+			const emailValue = document.getElementById("email").value.trim();
+			const emailError = document.getElementById("emailError");
 			
-			var umEmailRegExp = /[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]$/i;
-			if(!umEmailRegExp.test(umEmailValue)){
-				umEmailError.innerText = "이메일 입력해주세요.";
-				umEmailError.style.display="";
-				umEmail.classList.add("is-invalid");
-				umEmail.classList.remove("is-valid");
-				umEmail.focus();
+			var emailRegExp = /[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]$/i;
+			if(!emailRegExp.test(emailValue)){
+				emailError.innerText = "이메일 입력해주세요.";
+				emailError.style.display="";
+				email.classList.add("is-invalid");
+				email.classList.remove("is-valid");
+				email.focus();
 				return false;
 		    } else {
-		    	umEmailError.style.display = "none";
-		    	umEmail.classList.remove("is-invalid");
-		    	umEmail.classList.add("is-valid");
+		    	emailError.style.display = "none";
+		    	email.classList.remove("is-invalid");
+		    	email.classList.add("is-valid");
 		    }
 			
-			const umGender = document.getElementById("umGender");
-			const umGenderValue = document.getElementById("umGender").value.trim();
-			const umGenderError = document.getElementById("umGenderError");
+			const gender = document.getElementById("gender");
+			const genderValue = document.getElementById("gender").value.trim();
+			const genderError = document.getElementById("genderError");
 			
-			if(umGenderValue == ""){
-				umGenderError.innerText = "성별을 선택해주세요.";
-				umGenderError.style.display="";
-				umGender.classList.add("is-invalid");
-				umGender.classList.remove("is-valid");
-				umGender.focus();
+			if(genderValue == ""){
+				genderError.innerText = "성별을 선택해주세요.";
+				genderError.style.display="";
+				gender.classList.add("is-invalid");
+				gender.classList.remove("is-valid");
+				gender.focus();
 				return false;
 		    } else {
-		    	umGenderError.style.display = "none";
-		    	umGender.classList.remove("is-invalid");
-		    	umGender.classList.add("is-valid");
+		    	genderError.style.display = "none";
+		    	gender.classList.remove("is-invalid");
+		    	gender.classList.add("is-valid");
 		    }
 			
-			const umTelephone = document.getElementById("umTelephone");
-			const umTelephoneValue = document.getElementById("umTelephone").value.trim();
-			const umTelephoneError = document.getElementById("umTelephoneError");
+			const telephone = document.getElementById("telephone");
+			const telephoneValue = document.getElementById("telephone").value.trim();
+			const telephoneError = document.getElementById("telephoneError");
 			
-			var umTelephoneRegExp = /^(?:(010)|(01[1|6|7|8|9]))\d{3,4}(\d{4})$/;
-			if(!umTelephoneRegExp.test(umTelephoneValue)){
-				umTelephoneError.innerText = "전화번호 입력해주세요.";
-				umTelephoneError.style.display="";
-				umTelephone.classList.add("is-invalid");
-				umTelephone.classList.remove("is-valid");
-				umTelephone.focus();
+			var telephoneRegExp = /^(?:(010)|(01[1|6|7|8|9]))\d{3,4}(\d{4})$/;
+			if(!telephoneRegExp.test(telephoneValue)){
+				telephoneError.innerText = "전화번호 입력해주세요.";
+				telephoneError.style.display="";
+				telephone.classList.add("is-invalid");
+				telephone.classList.remove("is-valid");
+				telephone.focus();
 				return false;
 		    } else {
-		    	umTelephoneError.style.display = "none";
-		    	umTelephone.classList.remove("is-invalid");
-		    	umTelephone.classList.add("is-valid");
+		    	telephoneError.style.display = "none";
+		    	telephone.classList.remove("is-invalid");
+		    	telephone.classList.add("is-valid");
 		    }
 			
-			const umBirthday = document.getElementById("umBirthday");
-			const umBirthdayValue = document.getElementById("umBirthday").value.trim();
-			const umBirthdayError = document.getElementById("umBirthdayError");
+			const birthday = document.getElementById("birthday");
+			const birthdayValue = document.getElementById("birthday").value.trim();
+			const birthdayError = document.getElementById("birthdayError");
 			
-			var umBirthdayRegExp = /([0-9]{2}(0[1-9]|1[0-2])(0[1-9]|[1,2][0-9]|3[0,1]))/;
-			if(!umBirthdayRegExp.test(umBirthdayValue)){
-				umBirthdayError.innerText = "생년월일 입력해주세요.";
-				umBirthdayError.style.display="";
-				umBirthday.classList.add("is-invalid");
-				umBirthday.classList.remove("is-valid");
-				umBirthday.focus();
+			var birthdayRegExp = /([0-9]{2}(0[1-9]|1[0-2])(0[1-9]|[1,2][0-9]|3[0,1]))/;
+			if(!birthdayRegExp.test(birthdayValue)){
+				birthdayError.innerText = "생년월일 입력해주세요.";
+				birthdayError.style.display="";
+				birthday.classList.add("is-invalid");
+				birthday.classList.remove("is-valid");
+				birthday.focus();
 				return false;
 		    } else {
-		    	umBirthdayError.style.display = "none";
-		    	umBirthday.classList.remove("is-invalid");
-		    	umBirthday.classList.add("is-valid");
+		    	birthdayError.style.display = "none";
+		    	birthday.classList.remove("is-invalid");
+		    	birthday.classList.add("is-valid");
 		    }
 			
 			

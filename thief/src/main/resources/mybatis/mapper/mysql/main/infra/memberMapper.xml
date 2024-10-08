@@ -10,7 +10,7 @@
 			member a
 		where 1=1
 			<if test="shDelNy != null and !shDelNy.equals('')">AND delNy = #{shDelNy}</if>
-			<if test="shGender != null and !shGender.equals('')">AND gender = #{shGender}</if>
+			<if test="shAdmNy != null and !shAdmNy.equals('')">AND admNy = #{shAdmNy}</if>
 			
 			<choose>
 				<when test="shOptionDate == 1">AND a.memberDatetime BETWEEN #{shDateStart} AND #{shDateEnd}</when>
@@ -45,6 +45,7 @@
 			    ,a.telephone
 			    ,a.memberDatetime
 			    ,a.memberDatetimeSvr
+			    ,a.admNy
 			    ,a.delNy
 			<include refid="selectCommon"></include>
 			order by
@@ -66,6 +67,7 @@
 		    ,telephone
 		    ,memberDatetime
 		    ,memberDatetimeSvr
+		    ,admNy
 		    ,delNy
 		) values (
 			#{name}
@@ -79,6 +81,7 @@
 		    ,#{telephone}
 		    ,now()
 		    ,now()
+		    ,1
 		    ,0
 		)
 		<selectKey resultType="String" keyProperty="seq" order="AFTER">
@@ -100,6 +103,7 @@
 		    ,a.telephone
 		    ,a.memberDatetime
 		    ,a.memberDatetimeSvr
+		    ,a.admNy
 		    ,a.delNy
 		from
 			member a
@@ -142,6 +146,7 @@
 		    ,telephone = #{telephone}
 		    ,memberDatetime = now()
 		    ,memberDatetimeSvr = now()
+		    ,admNy = #{admNy}
 		    ,delNy = #{delNy}
 	  	where 1=1
 	  		and seq = #{seq}

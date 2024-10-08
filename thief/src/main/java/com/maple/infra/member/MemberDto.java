@@ -19,6 +19,7 @@ public class MemberDto {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date memberDatetimeSvr;
 	private Integer gender;
+	private Integer admNy;
 	private Integer delNy;
 //	-----
 	public String getSeq() {
@@ -98,6 +99,12 @@ public class MemberDto {
 	}
 	public void setGender(Integer gender) {
 		this.gender = gender;
+	}
+	public Integer getAdmNy() {
+		return admNy;
+	}
+	public void setAdmNy(Integer admNy) {
+		this.admNy = admNy;
 	}
 	
 	

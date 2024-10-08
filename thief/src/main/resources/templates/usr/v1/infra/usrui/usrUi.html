@@ -159,10 +159,12 @@
                         <a class="account-satting-active" href="#"><i class="pe-7s-user-female"></i></a>
                         <div class="account-dropdown">
                             <ul>
-                                <li><a href="0_login.html">로그인</a></li>
-                                <li><a href="0_register.html">회원가입</a></li>
+                            	<li><span class="pink" th:text="${session.sessNameUsr}"></span></li>
+                                <li><a href="/usrLogin">로그인</a></li>
+                                <li><a href="/usrRegister">회원가입</a></li>
                                 <li><a href="0_wishlist.html">구매 목록  </a></li>
                                 <li><a href="0_cart.html">장바구니  </a></li>
+                                <button id="btnLogout" class="btn">로그아웃</button>
                                 <!-- <li><a href="0_myaccount.html">내 정보</a></li> -->
                             </ul>
                         </div>
@@ -948,6 +950,28 @@
 <script src="/usr/v1/template/flone/assets/js/ajax-mail.js"></script>
 <!-- Main JS -->
 <script src="/usr/v1/template/flone/assets/js/main.js"></script>
+
+<script type="text/javascript">
+		document.getElementById("btnLogout").onclick = function (){
+			$.ajax({
+				async: true 
+				,cache: false
+				,type: "post"
+				,url: "/signoutUsrProc"
+				,success: function(response) {
+					if(response.rt =="success") {
+					location.href = "/usrLogin";
+						
+					} else {
+						
+					}
+				}
+				,error : function(jqXHR, textStatus, errorThrown){
+					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+				}
+			});	
+		}
+		</script>
 
 </body>
 
