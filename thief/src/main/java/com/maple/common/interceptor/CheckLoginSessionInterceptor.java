@@ -14,6 +14,7 @@ public class CheckLoginSessionInterceptor implements HandlerInterceptor {
 		if (request.getSession().getAttribute("sessSeqXdm") != null) {
 			// by pass
 		} else {
+			System.out.println("asdasd");
 			response.sendRedirect("/xdmLogin");
 	        return false;
 		}

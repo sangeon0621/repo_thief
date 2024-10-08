@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ko">
+
+	<head>
+	
+	</head>
+
+	<body>
+		
+		<th:block th:fragment="head">
+							<div class="input-group">
+								<input type="text" class="form-control" placeholder="Search anything">
+								<button class="btn" type="button">
+									<i class="bi bi-search"></i>
+								</button>
+							</div>
+
+						</div>
+
+						<a href="orders.html" class="leads d-none d-xl-flex">
+							<div class="lead-details">You have <span class="count"> 21 </span> new leads </div>
+							<span class="lead-icon"><i
+									class="bi bi-bell-fill animate__animated animate__swing animate__infinite infinite"></i><b
+									class="dot animate__animated animate__heartBeat animate__infinite"></b></span>
+						</a>
+						<!-- Leads end -->
+
+						<!-- Header actions start -->
+						<ul class="header-actions">
+							<li class="dropdown d-none d-md-block">
+								<a href="#" id="countries" data-toggle="dropdown" aria-haspopup="true">
+									<img src="/xdm/v1/template/vivo copy/assets/images/flags/1x1/kr.svg" class="flag-img" alt="Admin Panels" />
+								</a>
+							</li>
+							<li class="dropdown">
+								<a href="#" id="userSettings" class="user-settings" data-toggle="dropdown" aria-haspopup="true">
+									<span class="user-name d-none d-md-block" th:text="${session.sessNameXdm}"></span>
+									<span class="avatar">
+										<img src="/xdm/v1/template/vivo copy/assets/images/user.png" alt="Admin Templates">
+										<span class="status online"></span>
+									</span>
+								</a>
+								<div class="dropdown-menu dropdown-menu-end" aria-labelledby="userSettings">
+									<div class="header-profile-actions">
+										<a href="profile.html">프로필</a>
+										<a href="account-settings.html">설정</a>
+										<button id="btnLogout" type="button" class="btn">로그아웃</button>
+									</div>
+								</div>
+							</li>
+						</ul>
+		</th:block>
+		
+
+	</body>
+
+</html>
