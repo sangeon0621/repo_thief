@@ -84,7 +84,7 @@ public class MemberController {
 		return "/xdm/v1/infra/xdmlogin/xdmLogin";
 	}
 	
-	@RequestMapping(value="/memberXdmindex")
+	@RequestMapping(value="/v1/infra/member/memberXdmindex")
 	public String memberXdmindex() {
 		return "/xdm/v1/infra/member/memberXdmindex";
 	}

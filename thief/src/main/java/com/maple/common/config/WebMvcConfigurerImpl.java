@@ -18,7 +18,9 @@ public class WebMvcConfigurerImpl implements WebMvcConfigurer {
    					    "/resources/**", 
 //						"/xdm/v1/**", // resources 하위 폴더
 						"/v1/infra/xdmlogin/xdmlogin", // 로그인 페이지 제외 
-						"/v1/infra/member/signinXdmProc" // 로그인 처리 페이지 제외 
+						"/v1/infra/member/signinXdmProc", // 로그인 처리 페이지 제외
+						"/v1/infra/usrui/usrBuyList",
+						"/v1/infra/usrui/usrCart"
 						
 				);
 	}   

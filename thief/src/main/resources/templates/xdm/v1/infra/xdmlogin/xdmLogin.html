@@ -72,12 +72,11 @@
 							<label class="form-label">비밀번호</label>
 							<a href="forgot-password.html" class="btn-link ml-auto">비밀번호를 잊으셨나요?</a>
 						</div>
-						<input id="password" name="password" type="password" class="form-control">
+						<input id="password" name="password" type="password" onkeyup="enterkey()" class="form-control">
 						<div id="passwordError" class="text-danger" style="display: none;"></div>
 					</div>
 					<div class="login-form-actions">
-						<button id="btnSubmit" type="button" class="btn" data-bs-toggle="modal"
-												data-bs-target="#verticallyCentered"> <span class="icon"> <i class="bi bi-arrow-right-circle"></i> </span>
+						<button id="btnSubmit" type="button" class="btn"> <span class="icon"> <i class="bi bi-arrow-right-circle"></i> </span>
 							로그인</button>
 					</div>
 					<div class="login-form-actions">
@@ -180,9 +179,9 @@
 				,success: function(response) {
 					if(response.rt == "success") {
 						if(response.changePwd == "true") {
-							location.href = "/memberXdmindex";
+							location.href = "/v1/infra/member/memberXdmindex";
 						} else {
-							location.href = "/memberXdmindex";
+							location.href = "/v1/infra/member/memberXdmindex";
 						}
 					} else {
 				 		document.getElementById("verticallyCenteredLabel").innerText = "확 인";
@@ -194,6 +193,37 @@
 					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
 				}
 			});	
+		}
+		
+		function enterkey() {
+			if (window.event.keyCode == 13) {
+		    	// 엔터키가 눌렸을 때
+				$.ajax({
+					async: true 
+					,cache: false
+					,type: "post"
+					/* ,dataType:"json" */
+					,url: "/v1/infra/member/signinXdmProc"
+					/* ,data : $("#formLogin").serialize() */
+					,data : { "id" : $("#id").val(), "password" : $("#password").val()}
+					,success: function(response) {
+						if(response.rt == "success") {
+							if(response.changePwd == "true") {
+								location.href = "/v1/infra/member/memberXdmindex";
+							} else {
+								location.href = "/v1/infra/member/memberXdmindex";
+							}
+						} else {
+					 		document.getElementById("verticallyCenteredLabel").innerText = "확 인";
+					 		document.getElementById("verticallyCenteredLabel2").innerText = "일치하는 회원이 존재 하지 않습니다!";
+					 		$("#verticallyCentered").modal("show");
+						}
+					}
+					,error : function(jqXHR, textStatus, errorThrown){
+						alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+					}
+				});
+		    }
 		}
 		</script>
 

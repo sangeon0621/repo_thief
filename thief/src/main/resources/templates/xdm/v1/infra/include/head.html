@@ -42,6 +42,10 @@
 								</a>
 								<div class="dropdown-menu dropdown-menu-end" aria-labelledby="userSettings">
 									<div class="header-profile-actions">
+										<th:block th:if="${#strings.isEmpty(session.sessSeqXdm)}">
+											<a href="/xdmLogin">로그인</a>
+											<a herf="/v1/infra/member/memberXdmRegister">회원가입</a>
+										</th:block>
 										<a href="profile.html">프로필</a>
 										<a href="account-settings.html">설정</a>
 										<button id="btnLogout" type="button" class="btn">로그아웃</button>

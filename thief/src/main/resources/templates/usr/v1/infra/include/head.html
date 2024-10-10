@@ -1,0 +1,163 @@
+<!doctype html>
+<html class="no-js" lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Flone - Minimal eCommerce HTML Template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/usr/v1/template/flone/assets/img/favicon.png">
+    
+    <!-- CSS
+	============================================ -->
+   
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/usr/v1/template/flone/assets/css/bootstrap.min.css">
+    <!-- Icon Font CSS -->
+    <link rel="stylesheet" href="/usr/v1/template/flone/assets/css/icons.min.css">
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="/usr/v1/template/flone/assets/css/plugins.css">
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="/usr/v1/template/flone/assets/css/style.css">
+</head>
+
+<body>
+<th:block th:fragment="head">	
+<header class="header-area header-in-container clearfix">
+    <div class="header-top-area">
+        <div class="container">
+            <div class="header-top-wap">
+                <div class="language-currency-wrap">
+                    <div class="same-language-currency language-style">
+                        <a href="#">한국어 <i class="fa fa-angle-down"></i></a>
+                        <div class="lang-car-dropdown">
+                            <ul>
+                                <li><a href="#">Arabic </a></li>
+                                <li><a href="#">Bangla </a></li>
+                                <li><a href="#">Hindi  </a></li>
+                                <li><a href="#">Spanish </a></li>
+                                <li><a href="#">English </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="same-language-currency use-style">
+                        <a href="#">KRW  <i class="fa fa-angle-down"></i></a>
+                        <div class="lang-car-dropdown">
+                            <ul>
+                                <li><a href="#">Taka (BDT) </a></li>
+                                <li><a href="#">Riyal (SAR) </a></li>
+                                <li><a href="#">Rupee (INR)  </a></li>
+                                <li><a href="#">Dirham (AED) </a></li>
+                                <li><a href="#">USD </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header-bottom sticky-bar header-res-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-2 col-lg-2 col-md-6 col-4">
+                    <div class="logo">
+                        <a href="/usrUi">
+                            <h2>STORM</h2>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xl-8 col-lg-8 d-none d-lg-block">
+                    <div class="main-menu">
+                        <nav>
+                            <ul>
+                                <li><a href="/usrUi">홈</a></li>
+                                <li><a href="/usrShop"> 상점</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-lg-2 col-md-6 col-8">
+                    <div class="header-right-wrap">
+                        <div class="same-style account-satting">
+                            <a class="account-satting-active" href="#"><i class="pe-7s-user-female" th:text="${session.sessNameUsr}"></i></a>
+                            <div class="account-dropdown">
+                                <ul>
+                                <th:block th:if="${#strings.isEmpty(session.sessSeqUsr)}">
+                                    <li><a href="/usrLogin">로그인</a></li>
+                                    <li><a href="/usrRegister">회원가입</a></li>
+                                </th:block>
+                                <th:block th:if="${session.sessSeqUsr != null}">
+                                    <li><a href="/v1/infra/usrui/usrCart">장바구니  </a></li>
+                                    <li><a href="/v1/infra/usrui/usrBuyList">구매 목록  </a></li>
+                                    <button id="btnLogout" class="btn">로그아웃</button>
+                                </th:block>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mobile-menu-area">
+                <div class="mobile-menu">
+                    <nav id="mobile-menu-active">
+                        <ul class="menu-overflow">
+                            <li><a href="/usrUi">HOME</a></li>
+                            <li><a href="/usrShop">Shop</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+</th:block>
+
+
+
+
+
+
+
+
+
+<!-- All JS is here
+============================================ -->
+
+<script src="/usr/v1/template/flone/assets/js/vendor/modernizr-3.11.7.min.js"></script>
+<script src="/usr/v1/template/flone/assets/js/vendor/jquery-v3.6.0.min.js"></script>
+<script src="/usr/v1/template/flone/assets/js/vendor/jquery-migrate-v3.3.2.min.js"></script>
+<script src="/usr/v1/template/flone/assets/js/vendor/popper.min.js"></script>
+<script src="/usr/v1/template/flone/assets/js/vendor/bootstrap.min.js"></script>
+<script src="/usr/v1/template/flone/assets/js/plugins.js"></script>
+<!-- Ajax Mail -->
+<script src="/usr/v1/template/flone/assets/js/ajax-mail.js"></script>
+<!-- Main JS -->
+<script src="/usr/v1/template/flone/assets/js/main.js"></script>
+
+<script type="text/javascript">
+		document.getElementById("btnLogout").onclick = function (){
+			$.ajax({
+				async: true 
+				,cache: false
+				,type: "post"
+				,url: "/signoutUsrProc"
+				,success: function(response) {
+					if(response.rt =="success") {
+					location.href = "/usrUi";
+						
+					} else {
+						
+					}
+				}
+				,error : function(jqXHR, textStatus, errorThrown){
+					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+				}
+			});	
+		}
+		</script>
+
+</body>
+
+</html>

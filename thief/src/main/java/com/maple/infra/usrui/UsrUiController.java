@@ -28,6 +28,16 @@ public class UsrUiController {
 		return "/usr/v1/infra/usrui/usrBuyList";
 	}
 	
+	@RequestMapping(value="/v1/infra/usrui/usrCart")
+	public String usrCart() {
+		return "/usr/v1/infra/usrui/usrCart";
+	}
+	
+	@RequestMapping(value="/usrShop")
+	public String usrShop() {
+		return "/usr/v1/infra/usrui/usrShop";
+	}
+	
 	@RequestMapping(value="/usrLogin")
 	public String usrLogin() {
 		return "/usr/v1/infra/usrui/usrLogin";
@@ -92,7 +102,7 @@ public class UsrUiController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value = "signoutUsrProc")
+	@RequestMapping(value = "/signoutUsrProc")
 	public Map<String, Object> signoutUsrProc(HttpSession httpSession) throws Exception {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 		httpSession.invalidate();
