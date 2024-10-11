@@ -72,7 +72,7 @@
 							<label class="form-label">비밀번호</label>
 							<a href="forgot-password.html" class="btn-link ml-auto">비밀번호를 잊으셨나요?</a>
 						</div>
-						<input id="password" name="password" type="password" onkeyup="enterkey()" class="form-control">
+						<input id="password" name="password" type="password" class="form-control">
 						<div id="passwordError" class="text-danger" style="display: none;"></div>
 					</div>
 					<div class="login-form-actions">
@@ -137,7 +137,7 @@
 			const idValue = document.getElementById("id").value.trim();
 			const idError = document.getElementById("idError");
 			
-			var idRegExp = /^[a-zA-Z][0-9a-zA-Z]{5,11}$/;
+			var idRegExp = /^[a-zA-Z][0-9a-zA-Z]{0,11}$/;
 			if(!idRegExp.test(idValue)){
 				idError.innerText = "아이디 입력해주세요.";
 				idError.style.display="";
@@ -151,23 +151,23 @@
 		    	id.classList.add("is-valid");
 		    }
 			
-// 			const password = document.getElementById("password");
-// 			const passwordValue = document.getElementById("password").value.trim();
-// 			const passwordError = document.getElementById("passwordError");
+			const password = document.getElementById("password");
+			const passwordValue = document.getElementById("password").value.trim();
+			const passwordError = document.getElementById("passwordError");
 			
-// 			var passwordRegExp = /^[a-zA-Z][0-9a-zA-Z]{7,11}$/;
-// 			if(!passwordRegExp.test(passwordValue)){
-// 				passwordError.innerText = "비밀번호 입력해주세요.";
-// 				passwordError.style.display="";
-// 				password.classList.add("is-invalid");
-// 				password.classList.remove("is-valid");
-// 				password.focus();
-// 				return false;
-// 		    } else {
-// 		    	passwordError.style.display = "none";
-// 		    	password.classList.remove("is-invalid");
-// 		    	password.classList.add("is-valid");
-// 		    }
+			var passwordRegExp = /^(?=.*[a-zA-Z])(?=.*[!@])(?=.*[0-9]).{8,15}$/
+			if(!passwordRegExp.test(passwordValue)){
+				passwordError.innerText = "비밀번호 입력해주세요.";
+				passwordError.style.display="";
+				password.classList.add("is-invalid");
+				password.classList.remove("is-valid");
+				password.focus();
+				return false;
+		    } else {
+		    	passwordError.style.display = "none";
+		    	password.classList.remove("is-invalid");
+		    	password.classList.add("is-valid");
+		    }
 			$.ajax({
 				async: true 
 				,cache: false
@@ -195,36 +195,15 @@
 			});	
 		}
 		
-		function enterkey() {
-			if (window.event.keyCode == 13) {
-		    	// 엔터키가 눌렸을 때
-				$.ajax({
-					async: true 
-					,cache: false
-					,type: "post"
-					/* ,dataType:"json" */
-					,url: "/v1/infra/member/signinXdmProc"
-					/* ,data : $("#formLogin").serialize() */
-					,data : { "id" : $("#id").val(), "password" : $("#password").val()}
-					,success: function(response) {
-						if(response.rt == "success") {
-							if(response.changePwd == "true") {
-								location.href = "/v1/infra/member/memberXdmindex";
-							} else {
-								location.href = "/v1/infra/member/memberXdmindex";
-							}
-						} else {
-					 		document.getElementById("verticallyCenteredLabel").innerText = "확 인";
-					 		document.getElementById("verticallyCenteredLabel2").innerText = "일치하는 회원이 존재 하지 않습니다!";
-					 		$("#verticallyCentered").modal("show");
-						}
-					}
-					,error : function(jqXHR, textStatus, errorThrown){
-						alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
-					}
-				});
-		    }
-		}
+		var input = document.getElementById("password");
+
+		input.addEventListener("keypress", function(event) {
+		  if (event.key === "Enter") {
+		    event.preventDefault();
+		    document.getElementById("btnSubmit").click();
+		  }
+		});
+		
 		</script>
 
 	</body>

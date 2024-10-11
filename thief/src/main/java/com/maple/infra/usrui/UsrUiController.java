@@ -23,6 +23,11 @@ public class UsrUiController {
 		return "/usr/v1/infra/usrui/usrUi";
 	}
 	
+	@RequestMapping(value="/usrMypage")
+	public String usrMyPage() {
+		return "/usr/v1/infra/usrui/usrMyPage";
+	}
+	
 	@RequestMapping(value="/v1/infra/usrui/usrBuyList")
 	public String usrBuyList() {
 		return "/usr/v1/infra/usrui/usrBuyList";
@@ -33,10 +38,11 @@ public class UsrUiController {
 		return "/usr/v1/infra/usrui/usrCart";
 	}
 	
-	@RequestMapping(value="/usrShop")
-	public String usrShop() {
-		return "/usr/v1/infra/usrui/usrShop";
+	@RequestMapping(value="/usrProduct")
+	public String usrProduct() {
+		return "/usr/v1/infra/usrui/usrProduct";
 	}
+	
 	
 	@RequestMapping(value="/usrLogin")
 	public String usrLogin() {

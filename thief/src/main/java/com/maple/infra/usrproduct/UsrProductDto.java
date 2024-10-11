@@ -1,10 +1,10 @@
-package com.maple.infra.productCd;
+package com.maple.infra.usrproduct;
 
 import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-public class ProductCdDto {
+public class UsrProductDto {
 
 	private String pddSeq;
 	private String pddName;
@@ -141,7 +141,6 @@ public class ProductCdDto {
 	public void setPddSalesPrice(String pddSalesPrice) {
 		this.pddSalesPrice = pddSalesPrice;
 	}
-	
 	
 	
 }

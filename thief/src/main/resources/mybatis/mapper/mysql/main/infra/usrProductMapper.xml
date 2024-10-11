@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.maple.infra.productCd.ProductCdDao">
+<mapper namespace="com.maple.infra.usrproduct.UsrProductDao">
 
-	<resultMap type="com.maple.infra.productCd.ProductCdDto" id="productObj"></resultMap>
+	<resultMap type="com.maple.infra.usrproduct.UsrProductDto" id="productObj"></resultMap>
 	
 	<sql id="selectCommon">
 		from

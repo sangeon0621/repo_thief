@@ -210,6 +210,8 @@
                                                                 <th>장르</th>
                                                                 <th>상품 이름</th>
                                                                 <th>상품 가격</th>
+                                                                <th>상품 세일</th>
+                                                                <th>상품 세일가격</th>
                                                                 <th>상품 수량</th>
                                                                 <th>사용</th>
                                                                 <th>순서</th>
@@ -235,6 +237,8 @@
 <!--                                                                 <td th:text = "${list.ifcgOrder}"></td> "/xdm/v1/infra/codegroup/codeGroupXdmMForm?ifcgSeq=1" -->
 <!--                                                                 <td th:text = "${list.ifDesc}"></td> -->
 																<td th:text="${list.pddPrice}"></td>
+																<td th:text=${list.pddsales}></td>
+																<td th:text=${list.pddSalesPrice}></td>
 																<td th:text="${list.pddCount}"></td>
                                                                 <td th:if = "${list.pddUseNy eq 0}" class = "ifcdUseNy align-middle">N</td>
                                                                 <td th:unless = "${list.pddUseNy eq 0}" class = "pddUseNy align-middle">Y</td>

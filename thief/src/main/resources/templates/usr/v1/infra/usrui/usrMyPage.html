@@ -34,84 +34,99 @@
                 <li>
                     <a href="/usrUi">홈</a>
                 </li>
-                <li class="active">
-                    <a href="/usrLogin">로그인</a>
-                </li>
-                <li class="active">
-                    <a href="/usrRegister">회원가입</a>
-                </li>
+                <li class="active">내 계정 </li>
             </ul>
         </div>
     </div>
 </div>
-<div class="login-register-area pt-100 pb-100">
+<div class="checkout-area pb-80 pt-100">
     <div class="container">
         <div class="row">
-            <div class="col-lg-7 col-md-12 ms-auto me-auto">
-                <div class="login-register-wrapper">
-                    <div class="login-register-tab-list nav">
-                        <a class="active" data-bs-toggle="tab" href="#lg1">
-                            <h4> 회원가입 </h4>
-                        </a>
-                    </div>
-                    <div class="tab-content">
-                        <div id="lg2" class="tab-pane active">
-                            <div class="login-form-container">
-                                <div class="login-register-form">
-                                    <form id="form" name="form" action="/usrInst" method="post">
-                                        <div>
-                                            <label for="name" class="form-label">이름</label>
-                                            <input type="text" name="name" id="name" class="form-control" required="" autocomplete="off">
-                                            <div id="nameError" class="text-danger" style="display: none;"></div>
+            <div class="ms-auto me-auto col-lg-9">
+                <div class="checkout-wrapper">
+                    <div id="faq" class="panel-group">
+                        <div class="panel panel-default single-my-account">
+                            <div class="panel-heading my-account-title">
+                                <h3 class="panel-title"><span>1 .</span> <a data-bs-toggle="collapse" href="#my-account-1">내 정보 </a></h3>
+                            </div>
+                            <div id="my-account-1" class="panel-collapse collapse show" data-bs-parent="#faq">
+                                <div class="panel-body">
+                                    <div class="myaccount-info-wrapper">
+                                        <div class="account-info-wrapper">
+                                            <h4>내 정보</h4>
+                                            <h5>귀하의 개인 정보</h5>
                                         </div>
-                                        <div>
-                                            <label for="nickName" class="form-label">닉네임</label>
-                                            <input type="text" name="nickName" id="nickName" class="form-control" required="" autocomplete="off" placeholder="한글,영문,숫자 2~6글자">
-                                            <div id="nickNameError" class="text-danger" style="display: none;"></div>
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12">
+                                                <div class="billing-info">
+                                                    <label>이름</label>
+                                                    <input type="text">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12">
+                                                <div class="billing-info">
+                                                    <label>이메일 주소</label>
+                                                    <input type="email">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6">
+                                                <div class="billing-info">
+                                                    <label>전화번호</label>
+                                                    <input type="text">
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div>
-                                            <label for="id" class="form-label">아이디</label>
-                                            <input type="text" name="id" class="form-control" id="id" required="" autocomplete="off" placeholder="영문,숫자 포함 6 ~ 12글자">
-                                            <div id="idError" class="text-danger" style="display: none;"></div>
+                                        <div class="billing-back-btn">
+                                            <div class="billing-back">
+                                                <a href="#"><i class="fa fa-arrow-up"></i> 뒤로</a>
+                                            </div>
+                                            <div class="billing-btn">
+                                                <button type="submit">계속</button>
+                                            </div>
                                         </div>
-                                        <div>
-                                            <label for="password" class="form-label">비밀번호</label>
-											<input type="password" name="password" class="form-control" id="password" required="" placeholder="영문,숫자,특수문자 포함 8 ~ 15글자" autocomplete="off">
-											<div id="passwordError" class="text-danger" style="display: none;"></div>
-										</div>
-                                        <div>
-                                            <label for="checkingpassword" class="form-label">비밀번호 확인</label>
-											<input type="password" name="checkingpassword" class="form-control" id="checkingpassword" required="" autocomplete="off">
-											<div id="checkingpasswordError" class="text-danger" style="display: none;"></div>
-										</div>
-                                        <div>
-											<label for="email" class="form-label">이메일</label>
-											<input type="email" name="email" class="form-control" id="email" required="" autocomplete="off">
-											<div id="emailError" class="text-danger" style="display: none;"></div>
-										</div>
-										<div>
-											<label for="gender" class="form-label">성별<font color ="red">*</font></label>
-											<select class="form-select" name="gender" id="gender" required="">
-												<option value="">선택하세요</option>
-												<option th:each="list : ${@codeService.selectListCachedCode(2)}" th:value="${list.ifcdSeq}" th:text="${list.ifcdName}" th:selected="${list.ifcdSeq} == ${item?.gender}"></option>
-											</select>
-											<div id="genderError" class="text-danger" style="display: none;"></div>
-										</div>
-										<div>
-											<label for="telephone" class="form-label" style="padding-top: 20px;">전화번호</label>
-											<input type="text" name="telephone" id="telephone" required="" autocomplete="off">
-											<div id="telephoneError" class="text-danger" style="display: none;"></div>
-										</div>
-                                        <div>
-											<label for="birthday" class="form-label">생년월일</label>
-											<input type="text" name="birthday" id="birthday" required="" autocomplete="off">
-											<div id="birthdayError" class="text-danger" style="display: none;"></div>
-										</div>
-                                        <div class="button-box" style="padding-top: 20px;">
-                                            <button type="button" id="btnSubmit"><span>회원가입</span></button>
-                                        </div>
-                                    </form>
+                                    </div>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default single-my-account">
+                            <div class="panel-heading my-account-title">
+                                <h3 class="panel-title"><span>2 .</span> <a data-bs-toggle="collapse" href="#my-account-2">비밀번호 변경 </a></h3>
+                            </div>
+                            <div id="my-account-2" class="panel-collapse collapse" data-bs-parent="#faq">
+                                <div class="panel-body">
+                                    <div class="myaccount-info-wrapper">
+                                        <div class="account-info-wrapper">
+                                            <h4>비밀번호 변경</h4>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12">
+                                                <div class="billing-info">
+                                                    <label>비밀번호</label>
+                                                    <input type="password">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12">
+                                                <div class="billing-info">
+                                                    <label>비밀번호 확인</label>
+                                                    <input type="password">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="billing-back-btn">
+                                            <div class="billing-back">
+                                                <a href="#"><i class="fa fa-arrow-up"></i> 뒤로</a>
+                                            </div>
+                                            <div class="billing-btn">
+                                                <button type="submit">계속</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default single-my-account">
+                            <div class="panel-heading my-account-title">
+                                <h3 class="panel-title"><span>3 .</span> <a href="0_wishlist.html">내 찜 목록   </a></h3>
                             </div>
                         </div>
                     </div>
@@ -119,7 +134,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> 
 <footer class="footer-area bg-gray pt-100 pb-70">
     <div class="container">
         <div class="row">
@@ -306,192 +321,6 @@
 <script src="/usr/v1/template/flone/assets/js/ajax-mail.js"></script>
 <!-- Main JS -->
 <script src="/usr/v1/template/flone/assets/js/main.js"></script>
-
-<script type="text/javascript">
-		document.getElementById("btnSubmit").onclick = function (){
-			const name = document.getElementById("name");
-			const nameValue = document.getElementById("name").value.trim();
-			const nameError = document.getElementById("nameError");
-			var nameRegExp = /^[ㄱ-ㅎ가-힣]{2,7}$/;
-			if(!nameRegExp.test(nameValue)){
-				nameError.innerText = "이름을 입력해주세요.";
-				nameError.style.display="";
-				name.classList.add("is-invalid");
-				name.classList.remove("is-valid");
-				name.focus();
-				return false;
-		    } else {
-		    	nameError.style.display = "none";
-		    	name.classList.remove("is-invalid");
-		    	name.classList.add("is-valid");
-		    }
-			
-			const nickName = document.getElementById("nickName");
-			const nickNameValue = document.getElementById("nickName").value.trim();
-			const nickNameError = document.getElementById("nickNameError");
-			var nickNameRegExp = /^[가-힣0-9a-zA-Z]{2,6}$/;
-			if(!nickNameRegExp.test(nickNameValue)){
-				nickNameError.innerText = "닉네임을 입력해주세요.";
-				nickNameError.style.display="";
-				nickName.classList.add("is-invalid");
-				nickName.classList.remove("is-valid");
-				nickName.focus();
-				return false;
-		    } else {
-		    	nickNameError.style.display = "none";
-		    	nickName.classList.remove("is-invalid");
-		    	nickName.classList.add("is-valid");
-		    }
-			
-			const id = document.getElementById("id");
-			const idValue = document.getElementById("id").value.trim();
-			const idError = document.getElementById("idError");
-			
-			var idRegExp = /^[a-zA-Z][0-9a-zA-Z]{6,12}$/;
-			if(!idRegExp.test(idValue)){
-				idError.innerText = "아이디를 입력해주세요.";
-				idError.style.display="";
-				id.classList.add("is-invalid");
-				id.classList.remove("is-valid");
-				id.focus();
-				return false;
-		    } else {
-		    	idError.style.display = "none";
-		    	id.classList.remove("is-invalid");
-		    	id.classList.add("is-valid");
-		    }
-			
-			const password = document.getElementById("password");
-			const passwordValue = document.getElementById("password").value.trim();
-			const passwordError = document.getElementById("passwordError");
-			
-			var passwordRegExp = /^[a-zA-Z][0-9a-zA-Z]{7,11}$/;
-			if(!passwordRegExp.test(passwordValue)){
-				passwordError.innerText = "영문,숫자,특수문자 포함 8 ~ 15글자 입력해 주세요.";
-				passwordError.style.display="";
-				password.classList.add("is-invalid");
-				password.classList.remove("is-valid");
-				password.focus();
-				return false;
-		    } else {
-		    	passwordError.style.display = "none";
-		    	password.classList.remove("is-invalid");
-		    	password.classList.add("is-valid");
-		    }
-			
-			const checkingpassword = document.getElementById("checkingpassword");
-			const checkingpasswordValue = document.getElementById("checkingpassword").value.trim();
-			const checkingpasswordError = document.getElementById("checkingpasswordError");
-			
-			if(checkingpasswordValue != checkingpasswordValue){
-				checkingpasswordError.innerText = "비밀번호가 일치하지 않습니다.";
-				checkingpasswordError.style.display="";
-				checkingpassword.classList.add("is-invalid");
-				checkingpassword.classList.remove("is-valid");
-				checkingpassword.focus();
-				return false;
-		    } else {
-		    	checkingpasswordError.style.display = "none";
-		    	checkingpassword.classList.remove("is-invalid");
-		    	checkingpassword.classList.add("is-valid");
-		    }
-			
-			const email = document.getElementById("email");
-			const emailValue = document.getElementById("email").value.trim();
-			const emailError = document.getElementById("emailError");
-			
-			var emailRegExp = /[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]$/i;
-			if(!emailRegExp.test(emailValue)){
-				emailError.innerText = "이메일 입력해주세요.";
-				emailError.style.display="";
-				email.classList.add("is-invalid");
-				email.classList.remove("is-valid");
-				email.focus();
-				return false;
-		    } else {
-		    	emailError.style.display = "none";
-		    	email.classList.remove("is-invalid");
-		    	email.classList.add("is-valid");
-		    }
-			
-			const gender = document.getElementById("gender");
-			const genderValue = document.getElementById("gender").value.trim();
-			const genderError = document.getElementById("genderError");
-			
-			if(genderValue == ""){
-				genderError.innerText = "성별을 선택해주세요.";
-				genderError.style.display="";
-				gender.classList.add("is-invalid");
-				gender.classList.remove("is-valid");
-				gender.focus();
-				return false;
-		    } else {
-		    	genderError.style.display = "none";
-		    	gender.classList.remove("is-invalid");
-		    	gender.classList.add("is-valid");
-		    }
-			
-			const telephone = document.getElementById("telephone");
-			const telephoneValue = document.getElementById("telephone").value.trim();
-			const telephoneError = document.getElementById("telephoneError");
-			
-			var telephoneRegExp = /^(?:(010)|(01[1|6|7|8|9]))\d{3,4}(\d{4})$/;
-			if(!telephoneRegExp.test(telephoneValue)){
-				telephoneError.innerText = "전화번호 입력해주세요.";
-				telephoneError.style.display="";
-				telephone.classList.add("is-invalid");
-				telephone.classList.remove("is-valid");
-				telephone.focus();
-				return false;
-		    } else {
-		    	telephoneError.style.display = "none";
-		    	telephone.classList.remove("is-invalid");
-		    	telephone.classList.add("is-valid");
-		    }
-			
-			const birthday = document.getElementById("birthday");
-			const birthdayValue = document.getElementById("birthday").value.trim();
-			const birthdayError = document.getElementById("birthdayError");
-			
-			var birthdayRegExp = /([0-9]{2}(0[1-9]|1[0-2])(0[1-9]|[1,2][0-9]|3[0,1]))/;
-			if(!birthdayRegExp.test(birthdayValue)){
-				birthdayError.innerText = "생년월일 입력해주세요.";
-				birthdayError.style.display="";
-				birthday.classList.add("is-invalid");
-				birthday.classList.remove("is-valid");
-				birthday.focus();
-				return false;
-		    } else {
-		    	birthdayError.style.display = "none";
-		    	birthday.classList.remove("is-invalid");
-		    	birthday.classList.add("is-valid");
-		    }
-			
-			
-			form.action = "/usrInst";
-			form.submit();
-		}
-		
-		document.getElementById("btnLogout").onclick = function (){
-			$.ajax({
-				async: true 
-				,cache: false
-				,type: "post"
-				,url: "/signoutUsrProc"
-				,success: function(response) {
-					if(response.rt =="success") {
-					location.href = "/usrUi";
-						
-					} else {
-						
-					}
-				}
-				,error : function(jqXHR, textStatus, errorThrown){
-					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
-				}
-			});	
-		}
-		</script>
 
 </body>
 
