@@ -27,6 +27,7 @@
 
 <div th:replace="~{usr/v1/infra/include/head :: head}"></div>
 
+<form id = "form" name = "form" method = "post" action = "">
 <div class="breadcrumb-area pt-35 pb-35 bg-gray-3">
     <div class="container">
         <div class="breadcrumb-content text-center">
@@ -54,14 +55,14 @@
                                 </div>
                             </div>
                             <div id="shop-details-2" class="tab-pane large-img-style">
-                                <img src="assets/img/slider/deeprock_2.png" alt="">
+                                <img src="/usr/v1/template/flone/assets/img/slider/deeprock_2.png" alt="">
                                 <span class="dec-price">-67%</span>
                                 <div class="img-popup-wrap">
                                     <a class="img-popup" href="/usr/v1/template/flone/assets/img/game/deeprock_4.png"><i class="pe-7s-expand1"></i></a>
                                 </div>
                             </div>
                             <div id="shop-details-3" class="tab-pane large-img-style">
-                                <img src="assets/img/slider/deeprock_2.png" alt="">
+                                <img src="/usr/v1/template/flone/assets/img/slider/deeprock_2.png" alt="">
                                 <span class="dec-price">-67%</span>
                                 <div class="img-popup-wrap">
                                     <a class="img-popup" href="/usr/v1/template/flone/assets/img/game/deeprock_5.png"><i class="pe-7s-expand1"></i></a>
@@ -84,10 +85,10 @@
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="product-details-content ml-70">
-                    <h2>Deep Rock Galactic(딥 락 갤럭틱)</h2>
+                    <h2 th:text="${item.pddName}"></h2>
                     <div class="product-details-price">
-                        <span>&#8361; 10,230</span>
-                        <span class="old">&#8361; 31,000 </span>
+                        <span th:text="${'&#8361;' + item.pddSalesPrice}"></span>
+                        <span class="old" th:text="${'&#8361;' + item.pddPrice}"></span>
                     </div>
                     <div class="pro-details-rating-wrap">
                         <div class="pro-details-rating">
@@ -97,14 +98,14 @@
                             <i class="fa fa-star-o"></i>
                             <i class="fa fa-star-o"></i>
                         </div>
-                        <span><a href="#">3 리뷰</a></span>
+                        <span><a href="#">2 리뷰</a></span>
                     </div>
-                    <p>딥 락 갤럭틱은 1-4인의 플레이어가 협동하는 FPS 게임으로, 상남자 우주 드워프, 원한다면 모두 부숴버릴 수 있는 맵 환경, 랜덤으로 생성되는 동굴 지형, 그리고 끊임없이 등장하는 외계 몬스터 떼가 특징입니다.</p>
+                    <p th:text="${item.pddDesc}"></p>
                     <div class="pro-details-list">
                         <ul>
-                            <li>- 출시일: 2020년 5월 13일</li>
-                            <li>- 개발자: <font color = "blue">Ghost Ship Games</font></li>
-                            <li>- 배급사: <font color = "blue">Coffee Stain Publishing</font>  </li>
+                            <li th:text="${'- 출시일:' + item.pddDatetimeRel}"></li>
+                            <li th:text="${'- 개발자:' + item.pddProgramer}"></li>
+                            <li th:text="${'- 배급사:' + item.pddDistributor}"></li>
                         </ul>
                     </div>
                     <div class="pro-details-quality">
@@ -121,7 +122,7 @@
                     <div class="pro-details-meta">
                         <span>카테고리 :</span>
                         <ul>
-                            <li><a href="#">슈팅</a></li>
+                            <li><a href="#" th:text="${item.pddCategory}"></a></li>
                         </ul>
                     </div>
                     <div class="pro-details-meta">
@@ -147,44 +148,13 @@
             <div class="tab-content description-review-bottom">
                 <div id="des-details2" class="tab-pane active">
                     <div class="product-description-wrapper">
-                        <p>딥 락 갤럭틱은 1-4인의 플레이어가 협동하는 FPS 게임으로, 상남자 우주 드워프, 원한다면 모두 부숴버릴 수 있는 맵 환경, 랜덤으로 생성되는 동굴 지형, 그리고 끊임없이 등장하는 외계 몬스터 떼가 특징입니다.</p>
-                        <p><font color = "blue">1-4인 플레이어 협동</font></p>
-                        <p>팀으로 협동해 땅을 파고, 탐험하고, 떼로 몰려드는 치명적인 적들과 귀중한 자원으로 가득 찬 거대 동굴 지대를 헤쳐나가세요. 우주에서 가장 무시무시한 동굴 지대에서 생존하고 싶다면, 팀원들과의 협동은 필수입니다!</p>
-                        <p><font color = "blue">4가지 독특한 클래스</font></p>
-                        <p>임무 수행을 위해 적절한 클래스를 선택하세요. 거너가 되어 적을 쓸어버리고, 스카웃이 되어 앞장서서 정찰하여 동굴을 밝히고, 드릴러가 되어 단단한 바위를 깨뜨려 길을 뚫고, 엔지니어가 되어 방어물과 터렛으로 팀을 서포트해보세요.</p>
-                        <p><font color = "blue">모두 부숴버릴 수 있는 맵 환경</font></p>
-                        <p>주변의 모든 것을 파괴하고 목표를 달성하세요. 정해진 길이 없기 때문에 원하는 대로 미션을 완료할 수 있습니다. 목표로 곧장 향하는 길을 드릴로 뚫거나, 여러 개의 복잡한 길을 구축해 주변을 탐험할 수도 있습니다. 선택은 여러분의 몫입니다. 하지만 탐험하는 동안 경계를 늦춰서는 안 됩니다. 준비되지 않은 상태에서 외계생물 떼의 습격을 당할 수도 있습니다!</p>
-                        <p><font color = "blue">랜덤으로 생성되는 동굴 지형</font></p>
-                        <p>싸워야 할 적과 수집해야 할 자원으로 가득 찬, 랜덤으로 생성되는 동굴 지형을 탐험해 보세요. 항상 새롭게 발견할 것이 기다리고 있으며, 플레이 하나하나가 모두 다른 경험을 선사합니다.</p>
-                        <p><font color = "blue">최첨단 도구와 무기</font></p>
-                        <p>드워프들은 임무 완수를 위해 무엇을 가져가야 하는지 알고 있습니다. 바로 가장 강력한 무기와 최첨단 도구입니다. 화염방사기, 개틀링 건, 휴대용 플랫폼 런처 외에도 다양한 무기가 준비되어 있습니다.</p>
-                        <p><font color = "blue">길 밝히기</font></p>
-                        <p>지하 동굴은 어두컴컴하며 공포로 가득한 공간입니다. 칠흑같이 어두운 동굴을 밝히고 싶다면 스스로 조명을 가져와야 합니다.</p>
+                        <p th:text=${item.pddDetail}></p>	
                     </div>
                 </div>
                 <div id="des-details1" class="tab-pane ">
                     <div class="product-anotherinfo-wrapper">
                         <ul>
-                            <li><span>최소 :</span></li>
-                            <li>64비트 프로세서와 운영 체제가 필요합니다</li>
-                            <li><span> 운영 체제 *:</span>  Windows 10 64 Bit</li>
-                            <li><span>프로세서 :</span>Intel i5, 3rd gen (or equivalent) </li>
-                            <li><span>메모리:</span> 6 GB RAM</li>
-                            <li><span>그래픽:</span> NVIDIA GeForce GTX 660 or AMD Radeon HD 7870</li>
-                            <li><span>DirectX:</span> 버전 11</li>
-                            <li><span>네트워크:</span> 초고속 인터넷 연결</li>
-                            <li><span>저장공간:</span> 3GB 사용 가능 공간</li>
-                        </ul>
-                        <ul style="margin-top: 100px;">
-                            <li><span>권장 :</span></li>
-                            <li>64비트 프로세서와 운영 체제가 필요합니다</li>
-                            <li><span> 운영 체제 *:</span>  Windows 10 64 Bit</li>
-                            <li><span>프로세서 :</span>Intel i5, 7th gen (or equivalent) </li>
-                            <li><span>메모리:</span> 8 GB RAM</li>
-                            <li><span>그래픽:</span> NVIDIA 970 / AMD Radeon 290</li>
-                            <li><span>DirectX:</span> 버전 11</li>
-                            <li><span>네트워크:</span> 초고속 인터넷 연결</li>
-                            <li><span>저장공간:</span> 3GB 사용 가능 공간</li>
+                            <li><span th:text="${item.pddSystem}"></span></li>
                         </ul>
                     </div>
                 </div>
@@ -215,7 +185,7 @@
                                             </div>
                                         </div>
                                         <div class="review-bottom">
-                                            <p>Vestibulum ante ipsum primis aucibus orci luctustrices posuere cubilia Curae Suspendisse viverra ed viverra. Mauris ullarper euismod vehicula. Phasellus quam nisi, congue id nulla.</p>
+                                            <p th:text="${item.pddReviewDesc}"></p>
                                         </div>
                                     </div>
                                 </div>
@@ -229,16 +199,6 @@
                                                 <div class="review-name">
                                                     <h4>White Lewis</h4>
                                                 </div>
-                                                <div class="review-rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-                                            </div>
-                                            <div class="review-left">
-                                                <a href="#">Reply</a>
                                             </div>
                                         </div>
                                         <div class="review-bottom">
@@ -266,12 +226,7 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="rating-form-style mb-10">
-                                                    <input placeholder="이름" type="text">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="rating-form-style mb-10">
-                                                    <input placeholder="이메일" type="email">
+                                                    <input type="text">
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
@@ -401,8 +356,8 @@
             <div class="product-wrap">
                 <div class="product-img">
                     <a href="product-details.html">
-                        <img class="default-img" src="assets/img/product/pro-4.jpg" alt="">
-                        <img class="hover-img" src="assets/img/product/pro-4-1.jpg" alt="">
+                        <img class="default-img" src="/usr/v1/template/flone/assets/img/product/pro-4.jpg" alt="">
+                        <img class="hover-img" src="/usr/v1/template/flone/assets/img/product/pro-4-1.jpg" alt="">
                     </a>
                     <span class="purple">New</span>
                     <div class="product-action">
@@ -496,6 +451,7 @@
         </div>
     </div>
 </footer>
+</form>
 
 
 <!-- Modal -->

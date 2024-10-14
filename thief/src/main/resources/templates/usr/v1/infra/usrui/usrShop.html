@@ -380,15 +380,15 @@
 	                                                <a href="/usrProduct">
 	                                                    <img class="default-img" src="/usr/v1/template/flone/assets/img/slider/deeprock_2.png" alt="">
 	                                                </a>
-	                                                <span class="purple" th:text="${list.pddsales}+'%'"></span>
+	                                                <span class="purple" th:text="${'-'+list.pddsales}+'%'"></span>
 	                                            </div>
 	                                        </div>
 	                                    </div>
 	                                    <div class="col-xl-8 col-lg-7 col-md-7 col-sm-6">
 	                                        <div class="shop-list-content">
-	                                            <h3><a href="/usrProduct" th:text="${list.pddName}"></a></h3>
+	                                            <h3><a th:href = "@{/usrProduct(pddSeq= ${list.pddSeq})}" th:text = "${list.pddName}"></a></h3>
 	                                            <div class="product-list-price">
-	                                                <span th:text=${'&#8361;'+list.pddSalesPrice}></span>
+	                                                <span th:text="${'&#8361;'+list.pddSalesPrice}"></span>
 	                                                <span class="old" th:text="${'&#8361;'+list.pddPrice}"> 31,000</span>
 	                                            </div>
 	                                            <div class="rating-review">
@@ -412,14 +412,25 @@
 	                        </div>
                        	</div>
                     </div>
-                    <div class="pro-pagination-style text-center mt-30">
-                        <ul>
-                            <li><a class="prev" href="#"><i class="fa fa-angle-double-left"></i></a></li>
-                            <li><a class="active" href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a class="next" href="#"><i class="fa fa-angle-double-right"></i></a></li>
-                        </ul>
-                    </div>
+                    <nav aria-label="Page Navigation">
+	               		<ul class="pagination justify-content-center">
+		                    <li th:if="${vo.startPage gt vo.pageNumToShow}" class="page-item" style="cursor: pointer;">
+		                        <a class="page-link"  href="javascript:goList(${vo.startPage - 1})" th:attr="onclick=|goList('${vo.startPage - 1}')|">
+		                            <span aria-hidden="true">
+		                                <i class="fa fa-angle-double-left"></i>
+		                            </span>
+		                        </a>
+		                    </li>
+		                    <li th:each="num: ${#numbers.sequence(vo.startPage, vo.endPage)}" th:classappend="${num eq vo.thisPage} ? active : ''" class="page-item" style="cursor: pointer;"><a class="page-link"  th:attr="onclick=|goList('${num}')|" th:text="${num}"><!-- ${i.index} --></a></li>
+		                    <li th:if="${vo.endPage ne vo.totalPages}" class="page-item" style="cursor: pointer;">
+		                        <a class="page-link" th:attr="onclick=|goList('${vo.endPage + 1}')|">
+		                            <span aria-hidden="true">
+		                                <i class="fa fa-angle-double-right"></i>
+		                            </span>
+		                        </a>
+		                    </li>
+	                   </ul>
+               		</nav>
                 </div>
             </div>
             <div class="col-lg-3">

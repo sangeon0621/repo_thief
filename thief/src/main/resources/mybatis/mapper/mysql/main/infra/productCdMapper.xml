@@ -49,6 +49,12 @@
 				,b.pddReview
 				,b.pddReviewDesc
 				,b.pddDelNy
+				,b.pddProgramer
+				,b.pddDistributor
+				,b.pddSystem
+				,b.pddDetail
+				,b.pddPlus
+				,b.pddWish
 			    ,b.productCg_pdSeq
 			    ,a.pdCategory
 			<include refid="selectCommon"></include>
@@ -73,6 +79,13 @@
 		    ,pddDatetime
 		    ,pddDatetimeSvr
 		    ,pddDelNy
+		    ,pddDatetimeRel
+			,pddProgramer
+			,pddDistributor
+			,pddSystem
+			,pddDetail
+			,pddPlus
+			,pddWish
 		    ,productCg_pdSeq
 		) values (
 			#{pddName}
@@ -88,6 +101,13 @@
 		    ,now()
 		    ,now()
 		    ,0
+		    ,now()
+		    ,#{pddProgramer}
+		    ,#{pddDistributor}
+		    ,#{pddSystem}
+		    ,#{pddDetail}
+		    ,#{pddPlus}
+		    ,#{pddWish}
 		    ,#{pdSeq}
 		)
 		<selectKey resultType="String" keyProperty="pddSeq" order="AFTER">
@@ -113,6 +133,12 @@
 				,b.pddReview
 				,b.pddReviewDesc
 				,b.pddDelNy
+				,b.pddProgramer
+				,b.pddDistributor
+				,b.pddSystem
+				,b.pddDetail
+				,b.pddPlus
+				,b.pddWish
 			from
 				productCd b
 			where 1=1
@@ -137,6 +163,12 @@
 	  		,pddReview = #{pddReview}
 	  		,pddReviewDesc = #{pddReviewDesc}
 	  		,pddDelNy = #{pddDelNy}
+	  		,pddProgramer = #{pddProgramer}
+			,pddDistributor = #{pddDistributor}
+			,pddSystem = #{pddSystem}
+			,pddDetail = #{pddDetail}
+			,pddPlus = #{pddPlus}
+			,pddWish = #{pddWish}
 	  	where 1=1
 	  		and pddSeq = #{pddSeq}
 	  </update>

@@ -29,4 +29,11 @@ public class UsrProductController {
 		return "/usr/v1/infra/usrui/usrShop";
 	}
 	
+	@RequestMapping(value="/usrProduct")
+	public String usrProduct(UsrProductDto usrProductDto, Model model) {
+		model.addAttribute("item", usrProductService.selectOne(usrProductDto));
+		
+		return "/usr/v1/infra/usrui/usrProduct";
+	}
+	
 }

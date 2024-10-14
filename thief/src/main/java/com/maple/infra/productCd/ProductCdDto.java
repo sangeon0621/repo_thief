@@ -26,6 +26,13 @@ public class ProductCdDto {
 	private String productCg_pdSeq;
 	private String pdCategory;
 	private String pdSeq;
+	private Date pddDatetimeRel;
+	private String pddProgramer;
+	private String pddDistributor;
+	private String pddSystem;
+	private String pddDetail;
+	private Integer pddPlus;
+	private Integer pddWish;
 //	-----
 	public String getPddSeq() {
 		return pddSeq;
@@ -140,6 +147,48 @@ public class ProductCdDto {
 	}
 	public void setPddSalesPrice(String pddSalesPrice) {
 		this.pddSalesPrice = pddSalesPrice;
+	}
+	public Date getPddDatetimeRel() {
+		return pddDatetimeRel;
+	}
+	public void setPddDatetimeRel(Date pddDatetimeRel) {
+		this.pddDatetimeRel = pddDatetimeRel;
+	}
+	public String getPddProgramer() {
+		return pddProgramer;
+	}
+	public void setPddProgramer(String pddProgramer) {
+		this.pddProgramer = pddProgramer;
+	}
+	public String getPddDistributor() {
+		return pddDistributor;
+	}
+	public void setPddDistributor(String pddDistributor) {
+		this.pddDistributor = pddDistributor;
+	}
+	public String getPddSystem() {
+		return pddSystem;
+	}
+	public void setPddSystem(String pddSystem) {
+		this.pddSystem = pddSystem;
+	}
+	public String getPddDetail() {
+		return pddDetail;
+	}
+	public void setPddDetail(String pddDetail) {
+		this.pddDetail = pddDetail;
+	}
+	public Integer getPddPlus() {
+		return pddPlus;
+	}
+	public void setPddPlus(Integer pddPlus) {
+		this.pddPlus = pddPlus;
+	}
+	public Integer getPddWish() {
+		return pddWish;
+	}
+	public void setPddWish(Integer pddWish) {
+		this.pddWish = pddWish;
 	}
 	
 	

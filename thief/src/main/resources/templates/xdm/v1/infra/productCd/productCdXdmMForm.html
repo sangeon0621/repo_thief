@@ -473,12 +473,12 @@
 											<label for="validationCustom01" class="form-label">상품가격<font color ="red">*</font></label>
 											<input type="text" name = "pddPrice" th:value="${item.pddPrice}" class="form-control" id="validationCustom01" >
 										</div>
-									</div>
-									<div class="row">
 										<div class="col-sm-3 col-3">
 											<label for="validationCustom01" class="form-label">상품수량<font color ="red">*</font></label>
 											<input type="text" name = "pddCount" th:value="${item.pddCount}" class="form-control" id="validationCustom01" >
 										</div>
+									</div>
+									<div class="row">
 										<div class="col-sm-3 col-3">
 											<label for="validationCustom01" class="form-label">순서<font color ="red">*</font></label>
 											<input type="text" name = "pddOrder" th:value="${item.pddOrder}" class="form-control" id="validationCustom01" autocomplete="off" >
@@ -490,8 +490,6 @@
 												<option value ="0" th:selected = "${item?.pddUseNy == 0}">미사용</option>
 											</select>
 										</div>
-									</div>
-									<div class="row">
 										<div class="col-sm-3 col-3">
 											<label for="validationCustom01" class="form-label">상품 할인<font color ="red">*</font></label>
 											<input type="text" name = "pddsales" th:value="${item.pddsales}" class="form-control" id="validationCustom01" >
@@ -500,9 +498,23 @@
 											<label for="validationCustom01" class="form-label">상품 할인가격<font color ="red">*</font></label>
 											<input type="text" name = "pddSalesPrice" th:value="${item.pddSalesPrice}" class="form-control" id="validationCustom01" >
 										</div>
+									</div>
+									<div class="row">
 										<div class="col-sm-3 col-3">
 											<label for="validationCustom01" class="form-label">상품 총 가격<font color ="red">*</font></label>
 											<input type="text" name = "pddTotalPrice" th:value="${item.pddTotalPrice}" class="form-control" id="validationCustom01" >
+										</div>
+										<div class="col-sm-3 col-3">
+											<label for="validationCustom01" class="form-label">개발자<font color ="red">*</font></label>
+											<input type="text" name = "pddProgramer" th:value="${item.pddProgramer}" class="form-control" id="validationCustom01" >
+										</div>
+										<div class="col-sm-3 col-3">
+											<label for="validationCustom01" class="form-label">배급사<font color ="red">*</font></label>
+											<input type="text" name = "pddDistributor" th:value="${item.pddDistributor}" class="form-control" id="validationCustom01" >
+										</div>
+										<div class="col-sm-3 col-3">
+											<label for="validationCustom01" class="form-label">상품 총 가격<font color ="red">*</font></label>
+											<input type="text" name = "pddDatetimeRel" th:value="${item.pddDatetimeRel}" class="form-control" id="validationCustom01" >
 										</div>
 									</div>
 									<div class="row">
