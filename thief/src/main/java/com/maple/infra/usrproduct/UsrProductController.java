@@ -36,4 +36,16 @@ public class UsrProductController {
 		return "/usr/v1/infra/usrui/usrProduct";
 	}
 	
+	@RequestMapping(value="/usrProductInst")
+	public String usrProductInst(UsrProductDto usrProductDto) {
+		usrProductService.insert(usrProductDto);
+		return "redirect:/usrProduct";
+	}
+	
+	@RequestMapping(value="/usrProductUpdt")
+	public String usrProductUpdt(UsrProductDto usrProductDto) {
+		usrProductService.update(usrProductDto);
+		return "redirect:/usrProduct";
+	}
+	
 }

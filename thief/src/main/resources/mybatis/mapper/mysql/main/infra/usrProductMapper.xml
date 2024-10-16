@@ -30,7 +30,7 @@
 		<include refid="selectCommon"></include>
 	</select>
 	
-	<select id = "selectList2" resultMap = "productObj">
+	<select id = "selectList" resultMap = "productObj">
 		select bb.* from (
 			select
 				b.pddSeq
@@ -46,14 +46,10 @@
 				,b.pddTotalPrice
 				,b.pddDatetime
 				,b.pddDatetimeSvr
-				,b.pddReview
-				,b.pddReviewDesc
 				,b.pddDelNy
 				,b.pddDatetimeRel
 				,b.pddProgramer
 				,b.pddDistributor
-				,b.pddSystem
-				,b.pddDetail
 				,b.pddPlus
 				,b.pddWish
 			    ,b.productCg_pdSeq
@@ -83,8 +79,6 @@
 		    ,pddDatetimeRel 
 			,pddProgramer 
 			,pddDistributor
-			,pddSystem  
-			,pddDetail 
 			,pddPlus 
 			,pddWish 
 		    ,productCg_pdSeq
@@ -105,8 +99,6 @@
 		    ,#{pddDatetimeRel}
 		    ,#{pddProgramer}
 		    ,#{pddDistributor}
-		    ,#{pddSystem}
-		    ,#{pddDetail}
 		    ,#{pddPlus}
 		    ,#{pddWish}
 		    ,#{pdSeq}
@@ -115,6 +107,8 @@
 				SELECT last_insert_id()
 		</selectKey>
 	  </insert>
+		
+		
 	  
 	  <select id="selectOne" resultMap="productObj">
 		  select
@@ -131,14 +125,10 @@
 				,b.pddTotalPrice
 				,b.pddDatetime
 				,b.pddDatetimeSvr
-				,b.pddReview
-				,b.pddReviewDesc
 				,b.pddDelNy
 				,b.pddDatetimeRel
 				,b.pddProgramer
 				,b.pddDistributor
-				,b.pddSystem
-				,b.pddDetail
 				,b.pddPlus
 				,b.pddWish
 			from
@@ -150,27 +140,8 @@
 	  <update id="update">
 	  	update productCd
 	  	set
-	  		pddName = #{pddName}
-	  		,pddCategory = #{pddCategory}
-	  		,pddUseNy = #{pddUseNy}
-	  		,pddOrder = #{pddOrder}
-	  		,pddDesc = #{pddDesc}
-	  		,pddPrice = #{pddPrice}
-	  		,pddsales = #{pddsales}
-	  		,pddSalesPrice = #{pddSalesPrice}
-	  		,pddCount = #{pddCount}
-	  		,pddTotalPrice = #{pddTotalPrice}
-	  		,pddDatetime = now()
-	  		,pddDatetimeSvr = now()
-	  		,pddReview = #{pddReview}
+	  		pddReview = #{pddReview}
 	  		,pddReviewDesc = #{pddReviewDesc}
-	  		,pddDelNy = #{pddDelNy}
-			,pddProgramer = #{pddProgramer}
-			,pddDistributor = #{pddDistributor}
-			,pddSystem = #{pddSystem}
-			,pddDetail = #{pddDetail}
-			,pddPlus = #{pddPlus}
-			,pddWish = #{pddWish}
 	  	where 1=1
 	  		and pddSeq = #{pddSeq}
 	  </update>

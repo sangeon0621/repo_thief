@@ -27,7 +27,7 @@
 
 <div th:replace="~{usr/v1/infra/include/head :: head}"></div>
 
-<form id = "form" name = "form" method = "post" action = "">
+<form id = "form" name = "form" method = "post" action = "/usrProductUpdt">
 <div class="breadcrumb-area pt-35 pb-35 bg-gray-3">
     <div class="container">
         <div class="breadcrumb-content text-center">
@@ -103,7 +103,7 @@
                     <p th:text="${item.pddDesc}"></p>
                     <div class="pro-details-list">
                         <ul>
-                            <li th:text="${'- 출시일:' + item.pddDatetimeRel}"></li>
+                            <li th:text="${'- 출시일:' + #dates.format(item.pddDatetimeRel, 'yyyy-MM-dd')}"></li>
                             <li th:text="${'- 개발자:' + item.pddProgramer}"></li>
                             <li th:text="${'- 배급사:' + item.pddDistributor}"></li>
                         </ul>
@@ -191,7 +191,7 @@
                                 </div>
                                 <div class="single-review child-review">
                                     <div class="review-img">
-                                        <img src="assets/img/testimonial/2.jpg" alt="">
+                                        <img src="/usr/v1/template/flone/assets/img/testimonial/2.jpg" alt="">
                                     </div>
                                     <div class="review-content">
                                         <div class="review-top-wrap">
@@ -212,31 +212,29 @@
                             <div class="ratting-form-wrapper pl-50">
                                 <h3>리뷰 작성하기</h3>
                                 <div class="ratting-form">
-                                    <form action="#">
-                                        <div class="star-box">
-                                            <span>평점 :</span>
-                                            <div class="ratting-star">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="rating-form-style mb-10">
-                                                    <input type="text">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="rating-form-style form-submit">
-                                                    <textarea name="Your Review" placeholder="Message"></textarea>
-                                                    <input type="submit" value="Submit">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
+	                                <div class="star-box">
+	                                    <span>평점 :</span>
+	                                    <div class="ratting-star">
+	                                        <i class="fa fa-star"></i>
+	                                        <i class="fa fa-star"></i>
+	                                        <i class="fa fa-star"></i>
+	                                        <i class="fa fa-star"></i>
+	                                        <i class="fa fa-star"></i>
+	                                    </div>
+	                                </div>
+	                                <div class="row">
+	                                    <div class="col-md-6">
+	                                        <div class="rating-form-style mb-10">
+	                                            <input type="text">
+	                                        </div>
+	                                    </div>
+	                                    <div class="col-md-12">
+	                                        <div class="rating-form-style form-submit">
+	                                            <textarea id="pddReviewDesc" name="pddReviewDesc" th:value="${item.pddReviewDesc}" placeholder="Message"></textarea>
+	                                            <button type="submit" class="btn">리뷰 작성</button>
+	                                        </div>
+	                                    </div>
+	                                </div>
                                 </div>
                             </div>
                         </div>
