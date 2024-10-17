@@ -21,10 +21,10 @@ public class UsrProductController {
 		vo.setParamsPaging(usrProductService.selectOneCount(vo));
 		
 		if (vo.getTotalRows() > 0) {
-			model.addAttribute("list", usrProductService.selectList2(vo));
+			model.addAttribute("list", usrProductService.selectList(vo));
 		}
 		
-		model.addAttribute("list", usrProductService.selectList2(vo));
+		model.addAttribute("list", usrProductService.selectList(vo));
 		
 		return "/usr/v1/infra/usrui/usrShop";
 	}
@@ -32,6 +32,7 @@ public class UsrProductController {
 	@RequestMapping(value="/usrProduct")
 	public String usrProduct(UsrProductDto usrProductDto, Model model) {
 		model.addAttribute("item", usrProductService.selectOne(usrProductDto));
+		model.addAttribute("item2", usrProductService.selectOne2(usrProductDto));
 		
 		return "/usr/v1/infra/usrui/usrProduct";
 	}

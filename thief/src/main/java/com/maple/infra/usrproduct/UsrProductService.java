@@ -15,8 +15,8 @@ public class UsrProductService {
     	return usrProductDao.selectOneCount(vo); 
     }
 	
-	public List<UsrProductDto> selectList2(UsrProductVo vo) {
-		return usrProductDao.selectList2(vo);
+	public List<UsrProductDto> selectList(UsrProductVo vo) {
+		return usrProductDao.selectList(vo);
 	}
 	
 	public int insert(UsrProductDto usrProductDto) {
@@ -25,6 +25,10 @@ public class UsrProductService {
 	
 	public UsrProductDto selectOne(UsrProductDto usrProductDto) {
 		return usrProductDao.selectOne(usrProductDto);
+	}
+	
+	public UsrProductDto selectOne2(UsrProductDto usrProductDto) {
+		return usrProductDao.selectOne2(usrProductDto);
 	}
 	
 	public int update(UsrProductDto usrProductDto) {

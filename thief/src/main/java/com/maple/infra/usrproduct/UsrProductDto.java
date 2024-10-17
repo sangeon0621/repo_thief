@@ -33,6 +33,15 @@ public class UsrProductDto {
 	private String productCg_pdSeq;
 	private String pdCategory;
 	private String pdSeq;
+	private String psSeq;
+	private Integer psSize;
+	private String psCpu;
+	private String psMemory;
+	private String psGrapic;
+	private String psOs;
+	private String psDirectX;
+	private String psNetwork;
+	private String psDisk;
 //	-----
 	public String getPddSeq() {
 		return pddSeq;
@@ -189,6 +198,60 @@ public class UsrProductDto {
 	}
 	public void setPddWish(Integer pddWish) {
 		this.pddWish = pddWish;
+	}
+	public String getPsSeq() {
+		return psSeq;
+	}
+	public void setPsSeq(String psSeq) {
+		this.psSeq = psSeq;
+	}
+	public Integer getPsSize() {
+		return psSize;
+	}
+	public void setPsSize(Integer psSize) {
+		this.psSize = psSize;
+	}
+	public String getPsCpu() {
+		return psCpu;
+	}
+	public void setPsCpu(String psCpu) {
+		this.psCpu = psCpu;
+	}
+	public String getPsMemory() {
+		return psMemory;
+	}
+	public void setPsMemory(String psMemory) {
+		this.psMemory = psMemory;
+	}
+	public String getPsGrapic() {
+		return psGrapic;
+	}
+	public void setPsGrapic(String psGrapic) {
+		this.psGrapic = psGrapic;
+	}
+	public String getPsOs() {
+		return psOs;
+	}
+	public void setPsOs(String psOs) {
+		this.psOs = psOs;
+	}
+	public String getPsDirectX() {
+		return psDirectX;
+	}
+	public void setPsDirectX(String psDirectX) {
+		this.psDirectX = psDirectX;
+	}
+	public String getPsNetwork() {
+		return psNetwork;
+	}
+	public void setPsNetwork(String psNetwork) {
+		this.psNetwork = psNetwork;
+	}
+	public String getPsDisk() {
+		return psDisk;
+	}
+	public void setPsDisk(String psDisk) {
+		this.psDisk = psDisk;
 	}
 	
 	

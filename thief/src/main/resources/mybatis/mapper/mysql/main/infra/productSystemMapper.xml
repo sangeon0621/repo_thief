@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.maple.infra.productsystem.ProductSystemDao">
+
+	<resultMap type="com.maple.infra.productsystem.ProductSystemDto" id="productObj"></resultMap>
+	
+	<sql id="selectCommon">
+		from
+			pddSystem c left join productCd b on b.pddSeq = c.productCd_pddSeq
+		where 1=1
+			<if test="shDelNy != null and !shDelNy.equals('')">AND psDelNy = #{shDelNy}</if>
+			<if test="shUseNy != null and !shUseNy.equals('')">AND psUseNy = #{shUseNy}</if>
+			
+<!-- 			<choose> -->
+<!-- 				<when test="shOptionDate == 1">AND b.pddDatetime BETWEEN #{shDateStart} AND #{shDateEnd}</when> -->
+<!-- 				<when test="shOptionDate == 2">AND b.pddDatetimeSvr BETWEEN #{shDateStart} AND #{shDateEnd}</when> -->
+<!-- 			</choose> -->
+			
+			<choose>
+				<when test="shOption == 1">AND psSeq = #{shValue}</when>
+				<when test="shOption == 2">AND psCpu LIKE CONCAT('%',#{shValue},'%')</when>
+				<when test="shOption == 3">AND productCd_pddSeq = #{shValue}</when>
+			</choose>
+	</sql>
+	
+	<select id="selectOneCount">
+		select count(*)
+		<include refid="selectCommon"></include>
+	</select>
+	
+	<select id = "selectList2" resultMap = "productObj">
+		select cc.* from (
+			select
+				c.psSeq
+				,c.psSize
+				,c.psOs
+				,c.psCpu
+				,c.psMemory
+				,c.psGrapic
+				,c.psDirectX
+				,c.psNetwork
+				,c.psDisk
+				,c.psUseNy
+				,c.psDelNy
+			    ,c.productCd_pddSeq
+			    ,b.pddName
+			<include refid="selectCommon"></include>
+			order by
+				c.psSeq desc
+		) cc
+		limit #{rowNumToShow} offset #{startRnumForMysql}
+	</select>
+	  
+	  <insert id="insert">
+		  insert into pddSystem (
+		  	psSize
+			,psOs
+			,psCpu
+			,psMemory
+			,psGrapic
+			,psDirectX
+			,psNetwork
+			,psDisk
+			,psUseNy
+			,psDelNy
+		    ,productCd_pddSeq
+		) values (
+			#{psSize}
+			,#{psOs}
+		    ,#{psCpu}
+		    ,#{psMemory}
+		    ,#{psGrapic}
+		    ,#{psDirectX}
+		    ,#{psNetwork}
+		    ,#{psDisk}
+		    ,#{psUseNy}
+		    ,0
+		    ,#{pddSeq}
+		)
+		<selectKey resultType="String" keyProperty="psSeq" order="AFTER">
+				SELECT last_insert_id()
+		</selectKey>
+	  </insert>
+	  
+	  
+		
+	  
+	  <select id="selectOne" resultMap="productObj">
+		  select
+				c.psSeq
+				,c.psSize
+				,c.psOs
+				,c.psCpu
+				,c.psMemory
+				,c.psGrapic
+				,c.psDirectX
+				,c.psNetwork
+				,c.psDisk
+				,c.psUseNy
+				,c.psDelNy
+			    ,c.productCd_pddSeq
+			from
+				pddSystem c
+			where 1=1
+			AND c.psSeq = #{psSeq}
+	  </select>
+	  
+	  <update id="update">
+	  	update productCd
+	  	set
+	  		psSize = #{psSize}
+	  		,psOs = #{psOs}
+	  		,psCpu = #{psCpu}
+	  		,psMemory = #{psMemory}
+	  		,psGrapic = #{psGrapic}
+	  		,psDirectX = #{psDirectX}
+	  		,psNetwork = #{psNetwork}
+	  		,psDisk = #{psDisk}
+	  		,psUseNy = #{psUseNy}
+	  		,psDelNy = #{psDelNy}
+	  	where 1=1
+	  		and psSeq = #{psSeq}
+	  </update>
+	  
+	  <select id = "selectListCodeGroup" resultMap = "productObj">
+		select
+			b.pddSeq
+			,b.pddName
+		from productCd b
+		where 1=1
+			and b.pddDelNy = 0
+		order by
+			b.pddOrder desc
+		
+	</select>
+	  
+	<update id="uelete">
+		update pddSystem
+	  	set
+	  		psDelNy = 1
+	  	where 1=1
+	  		and psSeq = #{psSeq}
+	</update>
+	  
+	<delete id="delete">
+		delete from pddSystem
+	  	where 1=1
+	  		and psSeq = #{psSeq}
+	</delete>	  
+	  
+</mapper>

@@ -369,7 +369,9 @@
                                 </div>
                             </div>
                         </div>
-                        
+                        <div th:if = "${#lists.isEmpty(list)}" class = "hover-actions-trigger btn-reveal-trigger position">
+                        	<span class = "fs-0" style = "padding-top: 12px;">There are no product!</span>
+                        </div>
                    		<div th:each = "list : ${list}" th:if = "${!#lists.isEmpty(list)}">
 	                        <div id="shop-2" class="tab-pane active">
 	                            <div class="shop-list-wrap mb-30 scroll-zoom">

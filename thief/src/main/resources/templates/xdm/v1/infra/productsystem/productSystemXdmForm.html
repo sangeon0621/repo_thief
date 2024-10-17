@@ -445,7 +445,7 @@
 				<!-- Content wrapper scroll start -->
 				<div class="content-wrapper-scroll">
 					<!-- Content wrapper start -->
-					<form id = "form" name = "form" method = "post" action = "/v1/infra/productCd/productCdXdmInst">
+					<form id = "form" name = "form" method = "post" action = "/v1/infra/productsystem/productSystemXdmInst">
 						<div class="content-wrapper">
 							<div class="card">
 								<div class="row" style="padding: 20px;">
@@ -474,75 +474,62 @@
 <!-- 									</div> -->
 									<div class="row">
 										<div class="col-sm-3 col-3">
-											<label for="validationCustom04" class="form-label">카테고리 코드<font color ="red">*</font></label>
-											<select name = "pdSeq" class="form-select" id="validationCustom04" >
+											<label for="validationCustom04" class="form-label">상품 이름<font color ="red">*</font></label>
+											<select name = "pddSeq" class="form-select" id="validationCustom04" >
 												<option value ="">선택하세요</option>
-												<option th:each="list : ${listProductCg}" th:value="${list.pdSeq}" th:text="${list.pdCategory}">미사용</option>
+												<option th:each="list : ${listProductCd}" th:value="${list.pddSeq}" th:text="${list.pddName}">미사용</option>
 											</select>
 										</div>
 										<div class="col-sm-3 col-3">
-											<label for="validationCustom01" class="form-label">상품 장르<font color ="red">*</font></label>
-											<input  type="text" name = "pddCategory" class="form-control" autocomplete="off" >
-										</div>
-										<div class="col-sm-3 col-3">
-											<label for="validationCustom01" class="form-label">상품 이름<font color ="red">*</font></label>
-											<input  type="text" name = "pddName" class="form-control" autocomplete="off" >
-										</div>
-										<div class="col-sm-3 col-3">
-											<label for="validationCustom04" class="form-label">사용 여부<font color ="red">*</font></label>
-											<select name = "pddUseNy" class="form-select" id="validationCustom04" >
-												<option value ="1" th:selected = "${item?.ifcdUseNy == 1}">사용</option>
-												<option value ="0" th:selected = "${item?.ifcdUseNy == 0}">미사용</option>
+											<label for="validationCustom04" class="form-label">사양<font color ="red">*</font></label>
+											<select name = "psSize" class="form-select" id="validationCustom04" >
+												<option value ="1" th:selected = "${item?.psSize == 1}">권장</option>
+												<option value ="0" th:selected = "${item?.psSize == 0}">최소</option>
 											</select>
 										</div>
-									</div>
-									<div class="row">
 										<div class="col-sm-3 col-3">
-											<label for="validationCustom01" class="form-label">순서<font color ="red">*</font></label>
-											<input type="text" name = "pddOrder" class="form-control" id="validationCustom01" autocomplete="off" >
+											<label for="validationCustom01" class="form-label">Os<font color ="red">*</font></label>
+											<input  type="text" name = "psOs" class="form-control" autocomplete="off" >
 										</div>
 										<div class="col-sm-3 col-3">
-											<label for="validationCustom01" class="form-label">상품 가격<font color ="red">*</font></label>
-											<input  type="text" name = "pddPrice" class="form-control" autocomplete="off" >
-										</div>
-										<div class="col-sm-3 col-3">
-											<label for="validationCustom01" class="form-label">상품 수량<font color ="red">*</font></label>
-											<input  type="text" name = "pddCount" class="form-control" autocomplete="off" >
-										</div>
-										<div class="col-sm-3 col-3">
-											<label for="validationCustom01" class="form-label">상품 총 가격<font color ="red">*</font></label>
-											<input  type="text" name = "pddTotalPrice" class="form-control" autocomplete="off" >
+											<label for="validationCustom01" class="form-label">CPU<font color ="red">*</font></label>
+											<input  type="text" name = "psCpu" class="form-control" autocomplete="off" >
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-sm-3 col-3">
-											<label for="validationCustom01" class="form-label">상품 할인<font color ="red">*</font></label>
-											<input  type="text" name = "pddsales" class="form-control" autocomplete="off" >
+											<label for="validationCustom01" class="form-label">메모리<font color ="red">*</font></label>
+											<input type="text" name = "psMemory" class="form-control" id="validationCustom01" autocomplete="off" >
 										</div>
 										<div class="col-sm-3 col-3">
-											<label for="validationCustom01" class="form-label">상품 할인가격<font color ="red">*</font></label>
-											<input  type="text" name = "pddSalesPrice" class="form-control" autocomplete="off" >
+											<label for="validationCustom01" class="form-label">그래픽카드<font color ="red">*</font></label>
+											<input  type="text" name = "psGrapic" class="form-control" autocomplete="off" >
 										</div>
 										<div class="col-sm-3 col-3">
-											<label for="validationCustom01" class="form-label">제작자<font color ="red">*</font></label>
-											<input  type="text" name = "pddProgramer" class="form-control" autocomplete="off" >
+											<label for="validationCustom01" class="form-label">DirectX<font color ="red">*</font></label>
+											<input  type="text" name = "psDirectX" class="form-control" autocomplete="off" >
 										</div>
 										<div class="col-sm-3 col-3">
-											<label for="validationCustom01" class="form-label">배급사<font color ="red">*</font></label>
-											<input  type="text" name = "pddDistributor" class="form-control" autocomplete="off" >
+											<label for="validationCustom01" class="form-label">네트워크<font color ="red">*</font></label>
+											<input  type="text" name = "psNetwork" class="form-control" autocomplete="off" >
 										</div>
 									</div>
 									<div class="row">
-										<div class="col-sm-6 col-6">
-											<div class="m-0">
-												<label class="form-label">상품 설명</label>
-												<textarea name = "pddDesc" class="form-control" rows="5"></textarea>
-											</div>
+										<div class="col-sm-3 col-3">
+											<label for="validationCustom01" class="form-label">디스크<font color ="red">*</font></label>
+											<input  type="text" name = "psDisk" class="form-control" autocomplete="off" >
+										</div>
+										<div class="col-sm-3 col-3">
+											<label for="validationCustom04" class="form-label">사용여부<font color ="red">*</font></label>
+											<select name = "psUseNy" class="form-select" id="validationCustom04" >
+												<option value ="1" th:selected = "${item?.psUseNy == 1}">사용</option>
+												<option value ="0" th:selected = "${item?.psUseNy == 0}">미사용</option>
+											</select>
 										</div>
 									</div>
 									<div class="row" style="padding-top: 20px;">
 										<div class="col-sm-1 col-1">
-											<button type="button" class="btn btn-outline-dark" onclick="location.href='/v1/infra/productCd/productCdXdmList'">
+											<button type="button" class="btn btn-outline-dark" onclick="location.href='/v1/infra/productsystem/productSystemXdmList'">
 												<i class="bi bi-list-ul"></i>
 											</button>
 										</div>

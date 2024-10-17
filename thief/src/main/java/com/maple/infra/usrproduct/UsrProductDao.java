@@ -9,11 +9,14 @@ public interface UsrProductDao {
 
 	public int selectOneCount(UsrProductVo vo);
 
-	public List<UsrProductDto> selectList2(UsrProductVo vo);
+	public List<UsrProductDto> selectList(UsrProductVo vo);
 	
 	public int insert(UsrProductDto usrProductDto);
 	
 	public UsrProductDto selectOne(UsrProductDto usrProductDto);
+	
+	public UsrProductDto selectOne2(UsrProductDto usrProductDto);
+
 	
 	public int update(UsrProductDto usrProductDto);
 	

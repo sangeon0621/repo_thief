@@ -46,13 +46,9 @@
 				,b.pddTotalPrice
 				,b.pddDatetime
 				,b.pddDatetimeSvr
-				,b.pddReview
-				,b.pddReviewDesc
 				,b.pddDelNy
 				,b.pddProgramer
 				,b.pddDistributor
-				,b.pddSystem
-				,b.pddDetail
 				,b.pddPlus
 				,b.pddWish
 			    ,b.productCg_pdSeq
@@ -82,8 +78,6 @@
 		    ,pddDatetimeRel
 			,pddProgramer
 			,pddDistributor
-			,pddSystem
-			,pddDetail
 			,pddPlus
 			,pddWish
 		    ,productCg_pdSeq
@@ -104,8 +98,6 @@
 		    ,now()
 		    ,#{pddProgramer}
 		    ,#{pddDistributor}
-		    ,#{pddSystem}
-		    ,#{pddDetail}
 		    ,#{pddPlus}
 		    ,#{pddWish}
 		    ,#{pdSeq}
@@ -114,6 +106,7 @@
 				SELECT last_insert_id()
 		</selectKey>
 	  </insert>
+	  
 	  
 	  <select id="selectOne" resultMap="productObj">
 		  select
@@ -130,13 +123,9 @@
 				,b.pddTotalPrice
 				,b.pddDatetime
 				,b.pddDatetimeSvr
-				,b.pddReview
-				,b.pddReviewDesc
 				,b.pddDelNy
 				,b.pddProgramer
 				,b.pddDistributor
-				,b.pddSystem
-				,b.pddDetail
 				,b.pddPlus
 				,b.pddWish
 			from
@@ -160,13 +149,9 @@
 	  		,pddTotalPrice = #{pddTotalPrice}
 	  		,pddDatetime = now()
 	  		,pddDatetimeSvr = now()
-	  		,pddReview = #{pddReview}
-	  		,pddReviewDesc = #{pddReviewDesc}
 	  		,pddDelNy = #{pddDelNy}
 	  		,pddProgramer = #{pddProgramer}
 			,pddDistributor = #{pddDistributor}
-			,pddSystem = #{pddSystem}
-			,pddDetail = #{pddDetail}
 			,pddPlus = #{pddPlus}
 			,pddWish = #{pddWish}
 	  	where 1=1
