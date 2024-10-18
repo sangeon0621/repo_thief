@@ -8,7 +8,7 @@
 	<sql id="selectCommon">
 		from
 			productCd b left join productCg a on a.pdSeq = b.productCg_pdSeq
-		where 1=1
+			where 1=1
 			<if test="shDelNy != null and !shDelNy.equals('')">AND pddDelNy = #{shDelNy}</if>
 			<if test="shUseNy != null and !shUseNy.equals('')">AND pddUseNy = #{shUseNy}</if>
 			
@@ -132,8 +132,9 @@
 				,b.pddPlus
 				,b.pddWish
 			from
-				productCd b left join pddSystem c
-			where b.pddSeq = #{pddSeq}
+				productCd b  
+			where 1=1
+				 and b.pddSeq = #{pddSeq}
 	  </select>
 	  
 	  
@@ -149,13 +150,19 @@
 	  
 	  <select id = "selectListCodeGroup" resultMap = "productObj">
 		select
-			a.pdSeq
-			,a.pdCategory
-		from productCg a
+			c.psSeq
+			,c.psSize
+			,c.psOs
+			,c.psCpu
+			,c.psMemory
+			,c.psGrapic
+			,c.psDirectX
+			,c.psNetwork
+			,c.psDisk
+		    ,c.productCd_pddSeq
+		from pddSystem c
 		where 1=1
-			and a.pdDelNy = 0
-		order by
-			a.pdOrder desc
+			and c.productCd_pddSeq = 1
 		
 	</select>
 	  

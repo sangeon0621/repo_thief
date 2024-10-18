@@ -27,9 +27,6 @@ public class UsrProductService {
 		return usrProductDao.selectOne(usrProductDto);
 	}
 	
-	public UsrProductDto selectOne2(UsrProductDto usrProductDto) {
-		return usrProductDao.selectOne2(usrProductDto);
-	}
 	
 	public int update(UsrProductDto usrProductDto) {
 		return usrProductDao.update(usrProductDto);

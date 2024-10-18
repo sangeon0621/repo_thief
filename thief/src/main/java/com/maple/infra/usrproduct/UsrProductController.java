@@ -1,5 +1,6 @@
 package com.maple.infra.usrproduct;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,7 +33,8 @@ public class UsrProductController {
 	@RequestMapping(value="/usrProduct")
 	public String usrProduct(UsrProductDto usrProductDto, Model model) {
 		model.addAttribute("item", usrProductService.selectOne(usrProductDto));
-		model.addAttribute("item2", usrProductService.selectOne2(usrProductDto));
+		
+		model.addAttribute("system", usrProductService.selectListCodeGroup());
 		
 		return "/usr/v1/infra/usrui/usrProduct";
 	}

@@ -42,6 +42,8 @@ public class UsrProductDto {
 	private String psDirectX;
 	private String psNetwork;
 	private String psDisk;
+	private String productCd_pddSeq;
+	
 //	-----
 	public String getPddSeq() {
 		return pddSeq;
@@ -252,6 +254,12 @@ public class UsrProductDto {
 	}
 	public void setPsDisk(String psDisk) {
 		this.psDisk = psDisk;
+	}
+	public String getProductCd_pddSeq() {
+		return productCd_pddSeq;
+	}
+	public void setProductCd_pddSeq(String productCd_pddSeq) {
+		this.productCd_pddSeq = productCd_pddSeq;
 	}
 	
 	

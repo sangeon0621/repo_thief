@@ -15,9 +15,6 @@ public interface UsrProductDao {
 	
 	public UsrProductDto selectOne(UsrProductDto usrProductDto);
 	
-	public UsrProductDto selectOne2(UsrProductDto usrProductDto);
-
-	
 	public int update(UsrProductDto usrProductDto);
 	
 	public List<UsrProductDto> selectListCodeGroup();

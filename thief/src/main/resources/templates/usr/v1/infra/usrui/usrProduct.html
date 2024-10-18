@@ -148,13 +148,32 @@
             <div class="tab-content description-review-bottom">
                 <div id="des-details2" class="tab-pane active">
                     <div class="product-description-wrapper">
-                        <p th:text=${item.pddDetail}></p>	
+                        <p ></p>	
                     </div>
                 </div>
-                <div id="des-details1" class="tab-pane ">
+                <div id="des-details1" class="tab-pane" th:each = "system : ${system}" th:if = "${!#lists.isEmpty(system)}">
                     <div class="product-anotherinfo-wrapper">
-                        <ul>
-                            <li><span th:text="${item2.psSize}"></span></li>
+	                        <ul>
+	                            <li><h4><span th:if = "${system.psSize eq 0}" style="color: blue;">최소 사양 :</span></h4></li>
+	                            <li>64비트 프로세서와 운영 체제가 필요합니다</li>
+	                            <li><span th:text="${'운영 체재: ' + system.psOs}"></span></li>
+	                            <li><span th:text="${'프로세서: ' + system.psCpu}"></span></li>
+	                            <li><span th:text="${'메모리: ' + system.psMemory}"></span></li>
+	                            <li><span th:text="${'그래픽: ' + system.psGrapic}"></span></li>
+	                            <li><span th:text="${'DirectX: ' + system.psDirectX}"></span></li>
+	                            <li><span th:text="${'네트워크: ' + system.psNetwork}"></span></li>
+	                            <li><span th:text="${'저장공간: ' + system.psDisk}"></span></li>
+	                        </ul>
+                        <ul style="margin-top: 100px;">
+                            <li><h4><span th:if = "${system.psSize eq 1}" style="color: blue;">권장 사양 :</span></h4></li>
+                            <li>64비트 프로세서와 운영 체제가 필요합니다</li>
+                            <li><span> 운영 체제 *:</span>  Windows 10 64 Bit</li>
+                            <li><span>프로세서 :</span>Intel i5, 7th gen (or equivalent) </li>
+                            <li><span>메모리:</span> 8 GB RAM</li>
+                            <li><span>그래픽:</span> NVIDIA 970 / AMD Radeon 290</li>
+                            <li><span>DirectX:</span> 버전 11</li>
+                            <li><span>네트워크:</span> 초고속 인터넷 연결</li>
+                            <li><span>저장공간:</span> 3GB 사용 가능 공간</li>
                         </ul>
                     </div>
                 </div>
@@ -185,7 +204,7 @@
                                             </div>
                                         </div>
                                         <div class="review-bottom">
-                                            <p th:text="${item.pddReviewDesc}"></p>
+                                            <p ></p>
                                         </div>
                                     </div>
                                 </div>
