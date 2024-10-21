@@ -527,11 +527,87 @@
 									</div>
 									<div class="row">
 										<div class="col-sm-3 col-3">
+											<label for="validationCustom01" class="form-label">상품 세부 정보1<font color ="red">*</font></label>
+											<input  type="text" name = "pddDetail1" th:value="${item.pddDetail1}" class="form-control" autocomplete="off" >
+										</div>
+										<div class="col-sm-3 col-3">
+											<label for="validationCustom01" class="form-label">상품 세부 정보2<font color ="red">*</font></label>
+											<input  type="text" name = "pddDetail2" th:value="${item.pddDetail2}" class="form-control" autocomplete="off" >
+										</div>
+										<div class="col-sm-3 col-3">
+											<label for="validationCustom01" class="form-label">상품 세부 정보3<font color ="red">*</font></label>
+											<input  type="text" name = "pddDetail3" th:value="${item.pddDetail3}" class="form-control" autocomplete="off" >
+										</div>
+										<div class="col-sm-3 col-3">
+											<label for="validationCustom01" class="form-label">상품 세부 정보4<font color ="red">*</font></label>
+											<input  type="text" name = "pddDetail4" th:value="${item.pddDetail4}" class="form-control" autocomplete="off" >
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-3 col-3">
+											<label for="validationCustom01" class="form-label">상품 세부 정보5<font color ="red">*</font></label>
+											<input  type="text" name = "pddDetail5" th:value="${item.pddDetail5}" class="form-control" autocomplete="off" >
+										</div>
+										<div class="col-sm-3 col-3">
+											<label for="validationCustom01" class="form-label">상품 세부 정보6<font color ="red">*</font></label>
+											<input  type="text" name = "pddDetail6" th:value="${item.pddDetail6}" class="form-control" autocomplete="off" >
+										</div>
+										<div class="col-sm-3 col-3">
+											<label for="validationCustom01" class="form-label">상품 세부 정보7<font color ="red">*</font></label>
+											<input  type="text" name = "pddDetail7" th:value="${item.pddDetail7}" class="form-control" autocomplete="off" >
+										</div>
+										<div class="col-sm-3 col-3">
+											<label for="validationCustom01" class="form-label">상품 세부 정보8<font color ="red">*</font></label>
+											<input  type="text" name = "pddDetail8" th:value="${item.pddDetail8}" class="form-control" autocomplete="off" >
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-3 col-3">
+											<label for="validationCustom01" class="form-label">상품 세부 정보9<font color ="red">*</font></label>
+											<input  type="text" name = "pddDetail9" th:value="${item.pddDetail9}" class="form-control" autocomplete="off" >
+										</div>
+										<div class="col-sm-3 col-3">
+											<label for="validationCustom01" class="form-label">상품 세부 정보10<font color ="red">*</font></label>
+											<input  type="text" name = "pddDetail10" th:value="${item.pddDetail10}" class="form-control" autocomplete="off" >
+										</div>
+										<div class="col-sm-3 col-3">
+											<label for="validationCustom01" class="form-label">상품 세부 정보11<font color ="red">*</font></label>
+											<input  type="text" name = "pddDetail11" th:value="${item.pddDetail11}" class="form-control" autocomplete="off" >
+										</div>
+										<div class="col-sm-3 col-3">
+											<label for="validationCustom01" class="form-label">상품 세부 정보12<font color ="red">*</font></label>
+											<input  type="text" name = "pddDetail12" th:value="${item.pddDetail12}" class="form-control" autocomplete="off" >
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-3 col-3">
+											<label for="validationCustom01" class="form-label">상품 세부 정보13<font color ="red">*</font></label>
+											<input  type="text" name = "pddDetail13" th:value="${item.pddDetail13}" class="form-control" autocomplete="off" >
+										</div>
+										<div class="col-sm-3 col-3">
+											<label for="validationCustom01" class="form-label">상품 세부 정보14<font color ="red">*</font></label>
+											<input  type="text" name = "pddDetail14" th:value="${item.pddDetail14}" class="form-control" autocomplete="off" >
+										</div>
+										<div class="col-sm-3 col-3">
+											<label for="validationCustom01" class="form-label">상품 세부 정보15<font color ="red">*</font></label>
+											<input  type="text" name = "pddDetail15" th:value="${item.pddDetail15}" class="form-control" autocomplete="off" >
+										</div>
+										<div class="col-sm-3 col-3">
+											<label for="validationCustom01" class="form-label">상품 세부 정보16<font color ="red">*</font></label>
+											<input  type="text" name = "pddDetail16" th:value="${item.pddDetail16}" class="form-control" autocomplete="off" >
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-3 col-3">
 											<label for="validationCustom04" class="form-label">삭제 여부<font color ="red">*</font></label>
 											<select disabled name = "pddDelNy" class="form-select" id="validationCustom04" >
 												<option value ="1" th:selected = "${item?.pddDelNy == 1}">삭제</option>
 												<option value ="0" th:selected = "${item?.pddDelNy == 0}">미삭제</option>
 											</select>
+										</div>
+										<div class="col-sm-3 col-3">
+											<label for="validationCustom01" class="form-label">출시일<font color ="red">*</font></label>
+											<input disabled type="text" name = "pddDatetimeRel" th:value = "${#dates.format(item.pddDatetimeRel, 'yyyy-MM-dd HH:mm:ss')}" class="form-control" id="validationCustom01" >
 										</div>
 										<div class="col-sm-3 col-3">
 											<label for="validationCustom01" class="form-label">등록일<font color ="red">*</font></label>

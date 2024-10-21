@@ -82,6 +82,7 @@ public class UsrUiController {
 				httpSession.setAttribute("sessSeqUsr", rtMember2.getSeq());
 				httpSession.setAttribute("sessIdUsr", rtMember2.getId());
 				httpSession.setAttribute("sessNameUsr", rtMember2.getName());
+				httpSession.setAttribute("sessNickNameUsr", rtMember2.getNickName());
 //
 //				rtMember2.setIfmmSocialLoginCd(103);
 //				rtMember2.setIflgResultNy(1);

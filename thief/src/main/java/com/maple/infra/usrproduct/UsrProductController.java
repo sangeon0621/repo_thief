@@ -34,7 +34,7 @@ public class UsrProductController {
 	public String usrProduct(UsrProductDto usrProductDto, Model model) {
 		model.addAttribute("item", usrProductService.selectOne(usrProductDto));
 		
-		model.addAttribute("system", usrProductService.selectListCodeGroup());
+		model.addAttribute("system", usrProductService.selectListCodeGroup(usrProductDto));
 		
 		return "/usr/v1/infra/usrui/usrProduct";
 	}

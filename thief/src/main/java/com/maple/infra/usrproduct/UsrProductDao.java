@@ -17,7 +17,7 @@ public interface UsrProductDao {
 	
 	public int update(UsrProductDto usrProductDto);
 	
-	public List<UsrProductDto> selectListCodeGroup();
+	public List<UsrProductDto> selectListCodeGroup(UsrProductDto usrProductDto);
 	
 	public int uelete(UsrProductDto usrProductDto);
 	

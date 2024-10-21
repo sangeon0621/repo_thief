@@ -148,24 +148,39 @@
             <div class="tab-content description-review-bottom">
                 <div id="des-details2" class="tab-pane active">
                     <div class="product-description-wrapper">
-                        <p ></p>	
+                        <p th:text="${item.pddDetail1}"></p>
+                        <p style="color: blue;" th:text="${item.pddDetail2}"></p>
+                        <p th:text="${item.pddDetail3}"></p>
+                        <p style="color: blue;" th:text="${item.pddDetail4}"></p>
+                        <p th:text="${item.pddDetail5}"></p>
+                        <p style="color: blue;" th:text="${item.pddDetail6}"></p>
+                        <p th:text="${item.pddDetail7}"></p>
+                        <p style="color: blue;" th:text="${item.pddDetail8}"></p>
+                        <p th:text="${item.pddDetail9}"></p>
+                        <p style="color: blue;" th:text="${item.pddDetail10}"></p>
+                        <p th:text="${item.pddDetail11}"></p>
+                        <p style="color: blue;" th:text="${item.pddDetail12}"></p>
+                        <p th:text="${item.pddDetail13}"></p>
+                        <p th:text="${item.pddDetail14}"></p>
+                        <p th:text="${item.pddDetail15}"></p>
+                        <p th:text="${item.pddDetail16}"></p>
                     </div>
                 </div>
-                <div id="des-details1" class="tab-pane" th:each = "system : ${system}" th:if = "${!#lists.isEmpty(system)}">
+                <div id="des-details1" class="tab-pane" th:each = "list : ${system}" th:if = "${!#lists.isEmpty(system)}">
                     <div class="product-anotherinfo-wrapper">
 	                        <ul>
-	                            <li><h4><span th:if = "${system.psSize eq 0}" style="color: blue;">최소 사양 :</span></h4></li>
+	                            <li><h4><span th:if = "${list.psSize eq 0}" style="color: blue;">최소 사양 :</span></h4></li>
 	                            <li>64비트 프로세서와 운영 체제가 필요합니다</li>
-	                            <li><span th:text="${'운영 체재: ' + system.psOs}"></span></li>
-	                            <li><span th:text="${'프로세서: ' + system.psCpu}"></span></li>
-	                            <li><span th:text="${'메모리: ' + system.psMemory}"></span></li>
-	                            <li><span th:text="${'그래픽: ' + system.psGrapic}"></span></li>
-	                            <li><span th:text="${'DirectX: ' + system.psDirectX}"></span></li>
-	                            <li><span th:text="${'네트워크: ' + system.psNetwork}"></span></li>
-	                            <li><span th:text="${'저장공간: ' + system.psDisk}"></span></li>
+	                            <li><span th:text="${'운영 체재: ' + list.psOs}"></span></li>
+	                            <li><span th:text="${'프로세서: ' + list.psCpu}"></span></li>
+	                            <li><span th:text="${'메모리: ' + list.psMemory}"></span></li>
+	                            <li><span th:text="${'그래픽: ' + list.psGrapic}"></span></li>
+	                            <li><span th:text="${'DirectX: ' + list.psDirectX}"></span></li>
+	                            <li><span th:text="${'네트워크: ' + list.psNetwork}"></span></li>
+	                            <li><span th:text="${'저장공간: ' + list.psDisk}"></span></li>
 	                        </ul>
                         <ul style="margin-top: 100px;">
-                            <li><h4><span th:if = "${system.psSize eq 1}" style="color: blue;">권장 사양 :</span></h4></li>
+                            <li><h4><span style="color: blue;">권장 사양 :</span></h4></li>
                             <li>64비트 프로세서와 운영 체제가 필요합니다</li>
                             <li><span> 운영 체제 *:</span>  Windows 10 64 Bit</li>
                             <li><span>프로세서 :</span>Intel i5, 7th gen (or equivalent) </li>
@@ -244,12 +259,12 @@
 	                                <div class="row">
 	                                    <div class="col-md-6">
 	                                        <div class="rating-form-style mb-10">
-	                                            <input type="text">
+	                                            <input readonly type="text" th:value="${session.sessNameUsr}">
 	                                        </div>
 	                                    </div>
 	                                    <div class="col-md-12">
 	                                        <div class="rating-form-style form-submit">
-	                                            <textarea id="pddReviewDesc" name="pddReviewDesc" th:value="${item.pddReviewDesc}" placeholder="Message"></textarea>
+	                                            <textarea id="pddReviewDesc"></textarea>
 	                                            <button type="submit" class="btn">리뷰 작성</button>
 	                                        </div>
 	                                    </div>

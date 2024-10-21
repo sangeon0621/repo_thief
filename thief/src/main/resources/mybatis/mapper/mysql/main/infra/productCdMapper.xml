@@ -51,6 +51,22 @@
 				,b.pddDistributor
 				,b.pddPlus
 				,b.pddWish
+				,b.pddDetail1
+				,b.pddDetail2
+				,b.pddDetail3
+				,b.pddDetail4
+				,b.pddDetail5
+				,b.pddDetail6
+				,b.pddDetail7
+				,b.pddDetail8
+				,b.pddDetail9
+				,b.pddDetail10
+				,b.pddDetail11
+				,b.pddDetail12
+				,b.pddDetail13
+				,b.pddDetail14
+				,b.pddDetail15
+				,b.pddDetail16
 			    ,b.productCg_pdSeq
 			    ,a.pdCategory
 			<include refid="selectCommon"></include>
@@ -80,6 +96,22 @@
 			,pddDistributor
 			,pddPlus
 			,pddWish
+			,pddDetail1
+			,pddDetail2
+			,pddDetail3
+			,pddDetail4
+			,pddDetail5
+			,pddDetail6
+			,pddDetail7
+			,pddDetail8
+			,pddDetail9
+			,pddDetail10
+			,pddDetail11
+			,pddDetail12
+			,pddDetail13
+			,pddDetail14
+			,pddDetail15
+			,pddDetail16
 		    ,productCg_pdSeq
 		) values (
 			#{pddName}
@@ -100,6 +132,22 @@
 		    ,#{pddDistributor}
 		    ,#{pddPlus}
 		    ,#{pddWish}
+		    ,#{pddDetail1}
+		    ,#{pddDetail2}
+		    ,#{pddDetail3}
+		    ,#{pddDetail4}
+		    ,#{pddDetail5}
+		    ,#{pddDetail6}
+		    ,#{pddDetail7}
+		   	,#{pddDetail8}
+		   	,#{pddDetail9}
+		   	,#{pddDetail10}
+		   	,#{pddDetail11}
+		    ,#{pddDetail12}
+		    ,#{pddDetail13}
+		   	,#{pddDetail14}
+		   	,#{pddDetail15}
+		   	,#{pddDetail16}
 		    ,#{pdSeq}
 		)
 		<selectKey resultType="String" keyProperty="pddSeq" order="AFTER">
@@ -128,6 +176,22 @@
 				,b.pddDistributor
 				,b.pddPlus
 				,b.pddWish
+				,b.pddDetail1
+				,b.pddDetail2
+				,b.pddDetail3
+				,b.pddDetail4
+				,b.pddDetail5
+				,b.pddDetail6
+				,b.pddDetail7
+				,b.pddDetail8
+				,b.pddDetail9
+				,b.pddDetail10
+				,b.pddDetail11
+				,b.pddDetail12
+				,b.pddDetail13
+				,b.pddDetail14
+				,b.pddDetail15
+				,b.pddDetail16
 			from
 				productCd b
 			where 1=1
@@ -154,6 +218,22 @@
 			,pddDistributor = #{pddDistributor}
 			,pddPlus = #{pddPlus}
 			,pddWish = #{pddWish}
+			,pddDetail1 = #{pddDetail1}
+			,pddDetail2 = #{pddDetail2}
+			,pddDetail3 = #{pddDetail3}
+			,pddDetail4 = #{pddDetail4}
+			,pddDetail5 = #{pddDetail5}
+			,pddDetail6 = #{pddDetail6}
+			,pddDetail7 = #{pddDetail7}
+			,pddDetail8 = #{pddDetail8}
+			,pddDetail9 = #{pddDetail9}
+			,pddDetail10 = #{pddDetail10}
+			,pddDetail11 = #{pddDetail11}
+			,pddDetail12 = #{pddDetail12}
+			,pddDetail13 = #{pddDetail13}
+			,pddDetail14 = #{pddDetail14}
+			,pddDetail15 = #{pddDetail15}
+			,pddDetail16 = #{pddDetail16}
 	  	where 1=1
 	  		and pddSeq = #{pddSeq}
 	  </update>

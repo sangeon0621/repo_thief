@@ -131,6 +131,22 @@
 				,b.pddDistributor
 				,b.pddPlus
 				,b.pddWish
+				,b.pddDetail1
+				,b.pddDetail2
+				,b.pddDetail3
+				,b.pddDetail4
+				,b.pddDetail5
+				,b.pddDetail6
+				,b.pddDetail7
+				,b.pddDetail8
+				,b.pddDetail9
+				,b.pddDetail10
+				,b.pddDetail11
+				,b.pddDetail12
+				,b.pddDetail13
+				,b.pddDetail14
+				,b.pddDetail15
+				,b.pddDetail16
 			from
 				productCd b  
 			where 1=1
@@ -162,7 +178,7 @@
 		    ,c.productCd_pddSeq
 		from pddSystem c
 		where 1=1
-			and c.productCd_pddSeq = 1
+			and c.productCd_pddSeq = #{pddSeq}
 		
 	</select>
 	  

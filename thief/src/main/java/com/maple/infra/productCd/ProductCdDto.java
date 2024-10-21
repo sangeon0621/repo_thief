@@ -26,6 +26,7 @@ public class ProductCdDto {
 	private String productCg_pdSeq;
 	private String pdCategory;
 	private String pdSeq;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date pddDatetimeRel;
 	private String pddProgramer;
 	private String pddDistributor;
@@ -33,6 +34,22 @@ public class ProductCdDto {
 	private String pddDetail;
 	private Integer pddPlus;
 	private Integer pddWish;
+	private String pddDetail1;
+	private String pddDetail2;
+	private String pddDetail3;
+	private String pddDetail4;
+	private String pddDetail5;
+	private String pddDetail6;
+	private String pddDetail7;
+	private String pddDetail8;
+	private String pddDetail9;
+	private String pddDetail10;
+	private String pddDetail11;
+	private String pddDetail12;
+	private String pddDetail13;
+	private String pddDetail14;
+	private String pddDetail15;
+	private String pddDetail16;
 //	-----
 	public String getPddSeq() {
 		return pddSeq;
@@ -189,6 +206,102 @@ public class ProductCdDto {
 	}
 	public void setPddWish(Integer pddWish) {
 		this.pddWish = pddWish;
+	}
+	public String getPddDetail1() {
+		return pddDetail1;
+	}
+	public void setPddDetail1(String pddDetail1) {
+		this.pddDetail1 = pddDetail1;
+	}
+	public String getPddDetail2() {
+		return pddDetail2;
+	}
+	public void setPddDetail2(String pddDetail2) {
+		this.pddDetail2 = pddDetail2;
+	}
+	public String getPddDetail3() {
+		return pddDetail3;
+	}
+	public void setPddDetail3(String pddDetail3) {
+		this.pddDetail3 = pddDetail3;
+	}
+	public String getPddDetail4() {
+		return pddDetail4;
+	}
+	public void setPddDetail4(String pddDetail4) {
+		this.pddDetail4 = pddDetail4;
+	}
+	public String getPddDetail5() {
+		return pddDetail5;
+	}
+	public void setPddDetail5(String pddDetail5) {
+		this.pddDetail5 = pddDetail5;
+	}
+	public String getPddDetail6() {
+		return pddDetail6;
+	}
+	public void setPddDetail6(String pddDetail6) {
+		this.pddDetail6 = pddDetail6;
+	}
+	public String getPddDetail7() {
+		return pddDetail7;
+	}
+	public void setPddDetail7(String pddDetail7) {
+		this.pddDetail7 = pddDetail7;
+	}
+	public String getPddDetail8() {
+		return pddDetail8;
+	}
+	public void setPddDetail8(String pddDetail8) {
+		this.pddDetail8 = pddDetail8;
+	}
+	public String getPddDetail9() {
+		return pddDetail9;
+	}
+	public void setPddDetail9(String pddDetail9) {
+		this.pddDetail9 = pddDetail9;
+	}
+	public String getPddDetail10() {
+		return pddDetail10;
+	}
+	public void setPddDetail10(String pddDetail10) {
+		this.pddDetail10 = pddDetail10;
+	}
+	public String getPddDetail11() {
+		return pddDetail11;
+	}
+	public void setPddDetail11(String pddDetail11) {
+		this.pddDetail11 = pddDetail11;
+	}
+	public String getPddDetail12() {
+		return pddDetail12;
+	}
+	public void setPddDetail12(String pddDetail12) {
+		this.pddDetail12 = pddDetail12;
+	}
+	public String getPddDetail13() {
+		return pddDetail13;
+	}
+	public void setPddDetail13(String pddDetail13) {
+		this.pddDetail13 = pddDetail13;
+	}
+	public String getPddDetail14() {
+		return pddDetail14;
+	}
+	public void setPddDetail14(String pddDetail14) {
+		this.pddDetail14 = pddDetail14;
+	}
+	public String getPddDetail15() {
+		return pddDetail15;
+	}
+	public void setPddDetail15(String pddDetail15) {
+		this.pddDetail15 = pddDetail15;
+	}
+	public String getPddDetail16() {
+		return pddDetail16;
+	}
+	public void setPddDetail16(String pddDetail16) {
+		this.pddDetail16 = pddDetail16;
 	}
 	
 	

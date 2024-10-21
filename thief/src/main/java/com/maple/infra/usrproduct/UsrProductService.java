@@ -32,8 +32,8 @@ public class UsrProductService {
 		return usrProductDao.update(usrProductDto);
 	}
 	
-	public List<UsrProductDto> selectListCodeGroup() {
-		return usrProductDao.selectListCodeGroup();
+	public List<UsrProductDto> selectListCodeGroup(UsrProductDto usrProductDto) {
+		return usrProductDao.selectListCodeGroup(usrProductDto);
 	}
 	
 	public int uelete(UsrProductDto usrProductDto) {
