@@ -62,48 +62,28 @@
 	</select>
 	  
 	  <insert id="insert">
-		  insert into productCd (
-			pddName
-			,pddCategory
-		    ,pddUseNy
-		    ,pddOrder
-		    ,pddDesc
-		    ,pddPrice
-		    ,pddsales
-		    ,pddSalesPrice
-		    ,pddCount
-		    ,pddTotalPrice
-		    ,pddDatetime
-		    ,pddDatetimeSvr
-		    ,pddDelNy
-		    ,pddDatetimeRel 
-			,pddProgramer 
-			,pddDistributor
-			,pddPlus 
-			,pddWish 
-		    ,productCg_pdSeq
+		  insert into pddReview (
+			prName
+			,prReview
+			,prReviewDesc
+			,prUseNy
+			,prDelNy
+			,prOrder
+			,prDatetime
+			,prDatetimeSvr
+			,productCd_pddSeq
 		) values (
-			#{pddName}
-			,#{pddCategory}
-		    ,#{pddUseNy}
-		    ,#{pddOrder}
-		    ,#{pddDesc}
-		    ,#{pddPrice}
-		    ,#{pddsales}
-		    ,#{pddSalesPrice}
-		    ,#{pddCount}
-		    ,#{pddTotalPrice}
-		    ,now()
-		    ,now()
+			#{prName}
+			,#{prReview}
+			,#{prReviewDesc}
 		    ,0
-		    ,#{pddDatetimeRel}
-		    ,#{pddProgramer}
-		    ,#{pddDistributor}
-		    ,#{pddPlus}
-		    ,#{pddWish}
-		    ,#{pdSeq}
+		    ,0
+		    ,#{prOrder}
+		    ,now()
+		    ,now()
+		    ,#{productCd_pddSeq}
 		)
-		<selectKey resultType="String" keyProperty="pddSeq" order="AFTER">
+		<selectKey resultType="String" keyProperty="prSeq" order="AFTER">
 				SELECT last_insert_id()
 		</selectKey>
 	  </insert>
@@ -180,6 +160,20 @@
 		where 1=1
 			and c.productCd_pddSeq = #{pddSeq}
 		
+	</select>
+	
+	<select id = "selectListReview" resultMap = "productObj">
+		select
+			d.prSeq
+			,d.prName
+			,d.prReview
+			,d.prReviewDesc
+			,d.prDatetime
+			,d.prDelNy
+		    ,d.productCd_pddSeq
+		from pddReview d
+		where 1=1
+			and d.productCd_pddSeq = #{pddSeq}
 	</select>
 	  
 	<update id="uelete">

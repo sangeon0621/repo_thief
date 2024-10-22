@@ -36,6 +36,8 @@ public class UsrProductController {
 		
 		model.addAttribute("system", usrProductService.selectListCodeGroup(usrProductDto));
 		
+		model.addAttribute("review", usrProductService.selectListReview(usrProductDto));
+		
 		return "/usr/v1/infra/usrui/usrProduct";
 	}
 	

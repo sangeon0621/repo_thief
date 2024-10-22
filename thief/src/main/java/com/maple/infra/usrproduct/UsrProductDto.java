@@ -60,6 +60,16 @@ public class UsrProductDto {
 	private String pddDetail16;
 	private String productCd_pddSeq;
 	
+	private String prSeq;
+	private String prName;
+	private Integer prReview;
+	private String prReviewDesc;
+	private Integer prUseNy;
+	private Integer prDelNy;
+	private Integer prOrder;
+	private Date prDatetime;
+	private Date prDatetimeSvr;
+	
 	
 //	-----
 	public String getPddSeq() {
@@ -373,6 +383,60 @@ public class UsrProductDto {
 	}
 	public void setPddDetail16(String pddDetail16) {
 		this.pddDetail16 = pddDetail16;
+	}
+	public String getPrSeq() {
+		return prSeq;
+	}
+	public void setPrSeq(String prSeq) {
+		this.prSeq = prSeq;
+	}
+	public Integer getPrReview() {
+		return prReview;
+	}
+	public void setPrReview(Integer prReview) {
+		this.prReview = prReview;
+	}
+	public String getPrReviewDesc() {
+		return prReviewDesc;
+	}
+	public void setPrReviewDesc(String prReviewDesc) {
+		this.prReviewDesc = prReviewDesc;
+	}
+	public Integer getPrUseNy() {
+		return prUseNy;
+	}
+	public void setPrUseNy(Integer prUseNy) {
+		this.prUseNy = prUseNy;
+	}
+	public Integer getPrDelNy() {
+		return prDelNy;
+	}
+	public void setPrDelNy(Integer prDelNy) {
+		this.prDelNy = prDelNy;
+	}
+	public Integer getPrOrder() {
+		return prOrder;
+	}
+	public void setPrOrder(Integer prOrder) {
+		this.prOrder = prOrder;
+	}
+	public Date getPrDatetime() {
+		return prDatetime;
+	}
+	public void setPrDatetime(Date prDatetime) {
+		this.prDatetime = prDatetime;
+	}
+	public Date getPrDatetimeSvr() {
+		return prDatetimeSvr;
+	}
+	public void setPrDatetimeSvr(Date prDatetimeSvr) {
+		this.prDatetimeSvr = prDatetimeSvr;
+	}
+	public String getPrName() {
+		return prName;
+	}
+	public void setPrName(String prName) {
+		this.prName = prName;
 	}
 	
 	

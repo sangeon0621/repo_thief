@@ -36,6 +36,10 @@ public class UsrProductService {
 		return usrProductDao.selectListCodeGroup(usrProductDto);
 	}
 	
+	public List<UsrProductDto> selectListReview(UsrProductDto usrProductDto) {
+		return usrProductDao.selectListReview(usrProductDto);
+	}
+	
 	public int uelete(UsrProductDto usrProductDto) {
 		return usrProductDao.uelete(usrProductDto);
 	}

@@ -70,7 +70,7 @@
                             </div>
                         </div>
                         <div class="shop-details-tab nav">
-                            <a class="shop-details-overly active" href="#shop-details-1" data-bs-toggle="tab">
+                            <a class="shop-details-overly" href="#shop-details-1" data-bs-toggle="tab">
                                 <img src="/usr/v1/template/flone/assets/img/game/deeprock_3.png" alt="">
                             </a>
                             <a class="shop-details-overly" href="#shop-details-2" data-bs-toggle="tab">
@@ -196,7 +196,7 @@
                     <div class="row">
                         <div class="col-lg-7">
                             <div class="review-wrapper">
-                                <div class="single-review">
+                                <div class="single-review" th:each = "list : ${review}" th:if = "${!#lists.isEmpty(review)}">
                                     <div class="review-img">
                                         <img src="/usr/v1/template/flone/assets/img/testimonial/1.jpg" alt="">
                                     </div>
@@ -219,7 +219,7 @@
                                             </div>
                                         </div>
                                         <div class="review-bottom">
-                                            <p ></p>
+                                            <p th:text=${list.prReviewDesc}></p>
                                         </div>
                                     </div>
                                 </div>
@@ -236,7 +236,7 @@
                                             </div>
                                         </div>
                                         <div class="review-bottom">
-                                            <p>Vestibulum ante ipsum primis aucibus orci luctustrices posuere cubilia Curae Sus pen disse viverra ed viverra. Mauris ullarper euismod vehicula. </p>
+                                            <p> </p>
                                         </div>
                                     </div>
                                 </div>
@@ -259,196 +259,19 @@
 	                                <div class="row">
 	                                    <div class="col-md-6">
 	                                        <div class="rating-form-style mb-10">
-	                                            <input readonly type="text" th:value="${session.sessNameUsr}">
+	                                            <input readonly type="text" id="prName" name="prName" th:value="${session.sessNameUsr}">
 	                                        </div>
 	                                    </div>
 	                                    <div class="col-md-12">
 	                                        <div class="rating-form-style form-submit">
-	                                            <textarea id="pddReviewDesc"></textarea>
-	                                            <button type="submit" class="btn">리뷰 작성</button>
+	                                            <textarea id="prReviewDesc" name="prReviewDesc"></textarea>
+	                                            <button type="button" id="btnReview" class="btn">리뷰 작성</button>
 	                                        </div>
 	                                    </div>
 	                                </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="related-product-area pb-95">
-    <div class="container">
-        <div class="section-title text-center mb-50">
-            <h2>관련 게임</h2>
-        </div>
-        <div class="related-product-active owl-carousel owl-dot-none">
-            <div class="product-wrap">
-                <div class="product-img">
-                    <a href="product-details.html">
-                        <img class="default-img" src="/usr/v1/template/flone/assets/img/product/pro-1.jpg" alt="">
-                        <img class="hover-img" src="/usr/v1/template/flone/assets/img/product/pro-1-1.jpg" alt="">
-                    </a>
-                    <span class="pink">-10%</span>
-                    <div class="product-action">
-                        <div class="pro-same-action pro-wishlist">
-                            <a title="Wishlist" href="#"><i class="pe-7s-like"></i></a>
-                        </div>
-                        <div class="pro-same-action pro-cart">
-                            <a title="Add To Cart" href="#"><i class="pe-7s-cart"></i> Add to cart</a>
-                        </div>
-                        <div class="pro-same-action pro-quickview">
-                            <a title="Quick View" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="pe-7s-look"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-content text-center">
-                    <h3><a href="product-details.html">T- Shirt And Jeans</a></h3>
-                    <div class="product-rating">
-                        <i class="fa fa-star-o yellow"></i>
-                        <i class="fa fa-star-o yellow"></i>
-                        <i class="fa fa-star-o yellow"></i>
-                        <i class="fa fa-star-o"></i>
-                        <i class="fa fa-star-o"></i>
-                    </div>
-                    <div class="product-price">
-                        <span>$ 60.00</span>
-                        <span class="old">$ 60.00</span>
-                    </div>
-                </div>
-            </div>
-            <div class="product-wrap">
-                <div class="product-img">
-                    <a href="product-details.html">
-                        <img class="default-img" src="/usr/v1/template/flone/assets/img/product/pro-2.jpg" alt="">
-                        <img class="hover-img" src="/usr/v1/template/flone/assets/img/product/pro-2-1.jpg" alt="">
-                    </a>
-                    <span class="purple">New</span>
-                    <div class="product-action">
-                        <div class="pro-same-action pro-wishlist">
-                            <a title="Wishlist" href="#"><i class="pe-7s-like"></i></a>
-                        </div>
-                        <div class="pro-same-action pro-cart">
-                            <a title="Add To Cart" href="#"><i class="pe-7s-cart"></i> Add to cart</a>
-                        </div>
-                        <div class="pro-same-action pro-quickview">
-                            <a title="Quick View" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="pe-7s-look"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-content text-center">
-                    <h3><a href="product-details.html">T- Shirt And Jeans</a></h3>
-                    <div class="product-rating">
-                        <i class="fa fa-star-o yellow"></i>
-                        <i class="fa fa-star-o yellow"></i>
-                        <i class="fa fa-star-o yellow"></i>
-                        <i class="fa fa-star-o"></i>
-                        <i class="fa fa-star-o"></i>
-                    </div>
-                    <div class="product-price">
-                        <span>$ 60.00</span>
-                    </div>
-                </div>
-            </div>
-            <div class="product-wrap">
-                <div class="product-img">
-                    <a href="product-details.html">
-                        <img class="default-img" src="/usr/v1/template/flone/assets/img/product/pro-3.jpg" alt="">
-                        <img class="hover-img" src="/usr/v1/template/flone/assets/img/product/pro-3-1.jpg" alt="">
-                    </a>
-                    <span class="pink">-10%</span>
-                    <div class="product-action">
-                        <div class="pro-same-action pro-wishlist">
-                            <a title="Wishlist" href="#"><i class="pe-7s-like"></i></a>
-                        </div>
-                        <div class="pro-same-action pro-cart">
-                            <a title="Add To Cart" href="#"><i class="pe-7s-cart"></i> Add to cart</a>
-                        </div>
-                        <div class="pro-same-action pro-quickview">
-                            <a title="Quick View" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="pe-7s-look"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-content text-center">
-                    <h3><a href="product-details.html">T- Shirt And Jeans</a></h3>
-                    <div class="product-rating">
-                        <i class="fa fa-star-o yellow"></i>
-                        <i class="fa fa-star-o yellow"></i>
-                        <i class="fa fa-star-o yellow"></i>
-                        <i class="fa fa-star-o"></i>
-                        <i class="fa fa-star-o"></i>
-                    </div>
-                    <div class="product-price">
-                        <span>$ 60.00</span>
-                        <span class="old">$ 60.00</span>
-                    </div>
-                </div>
-            </div>
-            <div class="product-wrap">
-                <div class="product-img">
-                    <a href="product-details.html">
-                        <img class="default-img" src="/usr/v1/template/flone/assets/img/product/pro-4.jpg" alt="">
-                        <img class="hover-img" src="/usr/v1/template/flone/assets/img/product/pro-4-1.jpg" alt="">
-                    </a>
-                    <span class="purple">New</span>
-                    <div class="product-action">
-                        <div class="pro-same-action pro-wishlist">
-                            <a title="Wishlist" href="#"><i class="pe-7s-like"></i></a>
-                        </div>
-                        <div class="pro-same-action pro-cart">
-                            <a title="Add To Cart" href="#"><i class="pe-7s-cart"></i> Add to cart</a>
-                        </div>
-                        <div class="pro-same-action pro-quickview">
-                            <a title="Quick View" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="pe-7s-look"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-content text-center">
-                    <h3><a href="product-details.html">T- Shirt And Jeans</a></h3>
-                    <div class="product-rating">
-                        <i class="fa fa-star-o yellow"></i>
-                        <i class="fa fa-star-o yellow"></i>
-                        <i class="fa fa-star-o yellow"></i>
-                        <i class="fa fa-star-o"></i>
-                        <i class="fa fa-star-o"></i>
-                    </div>
-                    <div class="product-price">
-                        <span>$ 60.00</span>
-                    </div>
-                </div>
-            </div>
-            <div class="product-wrap">
-                <div class="product-img">
-                    <a href="product-details.html">
-                        <img class="default-img" src="/usr/v1/template/flone/assets/img/product/pro-5.jpg" alt="">
-                        <img class="hover-img" src="/usr/v1/template/flone/assets/img/product/pro-5-1.jpg" alt="">
-                    </a>
-                    <span class="pink">-10%</span>
-                    <div class="product-action">
-                        <div class="pro-same-action pro-wishlist">
-                            <a title="Wishlist" href="#"><i class="pe-7s-like"></i></a>
-                        </div>
-                        <div class="pro-same-action pro-cart">
-                            <a title="Add To Cart" href="#"><i class="pe-7s-cart"></i> Add to cart</a>
-                        </div>
-                        <div class="pro-same-action pro-quickview">
-                            <a title="Quick View" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="pe-7s-look"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-content text-center">
-                    <h3><a href="product-details.html">T- Shirt And Jeans</a></h3>
-                    <div class="product-rating">
-                        <i class="fa fa-star-o yellow"></i>
-                        <i class="fa fa-star-o yellow"></i>
-                        <i class="fa fa-star-o yellow"></i>
-                        <i class="fa fa-star-o"></i>
-                        <i class="fa fa-star-o"></i>
-                    </div>
-                    <div class="product-price">
-                        <span>$ 60.00</span>
-                        <span class="old">$ 60.00</span>
                     </div>
                 </div>
             </div>
@@ -641,6 +464,81 @@
 <script src="/usr/v1/template/flone/assets/js/ajax-mail.js"></script>
 <!-- Main JS -->
 <script src="/usr/v1/template/flone/assets/js/main.js"></script>
+
+<script type="text/javascript">
+		document.getElementById("btnReview").onclick = function (){
+			const id = document.getElementById("id");
+			const idValue = document.getElementById("id").value.trim();
+			const idError = document.getElementById("idError");
+			
+			var idRegExp = /^[a-zA-Z][0-9a-zA-Z]{0,11}$/;
+			if(!idRegExp.test(idValue)){
+				idError.innerText = "아이디 입력해주세요.";
+				idError.style.display="";
+				id.classList.add("is-invalid");
+				id.classList.remove("is-valid");
+				id.focus();
+				return false;
+		    } else {
+		    	idError.style.display = "none";
+		    	id.classList.remove("is-invalid");
+		    	id.classList.add("is-valid");
+		    }
+			
+			const password = document.getElementById("password");
+			const passwordValue = document.getElementById("password").value.trim();
+			const passwordError = document.getElementById("passwordError");
+			
+			var passwordRegExp = /^(?=.*[a-zA-Z])(?=.*[!@])(?=.*[0-9]).{8,15}$/
+			if(!passwordRegExp.test(passwordValue)){
+				passwordError.innerText = "비밀번호 입력해주세요.";
+				passwordError.style.display="";
+				password.classList.add("is-invalid");
+				password.classList.remove("is-valid");
+				password.focus();
+				return false;
+		    } else {
+		    	passwordError.style.display = "none";
+		    	password.classList.remove("is-invalid");
+		    	password.classList.add("is-valid");
+		    }
+			$.ajax({
+				async: true 
+				,cache: false
+				,type: "post"
+				/* ,dataType:"json" */
+				,url: "/v1/infra/member/signinXdmProc"
+				/* ,data : $("#formLogin").serialize() */
+				,data : { "id" : $("#id").val(), "password" : $("#password").val()}
+				,success: function(response) {
+					if(response.rt == "success") {
+						if(response.changePwd == "true") {
+							location.href = "/v1/infra/member/memberXdmindex";
+						} else {
+							location.href = "/v1/infra/member/memberXdmindex";
+						}
+					} else {
+				 		document.getElementById("verticallyCenteredLabel").innerText = "확 인";
+				 		document.getElementById("verticallyCenteredLabel2").innerText = "일치하는 회원이 존재 하지 않습니다!";
+				 		$("#verticallyCentered").modal("show");
+					}
+				}
+				,error : function(jqXHR, textStatus, errorThrown){
+					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+				}
+			});	
+		}
+		
+		var input = document.getElementById("password");
+
+		input.addEventListener("keypress", function(event) {
+		  if (event.key === "Enter") {
+		    event.preventDefault();
+		    document.getElementById("btnSubmit").click();
+		  }
+		});
+		
+		</script>
 
 </body>
 
