@@ -31,7 +31,9 @@ public class UsrProductController {
 	}
 	
 	@RequestMapping(value="/usrProduct")
-	public String usrProduct(UsrProductDto usrProductDto, Model model) {
+	public String usrProduct(@ModelAttribute("vo") UsrProductVo vo, UsrProductDto usrProductDto, Model model) {
+		
+		vo.setParamsPaging(usrProductService.selectReviewCount(vo));
 		model.addAttribute("item", usrProductService.selectOne(usrProductDto));
 		
 		model.addAttribute("system", usrProductService.selectListCodeGroup(usrProductDto));

@@ -1,0 +1,79 @@
+<th:block th:fragment="nav">
+	<nav class="sidebar-wrapper">
+
+		<!-- Sidebar brand starts -->
+		<div class="sidebar-brand">
+					<a href="/v1/infra/member/memberXdmindex" class="logo">
+						<img src="/xdm/v1/template/vivo copy/assets/images/logo.svg" alt="Vivo Admin Dashboard" />
+					</a>
+		</div>
+		<!-- Sidebar brand starts -->
+
+		<!-- Sidebar menu starts -->
+		<div class="sidebar-menu">
+			<div class="sidebarMenuScroll">
+				<ul>
+					<li class="sidebar-dropdown">
+						<a href="#">
+							<i class="bi bi-stickies"></i>
+							<span class="menu-text">대시보드</span>
+						</a>
+						<div class="sidebar-submenu">
+							
+						</div>
+					</li>
+					<li class="sidebar-dropdown">
+						<a href="#">
+							<i class="bi bi-stickies"></i>
+							<span class="menu-text">코드 & 코드그룹</span>
+						</a>
+						<div class="sidebar-submenu">
+							<ul>
+								<li>
+									<a href="/v1/infra/codegroup/codeGroupXdmList">코드그룹 리스트</a>
+								</li>
+								<li>
+									<a href="/v1/infra/code/codeXdmList">코드 리스트</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li class="sidebar-dropdown">
+						<a href="#">
+							<i class="bi bi-stickies"></i>
+								<span class="menu-text">상품</span>
+						</a>
+						<div class="sidebar-submenu">
+							<ul>
+								<li>
+									<a href="/v1/infra/productCg/ProductCgXdmList">상품 리스트</a>
+								</li>
+								<li>
+									<a href="/v1/infra/productSystem/ProductSystemXdmList">상품 시스템</a>
+								</li>
+								<li>
+									<a href="/v1/infra/productPlayer/ProductPlayerXdmList">상품 지원</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li class="sidebar-dropdown">
+						<a href="#">
+							<i class="bi bi-stickies"></i>
+								<span class="menu-text">회원 관리</span>
+						</a>
+						<div class="sidebar-submenu">
+							<ul>
+								<li>
+									<a href="/v1/infra/member/MemberXdmList">회원 리스트</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- Sidebar menu ends -->
+
+	</nav>
+</th:block>

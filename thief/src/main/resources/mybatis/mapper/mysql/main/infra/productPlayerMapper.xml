@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.maple.infra.productsystem.ProductSystemDao">
+<mapper namespace="com.maple.infra.productplayer.ProductPlayerDao">
 
-	<resultMap type="com.maple.infra.productsystem.ProductSystemDto" id="productObj"></resultMap>
+	<resultMap type="com.maple.infra.productplayer.ProductPlayerDto" id="productObj"></resultMap>
 	
 	<sql id="selectCommon">
 		from
-			pddSystem c left join productCd b on b.pddSeq = c.productCd_pddSeq
+			pddPlayer d left join productCd b on b.pddSeq = d.productCd_pddSeq
 		where 1=1
 			<if test="shDelNy != null and !shDelNy.equals('')">AND psDelNy = #{shDelNy}</if>
 			<if test="shUseNy != null and !shUseNy.equals('')">AND psUseNy = #{shUseNy}</if>
@@ -18,8 +18,8 @@
 <!-- 			</choose> -->
 			
 			<choose>
-				<when test="shOption == 1">AND psSeq = #{shValue}</when>
-				<when test="shOption == 2">AND psCpu LIKE CONCAT('%',#{shValue},'%')</when>
+				<when test="shOption == 1">AND ppSeq = #{shValue}</when>
+				<when test="shOption == 2">AND ppPlayer LIKE CONCAT('%',#{shValue},'%')</when>
 				<when test="shOption == 3">AND productCd_pddSeq = #{shValue}</when>
 			</choose>
 	</sql>
@@ -30,55 +30,34 @@
 	</select>
 	
 	<select id = "selectList2" resultMap = "productObj">
-		select cc.* from (
+		select dd.* from (
 			select
-				c.psSeq
-				,c.psSize
-				,c.psOs
-				,c.psCpu
-				,c.psMemory
-				,c.psGrapic
-				,c.psDirectX
-				,c.psNetwork
-				,c.psDisk
-				,c.psUseNy
-				,c.psDelNy
-			    ,c.productCd_pddSeq
+				d.ppSeq
+				,d.ppPlayer
+				,d.ppUseNy
+				,d.ppDelNy
+			    ,d.productCd_pddSeq
 			    ,b.pddName
 			<include refid="selectCommon"></include>
 			order by
-				c.psSeq desc
-		) cc
+				d.ppSeq desc
+		) dd
 		limit #{rowNumToShow} offset #{startRnumForMysql}
 	</select>
 	  
 	  <insert id="insert">
-		  insert into pddSystem (
-		  	psSize
-			,psOs
-			,psCpu
-			,psMemory
-			,psGrapic
-			,psDirectX
-			,psNetwork
-			,psDisk
-			,psUseNy
-			,psDelNy
+		  insert into pddPlayer (
+		  	ppPlayer
+			,ppUseNy
+			,ppDelNy
 		    ,productCd_pddSeq
 		) values (
-			#{psSize}
-			,#{psOs}
-		    ,#{psCpu}
-		    ,#{psMemory}
-		    ,#{psGrapic}
-		    ,#{psDirectX}
-		    ,#{psNetwork}
-		    ,#{psDisk}
-		    ,#{psUseNy}
+			#{ppPlayer}
+			,#{ppUseNy}
 		    ,0
 		    ,#{pddSeq}
 		)
-		<selectKey resultType="String" keyProperty="psSeq" order="AFTER">
+		<selectKey resultType="String" keyProperty="ppSeq" order="AFTER">
 				SELECT last_insert_id()
 		</selectKey>
 	  </insert>
@@ -88,39 +67,25 @@
 	  
 	  <select id="selectOne" resultMap="productObj">
 		  select
-				c.psSeq
-				,c.psSize
-				,c.psOs
-				,c.psCpu
-				,c.psMemory
-				,c.psGrapic
-				,c.psDirectX
-				,c.psNetwork
-				,c.psDisk
-				,c.psUseNy
-				,c.psDelNy
-			    ,c.productCd_pddSeq
+				d.ppSeq
+				,d.ppPlayer
+				,d.ppUseNy
+				,d.ppDelNy
+			    ,d.productCd_pddSeq
 			from
-				pddSystem c
+				pddPlayer d
 			where 1=1
-			AND c.psSeq = #{psSeq}
+			AND d.ppSeq = #{ppSeq}
 	  </select>
 	  
 	  <update id="update">
-	  	update pddSystem
+	  	update pddPlayer
 	  	set
-	  		psSize = #{psSize}
-	  		,psOs = #{psOs}
-	  		,psCpu = #{psCpu}
-	  		,psMemory = #{psMemory}
-	  		,psGrapic = #{psGrapic}
-	  		,psDirectX = #{psDirectX}
-	  		,psNetwork = #{psNetwork}
-	  		,psDisk = #{psDisk}
-	  		,psUseNy = #{psUseNy}
-	  		,psDelNy = #{psDelNy}
+	  		ppPlayer = #{ppPlayer}
+			,ppUseNy = #{ppUseNy}
+			,ppDelNy = #{ppDelNy}
 	  	where 1=1
-	  		and psSeq = #{psSeq}
+	  		and ppSeq = #{ppSeq}
 	  </update>
 	  
 	  <select id = "selectListCodeGroup" resultMap = "productObj">
@@ -136,17 +101,17 @@
 	</select>
 	  
 	<update id="uelete">
-		update pddSystem
+		update pddPlayer
 	  	set
-	  		psDelNy = 1
+	  		ppDelNy = 1
 	  	where 1=1
-	  		and psSeq = #{psSeq}
+	  		and ppSeq = #{ppSeq}
 	</update>
 	  
 	<delete id="delete">
-		delete from pddSystem
+		delete from pddPlayer
 	  	where 1=1
-	  		and psSeq = #{psSeq}
+	  		and ppSeq = #{ppSeq}
 	</delete>	  
 	  
 </mapper>

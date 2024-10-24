@@ -15,6 +15,10 @@ public class UsrProductService {
     	return usrProductDao.selectOneCount(vo); 
     }
 	
+	public int selectReviewCount(UsrProductVo vo) { 
+    	return usrProductDao.selectReviewCount(vo); 
+    }
+	
 	public List<UsrProductDto> selectList(UsrProductVo vo) {
 		return usrProductDao.selectList(vo);
 	}

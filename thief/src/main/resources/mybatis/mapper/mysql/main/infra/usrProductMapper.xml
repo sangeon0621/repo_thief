@@ -175,6 +175,12 @@
 		where 1=1
 			and d.productCd_pddSeq = #{pddSeq}
 	</select>
+	
+	<select id="selectReviewCount">
+		select count(*)
+		from pddReview d
+		where 1=1
+	</select>
 	  
 	<update id="uelete">
 		update productCd

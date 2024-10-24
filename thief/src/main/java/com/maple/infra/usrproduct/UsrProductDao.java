@@ -8,6 +8,8 @@ import org.springframework.stereotype.Repository;
 public interface UsrProductDao {
 
 	public int selectOneCount(UsrProductVo vo);
+	
+	public int selectReviewCount(UsrProductVo vo);
 
 	public List<UsrProductDto> selectList(UsrProductVo vo);
 	
