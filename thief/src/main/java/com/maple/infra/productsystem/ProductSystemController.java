@@ -33,7 +33,7 @@ public class ProductSystemController {
 	
 	
 	@RequestMapping(value = "/v1/infra/productsystem/productSystemXdmForm")
-	public String codeXdmForm(Model model) {
+	public String productSystemXdmForm(Model model) {
 		
 		model.addAttribute("listProductCd", productSystemService.selectListCodeGroup());
 		
@@ -41,31 +41,31 @@ public class ProductSystemController {
 	}
 	
 	@RequestMapping(value = "v1/infra/productsystem/productSystemXdmInst")
-	public String codeXdmInst(ProductSystemDto productSystemDto) {
+	public String productSystemXdmInst(ProductSystemDto productSystemDto) {
 		productSystemService.insert(productSystemDto);
 		return "redirect:/v1/infra/productsystem/productSystemXdmList";
 	}
 	
 	@RequestMapping(value = "/v1/infra/productsystem/productSystemMForm")
-	public String codeXdmMForm(ProductSystemDto productSystemDto, Model model) {
+	public String productSystemMForm(ProductSystemDto productSystemDto, Model model) {
 		model.addAttribute("item", productSystemService.selectOne(productSystemDto));
-		return "/xdm/v1/infra/productCd/productCdXdmMForm";
+		return "/xdm/v1/infra/productsystem/productSystemXdmMForm";
 	}
 	
 	@RequestMapping(value = "/v1/infra/productsystem/productSystemXdmUpdt")
-	public String codeXdmUpdt(ProductSystemDto productSystemDto) {
+	public String productSystemXdmUpdt(ProductSystemDto productSystemDto) {
 		productSystemService.update(productSystemDto);
-		return "redirect:/v1/infra/productCd/productCdXdmList";
+		return "redirect:/v1/infra/productsystem/productSystemXdmList";
 	}
 	
 	@RequestMapping(value = "/v1/infra/productsystem/productSystemXdmUele")
-	public String codeXdmUele(ProductSystemDto productSystemDto) {
+	public String productSystemXdmUele(ProductSystemDto productSystemDto) {
 		productSystemService.uelete(productSystemDto);
 		return "redirect:/v1/infra/productsystem/productSystemXdmList";
 	}
 	
 	@RequestMapping(value = "/v1/infra/productsystem/productSystemXdmDele")
-	public String codeXdmDele(ProductSystemDto productSystemDto) {
+	public String productSystemXdmDele(ProductSystemDto productSystemDto) {
 		productSystemService.delete(productSystemDto);
 		return "redirect:/v1/infra/productsystem/productSystemXdmList";
 	}

@@ -40,6 +40,8 @@ public class UsrProductController {
 		
 		model.addAttribute("review", usrProductService.selectListReview(usrProductDto));
 		
+		model.addAttribute("player", usrProductService.selectListPlayer(usrProductDto));
+		
 		return "/usr/v1/infra/usrui/usrProduct";
 	}
 	

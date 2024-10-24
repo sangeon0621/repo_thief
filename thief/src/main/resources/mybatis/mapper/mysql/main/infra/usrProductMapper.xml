@@ -176,6 +176,18 @@
 			and d.productCd_pddSeq = #{pddSeq}
 	</select>
 	
+	<select id = "selectListPlayer" resultMap = "productObj">
+		select
+			e.ppSeq
+			,e.ppPlayer
+			,e.ppUseNy
+			,e.ppDelNy
+		    ,e.productCd_pddSeq
+		from pddPlayer e
+		where 1=1
+			and e.productCd_pddSeq = #{pddSeq}
+	</select>
+	
 	<select id="selectReviewCount">
 		select count(*)
 		from pddReview d

@@ -108,12 +108,16 @@
                             <li th:text="${'- 배급사:' + item.pddDistributor}"></li>
                         </ul>
                     </div>
+					<div class="product-details-price">
+						<span style="color: black;">총 가격 :</span>
+                        <span style="color: black;" th:text="${'&nbsp;&nbsp;&nbsp;' + '&#8361;' + item.pddSalesPrice}"></span>
+                    </div>
                     <div class="pro-details-quality">
                         <div class="cart-plus-minus">
                             <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1">
                         </div>
                         <div class="pro-details-cart btn-hover">
-                            <a href="#">카트 담기</a>
+                            <a href="#">구매 하기</a>
                         </div>
                         <div class="pro-details-wishlist">
                             <a href="#"><i class="fa fa-heart-o"></i></a>
@@ -127,9 +131,9 @@
                     </div>
                     <div class="pro-details-meta">
                         <span>플레이어 지원 :</span>
-                        <ul>
-                            <li><a href="#">싱글플레이어, </a></li>
-                            <li><a href="#">멀티플레이어</a></li>
+                        <ul th:each = "list : ${player}" th:if = "${!#lists.isEmpty(list)}">
+                            <li><a href="#" th:if="${list.ppPlayer == 1}">싱글플레이어, </a></li>
+                            <li><a href="#" th:if="${list.ppPlayer == 2}">멀티플레이어</a></li>
                         </ul>
                     </div>
                 </div>

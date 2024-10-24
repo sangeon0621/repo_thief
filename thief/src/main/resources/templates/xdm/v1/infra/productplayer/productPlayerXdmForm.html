@@ -445,7 +445,7 @@
 				<!-- Content wrapper scroll start -->
 				<div class="content-wrapper-scroll">
 					<!-- Content wrapper start -->
-					<form id = "form" name = "form" method = "post" action = "/v1/infra/productsystem/productSystemXdmUpdt">
+					<form id = "form" name = "form" method = "post" action = "/v1/infra/productplayer/productPlayerXdmInst">
 						<div class="content-wrapper">
 							<div class="card">
 								<div class="row" style="padding: 20px;">
@@ -453,92 +453,67 @@
 										<font color="blue">Page 1</font> > 
 										<font color="blue">Page 2</font> > Defalut
 									</div>
-								</div>
-								<div class="row" style="padding: 20px;">
+									</div>
+									<div class="row" style="padding: 20px;">
 									<div class="col-sm-12 col-12">
-										<h1>Product</h1>
+										<h1>product</h1>
 									</div>
 								</div>
 								<div class="card-body">
+<!-- 									<div class="row"> -->
+<!-- 										<div class="col-sm-3 col-3"> -->
+<!-- 											<div class="was-validated"> -->
+<!-- 												<label for="validationCustom04" class="form-label">코드 그룹<font color ="red">*</font></label> -->
+<!-- 												<select class="form-select" id="validationCustom04" > -->
+<!-- 													<option selected="" disabled="" value="">선택하세요</option> -->
+<!-- 													<option>167</option> -->
+<!-- 												</select> -->
+<!-- 												<div class="invalid-feedback">코드그룹을 선택하세요</div> -->
+<!-- 											</div> -->
+<!-- 										</div> -->
+<!-- 									</div> -->
 									<div class="row">
 										<div class="col-sm-3 col-3">
-											<label for="validationCustom01" class="form-label">시스템코드<font color ="red">*</font></label>
-											<input readonly type="text" name = "pddSeq" th:value="${item.pddSeq}" class="form-control" id="validationCustom01" >
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-sm-3 col-3">
-											<label for="validationCustom01" class="form-label">Size<font color ="red">*</font></label>
-											<input readonly type="text" name = "psSize" th:value="${item.psSize}" class="form-control" id="validationCustom01" autocomplete="off" >
-										</div>
-										<div class="col-sm-3 col-3">
-											<label for="validationCustom01" class="form-label">Os<font color ="red">*</font></label>
-											<input type="text" name = "psOs" th:value="${item.psOs}" class="form-control" id="validationCustom01" >
-										</div>
-										<div class="col-sm-3 col-3">
-											<label for="validationCustom01" class="form-label">Cpu<font color ="red">*</font></label>
-											<input type="text" name = "psCpu" th:value="${item.psCpu}" class="form-control" id="validationCustom01" >
-										</div>
-										<div class="col-sm-3 col-3">
-											<label for="validationCustom01" class="form-label">Memory<font color ="red">*</font></label>
-											<input type="text" name = "psMemory" th:value="${item.psMemory}" class="form-control" id="validationCustom01" autocomplete="off" >
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-sm-3 col-3">
-											<label for="validationCustom01" class="form-label">Grapic<font color ="red">*</font></label>
-											<input type="text" name = "psGrapic" th:value="${item.psGrapic}" class="form-control" id="validationCustom01" >
-										</div>
-										<div class="col-sm-3 col-3">
-											<label for="validationCustom01" class="form-label">DirectX<font color ="red">*</font></label>
-											<input type="text" name = "psDirectX" th:value="${item.psDirectX}" class="form-control" id="validationCustom01" >
-										</div>
-										<div class="col-sm-3 col-3">
-											<label for="validationCustom01" class="form-label">Network<font color ="red">*</font></label>
-											<input type="text" name = "psNetwork" th:value="${item.psNetwork}" class="form-control" id="validationCustom01" >
-										</div>
-										<div class="col-sm-3 col-3">
-											<label for="validationCustom01" class="form-label">Disk<font color ="red">*</font></label>
-											<input type="text" name = "psDisk" th:value="${item.psDisk}" class="form-control" id="validationCustom01" >
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-sm-3 col-3">
-											<label for="validationCustom04" class="form-label">사용 여부<font color ="red">*</font></label>
-											<select name = "psUseNy" class="form-select" id="validationCustom04" >
-												<option value ="1" th:selected = "${item?.psUseNy == 1}">사용</option>
-												<option value ="0" th:selected = "${item?.psUseNy == 0}">미사용</option>
+											<label for="validationCustom04" class="form-label">상품 이름<font color ="red">*</font></label>
+											<select name = "pddSeq" class="form-select" id="validationCustom04" >
+												<option value ="">선택하세요</option>
+												<option th:each="list : ${listProductCd}" th:value="${list.pddSeq}" th:text="${list.pddName}">미사용</option>
 											</select>
 										</div>
 										<div class="col-sm-3 col-3">
-											<label for="validationCustom04" class="form-label">삭제 여부<font color ="red">*</font></label>
-											<select disabled name = "psDelNy" class="form-select" id="validationCustom04" >
-												<option value ="1" th:selected = "${item?.psDelNy == 1}">삭제</option>
-												<option value ="0" th:selected = "${item?.psDelNy == 0}">미삭제</option>
+											<label for="validationCustom04" class="form-label">플레이어 지원<font color ="red">*</font></label>
+											<select name = "ppPlayer" class="form-select" id="validationCustom04" >
+												<option value ="" th:selected = "${item?.ppPlayer == null}">선택하세요</option>
+												<option value ="1" th:selected = "${item?.ppPlayer == 1}">싱글플레이어</option>
+												<option value ="2" th:selected = "${item?.ppPlayer == 2}">멀티플레이어</option>
+												<option value ="3" th:selected = "${item?.ppPlayer == 3}">로컬 및 파티</option>
+												<option value ="4" th:selected = "${item?.ppPlayer == 4}">온라인 경쟁</option>
+											</select>
+										</div>
+										<div class="col-sm-3 col-3">
+											<label for="validationCustom04" class="form-label">사용여부<font color ="red">*</font></label>
+											<select name = "ppUseNy" class="form-select" id="validationCustom04" >
+												<option value ="1" th:selected = "${item?.ppUseNy == 1}">사용</option>
+												<option value ="0" th:selected = "${item?.ppUseNy == 0}">미사용</option>
 											</select>
 										</div>
 									</div>
 									<div class="row" style="padding-top: 20px;">
-										<div class="col-sm-3 col-3">
-											<button type="button" class="btn btn-outline-dark" onclick="location.href='/v1/infra/productsystem/productSystemXdmList'">
+										<div class="col-sm-1 col-1">
+											<button type="button" class="btn btn-outline-dark" onclick="location.href='/v1/infra/productplayer/productPlayerXdmList'">
 												<i class="bi bi-list-ul"></i>
 											</button>
-											<button id="psDelete" type="button" name="${item.psSeq}" class="btn btn-danger">
-                                                <i class="bi bi-x-square-fill"></i>
-                                            </button>
-                                            <button id="psUelete" type="button" name="psDelNy" class="btn btn-danger">
-                                                <i class="bi bi-trash"></i>
-                                            </button>
 										</div>
-										<div class="col-sm-8 col-8"></div>
+										<div class="col-sm-10 col-10"></div>
 										<div class="col-sm-1 col-1" style="text-align: right;">
-											<button type="submit" class="btn btn-info">
-												<i class="bi bi-server"></i>	
+											<button type="summit" class="btn btn-info">
+												<i class="bi bi-server"></i>
 											</button>
 										</div>
 									</div>
 								</div>
 							</div>
+								
 						</div>
 					</form>
 					<!-- Content wrapper end -->
@@ -548,8 +523,10 @@
 						<span>© Bootstrap Gallery 2023</span>
 					</div>
 					<!-- App footer end -->
+
 				</div>
 				<!-- Content wrapper scroll end -->
+
 			</div>
 			<!-- *************
 				************ Main container end *************
@@ -578,22 +555,11 @@
 		<!-- Main Js Required -->
 		<script src="/xdm/v1/template/vivo copy/assets/js/main.js"></script>
 
-		<script type="text/javascript">
-		document.getElementById("psUelete").onclick = function () {
-			let form = document.querySelector("form[name=form]")
-			form.action ="/v1/infra/productsystem/productSystemXdmUele";
-			form.submit();
-		}
-		
-		document.getElementById("psDelete").onclick = function () {
-			let form = document.querySelector("form[name=form]")
-			form.action ="/v1/infra/productsystem/productSystemXdmDele";
-			form.submit();
-		}
-		
-		</script>
-	
-		
+		<!-- <div class="was-validated">
+			<label for="validationCustom01" class="form-label">코드 그룹<font color ="red">*</font></label>
+			<input type="text" class="form-control" id="validationCustom01" value="Mark" required="">
+			<div class="valid-feedback">Looks good!</div>
+		</div> -->
 	</body>
 
 </html>

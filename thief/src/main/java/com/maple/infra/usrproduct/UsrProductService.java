@@ -44,6 +44,10 @@ public class UsrProductService {
 		return usrProductDao.selectListReview(usrProductDto);
 	}
 	
+	public List<UsrProductDto> selectListPlayer(UsrProductDto usrProductDto) {
+		return usrProductDao.selectListPlayer(usrProductDto);
+	}
+	
 	public int uelete(UsrProductDto usrProductDto) {
 		return usrProductDao.uelete(usrProductDto);
 	}

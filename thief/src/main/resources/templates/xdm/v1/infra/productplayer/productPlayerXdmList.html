@@ -107,7 +107,7 @@
                 <div class="content-wrapper-scroll">
 
                     <!-- Content wrapper start -->
-                    <form id="form" name="form" method="post" action="/v1/infra/productCd/productCdXdmList">
+                    <form id="form" name="form" method="post" action="/v1/infra/productplayer/productPlayerXdmList">
                     	<input type="hidden" name="thisPage" th:value="${vo.thisPage}" default="1"/>
 						<input type="hidden" id="rowNumToShow" name="rowNumToShow" th:value="${vo.rowNumToShow}"/>
                     <div class="content-wrapper">
@@ -121,7 +121,7 @@
                                         </div>
                                         <div class="row" style="padding: 20px;">
                                         <div class="col-sm-12 col-12">
-                                            <h1>Product</h1>
+                                            <h1>Product Player</h1>
                                         </div>
                                         </div>
                                         <div class="row" style="padding: 20px;">
@@ -205,16 +205,9 @@
                                                             	<td><input type="checkbox"></td>
                                                             	<th>#</th>
                                                             	<th>상품 코드</th>
-                                                                <th>상품 이름</th>
-                                                                <th>시스템 코드</th>
-                                                                <th>Os</th>
-                                                                <th>Cpu</th>
-                                                                <th>Memory</th>
-                                                                <th>그래픽</th>
-                                                                <th>DirectX</th>
-                                                                <th>네트워크</th>
-                                                                <th>디스크</th>
-                                                                <th>사용</th>
+                                                            	<td>상품 이름</td>
+                                                            	<td>플레이어 지원</td>
+                                                                <th>사용 여부</th>
                                                                 <th>삭제여부</th>
                                                             </tr>
                                                         </thead>
@@ -229,21 +222,15 @@
                                                             	<td th:text="${vo.totalRows - ((vo.thisPage - 1) * vo.rowNumToShow + listStat.index)}" class="align-middle"></td>
                                                                 <td th:text = "${list.productCd_pddSeq}"></td>
                                                                 <td th:text="${list.pddName}"></td>
-                                                                <td th:text="${list.psSeq}"></td>
-                                                                <td th:text = "${list.psOs}"></td>
-                                                                <td><a th:href = "@{/v1/infra/productsystem/productSystemMForm(psSeq= ${list.psSeq})}" th:text = "${list.psCpu}"></a></td>
+                                                                <td th:text="${list.ppSeq}"></td>
+                                                                <td><a th:href = "@{/v1/infra/productplayer/productPlayerXdmMForm(ppSeq= ${list.ppSeq})}" th:text = "${list.ppPlayer}"></a></td>
 <!--                                                                 <td th:text = "${list.ifcgOrder}"></td> "/xdm/v1/infra/codegroup/codeGroupXdmMForm?ifcgSeq=1" -->
 <!--                                                                 <td th:text = "${list.ifDesc}"></td> -->
-																<td th:text="${list.psMemory}"></td>
-																<td th:text=${list.psGrapic}></td>
-																<td th:text=${list.psDirectX}></td>
-																<td th:text="${list.psNetwork}"></td>
-																<td th:text="${list.psDisk}"></td>
-                                                                <td th:if = "${list.psUseNy eq 0}" class = "ifcdUseNy align-middle">N</td>
-                                                                <td th:unless = "${list.psUseNy eq 0}" class = "pddUseNy align-middle">Y</td>
+                                                                <td th:if = "${list.ppUseNy eq 0}" class = "ifcdUseNy align-middle">N</td>
+                                                                <td th:unless = "${list.ppUseNy eq 0}" class = "pddUseNy align-middle">Y</td>
 <!-- 																<td th:text="${list.ifcgDesc}"></td> -->
-																<td th:if = "${list.psDelNy eq 0}" class = "ifcdDelNy align-middle">N</td>
-                                                                <td th:unless = "${list.psDelNy eq 0}" class = "ifcdDelNy align-middle">Y</td>
+																<td th:if = "${list.ppDelNy eq 0}" class = "ifcdDelNy align-middle">N</td>
+                                                                <td th:unless = "${list.ppDelNy eq 0}" class = "ifcdDelNy align-middle">Y</td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
@@ -284,7 +271,7 @@
                                             <button type="button" class="btn btn-success">
                                                 <i class="bi bi-clipboard-plus"></i>
                                             </button>
-                                            <button type="button" class="btn btn-primary" onclick="location.href='/v1/infra/productsystem/productSystemXdmForm'">
+                                            <button type="button" class="btn btn-primary" onclick="location.href='/v1/infra/productplayer/productPlayerXdmForm'">
                                                 <i class="bi bi-plus"></i>
                                             </button>
                                         </div>
@@ -377,7 +364,7 @@
 			});
 			goList = function (thisPage) {
 			    document.querySelector("input[name=thisPage]").value = thisPage;
-			    document.querySelector("form[name=form]").action = "/v1/infra/productsystem/productSystemXdmList";
+			    document.querySelector("form[name=form]").action = "/v1/infra/productplayer/productPlayerXdmList";
 			    document.querySelector("form[name=form]").submit();
 			}
 		</script>

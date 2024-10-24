@@ -70,6 +70,11 @@ public class UsrProductDto {
 	private Date prDatetime;
 	private Date prDatetimeSvr;
 	
+	private String ppSeq;
+	private Integer ppPlayer;
+	private Integer ppUseNy;
+	private Integer ppDelNy;
+	
 	
 //	-----
 	public String getPddSeq() {
@@ -437,6 +442,30 @@ public class UsrProductDto {
 	}
 	public void setPrName(String prName) {
 		this.prName = prName;
+	}
+	public String getPpSeq() {
+		return ppSeq;
+	}
+	public void setPpSeq(String ppSeq) {
+		this.ppSeq = ppSeq;
+	}
+	public Integer getPpPlayer() {
+		return ppPlayer;
+	}
+	public void setPpPlayer(Integer ppPlayer) {
+		this.ppPlayer = ppPlayer;
+	}
+	public Integer getPpUseNy() {
+		return ppUseNy;
+	}
+	public void setPpUseNy(Integer ppUseNy) {
+		this.ppUseNy = ppUseNy;
+	}
+	public Integer getPpDelNy() {
+		return ppDelNy;
+	}
+	public void setPpDelNy(Integer ppDelNy) {
+		this.ppDelNy = ppDelNy;
 	}
 	
 	

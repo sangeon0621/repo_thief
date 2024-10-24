@@ -3,7 +3,7 @@ package com.maple.infra.productplayer;
 public class ProductPlayerDto {
 
 	private String ppSeq;
-	private String ppPlayer;
+	private Integer ppPlayer;
 	private Integer ppUseNy;
 	private Integer ppDelNy;
     private String productCd_pddSeq;
@@ -16,10 +16,10 @@ public class ProductPlayerDto {
 	public void setPpSeq(String ppSeq) {
 		this.ppSeq = ppSeq;
 	}
-	public String getPpPlayer() {
+	public Integer getPpPlayer() {
 		return ppPlayer;
 	}
-	public void setPpPlayer(String ppPlayer) {
+	public void setPpPlayer(Integer ppPlayer) {
 		this.ppPlayer = ppPlayer;
 	}
 	public Integer getPpUseNy() {
