@@ -2509,6 +2509,34 @@ a.default-btn {
   z-index: 220;
   display: none;
 }
+
+#form fieldset{
+    display: inline-block;
+    direction: rtl;
+    border:0;
+}
+#form fieldset legend{
+    text-align: right;
+}
+#form input[type=radio]{
+    display: none;
+}
+#form label{
+    font-size: 3em;
+    color: transparent;
+    text-shadow: 0 0 0 #f0f0f0;
+}
+#form label:hover{
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+#form label:hover ~ label{
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+#form input[type=radio]:checked ~ label{
+    text-shadow: 0 0 0 rgba(250, 208, 0, 0.99);
+}
+
+
 @media only screen and (max-width: 767px) {
   .header-right-wrap .same-style .account-dropdown {
     top: 100%;

@@ -59,6 +59,7 @@ public class UsrProductDto {
 	private String pddDetail15;
 	private String pddDetail16;
 	private String productCd_pddSeq;
+	private String count;
 	
 	private String prSeq;
 	private String prName;
@@ -466,6 +467,12 @@ public class UsrProductDto {
 	}
 	public void setPpDelNy(Integer ppDelNy) {
 		this.ppDelNy = ppDelNy;
+	}
+	public String getCount() {
+		return count;
+	}
+	public void setCount(String count) {
+		this.count = count;
 	}
 	
 	

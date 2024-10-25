@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="/usr/v1/template/flone/assets/css/plugins.css">
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="/usr/v1/template/flone/assets/css/style.css">
+    
 </head>
 
 <body>
@@ -132,7 +133,7 @@
                     <div class="pro-details-meta">
                         <span>플레이어 지원 :</span>
                         <ul th:each = "list : ${player}" th:if = "${!#lists.isEmpty(list)}">
-                            <li><a href="#" th:if="${list.ppPlayer == 1}">싱글플레이어, </a></li>
+                            <li><a href="#" th:if="${list.ppPlayer == 1}">싱글플레이어 </a></li>
                             <li><a href="#" th:if="${list.ppPlayer == 2}">멀티플레이어</a></li>
                         </ul>
                     </div>
@@ -207,11 +208,31 @@
                                                     <h4 th:text="${list.prName}"></h4>
                                                 </div>
                                                 <div class="review-rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
+                                                	<th:block th:if="${list.prReview == 1}">
+	                                                    <i class="fa fa-star"></i>
+                                                    </th:block>
+                                                    <th:block th:if="${list.prReview == 2}">
+	                                                    <i class="fa fa-star"></i>
+	                                                    <i class="fa fa-star"></i>
+                                                   </th:block>
+                                                   <th:block th:if="${list.prReview == 3}"> 
+	                                                    <i class="fa fa-star"></i>
+	                                                    <i class="fa fa-star"></i>
+	                                                    <i class="fa fa-star"></i>
+                                                  	</th:block>
+                                                  	<th:block th:if="${list.prReview == 4}"> 
+	                                                    <i class="fa fa-star"></i>
+	                                                    <i class="fa fa-star"></i>
+	                                                    <i class="fa fa-star"></i>
+	                                                    <i class="fa fa-star"></i>
+                                                  	</th:block>
+                                                  	<th:block th:if="${list.prReview == 5}"> 
+	                                                    <i class="fa fa-star"></i>
+	                                                    <i class="fa fa-star"></i>
+	                                                    <i class="fa fa-star"></i>
+	                                                    <i class="fa fa-star"></i>
+	                                                    <i class="fa fa-star"></i>
+                                                  	</th:block>
                                                 </div>
                                             </div>
                                             <div class="review-left">
@@ -248,13 +269,18 @@
                                 <div class="ratting-form">
 	                                <div class="star-box">
 	                                    <span>평점 :</span>
-	                                    <div class="ratting-star">
-	                                        <i class="fa fa-star"></i>
-	                                        <i class="fa fa-star"></i>
-	                                        <i class="fa fa-star"></i>
-	                                        <i class="fa fa-star"></i>
-	                                        <i class="fa fa-star"></i>
-	                                    </div>
+	                                    <fieldset>
+											<input type="radio" name="prReview" value="1" id="rate1"><label
+												for="rate1">★</label>
+											<input type="radio" name="prReview" value="2" id="rate2"><label
+												for="rate2">★</label>
+											<input type="radio" name="prReview" value="3" id="rate3"><label
+												for="rate3">★</label>
+											<input type="radio" name="prReview" value="4" id="rate4"><label
+												for="rate4">★</label>
+											<input type="radio" name="prReview" value="5" id="rate5"><label
+												for="rate5">★</label>
+										</fieldset>
 	                                </div>
 	                                <div class="row">
 	                                    <div class="col-md-6">

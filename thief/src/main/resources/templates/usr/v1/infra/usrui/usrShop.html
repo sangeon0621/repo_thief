@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="/usr/v1/template/flone/assets/css/plugins.css">
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="/usr/v1/template/flone/assets/css/style.css">
+    
 </head>
 
 <body>
@@ -391,7 +392,7 @@
 	                                            <h3><a th:href = "@{/usrProduct(pddSeq= ${list.pddSeq})}" th:text = "${list.pddName}"></a></h3>
 	                                            <div class="product-list-price">
 	                                                <span th:text="${'&#8361;'+list.pddSalesPrice}"></span>
-	                                                <span class="old" th:text="${'&#8361;'+list.pddPrice}"> 31,000</span>
+	                                                <span class="old" th:text="${'&#8361;'+list.pddPrice}"></span>
 	                                            </div>
 	                                            <div class="rating-review">
 	                                                <div class="product-list-rating">
@@ -401,7 +402,7 @@
 	                                                    <i class="fa fa-star-o"></i>
 	                                                    <i class="fa fa-star-o"></i>
 	                                                </div>
-	                                                <a href="#">2 리뷰</a>
+	                                                <a href="#" th:text="${list.count + '리뷰'}"></a>
 	                                            </div>
 	                                            <p th:text="${list.pddDesc}"></p>
 	                                            <div class="shop-list-btn btn-hover">

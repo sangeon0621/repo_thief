@@ -54,9 +54,8 @@
 				,b.pddWish
 			    ,b.productCg_pdSeq
 			    ,a.pdCategory
+			    ,(select count(dd.prSeq) from pddReview dd where 1=1 and dd.productCd_pddSeq = b.pddSeq) as count
 			<include refid="selectCommon"></include>
-			order by
-				b.pddSeq desc
 		) bb
 		limit #{rowNumToShow} offset #{startRnumForMysql}
 	</select>
@@ -76,7 +75,7 @@
 			#{prName}
 			,#{prReview}
 			,#{prReviewDesc}
-		    ,0
+		    ,1
 		    ,0
 		    ,#{prOrder}
 		    ,now()
@@ -192,6 +191,7 @@
 		select count(*)
 		from pddReview d
 		where 1=1
+			and d.productCd_pddSeq = #{pddSeq}
 	</select>
 	  
 	<update id="uelete">

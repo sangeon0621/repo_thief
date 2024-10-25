@@ -7,6 +7,8 @@ public class UsrProductVo {
 	private Integer shOption;
 	private String shValue;
 	
+	private String pddSeq;
+	
 	private String shDateStart;
 	private String shDateEnd;
 	private Integer shOptionDate;
@@ -147,6 +149,12 @@ public void setParamsPaging(int totalRows) {
 	}
 	public void setStartRnumForMysql(int startRnumForMysql) {
 		this.startRnumForMysql = startRnumForMysql;
+	}
+	public String getPddSeq() {
+		return pddSeq;
+	}
+	public void setPddSeq(String pddSeq) {
+		this.pddSeq = pddSeq;
 	}
 	
 }
