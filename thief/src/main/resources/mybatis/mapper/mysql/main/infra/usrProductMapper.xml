@@ -193,6 +193,22 @@
 		where 1=1
 			and d.productCd_pddSeq = #{pddSeq}
 	</select>
+	
+	<select id="ReviewAverage" resultType="double">
+  	
+  		select avg(rating)
+  		from pddReview d
+  		where d.productCd_pddSeq = #{pddSeq}
+  	
+  	</select>
+
+	<update id="updateReview">
+	
+		update pddReview
+		set prReivewAvg = #{prReivewAvg}
+		where productCd_pddSeq = #{pddSeq}
+	
+	</update>
 	  
 	<update id="uelete">
 		update productCd

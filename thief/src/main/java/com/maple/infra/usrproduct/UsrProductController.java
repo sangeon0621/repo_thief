@@ -31,7 +31,7 @@ public class UsrProductController {
 	}
 	
 	@RequestMapping(value="/usrProduct")
-	public String usrProduct(@ModelAttribute("vo") UsrProductVo vo, UsrProductDto usrProductDto, Model model) {
+	public String usrProduct(@ModelAttribute("vo") UsrProductVo vo, UsrProductDto usrProductDto, Model model, String prSeq) {
 		
 		vo.setParamsPaging(usrProductService.selectReviewCount(vo));
 		model.addAttribute("item", usrProductService.selectOne(usrProductDto));
@@ -41,6 +41,7 @@ public class UsrProductController {
 		model.addAttribute("review", usrProductService.selectListReview(usrProductDto));
 		
 		model.addAttribute("player", usrProductService.selectListPlayer(usrProductDto));
+		
 		
 		return "/usr/v1/infra/usrui/usrProduct";
 	}

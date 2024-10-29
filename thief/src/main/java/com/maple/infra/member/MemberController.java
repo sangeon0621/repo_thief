@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.maple.common.util.UtilDateTime;
+import com.maple.infra.mail.MailService;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -21,12 +22,26 @@ public class MemberController {
 	@Autowired
 	MemberService memberService;
 	
+	@Autowired
+	MailService mailService;
+	
 	@RequestMapping(value="/v1/infra/member/memberXdmList")
 	public String memberXdmList(@ModelAttribute("vo") MemberVo vo, Model model) {
 		vo.setShDateStart(vo.getShDateStart() == null || vo.getShDateStart() == "" ? null : UtilDateTime.add00TimeString(vo.getShDateStart()));
 		vo.setShDateEnd(vo.getShDateEnd() == null || vo.getShDateEnd() == "" ? null : UtilDateTime.add59TimeString(vo.getShDateEnd()));
 //		vo.setShDateStart(vo.getShDateStart()+ " 00:00:00");
 //		vo.setShDateEnd(vo.getShDateEnd()+ " 23:59:59");
+		
+//		mailService.sendMailSimple();
+		
+		Thread thread = new Thread(new Runnable() {
+			@Override
+			public void run() {
+				mailService.sendMailSimple();
+			}
+		});
+		
+		thread.start();
 		
 		vo.setParamsPaging(memberService.selectOneCount(vo));
 		
