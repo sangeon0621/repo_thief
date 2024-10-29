@@ -29,6 +29,8 @@ public interface UsrProductDao {
 	
 	public int delete(UsrProductDto usrProductDto);
 	
+	public UsrProductDto reviewAvg(UsrProductDto usrProductDto);
+	
 	
 	
 }

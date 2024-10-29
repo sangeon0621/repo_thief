@@ -55,6 +55,7 @@
 			    ,b.productCg_pdSeq
 			    ,a.pdCategory
 			    ,(select count(dd.prSeq) from pddReview dd where 1=1 and dd.productCd_pddSeq = b.pddSeq) as count
+			    ,(select ROUND(AVG(dd.prReview)) from pddReview dd where 1=1 and dd.productCd_pddSeq = b.pddSeq) as prReviewAvg
 			<include refid="selectCommon"></include>
 		) bb
 		limit #{rowNumToShow} offset #{startRnumForMysql}
@@ -194,21 +195,11 @@
 			and d.productCd_pddSeq = #{pddSeq}
 	</select>
 	
-	<select id="ReviewAverage" resultType="double">
-  	
-  		select avg(rating)
-  		from pddReview d
-  		where d.productCd_pddSeq = #{pddSeq}
-  	
-  	</select>
-
-	<update id="updateReview">
-	
-		update pddReview
-		set prReivewAvg = #{prReivewAvg}
-		where productCd_pddSeq = #{pddSeq}
-	
-	</update>
+	<select id="reviewAvg">
+        SELECT ROUND(AVG(prReview)) as prReviewAvg
+		FROM pddReview
+		WHERE productCd_pddSeq = #{pddSeq};
+    </select>
 	  
 	<update id="uelete">
 		update productCd

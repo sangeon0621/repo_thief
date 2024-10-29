@@ -70,7 +70,7 @@ public class UsrProductDto {
 	private Integer prOrder;
 	private Date prDatetime;
 	private Date prDatetimeSvr;
-	private Double prReviewAvg;
+	private Integer prReviewAvg;
 	
 	private String ppSeq;
 	private Integer ppPlayer;
@@ -475,16 +475,13 @@ public class UsrProductDto {
 	public void setCount(String count) {
 		this.count = count;
 	}
-	public Double getPrReviewAvg() {
+	public Integer getPrReviewAvg() {
 		return prReviewAvg;
 	}
-	public void setPrReviewAvg(Double prReviewAvg) {
+	public void setPrReviewAvg(Integer prReviewAvg) {
 		this.prReviewAvg = prReviewAvg;
 	}
 	
-	@Override
-	public String toString() {
-		return "UsrProductDto [psSeq =" + prSeq + ", prReviewAvg=" + prReviewAvg + "]";
-	}
+	
 	
 }

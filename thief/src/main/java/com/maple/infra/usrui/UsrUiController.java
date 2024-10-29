@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +17,16 @@ public class UsrUiController {
 	
 	@Autowired
 	UsrService usrService;
+	
+	public String encodeBcrypt(String planeText, int strength) {
+		  return new BCryptPasswordEncoder(strength).encode(planeText);
+	}
+
+			
+	public boolean matchesBcrypt(String planeText, String hashValue, int strength) {
+	  BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder(strength);
+	  return passwordEncoder.matches(planeText, hashValue);
+	}	
 
 	@RequestMapping(value="/usrUi")
 	public String usrUi() {
@@ -52,6 +63,9 @@ public class UsrUiController {
 	
 	@RequestMapping(value="/usrInst") 
 	public String usrInst(UsrDto usrDto) {
+		
+		usrDto.setPassword(encodeBcrypt(usrDto.getPassword(), 10));
+		
 		usrService.insert(usrDto);
 		
 		return "redirect:/usrLogin";
@@ -66,6 +80,8 @@ public class UsrUiController {
 		UsrDto rtMember2 = usrService.selectOneLogin(usrDto);
 
 			if (rtMember2 != null) {
+				
+				if(matchesBcrypt(usrDto.getPassword(), rtMember2.getPassword(), 10)) {
 				
 //				if(dto.getAutoLogin() == true) {
 //					UtilCookie.createCookie(
@@ -89,6 +105,9 @@ public class UsrUiController {
 //				memberService.insertLogLogin(rtMember2);
 
 				returnMap.put("rt", "success");
+				} else {
+					returnMap.put("rt", "fail");
+				}
 			} else {
 //				memberDto.setIfmmSocialLoginCd(103);
 //				memberDto.setIfmmSeq(rtMember.getIfmmSeq());

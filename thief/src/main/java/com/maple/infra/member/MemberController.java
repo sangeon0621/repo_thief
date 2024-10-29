@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -24,6 +25,16 @@ public class MemberController {
 	
 	@Autowired
 	MailService mailService;
+	
+	public String encodeBcrypt(String planeText, int strength) {
+		  return new BCryptPasswordEncoder(strength).encode(planeText);
+	}
+
+			
+	public boolean matchesBcrypt(String planeText, String hashValue, int strength) {
+	  BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder(strength);
+	  return passwordEncoder.matches(planeText, hashValue);
+	}	
 	
 	@RequestMapping(value="/v1/infra/member/memberXdmList")
 	public String memberXdmList(@ModelAttribute("vo") MemberVo vo, Model model) {
@@ -61,6 +72,8 @@ public class MemberController {
 	
 	@RequestMapping(value = "/v1/infra/member/memberXdmInst")
 	public String memberXdmInst(MemberDto memberDto) {
+		
+		memberDto.setPassword(encodeBcrypt(memberDto.getPassword(), 10));
 		
 		memberService.insert2(memberDto);
 		
@@ -115,6 +128,8 @@ public class MemberController {
 
 			if (rtMember2 != null) {
 				
+				if(matchesBcrypt(memberDto.getPassword(), rtMember2.getPassword(), 10)) {
+				
 //				if(dto.getAutoLogin() == true) {
 //					UtilCookie.createCookie(
 //							Constants.COOKIE_SEQ_NAME_XDM, 
@@ -136,6 +151,9 @@ public class MemberController {
 //				memberService.insertLogLogin(rtMember2);
 
 				returnMap.put("rt", "success");
+				} else {
+					returnMap.put("rt", "fail");
+				}
 			} else {
 //				memberDto.setIfmmSocialLoginCd(103);
 //				memberDto.setIfmmSeq(rtMember.getIfmmSeq());

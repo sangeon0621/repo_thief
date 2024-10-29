@@ -28,7 +28,7 @@
 
 <div th:replace="~{usr/v1/infra/include/head :: head}"></div>
 
-<form id = "form" name = "form" method = "post" action = "/usrProductUpdt">
+<form id = "myform" name = "myform" method = "post" action = "/usrProductUpdt">
 <div class="breadcrumb-area pt-35 pb-35 bg-gray-3">
     <div class="container">
         <div class="breadcrumb-content text-center">
@@ -93,11 +93,41 @@
                     </div>
                     <div class="pro-details-rating-wrap">
                         <div class="pro-details-rating">
-                            <i class="fa fa-star-o yellow"></i>
-                            <i class="fa fa-star-o yellow"></i>
-                            <i class="fa fa-star-o yellow"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
+                        	<th:block th:if="${avg.prReviewAvg == 1}">
+                            	<i class="fa fa-star-o yellow"></i>
+                            	<i class="fa fa-star-o"></i>
+	                            <i class="fa fa-star-o"></i>
+	                            <i class="fa fa-star-o"></i>
+	                            <i class="fa fa-star-o"></i>
+                            </th:block>
+                            <th:block th:if="${avg.prReviewAvg == 2}">
+                            	<i class="fa fa-star-o yellow"></i>
+                            	<i class="fa fa-star-o yellow"></i>
+	                            <i class="fa fa-star-o"></i>
+	                            <i class="fa fa-star-o"></i>
+	                            <i class="fa fa-star-o"></i>
+                            </th:block>
+                            <th:block th:if="${avg.prReviewAvg == 3}">
+                            	<i class="fa fa-star-o yellow"></i>
+                            	<i class="fa fa-star-o yellow"></i>
+	                            <i class="fa fa-star-o yellow"></i>
+	                            <i class="fa fa-star-o"></i>
+	                            <i class="fa fa-star-o"></i>
+                            </th:block>
+                            <th:block th:if="${avg.prReviewAvg == 4}">
+                            	<i class="fa fa-star-o yellow"></i>
+                            	<i class="fa fa-star-o yellow"></i>
+	                            <i class="fa fa-star-o yellow"></i>
+	                            <i class="fa fa-star-o yellow"></i>
+	                            <i class="fa fa-star-o"></i>
+                            </th:block>
+                            <th:block th:if="${avg.prReviewAvg == 5}">
+                            	<i class="fa fa-star-o yellow"></i>
+                            	<i class="fa fa-star-o yellow"></i>
+	                            <i class="fa fa-star-o yellow"></i>
+	                            <i class="fa fa-star-o yellow"></i>
+	                            <i class="fa fa-star-o yellow"></i>
+                            </th:block>
                         </div>
                         <span><a href="#" th:text="${vo.totalRows} + '리뷰'"></a></span>
                     </div>
@@ -563,6 +593,26 @@
 		    document.getElementById("btnSubmit").click();
 		  }
 		});
+		
+		document.getElementById("btnLogout").onclick = function (){
+			$.ajax({
+				async: true 
+				,cache: false
+				,type: "post"
+				,url: "/signoutUsrProc"
+				,success: function(response) {
+					if(response.rt =="success") {
+					location.href = "/usrUi";
+						
+					} else {
+						
+					}
+				}
+				,error : function(jqXHR, textStatus, errorThrown){
+					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+				}
+			});	
+		}
 		
 		</script>
 

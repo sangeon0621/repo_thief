@@ -129,7 +129,7 @@
 		    ,a.password
 		from
 			member a
-		where a.id= #{id} and password = #{password}
+		where a.id= #{id}
 	</select>
 	  
 	<update id="update2">

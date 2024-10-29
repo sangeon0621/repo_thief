@@ -56,5 +56,9 @@ public class UsrProductService {
 		return usrProductDao.delete(usrProductDto);
 	}
 	
+	public UsrProductDto reviewAvg(UsrProductDto usrProductDto) {
+		return usrProductDao.reviewAvg(usrProductDto);
+	}
+	
 	
 }

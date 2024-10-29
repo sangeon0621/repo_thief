@@ -396,11 +396,41 @@
 	                                            </div>
 	                                            <div class="rating-review">
 	                                                <div class="product-list-rating">
-	                                                    <i class="fa fa-star-o yellow"></i>
-	                                                    <i class="fa fa-star-o yellow"></i>
-	                                                    <i class="fa fa-star-o yellow"></i>
-	                                                    <i class="fa fa-star-o"></i>
-	                                                    <i class="fa fa-star-o"></i>
+	                                                    <th:block th:if="${list.prReviewAvg == 1}">
+							                            	<i class="fa fa-star-o yellow"></i>
+							                            	<i class="fa fa-star-o"></i>
+								                            <i class="fa fa-star-o"></i>
+								                            <i class="fa fa-star-o"></i>
+								                            <i class="fa fa-star-o"></i>
+							                            </th:block>
+							                            <th:block th:if="${list.prReviewAvg == 2}">
+							                            	<i class="fa fa-star-o yellow"></i>
+							                            	<i class="fa fa-star-o yellow"></i>
+								                            <i class="fa fa-star-o"></i>
+								                            <i class="fa fa-star-o"></i>
+								                            <i class="fa fa-star-o"></i>
+							                            </th:block>
+							                            <th:block th:if="${list.prReviewAvg == 3}">
+							                            	<i class="fa fa-star-o yellow"></i>
+							                            	<i class="fa fa-star-o yellow"></i>
+								                            <i class="fa fa-star-o yellow"></i>
+								                            <i class="fa fa-star-o"></i>
+								                            <i class="fa fa-star-o"></i>
+							                            </th:block>
+							                            <th:block th:if="${list.prReviewAvg == 4}">
+							                            	<i class="fa fa-star-o yellow"></i>
+							                            	<i class="fa fa-star-o yellow"></i>
+								                            <i class="fa fa-star-o yellow"></i>
+								                            <i class="fa fa-star-o yellow"></i>
+								                            <i class="fa fa-star-o"></i>
+							                            </th:block>
+							                            <th:block th:if="${list.prReviewAvg == 5}">
+							                            	<i class="fa fa-star-o yellow"></i>
+							                            	<i class="fa fa-star-o yellow"></i>
+								                            <i class="fa fa-star-o yellow"></i>
+								                            <i class="fa fa-star-o yellow"></i>
+								                            <i class="fa fa-star-o yellow"></i>
+							                            </th:block>
 	                                                </div>
 	                                                <a href="#" th:text="${list.count + '리뷰'}"></a>
 	                                            </div>
