@@ -127,6 +127,7 @@
 			,a.name
 		    ,a.id
 		    ,a.password
+		    ,a.nickName
 		from
 			member a
 		where a.id= #{id}

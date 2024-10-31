@@ -145,7 +145,7 @@
                     </div>
                     <div class="pro-details-quality">
                         <div class="cart-plus-minus">
-                            <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1">
+                            <input class="cart-plus-minus-box" type="text" name="qtybutton" th:value="${item.pddPlus}">
                         </div>
                         <div class="pro-details-cart btn-hover">
                             <a href="#">구매 하기</a>
@@ -315,7 +315,7 @@
 	                                <div class="row">
 	                                    <div class="col-md-6">
 	                                        <div class="rating-form-style mb-10">
-	                                            <input readonly type="text" id="prName" name="prName" th:value="${session.sessNameUsr}">
+	                                            <input readonly type="text" id="prName" name="prName" th:value="${session.sessNickNameUsr}">
 	                                        </div>
 	                                    </div>
 	                                    <div class="col-md-12">
