@@ -88,7 +88,7 @@
                 <div class="product-details-content ml-70">
                     <h2 th:text="${item.pddName}"></h2>
                     <div class="product-details-price">
-                        <span th:text="${'&#8361;' + item.pddSalesPrice}"></span>
+                        <span id="pddSalesPrice" th:text="${'&#8361;' + item.pddSalesPrice}"></span>
                         <span class="old" th:text="${'&#8361;' + item.pddPrice}"></span>
                     </div>
                     <div class="pro-details-rating-wrap">
@@ -141,11 +141,11 @@
                     </div>
 					<div class="product-details-price">
 						<span style="color: black;">총 가격 :</span>
-                        <span style="color: black;" th:text="${'&nbsp;&nbsp;&nbsp;' + '&#8361;' + item.pddSalesPrice}"></span>
+                        <span style="color: black;" id="pddTotalPrice"></span>
                     </div>
                     <div class="pro-details-quality">
                         <div class="cart-plus-minus">
-                            <input class="cart-plus-minus-box" type="text" name="qtybutton" th:value="${item.pddPlus}">
+                            <input class="cart-plus-minus-box" id="pddPlus" type="text" name="qtybutton" th:value="${item.pddPlus}">
                         </div>
                         <div class="pro-details-cart btn-hover">
                             <a href="#">구매 하기</a>
@@ -613,6 +613,8 @@
 				}
 			});	
 		}
+		
+		
 		
 		</script>
 

@@ -57,9 +57,10 @@ public class CodeGroupController {
 	}
 	
 	@RequestMapping(value = "/v1/infra/codegroup/codeGroupXdmInst")
-	public String codeGroupXdmInst(CodeGroupDto codeGroupDto) {
+	public String codeGroupXdmInst(CodeGroupDto codeGroupDto) throws Exception {
 		
 		codeGroupService.insert(codeGroupDto);
+//		codeGroupService.insertUpload(codeGroupDto);
 		
 		return "redirect:/v1/infra/codegroup/codeGroupXdmList";
 	}
@@ -90,5 +91,8 @@ public class CodeGroupController {
 		
 		return "redirect:/v1/infra/codegroup/codeGroupXdmList";
 	}
+	
+	
+	
 	
 }

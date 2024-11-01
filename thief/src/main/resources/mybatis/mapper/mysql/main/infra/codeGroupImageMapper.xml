@@ -1,27 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.maple.infra.codegroup.CodeGroupDao"> 
+<mapper namespace="com.maple.infra.codegroupimage.CodeGroupImageDao"> 
 <!-- xml에서 주석 단축키 : ctrl + shift + c -->
 <!-- Mapper와 연결될 Dao -->
 	  
-	<resultMap type="com.maple.infra.codegroup.CodeGroupDto" id="resultMapObj"></resultMap>
+	<resultMap type="com.maple.infra.codegroupimage.CodeGroupImageDto" id="resultMapObj"></resultMap>
 	
 	<sql id="selectCommon">
 		from
-			codegroup a
+			codegroupImage c
 		where 1=1
-			<if test="shDelNy != null and !shDelNy.equals('')">AND ifcgDelNy = #{shDelNy}</if>
-			<if test="shUseNy != null and !shUseNy.equals('')">AND ifcgUseNy = #{shUseNy}</if>
+			<if test="shDelNy != null and !shDelNy.equals('')">AND cgiDelNy = #{shDelNy}</if>
+			<if test="shUseNy != null and !shUseNy.equals('')">AND cgiUseNy = #{shUseNy}</if>
 			
 			<choose>
-				<when test="shOptionDate == 1">AND a.regDatetime BETWEEN #{shDateStart} AND #{shDateEnd}</when>
-				<when test="shOptionDate == 2">AND a.regDatetimeSvr BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+				<when test="shOptionDate == 1">AND c.regDateTime BETWEEN #{shDateStart} AND #{shDateEnd}</when>
+				<when test="shOptionDate == 2">AND c.regDateTimeSvr BETWEEN #{shDateStart} AND #{shDateEnd}</when>
 			</choose>
 			
 			<choose>
-				<when test="shOption == 1">AND ifcgSeq = #{shValue}</when>
-				<when test="shOption == 2">AND ifcgName LIKE CONCAT('%',#{shValue},'%')</when>
+				<when test="shOption == 1">AND cgiSeq = #{shValue}</when>
 			</choose>
 	</sql>
 	
@@ -31,21 +30,24 @@
 	</select>
 	  
  	<select id = "selectList" resultMap = "resultMapObj">
- 		select aa.* from (
+ 		select cc.* from (
 			select
-				a.ifcgSeq
-				,a.ifcgName
-				,a.ifcgUseNy
-				,a.ifcgOrder
-				,a.ifcgDesc
-				,a.regDatetime
-				,a.regDatetimeSvr
-				,a.ifcgDelNy
-				,(select count(aa.ifcdSeq) from code aa where 1=1 and aa.codegroup_ifcgSeq = a.ifcgSeq) as count
+				c.cgiDefaultly
+				,c.cgiUseNy
+				,c.cgiDelNy
+				,c.cgiOrder
+				,c.path
+				,c.originalName
+				,c.tableName
+				,c.ext
+				,c.type
+				,c.uuidName
+				,c.regIp
+				,c.regDateTime
+				,c.regDateTimeSvr
+				,c.codeGroup_ifcgSeq
 			<include refid="selectCommon"></include>	
-			order by
-				a.ifcgSeq desc
-		) aa
+		) cc
 		limit #{rowNumToShow} offset #{startRnumForMysql}
 	</select>
 	
@@ -86,7 +88,6 @@
 			,type
 			,uuidName
 			,size
-			,sort
 			,regIp
 			,regDateTime
 			,regDateTimeSvr
@@ -97,17 +98,15 @@
 			,0
 			,#{cgiOrder}
 			,#{path}
-			,#{originalName}
+			,#{originName}
 			,#{tableName}
 			,#{ext}
 			,#{type}
 			,#{uuidName}
-			,#{size}
-			,#{sort}
 			,#{regIp}
 			,now()
 			,now()
-			,#{codeGroup_ifcgSeq}
+			,#codeGroup_ifcgSeq}
 		)
 	</insert>
 	  

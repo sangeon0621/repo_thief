@@ -210,14 +210,10 @@
 	  		,pddsales = #{pddsales}
 	  		,pddSalesPrice = #{pddSalesPrice}
 	  		,pddCount = #{pddCount}
-	  		,pddTotalPrice = #{pddTotalPrice}
 	  		,pddDatetime = now()
 	  		,pddDatetimeSvr = now()
-	  		,pddDelNy = #{pddDelNy}
 	  		,pddProgramer = #{pddProgramer}
 			,pddDistributor = #{pddDistributor}
-			,pddPlus = #{pddPlus}
-			,pddWish = #{pddWish}
 			,pddDetail1 = #{pddDetail1}
 			,pddDetail2 = #{pddDetail2}
 			,pddDetail3 = #{pddDetail3}

@@ -3,6 +3,7 @@ package com.maple.infra.productCd;
 import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.multipart.MultipartFile;
 
 public class ProductCdDto {
 
@@ -50,6 +51,10 @@ public class ProductCdDto {
 	private String pddDetail14;
 	private String pddDetail15;
 	private String pddDetail16;
+	
+	private MultipartFile uploadFile;
+	private MultipartFile[] uploadFiles;
+	
 //	-----
 	public String getPddSeq() {
 		return pddSeq;
@@ -302,6 +307,18 @@ public class ProductCdDto {
 	}
 	public void setPddDetail16(String pddDetail16) {
 		this.pddDetail16 = pddDetail16;
+	}
+	public MultipartFile getUploadFile() {
+		return uploadFile;
+	}
+	public void setUploadFile(MultipartFile uploadFile) {
+		this.uploadFile = uploadFile;
+	}
+	public MultipartFile[] getUploadFiles() {
+		return uploadFiles;
+	}
+	public void setUploadFiles(MultipartFile[] uploadFiles) {
+		this.uploadFiles = uploadFiles;
 	}
 	
 	

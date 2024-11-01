@@ -446,7 +446,7 @@
 				<!-- Content wrapper scroll start -->
 				<div class="content-wrapper-scroll">
 					<!-- Content wrapper start -->
-					<form id = "form" name = "form" method = "post" action = "/v1/infra/codegroup/codeGroupXdmInst">
+					<form id = "form" name = "form" method = "post" enctype="multipart/form-data" action = "/v1/infra/codegroup/codeGroupXdmInst">
 						<div class="content-wrapper">
 							<div class="card">
 								<div class="row" style="padding: 20px;">
@@ -489,6 +489,13 @@
 										<div class="col-sm-3 col-3">
 											<label for="validationCustom01" class="form-label">순서<font color ="red">*</font></label>
 											<input type="text" name = "ifcgOrder" class="form-control" id="ifcgOrder" autocomplete="off">
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-12">
+											<label for="uploadFiles" class="form-label fs--1">file</label>
+											<input type="file" id="uploadFiles" name="uploadFiles" multiple class="form-control"/>
+											<div class="invalid-feedback" id="uploadFilesFeedback"></div>
 										</div>
 									</div>
 									<div class="row">

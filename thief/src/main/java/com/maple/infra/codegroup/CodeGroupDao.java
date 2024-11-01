@@ -21,5 +21,6 @@ public interface CodeGroupDao {
 	
 	public int delete(CodeGroupDto codeGroupDto);
 	
+	public int insertUpload(CodeGroupDto codeGroupDto);
 	
 }

@@ -31,6 +31,8 @@ public interface UsrProductDao {
 	
 	public UsrProductDto reviewAvg(UsrProductDto usrProductDto);
 	
+	public int changePrice(UsrProductDto usrProductDto);
+	
 	
 	
 }

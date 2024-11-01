@@ -60,5 +60,9 @@ public class UsrProductService {
 		return usrProductDao.reviewAvg(usrProductDto);
 	}
 	
+	public int changePrice(UsrProductDto usrProductDto) {
+		return usrProductDao.changePrice(usrProductDto);
+	}
+	
 	
 }

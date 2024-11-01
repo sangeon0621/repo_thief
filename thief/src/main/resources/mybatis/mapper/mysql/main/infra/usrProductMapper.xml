@@ -144,6 +144,15 @@
 	  		and pddSeq = #{pddSeq}
 	  </update>
 	  
+	  <update id="changePrice">
+	  	update productCd
+	  	set
+	  		pddPlus = #{pddPlus}
+	  		,pddTotalPrice = #{pddTotalPrice}
+	  	where 1=1
+	  		and pddSeq = #{pddSeq}
+	  </update>
+	  
 	  <select id = "selectListCodeGroup" resultMap = "productObj">
 		select
 			c.psSeq
