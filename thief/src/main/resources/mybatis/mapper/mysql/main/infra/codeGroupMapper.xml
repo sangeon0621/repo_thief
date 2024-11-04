@@ -90,7 +90,6 @@
 			,regIp
 			,regDateTime
 			,regDateTimeSvr
-			,codeGroup_ifcgSeq
 		) values (
 			#{cgiDefaultly}
 			,#{cgiUseNy}
@@ -107,7 +106,6 @@
 			,#{regIp}
 			,now()
 			,now()
-			,#{codeGroup_ifcgSeq}
 		)
 	</insert>
 	  

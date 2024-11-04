@@ -61,6 +61,11 @@ public class UsrProductController {
 		return "redirect:/usrProduct";
 	}
 	
+	@RequestMapping(value="/usrCheckOut")
+	public String usrCheckOut() {
+		return "/usr/v1/infra/usrui/usrCheckOut";
+	}
+	
 	
 	
 	

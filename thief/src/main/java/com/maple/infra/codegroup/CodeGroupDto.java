@@ -36,7 +36,7 @@ public class CodeGroupDto {
 	private String regIp;
 	private Date regDateTime;
 	private Date regDateTimeSvr;
-	private String codeGroup_ifcgSeq;
+	private String pSeq;
 	private MultipartFile uploadFile;
 	private MultipartFile[] uploadFiles;
 //	-----
@@ -166,12 +166,6 @@ public class CodeGroupDto {
 	public void setType(Integer type) {
 		this.type = type;
 	}
-	public String getCodeGroup_ifcgSeq() {
-		return codeGroup_ifcgSeq;
-	}
-	public void setCodeGroup_ifcgSeq(String codeGroup_ifcgSeq) {
-		this.codeGroup_ifcgSeq = codeGroup_ifcgSeq;
-	}
 	public Long getSize() {
 		return Size;
 	}
@@ -213,6 +207,12 @@ public class CodeGroupDto {
 	}
 	public void setRegDateTimeSvr(Date regDateTimeSvr) {
 		this.regDateTimeSvr = regDateTimeSvr;
+	}
+	public String getpSeq() {
+		return pSeq;
+	}
+	public void setpSeq(String pSeq) {
+		this.pSeq = pSeq;
 	}
 	
 	

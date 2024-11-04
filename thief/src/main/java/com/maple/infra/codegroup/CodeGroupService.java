@@ -71,7 +71,7 @@ public class CodeGroupService {
 //		        codeGroupDto.setType(type);
 //		        codeGroupDto.setCgiDefaultly();
 //				codeGroupDto.setSort(maxNumber + i);
-//				codeGroupDto.setCodeGroup_ifcgSeq(codeGroup_ifcgSeq);
+//				codeGroupDto.setpSeq(pSeq);
 				
 				codegroupdao.insertUpload(codeGroupDto);
 			}
