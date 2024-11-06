@@ -62,7 +62,10 @@ public class UsrProductController {
 	}
 	
 	@RequestMapping(value="/usrCheckOut")
-	public String usrCheckOut() {
+	public String usrCheckOut(UsrProductDto usrProductDto, Model model) {
+		
+		model.addAttribute("item", usrProductService.selectOne(usrProductDto));
+		
 		return "/usr/v1/infra/usrui/usrCheckOut";
 	}
 	

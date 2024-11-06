@@ -11,6 +11,7 @@ public class UsrProductDto {
 	private String pddCategory;
 	private Integer pddUseNy;
 	private Integer pddDelNy;
+	private Integer pddSalesNy;
 	private Integer pddOrder;
 	private String pddPrice;
 	private Integer pddsales;
@@ -480,6 +481,12 @@ public class UsrProductDto {
 	}
 	public void setPrReviewAvg(Integer prReviewAvg) {
 		this.prReviewAvg = prReviewAvg;
+	}
+	public Integer getPddSalesNy() {
+		return pddSalesNy;
+	}
+	public void setPddSalesNy(Integer pddSalesNy) {
+		this.pddSalesNy = pddSalesNy;
 	}
 	
 	

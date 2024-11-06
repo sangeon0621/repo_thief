@@ -99,6 +99,9 @@ public class UsrUiController {
 				httpSession.setAttribute("sessIdUsr", rtMember2.getId());
 				httpSession.setAttribute("sessNameUsr", rtMember2.getName());
 				httpSession.setAttribute("sessNickNameUsr", rtMember2.getNickName());
+				httpSession.setAttribute("sessEmailUsr", rtMember2.getEmail());
+				httpSession.setAttribute("sessBirthdayUsr", rtMember2.getBirthday());
+				httpSession.setAttribute("sessTelephoneUsr", rtMember2.getTelephone());
 //
 //				rtMember2.setIfmmSocialLoginCd(103);
 //				rtMember2.setIflgResultNy(1);

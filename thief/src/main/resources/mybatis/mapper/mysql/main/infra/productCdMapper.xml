@@ -47,6 +47,7 @@
 				,b.pddDatetime
 				,b.pddDatetimeSvr
 				,b.pddDelNy
+				,b.pddSalesNy
 				,b.pddProgramer
 				,b.pddDistributor
 				,b.pddPlus
@@ -91,6 +92,7 @@
 		    ,pddDatetime
 		    ,pddDatetimeSvr
 		    ,pddDelNy
+		    ,pddSalesNy
 		    ,pddDatetimeRel
 			,pddProgramer
 			,pddDistributor
@@ -127,6 +129,7 @@
 		    ,now()
 		    ,now()
 		    ,0
+		    ,#{pddSalesNy}
 		    ,now()
 		    ,#{pddProgramer}
 		    ,#{pddDistributor}
@@ -172,6 +175,7 @@
 				,b.pddDatetime
 				,b.pddDatetimeSvr
 				,b.pddDelNy
+				,b.pddSalesNy
 				,b.pddProgramer
 				,b.pddDistributor
 				,b.pddPlus
@@ -210,6 +214,7 @@
 	  		,pddsales = #{pddsales}
 	  		,pddSalesPrice = #{pddSalesPrice}
 	  		,pddCount = #{pddCount}
+	  		,pddSalesNy = #{pddSalesNy}
 	  		,pddDatetime = now()
 	  		,pddDatetimeSvr = now()
 	  		,pddProgramer = #{pddProgramer}

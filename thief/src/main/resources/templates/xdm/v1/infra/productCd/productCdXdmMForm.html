@@ -524,6 +524,13 @@
 												<textarea name = "pddDesc" th:text="${item.pddDesc}" class="form-control" rows="5"></textarea>
 											</div>
 										</div>
+										<div class="col-sm-3 col-3">
+											<label for="validationCustom04" class="form-label">할인 여부<font color ="red">*</font></label>
+											<select name = "pddSalesNy" class="form-select" id="validationCustom04" >
+												<option value ="1" th:selected = "${item?.pddSalesNy == 1}">할인중</option>
+												<option value ="0" th:selected = "${item?.pddSalesNy == 0}">미할인</option>
+											</select>
+										</div>
 									</div>
 									<div class="row">
 										<div class="col-sm-3 col-3">

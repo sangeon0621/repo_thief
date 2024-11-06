@@ -12,6 +12,7 @@ public class ProductCdDto {
 	private String pddCategory;
 	private Integer pddUseNy;
 	private Integer pddDelNy;
+	private Integer pddSalesNy;
 	private Integer pddOrder;
 	private String pddPrice;
 	private Integer pddsales;
@@ -319,6 +320,12 @@ public class ProductCdDto {
 	}
 	public void setUploadFiles(MultipartFile[] uploadFiles) {
 		this.uploadFiles = uploadFiles;
+	}
+	public Integer getPddSalesNy() {
+		return pddSalesNy;
+	}
+	public void setPddSalesNy(Integer pddSalesNy) {
+		this.pddSalesNy = pddSalesNy;
 	}
 	
 	

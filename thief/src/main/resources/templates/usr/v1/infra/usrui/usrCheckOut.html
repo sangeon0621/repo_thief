@@ -44,25 +44,30 @@
         <div class="row">
             <div class="col-lg-7">
                 <div class="billing-info-wrap">
-                    <h3>Billing Details</h3>
+                    <h3>구매자 정보</h3>
                     <div class="row">
                         <div class="col-lg-6 col-md-6">
                             <div class="billing-info mb-20">
                                 <label>이름</label>
-                                <input type="text">
+                                <input readonly type="text" th:value="${session.sessNameUsr}">
                             </div>
                         </div>
-                        <div class="col-lg-6 col-md-6"></div>
                         <div class="col-lg-6 col-md-6">
                             <div class="billing-info mb-20">
-                                <label>전화번호</label>
-                                <input type="text">
+                                <label>생년월일</label>
+                                <input type="text" th:value="${session.sessBirthdayUsr}">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="billing-info mb-20">
+                                <label>휴대폰 번호</label>
+                                <input type="text" th:value="${session.sessTelephoneUsr}">
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6">
                             <div class="billing-info mb-20">
                                 <label>이메일 주소</label>
-                                <input type="text">
+                                <input type="text" th:value="${session.sessEmailUsr}">
                             </div>
                         </div>
                     </div>
@@ -74,10 +79,15 @@
                                 <input type="text">
                             </div>
                         </div>
-                        <div class="col-lg-6 col-md-6"></div>
                         <div class="col-lg-6 col-md-6">
                             <div class="billing-info mb-20">
-                                <label>전화번호</label>
+                                <label>생년월일</label>
+                                <input type="text">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="billing-info mb-20">
+                                <label>휴대폰 번호</label>
                                 <input type="text">
                             </div>
                         </div>
@@ -93,7 +103,7 @@
             </div>
             <div class="col-lg-5">
                 <div class="your-order-area">
-                    <h3>구매 목록</h3>
+                    <h3>상품 목록</h3>
                     <div class="your-order-wrap gray-bg-4">
                         <div class="your-order-product-info">
                             <div class="your-order-top">
@@ -104,62 +114,27 @@
                             </div>
                             <div class="your-order-middle">
                                 <ul>
-                                    <li><span class="order-middle-left">딥 락 갤럭틱</span> <span class="order-price">10,230원</span></li>
+                                    <li>
+	                                    <span class="order-middle-left" th:text="${item.pddName}"></span>
+	                                    <th:block th:if="${item.pddSalesNy == 1}">
+	                                    <span class="order-price" th:text="${#numbers.formatInteger(item.pddSalesPrice, 3, 'COMMA')} + '원'"></span>
+	                                    </th:block>
+	                                    <th:block th:if="${item.pddSalesNy == 0}">
+	                                    <span class="order-price" th:text="${#numbers.formatInteger(item.pddPrice, 3, 'COMMA')} + '원'"></span>
+	                                    </th:block>
+                                    </li>
                                 </ul>
                             </div>
                             <div class="your-order-total">
                                 <ul>
                                     <li class="order-total">총 가격</li>
-                                    <li>10,230원</li>
+                                    <th:block th:if="${item.pddSalesNy == 1}">
+                                    	<li th:text="${#numbers.formatInteger(item.pddSalesPrice, 3, 'COMMA')} + '원'"></li>
+                                    </th:block>
+                                    <th:block th:if="${item.pddSalesNy == 0}">
+                                    	<li th:text="${#numbers.formatInteger(item.pddPrice, 3, 'COMMA')} + '원'"></li>
+                                    </th:block>
                                 </ul>
-                            </div>
-                        </div>
-                        <div class="payment-method">
-                            <div class="payment-accordion element-mrg">
-                                <div class="panel-group" id="accordion">
-                                    <div class="panel payment-accordion">
-                                        <div class="panel-heading" id="method-one">
-                                            <h4 class="panel-title">
-                                                <a data-bs-toggle="collapse" href="#method1">
-                                                    무통장 입금
-                                                </a>
-                                            </h4>
-                                        </div>
-                                        <div id="method1" class="panel-collapse collapse show" data-bs-parent="#accordion">
-                                            <div class="panel-body">
-                                                <p>Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="panel payment-accordion">
-                                        <div class="panel-heading" id="method-two">
-                                            <h4 class="panel-title">
-                                                <a class="collapsed" data-bs-toggle="collapse" href="#method2">
-                                                    Check payments
-                                                </a>
-                                            </h4>
-                                        </div>
-                                        <div id="method2" class="panel-collapse collapse" data-bs-parent="#accordion">
-                                            <div class="panel-body">
-                                                <p>Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="panel payment-accordion">
-                                        <div class="panel-heading" id="method-three">
-                                            <h4 class="panel-title">
-                                                <a class="collapsed" data-bs-toggle="collapse" href="#method3">
-                                                    Cash on delivery
-                                                </a>
-                                            </h4>
-                                        </div>
-                                        <div id="method3" class="panel-collapse collapse" data-bs-parent="#accordion">
-                                            <div class="panel-body">
-                                                <p>Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -194,6 +169,30 @@
 <script src="/usr/v1/template/flone/assets/js/ajax-mail.js"></script>
 <!-- Main JS -->
 <script src="/usr/v1/template/flone/assets/js/main.js"></script>
+
+<script type="text/javascript">
+
+	document.getElementById("btnLogout").onclick = function (){
+		$.ajax({
+			async: true 
+			,cache: false
+			,type: "post"
+			,url: "/signoutUsrProc"
+			,success: function(response) {
+				if(response.rt =="success") {
+				location.href = "/usrUi";
+					
+				} else {
+					
+				}
+			}
+			,error : function(jqXHR, textStatus, errorThrown){
+				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+			}
+		});	
+	}
+	
+</script>
 
 </body>
 

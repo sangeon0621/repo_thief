@@ -47,6 +47,7 @@
 				,b.pddDatetime
 				,b.pddDatetimeSvr
 				,b.pddDelNy
+				,b.pddSalesNy
 				,b.pddDatetimeRel
 				,b.pddProgramer
 				,b.pddDistributor
@@ -106,6 +107,7 @@
 				,b.pddDatetime
 				,b.pddDatetimeSvr
 				,b.pddDelNy
+				,b.pddSalesNy
 				,b.pddDatetimeRel
 				,b.pddProgramer
 				,b.pddDistributor

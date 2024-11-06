@@ -380,7 +380,7 @@
 	                                    <div class="col-xl-4 col-lg-5 col-md-5 col-sm-6">
 	                                        <div class="product-wrap">
 	                                            <div class="product-img">
-	                                                <a href="/usrProduct">
+	                                                <a th:href = "@{/usrProduct(pddSeq= ${list.pddSeq})}">
 	                                                    <img class="default-img" src="/usr/v1/template/flone/assets/img/slider/deeprock_2.png" alt="">
 	                                                </a>
 	                                                <span class="purple" th:text="${'-'+list.pddsales}+'%'"></span>
@@ -391,8 +391,8 @@
 	                                        <div class="shop-list-content">
 	                                            <h3><a th:href = "@{/usrProduct(pddSeq= ${list.pddSeq})}" th:text = "${list.pddName}"></a></h3>
 	                                            <div class="product-list-price">
-	                                                <span th:text="${'&#8361;'+list.pddSalesPrice}"></span>
-	                                                <span class="old" th:text="${'&#8361;'+list.pddPrice}"></span>
+	                                                <span th:text="${#numbers.formatInteger(list.pddSalesPrice, 3, 'COMMA')} + '원'"></span>
+	                                                <span class="old" th:text="${#numbers.formatInteger(list.pddPrice, 3, 'COMMA')} + '원'"></span>
 	                                            </div>
 	                                            <div class="rating-review">
 	                                                <div class="product-list-rating">
@@ -436,7 +436,7 @@
 	                                            </div>
 	                                            <p th:text="${list.pddDesc}"></p>
 	                                            <div class="shop-list-btn btn-hover">
-	                                                <a href="#">카트 담기</a>
+	                                                <a th:href = "@{/usrProduct(pddSeq= ${list.pddSeq})}">구매 하기</a>
 	                                            </div>
 	                                        </div>
 	                                    </div>
