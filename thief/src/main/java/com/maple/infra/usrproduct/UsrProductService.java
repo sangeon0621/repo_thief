@@ -57,6 +57,7 @@ public class UsrProductService {
 	}
 	
 	public UsrProductDto reviewAvg(UsrProductDto usrProductDto) {
+		
 		return usrProductDao.reviewAvg(usrProductDto);
 	}
 	

@@ -16,7 +16,7 @@ public class ProductCdDto {
 	private Integer pddOrder;
 	private String pddPrice;
 	private Integer pddsales;
-	private String pddSalesPrice;
+	private Integer pddSalesPrice;
 	private Integer pddCount;
 	private String pddTotalPrice;
 	private Date pddDatetime;
@@ -165,10 +165,10 @@ public class ProductCdDto {
 	public void setPddReviewDesc(String pddReviewDesc) {
 		this.pddReviewDesc = pddReviewDesc;
 	}
-	public String getPddSalesPrice() {
+	public Integer getPddSalesPrice() {
 		return pddSalesPrice;
 	}
-	public void setPddSalesPrice(String pddSalesPrice) {
+	public void setPddSalesPrice(Integer pddSalesPrice) {
 		this.pddSalesPrice = pddSalesPrice;
 	}
 	public Date getPddDatetimeRel() {

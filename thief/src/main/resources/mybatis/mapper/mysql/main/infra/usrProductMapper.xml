@@ -207,7 +207,7 @@
 	</select>
 	
 	<select id="reviewAvg">
-        SELECT ROUND(AVG(prReview)) as prReviewAvg
+        SELECT IFNULL(ROUND(AVG(prReview)),0) as prReviewAvg
 		FROM pddReview
 		WHERE productCd_pddSeq = #{pddSeq};
     </select>

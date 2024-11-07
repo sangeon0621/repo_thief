@@ -223,7 +223,7 @@
                                                             	<td><input type="checkbox"></td>
                                                             	<td th:text="${vo.totalRows - ((vo.thisPage - 1) * vo.rowNumToShow + listStat.index)}" class="align-middle"></td>
                                                                 <td th:text = "${list.pdSeq}"></td>
-                                                                <td><a th:href = "@{/v1/infra/productCg/productCgXdmMForm(pdSeq= ${list.pdSeq})}" th:text = "${list.pdCategory}"></a></td>
+                                                                <td><a style="color: blue;" th:href = "@{/v1/infra/productCg/productCgXdmMForm(pdSeq= ${list.pdSeq})}" th:text = "${list.pdCategory}"></a></td>
 <!--                                                                 <td th:text = "${list.ifcgOrder}"></td> "/xdm/v1/infra/codegroup/codeGroupXdmMForm?ifcgSeq=1" -->
 <!--                                                                 <td th:text = "${list.ifDesc}"></td> -->
                                                                 <td th:if = "${list.pdUseNy eq 0}" class = "ifcgUseNy align-middle">N</td>

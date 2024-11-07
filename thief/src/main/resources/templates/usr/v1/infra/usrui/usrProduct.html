@@ -50,21 +50,24 @@
                         <div class="tab-content jump"> 
                             <div id="shop-details-1" class="tab-pane active large-img-style">
                                 <img src="/usr/v1/template/flone/assets/img/slider/deeprock_2.png" alt="">
-                                <span class="dec-price">-67%</span>
+                                <span class="dec-price" th:if="${item.pddsales == null}">Hot</span>
+                                <span class="dec-price" th:if="${item.pddsales != null}" th:text="${'-'+ item.pddsales + '%'}"></span>
                                 <div class="img-popup-wrap">
                                     <a class="img-popup" href="/usr/v1/template/flone/assets/img/game/deeprock_3.png"><i class="pe-7s-expand1"></i></a>
                                 </div>
                             </div>
                             <div id="shop-details-2" class="tab-pane large-img-style">
                                 <img src="/usr/v1/template/flone/assets/img/slider/deeprock_2.png" alt="">
-                                <span class="dec-price">-67%</span>
+                                <span class="dec-price" th:if="${item.pddsales == null}">Hot</span>
+                                <span class="dec-price" th:if="${item.pddsales != null}" th:text="${'-'+ item.pddsales + '%'}"></span>
                                 <div class="img-popup-wrap">
                                     <a class="img-popup" href="/usr/v1/template/flone/assets/img/game/deeprock_4.png"><i class="pe-7s-expand1"></i></a>
                                 </div>
                             </div>
                             <div id="shop-details-3" class="tab-pane large-img-style">
                                 <img src="/usr/v1/template/flone/assets/img/slider/deeprock_2.png" alt="">
-                                <span class="dec-price">-67%</span>
+                                <span class="dec-price" th:if="${item.pddsales == null}">Hot</span>
+                                <span class="dec-price" th:if="${item.pddsales != null}" th:text="${'-'+ item.pddsales + '%'}"></span>
                                 <div class="img-popup-wrap">
                                     <a class="img-popup" href="/usr/v1/template/flone/assets/img/game/deeprock_5.png"><i class="pe-7s-expand1"></i></a>
                                 </div>
@@ -88,11 +91,23 @@
                 <div class="product-details-content ml-70">
                     <h2 th:text="${item.pddName}"></h2>
                     <div class="product-details-price">
-                        <span id="pddSalesPrice" th:text="${#numbers.formatInteger(item.pddSalesPrice, 3, 'COMMA')} + '원'"></span>
-                        <span class="old" th:text="${#numbers.formatInteger(item.pddPrice, 3, 'COMMA')} + '원'"></span>
+                    	<th:block th:if="${item.pddSalesNy == 1}">
+	                        <span id="pddSalesPrice" th:text="${#numbers.formatInteger(item.pddSalesPrice, 3, 'COMMA')} + '원'"></span>
+	                        <span class="old" th:text="${#numbers.formatInteger(item.pddPrice, 3, 'COMMA')} + '원'"></span>
+                        </th:block>
+                        <th:block th:if="${item.pddSalesNy == 0}">
+	                        <span id="pddSalesPrice" th:text="${#numbers.formatInteger(item.pddPrice, 3, 'COMMA')} + '원'"></span>
+                        </th:block>
                     </div>
                     <div class="pro-details-rating-wrap">
                         <div class="pro-details-rating">
+                        	<th:block th:if="${avg.prReviewAvg == 0}">
+                            	<i class="fa fa-star-o"></i>
+                            	<i class="fa fa-star-o"></i>
+	                            <i class="fa fa-star-o"></i>
+	                            <i class="fa fa-star-o"></i>
+	                            <i class="fa fa-star-o"></i>
+                            </th:block>
                         	<th:block th:if="${avg.prReviewAvg == 1}">
                             	<i class="fa fa-star-o yellow"></i>
                             	<i class="fa fa-star-o"></i>

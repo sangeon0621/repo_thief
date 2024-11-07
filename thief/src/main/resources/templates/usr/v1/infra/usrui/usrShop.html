@@ -383,7 +383,12 @@
 	                                                <a th:href = "@{/usrProduct(pddSeq= ${list.pddSeq})}">
 	                                                    <img class="default-img" src="/usr/v1/template/flone/assets/img/slider/deeprock_2.png" alt="">
 	                                                </a>
-	                                                <span class="purple" th:text="${'-'+list.pddsales}+'%'"></span>
+	                                                <th:block th:if="${list.pddSalesNy == 1}">
+	                                                	<span class="purple" th:text="${'-'+list.pddsales}+'%'"></span>
+                                                	</th:block>
+                                                	<th:block th:if="${list.pddSalesNy == 0}">
+                                                		<span class="purple">Hot</span>
+                                                	</th:block>
 	                                            </div>
 	                                        </div>
 	                                    </div>
@@ -391,11 +396,19 @@
 	                                        <div class="shop-list-content">
 	                                            <h3><a th:href = "@{/usrProduct(pddSeq= ${list.pddSeq})}" th:text = "${list.pddName}"></a></h3>
 	                                            <div class="product-list-price">
-	                                                <span th:text="${#numbers.formatInteger(list.pddSalesPrice, 3, 'COMMA')} + '원'"></span>
-	                                                <span class="old" th:text="${#numbers.formatInteger(list.pddPrice, 3, 'COMMA')} + '원'"></span>
+	                                            	<th:block th:if="${list.pddSalesNy == 1}">
+		                                                <span th:text="${#numbers.formatInteger(list.pddSalesPrice, 3, 'COMMA')} + '원'"></span>
+		                                                <span class="old" th:text="${#numbers.formatInteger(list.pddPrice, 3, 'COMMA')} + '원'"></span>
+	                                                </th:block>
+	                                                <th:block th:if="${list.pddSalesNy == 0}">
+	                                                	<span th:text="${#numbers.formatInteger(list.pddPrice, 3, 'COMMA')} + '원'"></span>
+	                                                </th:block>
 	                                            </div>
 	                                            <div class="rating-review">
 	                                                <div class="product-list-rating">
+	                                                	<th:block th:if="${list.prReviewAvg == null}">
+							                            	작성된 리뷰가 없습니다.
+							                            </th:block>
 	                                                    <th:block th:if="${list.prReviewAvg == 1}">
 							                            	<i class="fa fa-star-o yellow"></i>
 							                            	<i class="fa fa-star-o"></i>

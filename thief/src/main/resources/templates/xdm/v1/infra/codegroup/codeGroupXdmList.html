@@ -228,7 +228,7 @@
                                                             	<td><input type="checkbox"></td>
                                                             	<td th:text="${vo.totalRows - ((vo.thisPage - 1) * vo.rowNumToShow + listStat.index)}" class="align-middle"></td>
                                                                 <td th:text = "${list.ifcgSeq}"></td>
-                                                                <td><a th:href = "@{/v1/infra/codegroup/codeGroupXdmMForm(ifcgSeq= ${list.ifcgSeq})}" th:text = "${list.ifcgName}"></a></td>
+                                                                <td><a style="color: blue;" th:href = "@{/v1/infra/codegroup/codeGroupXdmMForm(ifcgSeq= ${list.ifcgSeq})}" th:text = "${list.ifcgName}"></a></td>
 <!--                                                            <td th:text = "${list.ifcgOrder}"></td> "/xdm/v1/infra/codegroup/codeGroupXdmMForm?ifcgSeq=1" -->
                                                                 <td th:text="${list.count}"></td>
                                                                 <td th:if = "${list.ifcgUseNy eq 0}" class = "ifcgUseNy align-middle">N</td>

@@ -81,7 +81,7 @@
                 <div class="col-xl-2 col-lg-2 col-md-6 col-8">
                     <div class="header-right-wrap">
                         <div class="same-style account-satting">
-                            <a class="account-satting-active" href="#"><i class="pe-7s-user-female" th:text="${session.sessNameUsr}"></i></a>
+                            <a class="account-satting-active" href="#"><i class="pe-7s-user-female" th:text="${session.sessNickNameUsr}"></i></a>
                             <div class="account-dropdown">
                                 <ul>
                                 <th:block th:if="${#strings.isEmpty(session.sessSeqUsr)}">
@@ -89,6 +89,7 @@
                                     <li><a href="/usrRegister">회원가입</a></li>
                                 </th:block>
                                 <th:block th:if="${session.sessSeqUsr != null}">
+                                	<li th:text="${session.sessNameUsr}"></li>
                                     <li><a href="/usrMypage">내 정보</a></li>
                                     <li><a href="/v1/infra/usrui/usrBuyList">구매 목록  </a></li>
                                     <button id="btnLogout" class="btn">로그아웃</button>

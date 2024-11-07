@@ -206,6 +206,7 @@
                                                             	<th>#</th>
                                                             	<th>상품 코드</th>
                                                             	<td>상품 이름</td>
+                                                            	<td>지원 코드</td>
                                                             	<td>플레이어 지원</td>
                                                                 <th>사용 여부</th>
                                                                 <th>삭제여부</th>
@@ -221,9 +222,12 @@
                                                             	<td><input type="checkbox"></td>
                                                             	<td th:text="${vo.totalRows - ((vo.thisPage - 1) * vo.rowNumToShow + listStat.index)}" class="align-middle"></td>
                                                                 <td th:text = "${list.productCd_pddSeq}"></td>
-                                                                <td th:text="${list.pddName}"></td>
+                                                                <td><a style="color: blue;" th:href = "@{/v1/infra/productplayer/productPlayerXdmMForm(ppSeq= ${list.ppSeq})}" th:text = "${list.pddName}"></a></td>
                                                                 <td th:text="${list.ppSeq}"></td>
-                                                                <td><a th:href = "@{/v1/infra/productplayer/productPlayerXdmMForm(ppSeq= ${list.ppSeq})}" th:text = "${list.ppPlayer}"></a></td>
+                                                                <td th:if = "${list.ppPlayer eq 1}">싱글플레이어</td>
+                                                                <td th:if = "${list.ppPlayer eq 2}">멀티플레이어</td>
+                                                                <td th:if = "${list.ppPlayer eq 3}">로컬 및 파티</td>
+                                                                <td th:if = "${list.ppPlayer eq 4}">온라인 경쟁</td>
 <!--                                                                 <td th:text = "${list.ifcgOrder}"></td> "/xdm/v1/infra/codegroup/codeGroupXdmMForm?ifcgSeq=1" -->
 <!--                                                                 <td th:text = "${list.ifDesc}"></td> -->
                                                                 <td th:if = "${list.ppUseNy eq 0}" class = "ifcdUseNy align-middle">N</td>

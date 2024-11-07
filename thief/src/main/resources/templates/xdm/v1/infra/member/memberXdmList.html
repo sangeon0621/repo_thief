@@ -231,7 +231,7 @@
                                                             	<td><input type="checkbox"></td>
                                                             	<td th:text="${vo.totalRows - ((vo.thisPage - 1) * vo.rowNumToShow + listStat.index)}" class="align-middle"></td>
                                                                 <td th:text = "${list.seq}"></td>
-                                                                <td><a th:href = "@{/v1/infra/member/memberXdmMForm(seq= ${list.seq})}" th:text = "${list.name}"></a></td>
+                                                                <td><a style="color: blue;" th:href = "@{/v1/infra/member/memberXdmMForm(seq= ${list.seq})}" th:text = "${list.name}"></a></td>
                                                                 <td th:text="${list.nickName}"></td>
                                                                 <td th:text="${list.id}"></td>
                                                                 <td th:text="${list.email}"></td>
