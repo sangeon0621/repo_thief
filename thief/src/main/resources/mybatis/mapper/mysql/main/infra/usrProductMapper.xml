@@ -224,6 +224,48 @@
 		delete from productCd
 	  	where 1=1
 	  		and pddSeq = #{pddSeq}
-	</delete>	  
+	</delete>
+	
+	<select id = "selectListBuy" resultMap = "productObj">
+		select
+			f.plImage
+			,f.plName
+			,f.plPrice
+			,f.plCount
+			,f.plTotalPrice
+			,f.plDelNy
+			,f.plDatetime
+			,f.plDatetimeSvr
+			,f.member_seq
+		from purchaseList f
+		where 1=1
+	</select>
+	
+	<insert id="insertBuyList">
+		  insert into purchaseList (
+			plImage
+			,plName
+			,plPrice
+			,plCount
+			,plTotalPrice
+			,plDelNy
+			,plDatetime
+			,plDatetimeSvr
+			,member_seq
+		) values (
+			#{plImage}
+			,#{plName}
+			,#{plPrice}
+		    ,1
+		    ,#{plTotalPrice}
+		    ,0
+		    ,now()
+		    ,now()
+		    ,#{member_seq}
+		)
+		<selectKey resultType="String" keyProperty="seq" order="AFTER">
+				SELECT last_insert_id()
+		</selectKey>
+	  </insert>	  
 	  
 </mapper>

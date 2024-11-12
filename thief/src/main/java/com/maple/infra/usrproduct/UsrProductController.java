@@ -69,7 +69,19 @@ public class UsrProductController {
 		return "/usr/v1/infra/usrui/usrCheckOut";
 	}
 	
+	@RequestMapping(value="/v1/infra/usrui/usrBuyList")
+	public String usrBuyList(UsrProductDto usrProductDto, Model model) {
+		
+		model.addAttribute("list", usrProductService.selectListBuy(usrProductDto));
+		
+		return "/usr/v1/infra/usrui/usrBuyList";
+	}
 	
+	@RequestMapping(value="/usrpurchaseInst")
+	public String usrpurchaseInst(UsrProductDto usrProductDto) {
+		usrProductService.insertBuyList(usrProductDto);
+		return "redirect:/v1/infra/usrui/usrBuyList";
+	}
 	
 	
 }

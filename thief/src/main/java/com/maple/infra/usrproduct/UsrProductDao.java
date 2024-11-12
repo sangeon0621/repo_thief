@@ -33,6 +33,10 @@ public interface UsrProductDao {
 	
 	public int changePrice(UsrProductDto usrProductDto);
 	
+	public List<UsrProductDto> selectListBuy(UsrProductDto usrProductDto);
+	
+	public int insertBuyList(UsrProductDto usrProductDto);
+	
 	
 	
 }

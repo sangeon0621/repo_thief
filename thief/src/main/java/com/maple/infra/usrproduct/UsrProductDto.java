@@ -78,6 +78,17 @@ public class UsrProductDto {
 	private Integer ppUseNy;
 	private Integer ppDelNy;
 	
+	private String plSeq;
+	private String plImage;
+	private String plName;
+	private Integer plPrice;
+	private Integer plCount;
+	private Integer plTotalPrice;
+	private Integer plDelNy;
+	private Date plDatetime;
+	private Date plDatetimeSvr;
+	private String member_seq;
+	
 	
 //	-----
 	public String getPddSeq() {
@@ -487,6 +498,66 @@ public class UsrProductDto {
 	}
 	public void setPddSalesNy(Integer pddSalesNy) {
 		this.pddSalesNy = pddSalesNy;
+	}
+	public String getPlSeq() {
+		return plSeq;
+	}
+	public void setPlSeq(String plSeq) {
+		this.plSeq = plSeq;
+	}
+	public String getPlImage() {
+		return plImage;
+	}
+	public void setPlImage(String plImage) {
+		this.plImage = plImage;
+	}
+	public String getPlName() {
+		return plName;
+	}
+	public void setPlName(String plName) {
+		this.plName = plName;
+	}
+	public Integer getPlPrice() {
+		return plPrice;
+	}
+	public void setPlPrice(Integer plPrice) {
+		this.plPrice = plPrice;
+	}
+	public Integer getPlCount() {
+		return plCount;
+	}
+	public void setPlCount(Integer plCount) {
+		this.plCount = plCount;
+	}
+	public Integer getPlTotalPrice() {
+		return plTotalPrice;
+	}
+	public void setPlTotalPrice(Integer plTotalPrice) {
+		this.plTotalPrice = plTotalPrice;
+	}
+	public Integer getPlDelNy() {
+		return plDelNy;
+	}
+	public void setPlDelNy(Integer plDelNy) {
+		this.plDelNy = plDelNy;
+	}
+	public Date getPlDatetime() {
+		return plDatetime;
+	}
+	public void setPlDatetime(Date plDatetime) {
+		this.plDatetime = plDatetime;
+	}
+	public Date getPlDatetimeSvr() {
+		return plDatetimeSvr;
+	}
+	public void setPlDatetimeSvr(Date plDatetimeSvr) {
+		this.plDatetimeSvr = plDatetimeSvr;
+	}
+	public String getMember_seq() {
+		return member_seq;
+	}
+	public void setMember_seq(String member_seq) {
+		this.member_seq = member_seq;
 	}
 	
 	

@@ -38,10 +38,6 @@ public class UsrUiController {
 		return "/usr/v1/infra/usrui/usrMyPage";
 	}
 	
-	@RequestMapping(value="/v1/infra/usrui/usrBuyList")
-	public String usrBuyList() {
-		return "/usr/v1/infra/usrui/usrBuyList";
-	}
 	
 	@RequestMapping(value="/v1/infra/usrui/usrCart")
 	public String usrCart() {

@@ -65,5 +65,13 @@ public class UsrProductService {
 		return usrProductDao.changePrice(usrProductDto);
 	}
 	
+	public List<UsrProductDto> selectListBuy(UsrProductDto usrProductDto) {
+		return usrProductDao.selectListBuy(usrProductDto);
+	}
+	
+	public int insertBuyList(UsrProductDto usrProductDto) {
+		return usrProductDao.insertBuyList(usrProductDto);
+	}
+	
 	
 }
