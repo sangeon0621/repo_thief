@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.mysql.cj.Session;
+
 @Service
 public class UsrProductService {
 
@@ -70,6 +72,7 @@ public class UsrProductService {
 	}
 	
 	public int insertBuyList(UsrProductDto usrProductDto) {
+		
 		return usrProductDao.insertBuyList(usrProductDto);
 	}
 	

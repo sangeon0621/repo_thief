@@ -263,7 +263,7 @@
 		    ,now()
 		    ,#{member_seq}
 		)
-		<selectKey resultType="String" keyProperty="seq" order="AFTER">
+		<selectKey resultType="String" keyProperty="plSeq" order="AFTER">
 				SELECT last_insert_id()
 		</selectKey>
 	  </insert>	  

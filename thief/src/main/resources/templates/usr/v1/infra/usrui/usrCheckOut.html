@@ -39,6 +39,7 @@
         </div>
     </div>
 </div>
+<form id="form" name="form" method = "post" action="/usrpurchaseInst">
 <div class="checkout-area pt-95 pb-100">
     <div class="container">
         <div class="row">
@@ -46,6 +47,13 @@
                 <div class="billing-info-wrap">
                     <h3>구매자 정보</h3>
                     <div class="row">
+                   		<div class="col-lg-6 col-md-6">
+                            <div class="billing-info mb-20">
+                                <label></label>
+                                <input readonly type="text" name="member_seq" th:value="${session.sessSeqUsr}">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6"></div>
                         <div class="col-lg-6 col-md-6">
                             <div class="billing-info mb-20">
                                 <label>이름</label>
@@ -115,12 +123,12 @@
                             <div class="your-order-middle">
                                 <ul>
                                     <li>
-	                                    <span class="order-middle-left" th:text="${item.pddName}"></span>
+	                                    <span class="order-middle-left" name="plName" th:text="${item.pddName}"></span>
 	                                    <th:block th:if="${item.pddSalesNy == 1}">
-	                                    <span class="order-price" th:text="${#numbers.formatInteger(item.pddSalesPrice, 3, 'COMMA')} + '원'"></span>
+	                                    <span class="order-price" name="plPrice" th:text="${#numbers.formatInteger(item.pddSalesPrice, 3, 'COMMA')} + '원'"></span>
 	                                    </th:block>
 	                                    <th:block th:if="${item.pddSalesNy == 0}">
-	                                    <span class="order-price" th:text="${#numbers.formatInteger(item.pddPrice, 3, 'COMMA')} + '원'"></span>
+	                                    <span class="order-price" name="plPrice" th:text="${#numbers.formatInteger(item.pddPrice, 3, 'COMMA')} + '원'"></span>
 	                                    </th:block>
                                     </li>
                                 </ul>
@@ -129,23 +137,24 @@
                                 <ul>
                                     <li class="order-total">총 가격</li>
                                     <th:block th:if="${item.pddSalesNy == 1}">
-                                    	<li th:text="${#numbers.formatInteger(item.pddSalesPrice, 3, 'COMMA')} + '원'"></li>
+                                    	<li name="plTotalPrice" th:text="${#numbers.formatInteger(item.pddSalesPrice, 3, 'COMMA')} + '원'"></li>
                                     </th:block>
                                     <th:block th:if="${item.pddSalesNy == 0}">
-                                    	<li th:text="${#numbers.formatInteger(item.pddPrice, 3, 'COMMA')} + '원'"></li>
+                                    	<li name="plTotalPrice" th:text="${#numbers.formatInteger(item.pddPrice, 3, 'COMMA')} + '원'"></li>
                                     </th:block>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div class="Place-order mt-25">
-                        <a class="btn-hover" href="#">결제하기</a>
+                        <a class="btn-hover" id="checkOut">결제하기</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+</form>
 <div th:replace="~{usr/v1/infra/include/footer :: footer}"></div>
 
 
@@ -191,6 +200,14 @@
 			}
 		});	
 	}
+	
+	document.getElementById("checkOut").onclick = function (){
+	    
+	    
+		form.action = "/usrpurchaseInst";
+		form.submit();
+	 
+}
 	
 </script>
 
