@@ -7,7 +7,7 @@
 	
 	<sql id="selectCommon">
 		from
-			productCd b left join productCg a on a.pdSeq = b.productCg_pdSeq
+			productcd b left join productcg a on a.pdSeq = b.productCg_pdSeq
 		where 1=1
 			<if test="shDelNy != null and !shDelNy.equals('')">AND pddDelNy = #{shDelNy}</if>
 			<if test="shUseNy != null and !shUseNy.equals('')">AND pddUseNy = #{shUseNy}</if>
@@ -78,7 +78,7 @@
 	</select>
 	  
 	  <insert id="insert">
-		  insert into productCd (
+		  insert into productcd (
 			pddName
 			,pddCategory
 		    ,pddUseNy
@@ -197,13 +197,13 @@
 				,b.pddDetail15
 				,b.pddDetail16
 			from
-				productCd b
+				productcd b
 			where 1=1
 			AND b.pddSeq = #{pddSeq}
 	  </select>
 	  
 	  <update id="update">
-	  	update productCd
+	  	update productcd
 	  	set
 	  		pddName = #{pddName}
 	  		,pddCategory = #{pddCategory}
@@ -243,7 +243,7 @@
 		select
 			a.pdSeq
 			,a.pdCategory
-		from productCg a
+		from productcg a
 		where 1=1
 			and a.pdDelNy = 0
 		order by
@@ -252,7 +252,7 @@
 	</select>
 	  
 	<update id="uelete">
-		update productCd
+		update productcd
 	  	set
 	  		pddDelNy = 1
 	  	where 1=1
@@ -260,7 +260,7 @@
 	</update>
 	  
 	<delete id="delete">
-		delete from productCd
+		delete from productcd
 	  	where 1=1
 	  		and pddSeq = #{pddSeq}
 	</delete>	  

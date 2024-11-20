@@ -7,7 +7,7 @@
 	
 	<sql id="selectCommon">
 		from
-			pddPlayer d left join productCd b on b.pddSeq = d.productCd_pddSeq
+			pddplayer d left join productcd b on b.pddSeq = d.productcd_pddSeq
 		where 1=1
 			<if test="shDelNy != null and !shDelNy.equals('')">AND psDelNy = #{shDelNy}</if>
 			<if test="shUseNy != null and !shUseNy.equals('')">AND psUseNy = #{shUseNy}</if>
@@ -46,7 +46,7 @@
 	</select>
 	  
 	  <insert id="insert">
-		  insert into pddPlayer (
+		  insert into pddplayer (
 		  	ppPlayer
 			,ppUseNy
 			,ppDelNy
@@ -79,7 +79,7 @@
 	  </select>
 	  
 	  <update id="update">
-	  	update pddPlayer
+	  	update pddplayer
 	  	set
 	  		ppPlayer = #{ppPlayer}
 			,ppUseNy = #{ppUseNy}
@@ -92,7 +92,7 @@
 		select
 			b.pddSeq
 			,b.pddName
-		from productCd b
+		from productcd b
 		where 1=1
 			and b.pddDelNy = 0
 		order by
@@ -101,7 +101,7 @@
 	</select>
 	  
 	<update id="uelete">
-		update pddPlayer
+		update pddplayer
 	  	set
 	  		ppDelNy = 1
 	  	where 1=1
@@ -109,7 +109,7 @@
 	</update>
 	  
 	<delete id="delete">
-		delete from pddPlayer
+		delete from pddplayer
 	  	where 1=1
 	  		and ppSeq = #{ppSeq}
 	</delete>	  

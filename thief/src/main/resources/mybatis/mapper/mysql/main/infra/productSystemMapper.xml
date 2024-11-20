@@ -7,7 +7,7 @@
 	
 	<sql id="selectCommon">
 		from
-			pddSystem c left join productCd b on b.pddSeq = c.productCd_pddSeq
+			pddsystem c left join productcd b on b.pddSeq = c.productcd_pddSeq
 		where 1=1
 			<if test="shDelNy != null and !shDelNy.equals('')">AND psDelNy = #{shDelNy}</if>
 			<if test="shUseNy != null and !shUseNy.equals('')">AND psUseNy = #{shUseNy}</if>
@@ -53,7 +53,7 @@
 	</select>
 	  
 	  <insert id="insert">
-		  insert into pddSystem (
+		  insert into pddsystem (
 		  	psSize
 			,psOs
 			,psCpu
@@ -101,13 +101,13 @@
 				,c.psDelNy
 			    ,c.productCd_pddSeq
 			from
-				pddSystem c
+				pddsystem c
 			where 1=1
 			AND c.psSeq = #{psSeq}
 	  </select>
 	  
 	  <update id="update">
-	  	update pddSystem
+	  	update pddsystem
 	  	set
 	  		psSize = #{psSize}
 	  		,psOs = #{psOs}
@@ -127,7 +127,7 @@
 		select
 			b.pddSeq
 			,b.pddName
-		from productCd b
+		from productcd b
 		where 1=1
 			and b.pddDelNy = 0
 		order by
@@ -136,7 +136,7 @@
 	</select>
 	  
 	<update id="uelete">
-		update pddSystem
+		update pddsystem
 	  	set
 	  		psDelNy = 1
 	  	where 1=1
@@ -144,7 +144,7 @@
 	</update>
 	  
 	<delete id="delete">
-		delete from pddSystem
+		delete from pddsystem
 	  	where 1=1
 	  		and psSeq = #{psSeq}
 	</delete>	  

@@ -7,7 +7,7 @@
 	
 	<sql id="selectCommon">
 		from
-			productCd b left join productCg a on a.pdSeq = b.productCg_pdSeq
+			productcd b left join productcg a on a.pdSeq = b.productCg_pdSeq
 			where 1=1
 			<if test="shDelNy != null and !shDelNy.equals('')">AND pddDelNy = #{shDelNy}</if>
 			<if test="shUseNy != null and !shUseNy.equals('')">AND pddUseNy = #{shUseNy}</if>
@@ -55,15 +55,15 @@
 				,b.pddWish
 			    ,b.productCg_pdSeq
 			    ,a.pdCategory
-			    ,(select count(dd.prSeq) from pddReview dd where 1=1 and dd.productCd_pddSeq = b.pddSeq) as count
-			    ,(select ROUND(AVG(dd.prReview)) from pddReview dd where 1=1 and dd.productCd_pddSeq = b.pddSeq) as prReviewAvg
+			    ,(select count(dd.prSeq) from pddreview dd where 1=1 and dd.productCd_pddSeq = b.pddSeq) as count
+			    ,(select ROUND(AVG(dd.prReview)) from pddreview dd where 1=1 and dd.productCd_pddSeq = b.pddSeq) as prReviewAvg
 			<include refid="selectCommon"></include>
 		) bb
 		limit #{rowNumToShow} offset #{startRnumForMysql}
 	</select>
 	  
 	  <insert id="insert">
-		  insert into pddReview (
+		  insert into pddreview (
 			prName
 			,prReview
 			,prReviewDesc
@@ -130,7 +130,7 @@
 				,b.pddDetail15
 				,b.pddDetail16
 			from
-				productCd b  
+				productcd b  
 			where 1=1
 				 and b.pddSeq = #{pddSeq}
 	  </select>
@@ -138,7 +138,7 @@
 	  
 	  
 	  <update id="update">
-	  	update productCd
+	  	update productcd
 	  	set
 	  		pddReview = #{pddReview}
 	  		,pddReviewDesc = #{pddReviewDesc}
@@ -147,7 +147,7 @@
 	  </update>
 	  
 	  <update id="changePrice">
-	  	update productCd
+	  	update productcd
 	  	set
 	  		pddPlus = #{pddPlus}
 	  		,pddTotalPrice = #{pddTotalPrice}
@@ -167,7 +167,7 @@
 			,c.psNetwork
 			,c.psDisk
 		    ,c.productCd_pddSeq
-		from pddSystem c
+		from pddsystem c
 		where 1=1
 			and c.productCd_pddSeq = #{pddSeq}
 		
@@ -182,7 +182,7 @@
 			,d.prDatetime
 			,d.prDelNy
 		    ,d.productCd_pddSeq
-		from pddReview d
+		from pddreview d
 		where 1=1
 			and d.productCd_pddSeq = #{pddSeq}
 	</select>
@@ -194,26 +194,26 @@
 			,e.ppUseNy
 			,e.ppDelNy
 		    ,e.productCd_pddSeq
-		from pddPlayer e
+		from pddplayer e
 		where 1=1
 			and e.productCd_pddSeq = #{pddSeq}
 	</select>
 	
 	<select id="selectReviewCount">
 		select count(*)
-		from pddReview d
+		from pddreview d
 		where 1=1
 			and d.productCd_pddSeq = #{pddSeq}
 	</select>
 	
 	<select id="reviewAvg">
-        SELECT IFNULL(ROUND(AVG(prReview)),0) as prReviewAvg
-		FROM pddReview
+        SELECT IFNULL(ROUND(AVG(prreview)),0) as prReviewAvg
+		FROM pddreview
 		WHERE productCd_pddSeq = #{pddSeq};
     </select>
 	  
 	<update id="uelete">
-		update productCd
+		update productcd
 	  	set
 	  		pddDelNy = 1
 	  	where 1=1
@@ -221,7 +221,7 @@
 	</update>
 	  
 	<delete id="delete">
-		delete from productCd
+		delete from productcd
 	  	where 1=1
 	  		and pddSeq = #{pddSeq}
 	</delete>
@@ -237,12 +237,12 @@
 			,f.plDatetime
 			,f.plDatetimeSvr
 			,f.member_seq
-		from purchaseList f
+		from purchaselist f
 		where 1=1
 	</select>
 	
 	<insert id="insertBuyList">
-		  insert into purchaseList (
+		  insert into purchaselist (
 			plImage
 			,plName
 			,plPrice

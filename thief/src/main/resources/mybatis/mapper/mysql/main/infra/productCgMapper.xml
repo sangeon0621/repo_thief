@@ -9,7 +9,7 @@
 	
 	<sql id="selectCommon">
 		from
-			productCg a
+			productcg a
 		where 1=1
 			<if test="shDelNy != null and !shDelNy.equals('')">AND pdDelNy = #{shDelNy}</if>
 			<if test="shUseNy != null and !shUseNy.equals('')">AND pdUseNy = #{shUseNy}</if>
@@ -49,7 +49,7 @@
 	</select>
 	  
 	<insert id="insert">
-		insert into productCg (
+		insert into productcg (
 			pdCategory
 			,pdUseNy
 			,pdOrder
@@ -82,13 +82,13 @@
 			,a.pdDatetimeSvr
 			,a.pdDelNy
 		from
-			productCg a
+			productcg a
 		where 1=1
 			AND a.pdSeq = #{pdSeq}
 	</select>
 	  
 	<update id="update">
-		update productCg
+		update productcg
 	  	set
 			pdCategory = #{pdCategory}
 	  		,pdUseNy = #{pdUseNy}
@@ -102,7 +102,7 @@
 	</update>
 	  
 	<update id="uelete">
-		update productCg
+		update productcg
 	  	set
 	  		pdDelNy = 1
 	  	where 1=1
@@ -110,7 +110,7 @@
 	</update>
 	  
 	<delete id="delete">
-		delete from productCg
+		delete from productcg
 	  	where 1=1
 	  		and pdSeq = #{pdSeq}
 	</delete>
