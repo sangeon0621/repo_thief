@@ -61,13 +61,13 @@ public class MemberController {
 		}
 		
 		model.addAttribute("list", memberService.selectList3(vo));
-		return "/xdm/v1/infra/member/memberXdmList";
+		return "xdm/v1/infra/member/memberXdmList";
 	}
 	
 	@RequestMapping(value = "/v1/infra/member/memberXdmRegister")
 	public String memberXdmForm() {
 		
-		return "/xdm/v1/infra/member/memberXdmRegister";
+		return "xdm/v1/infra/member/memberXdmRegister";
 	}
 	
 	@RequestMapping(value = "/v1/infra/member/memberXdmInst")
@@ -109,12 +109,12 @@ public class MemberController {
 	
 	@RequestMapping(value="/xdmLogin")
 	public String xdmLogin() {
-		return "/xdm/v1/infra/xdmlogin/xdmLogin";
+		return "xdm/v1/infra/xdmlogin/xdmLogin";
 	}
 	
 	@RequestMapping(value="/v1/infra/member/memberXdmindex")
 	public String memberXdmindex() {
-		return "/xdm/v1/infra/member/memberXdmindex";
+		return "xdm/v1/infra/member/memberXdmindex";
 	}
 	
 	

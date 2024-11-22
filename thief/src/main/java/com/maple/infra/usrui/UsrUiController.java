@@ -30,31 +30,31 @@ public class UsrUiController {
 
 	@RequestMapping(value="/usrUi")
 	public String usrUi() {
-		return "/usr/v1/infra/usrui/usrUi";
+		return "usr/v1/infra/usrui/usrUi";
 	}
 	
 	@RequestMapping(value="/usrMypage")
 	public String usrMyPage() {
-		return "/usr/v1/infra/usrui/usrMyPage";
+		return "usr/v1/infra/usrui/usrMyPage";
 	}
 	
 	
 	@RequestMapping(value="/v1/infra/usrui/usrCart")
 	public String usrCart() {
-		return "/usr/v1/infra/usrui/usrCart";
+		return "usr/v1/infra/usrui/usrCart";
 	}
 	
 	
 	
 	@RequestMapping(value="/usrLogin")
 	public String usrLogin() {
-		return "/usr/v1/infra/usrui/usrLogin";
+		return "usr/v1/infra/usrui/usrLogin";
 	}
 	
 	@RequestMapping(value="/usrRegister") 
 	public String usrRegister() {
 		
-		return "/usr/v1/infra/usrui/usrRegister";
+		return "usr/v1/infra/usrui/usrRegister";
 	}
 	
 	@RequestMapping(value="/usrInst") 

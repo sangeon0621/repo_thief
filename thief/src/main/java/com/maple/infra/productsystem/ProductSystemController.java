@@ -28,7 +28,7 @@ public class ProductSystemController {
 		
 		model.addAttribute("list", productSystemService.selectList2(vo));
 		
-		return "/xdm/v1/infra/productsystem/productSystemXdmList";
+		return "xdm/v1/infra/productsystem/productSystemXdmList";
 	}
 	
 	
@@ -37,7 +37,7 @@ public class ProductSystemController {
 		
 		model.addAttribute("listProductCd", productSystemService.selectListCodeGroup());
 		
-		return "/xdm/v1/infra/productsystem/productSystemXdmForm";
+		return "xdm/v1/infra/productsystem/productSystemXdmForm";
 	}
 	
 	@RequestMapping(value = "v1/infra/productsystem/productSystemXdmInst")
@@ -49,7 +49,7 @@ public class ProductSystemController {
 	@RequestMapping(value = "/v1/infra/productsystem/productSystemMForm")
 	public String productSystemMForm(ProductSystemDto productSystemDto, Model model) {
 		model.addAttribute("item", productSystemService.selectOne(productSystemDto));
-		return "/xdm/v1/infra/productsystem/productSystemXdmMForm";
+		return "xdm/v1/infra/productsystem/productSystemXdmMForm";
 	}
 	
 	@RequestMapping(value = "/v1/infra/productsystem/productSystemXdmUpdt")

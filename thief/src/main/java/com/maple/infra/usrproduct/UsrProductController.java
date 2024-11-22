@@ -36,7 +36,7 @@ public class UsrProductController {
 		
 		model.addAttribute("list", usrProductService.selectList(vo));
 		
-		return "/usr/v1/infra/usrui/usrShop";
+		return "usr/v1/infra/usrui/usrShop";
 	}
 	
 	@RequestMapping(value="/usrProduct")
@@ -55,7 +55,7 @@ public class UsrProductController {
 		
 		
 		
-		return "/usr/v1/infra/usrui/usrProduct";
+		return "usr/v1/infra/usrui/usrProduct";
 	}
 	
 	@RequestMapping(value="/usrProductInst")
@@ -75,7 +75,7 @@ public class UsrProductController {
 		
 		model.addAttribute("item", usrProductService.selectOne(usrProductDto));
 		
-		return "/usr/v1/infra/usrui/usrCheckOut";
+		return "usr/v1/infra/usrui/usrCheckOut";
 	}
 	
 	@RequestMapping(value="/v1/infra/usrui/usrBuyList")
@@ -83,7 +83,7 @@ public class UsrProductController {
 		
 		model.addAttribute("list", usrProductService.selectListBuy(usrProductDto));
 		
-		return "/usr/v1/infra/usrui/usrBuyList";
+		return "usr/v1/infra/usrui/usrBuyList";
 	}
 	
 	@RequestMapping(value="/usrpurchaseInst")

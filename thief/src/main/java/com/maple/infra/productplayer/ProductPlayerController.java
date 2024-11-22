@@ -26,7 +26,7 @@ public class ProductPlayerController {
 		
 		model.addAttribute("list", productPlayerService.selectList2(vo));
 		
-		return "/xdm/v1/infra/productplayer/productPlayerXdmList";
+		return "xdm/v1/infra/productplayer/productPlayerXdmList";
 	}
 	
 	
@@ -35,7 +35,7 @@ public class ProductPlayerController {
 		
 		model.addAttribute("listProductCd", productPlayerService.selectListCodeGroup());
 		
-		return "/xdm/v1/infra/productplayer/productPlayerXdmForm";
+		return "xdm/v1/infra/productplayer/productPlayerXdmForm";
 	}
 	
 	@RequestMapping(value = "v1/infra/productplayer/productPlayerXdmInst")
@@ -47,7 +47,7 @@ public class ProductPlayerController {
 	@RequestMapping(value = "/v1/infra/productplayer/productPlayerMForm")
 	public String productPlayerMForm(ProductPlayerDto productPlayerDto, Model model) {
 		model.addAttribute("item", productPlayerService.selectOne(productPlayerDto));
-		return "/xdm/v1/infra/productplayer/productPlayerMForm";
+		return "xdm/v1/infra/productplayer/productPlayerMForm";
 	}
 	
 	@RequestMapping(value = "/v1/infra/productplayer/productPlayerXdmUpdt")

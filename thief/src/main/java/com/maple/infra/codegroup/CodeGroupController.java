@@ -79,7 +79,7 @@ public class CodeGroupController {
 		System.out.println("node.get(\"header\").get(\"resultMsg\").asText(): " + node.get("header").get("resultMsg").asText());
 		System.out.println("node.get(\"header\").get(\"resultMsg\").asText(): " + node.get("body").get("items").get(0).get("KIT_PROD_QTY").asText());
 		
-		return "/xdm/v1/infra/codegroup/codeGroupXdmList";
+		return "xdm/v1/infra/codegroup/codeGroupXdmList";
 	}
 	
 //	@RequestMapping(value = "/v1/infra/codeGroup/codeGroupXdmList")
@@ -97,7 +97,7 @@ public class CodeGroupController {
 	@RequestMapping(value = "/v1/infra/codegroup/codeGroupXdmForm")
 	public String codeGroupXdmForm() {
 		
-		return "/xdm/v1/infra/codegroup/codeGroupXdmForm";
+		return "xdm/v1/infra/codegroup/codeGroupXdmForm";
 	}
 	
 	@RequestMapping(value = "/v1/infra/codegroup/codeGroupXdmInst")
@@ -105,13 +105,13 @@ public class CodeGroupController {
 		
 		codeGroupService.insert(codeGroupDto);
 		
-		return "redirect:/v1/infra/codegroup/codeGroupXdmList";
+		return "redirect:v1/infra/codegroup/codeGroupXdmList";
 	}
 	
 	@RequestMapping(value = "/v1/infra/codegroup/codeGroupXdmMForm")
 	public String codeGroupXdmMForm(CodeGroupDto codeGroupDto, Model model) {
 		model.addAttribute("item",codeGroupService.selectOne(codeGroupDto));
-		return "/xdm/v1/infra/codegroup/codeGroupXdmMForm";
+		return "xdm/v1/infra/codegroup/codeGroupXdmMForm";
 	}
 	
 	@RequestMapping(value = "/v1/infra/codegroup/codeGroupXdmUpdt")
@@ -119,20 +119,20 @@ public class CodeGroupController {
 		
 		codeGroupService.update(codeGroupDto);
 		
-		return "redirect:/v1/infra/codegroup/codeGroupXdmList";
+		return "redirect:v1/infra/codegroup/codeGroupXdmList";
 	}
 	
 	@RequestMapping(value = "/v1/infra/codegroup/codeGroupXdmUele")
 	public String codeGroupXdmUele(CodeGroupDto codeGroupDto, Model model) {
 		codeGroupService.uelete(codeGroupDto);
-		return "redirect:/v1/infra/codegroup/codeGroupXdmList";
+		return "redirect:v1/infra/codegroup/codeGroupXdmList";
 	}
 	
 	@RequestMapping(value = "/v1/infra/codegroup/codeGroupXdmDele")
 	public String codeGroupXdmDele(CodeGroupDto codeGroupDto) {
 		codeGroupService.delete(codeGroupDto);
 		
-		return "redirect:/v1/infra/codegroup/codeGroupXdmList";
+		return "redirect:v1/infra/codegroup/codeGroupXdmList";
 	}
 	
 	

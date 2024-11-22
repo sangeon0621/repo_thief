@@ -25,7 +25,7 @@ public class ProductCgController {
 		}
 		
 		model.addAttribute("list", productCgService.selectList(vo));
-		return "/xdm/v1/infra/productCg/productCgXdmList";
+		return "xdm/v1/infra/productCg/productCgXdmList";
 	}
 	
 //	@RequestMapping(value = "/v1/infra/codeGroup/codeGroupXdmList")
@@ -43,7 +43,7 @@ public class ProductCgController {
 	@RequestMapping(value = "/v1/infra/productCg/productCgXdmForm")
 	public String productCgXdmForm() {
 		
-		return "/xdm/v1/infra/productCg/productCgXdmForm";
+		return "xdm/v1/infra/productCg/productCgXdmForm";
 	}
 	
 	@RequestMapping(value = "/v1/infra/productCg/productCgXdmInst")
@@ -57,7 +57,7 @@ public class ProductCgController {
 	@RequestMapping(value = "/v1/infra/productCg/productCgXdmMForm")
 	public String codeGroupXdmMForm(ProductCgDto productCgDto, Model model) {
 		model.addAttribute("item",productCgService.selectOne(productCgDto));
-		return "/xdm/v1/infra/productCg/productCgXdmMForm";
+		return "xdm/v1/infra/productCg/productCgXdmMForm";
 	}
 	
 	@RequestMapping(value = "/v1/infra/productCg/productCgXdmUpdt")
