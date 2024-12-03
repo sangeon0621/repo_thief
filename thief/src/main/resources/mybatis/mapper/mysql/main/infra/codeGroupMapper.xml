@@ -90,6 +90,7 @@
 			,regIp
 			,regDateTime
 			,regDateTimeSvr
+			,pSeq
 		) values (
 			#{cgiDefaultly}
 			,#{cgiUseNy}
@@ -106,6 +107,7 @@
 			,#{regIp}
 			,now()
 			,now()
+			,1
 		)
 	</insert>
 	  

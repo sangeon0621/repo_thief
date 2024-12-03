@@ -13,6 +13,8 @@ public interface UsrProductDao {
 
 	public List<UsrProductDto> selectList(UsrProductVo vo);
 	
+	public List<UsrProductDto> selectListImage();
+	
 	public int insert(UsrProductDto usrProductDto);
 	
 	public UsrProductDto selectOne(UsrProductDto usrProductDto);

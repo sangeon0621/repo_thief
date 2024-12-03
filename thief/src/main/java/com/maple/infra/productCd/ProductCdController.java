@@ -39,7 +39,7 @@ public class ProductCdController {
 	}
 	
 	@RequestMapping(value = "v1/infra/productCd/productCdXdmInst")
-	public String codeXdmInst(ProductCdDto productCdDto) {
+	public String codeXdmInst(ProductCdDto productCdDto) throws Exception {
 		productCdService.insert(productCdDto);
 		return "redirect:/v1/infra/productCd/productCdXdmList";
 	}

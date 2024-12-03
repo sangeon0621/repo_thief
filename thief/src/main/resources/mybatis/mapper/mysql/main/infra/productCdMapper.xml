@@ -239,6 +239,44 @@
 	  		and pddSeq = #{pddSeq}
 	  </update>
 	  
+	  <insert id="insertUpload">
+		insert into codegroupimage (
+			cgiDefaultly
+			,cgiUseNy
+			,cgiDelNy
+			,cgiOrder
+			,path
+			,originalName
+			,tableName
+			,ext
+			,type
+			,uuidName
+			,size
+			,sort
+			,regIp
+			,regDateTime
+			,regDateTimeSvr
+			,pSeq
+		) values (
+			#{cgiDefaultly}
+			,#{cgiUseNy}
+			,0
+			,#{pddSeq}
+			,#{path}
+			,#{originalName}
+			,#{tableName}
+			,#{ext}
+			,#{type}
+			,#{uuidName}
+			,#{size}
+			,#{sort}
+			,#{regIp}
+			,now()
+			,now()
+			,2
+		)
+	</insert>
+	  
 	  <select id = "selectListCodeGroup" resultMap = "productObj">
 		select
 			a.pdSeq

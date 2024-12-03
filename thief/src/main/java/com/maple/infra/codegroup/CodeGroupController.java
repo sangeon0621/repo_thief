@@ -105,7 +105,7 @@ public class CodeGroupController {
 		
 		codeGroupService.insert(codeGroupDto);
 		
-		return "redirect:v1/infra/codegroup/codeGroupXdmList";
+		return "redirect:/v1/infra/codegroup/codeGroupXdmList";
 	}
 	
 	@RequestMapping(value = "/v1/infra/codegroup/codeGroupXdmMForm")
@@ -119,20 +119,20 @@ public class CodeGroupController {
 		
 		codeGroupService.update(codeGroupDto);
 		
-		return "redirect:v1/infra/codegroup/codeGroupXdmList";
+		return "redirect:/v1/infra/codegroup/codeGroupXdmList";
 	}
 	
 	@RequestMapping(value = "/v1/infra/codegroup/codeGroupXdmUele")
 	public String codeGroupXdmUele(CodeGroupDto codeGroupDto, Model model) {
 		codeGroupService.uelete(codeGroupDto);
-		return "redirect:v1/infra/codegroup/codeGroupXdmList";
+		return "redirect:/v1/infra/codegroup/codeGroupXdmList";
 	}
 	
 	@RequestMapping(value = "/v1/infra/codegroup/codeGroupXdmDele")
 	public String codeGroupXdmDele(CodeGroupDto codeGroupDto) {
 		codeGroupService.delete(codeGroupDto);
 		
-		return "redirect:v1/infra/codegroup/codeGroupXdmList";
+		return "redirect:/v1/infra/codegroup/codeGroupXdmList";
 	}
 	
 	

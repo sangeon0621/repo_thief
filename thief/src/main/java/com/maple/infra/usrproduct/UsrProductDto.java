@@ -89,6 +89,13 @@ public class UsrProductDto {
 	private Date plDatetimeSvr;
 	private String member_seq;
 	
+	private String cgiSeq;
+	private String path;
+	private String originalName;
+	private String ext;
+	private String uuidName;
+	private String pSeq;
+	
 	private String tid; // 결제 고유 번호
     private String next_redirect_mobile_url; // 모바일 웹일 경우 받는 결제페이지 url
     private String next_redirect_pc_url; // pc 웹일 경우 받는 결제 페이지
@@ -586,6 +593,42 @@ public class UsrProductDto {
 	}
 	public void setCreated_at(String created_at) {
 		this.created_at = created_at;
+	}
+	public String getCgiSeq() {
+		return cgiSeq;
+	}
+	public void setCgiSeq(String cgiSeq) {
+		this.cgiSeq = cgiSeq;
+	}
+	public String getPath() {
+		return path;
+	}
+	public void setPath(String path) {
+		this.path = path;
+	}
+	public String getOriginalName() {
+		return originalName;
+	}
+	public void setOriginalName(String originalName) {
+		this.originalName = originalName;
+	}
+	public String getExt() {
+		return ext;
+	}
+	public void setExt(String ext) {
+		this.ext = ext;
+	}
+	public String getUuidName() {
+		return uuidName;
+	}
+	public void setUuidName(String uuidName) {
+		this.uuidName = uuidName;
+	}
+	public String getpSeq() {
+		return pSeq;
+	}
+	public void setpSeq(String pSeq) {
+		this.pSeq = pSeq;
 	}
 	
 	

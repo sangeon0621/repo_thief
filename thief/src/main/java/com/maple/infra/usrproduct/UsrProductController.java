@@ -4,17 +4,11 @@ package com.maple.infra.usrproduct;
 
 
 
-import org.apache.catalina.manager.util.SessionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 
 @Controller
@@ -35,6 +29,8 @@ public class UsrProductController {
 		}
 		
 		model.addAttribute("list", usrProductService.selectList(vo));
+		
+		model.addAttribute("listimage", usrProductService.selectListImage());
 		
 		return "usr/v1/infra/usrui/usrShop";
 	}

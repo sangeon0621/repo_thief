@@ -6,16 +6,10 @@ package com.maple.infra.usrproduct;
 
 
 
-import java.net.http.HttpHeaders;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import org.apache.http.HttpEntity;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 @Service
 public class UsrProductService {
@@ -34,6 +28,10 @@ public class UsrProductService {
 	
 	public List<UsrProductDto> selectList(UsrProductVo vo) {
 		return usrProductDao.selectList(vo);
+	}
+	
+	public List<UsrProductDto> selectListImage() {
+		return usrProductDao.selectListImage();
 	}
 	
 	public int insert(UsrProductDto usrProductDto) {

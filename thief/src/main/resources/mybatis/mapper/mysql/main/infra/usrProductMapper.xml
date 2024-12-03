@@ -173,6 +173,18 @@
 		
 	</select>
 	
+	<select id="selectListImage" resultMap = "productObj">
+		select
+			g.cgiSeq
+			,g.path
+			,g.originalName
+			,g.ext
+			,g.uuidName
+			,g.pSeq
+		from codegroupimage g
+		where 1=1
+	</select>
+	
 	<select id = "selectListReview" resultMap = "productObj">
 		select
 			d.prSeq

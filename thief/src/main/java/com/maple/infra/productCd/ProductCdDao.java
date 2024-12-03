@@ -15,6 +15,8 @@ public interface ProductCdDao {
 	
 	public int insert(ProductCdDto productCdDto);
 	
+	public int insertUpload(ProductCdDto productCdDto);
+	
 	public ProductCdDto selectOne(ProductCdDto productCdDto);
 	
 	public int update(ProductCdDto productCdDto);

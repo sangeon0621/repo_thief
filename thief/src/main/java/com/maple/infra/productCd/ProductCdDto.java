@@ -14,11 +14,11 @@ public class ProductCdDto {
 	private Integer pddDelNy;
 	private Integer pddSalesNy;
 	private Integer pddOrder;
-	private String pddPrice;
+	private Integer pddPrice;
 	private Integer pddsales;
 	private Integer pddSalesPrice;
 	private Integer pddCount;
-	private String pddTotalPrice;
+	private Integer pddTotalPrice;
 	private Date pddDatetime;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date pddDatetimeSvr;
@@ -53,6 +53,24 @@ public class ProductCdDto {
 	private String pddDetail15;
 	private String pddDetail16;
 	
+	private String cgiSeq;
+	private Integer cgiDefaultly;
+	private Integer cgiUseNy;
+	private Integer cgiDelNy;
+	private Integer cgiOrder;
+	private String path;
+	private String originalName;
+	private String tableName;
+	private Integer sort;
+	private String ext;
+	private String uuidName;
+	private Long Size;
+	private Integer type;
+	private Integer maxNumber;
+	private String regIp;
+	private Date regDateTime;
+	private Date regDateTimeSvr;
+	private String pSeq;
 	private MultipartFile uploadFile;
 	private MultipartFile[] uploadFiles;
 	
@@ -93,10 +111,10 @@ public class ProductCdDto {
 	public void setPddOrder(Integer pddOrder) {
 		this.pddOrder = pddOrder;
 	}
-	public String getPddPrice() {
+	public Integer getPddPrice() {
 		return pddPrice;
 	}
-	public void setPddPrice(String pddPrice) {
+	public void setPddPrice(Integer pddPrice) {
 		this.pddPrice = pddPrice;
 	}
 	public Integer getPddCount() {
@@ -105,10 +123,10 @@ public class ProductCdDto {
 	public void setPddCount(Integer pddCount) {
 		this.pddCount = pddCount;
 	}
-	public String getPddTotalPrice() {
+	public Integer getPddTotalPrice() {
 		return pddTotalPrice;
 	}
-	public void setPddTotalPrice(String pddTotalPrice) {
+	public void setPddTotalPrice(Integer pddTotalPrice) {
 		this.pddTotalPrice = pddTotalPrice;
 	}
 	public Date getPddDatetime() {
@@ -326,6 +344,114 @@ public class ProductCdDto {
 	}
 	public void setPddSalesNy(Integer pddSalesNy) {
 		this.pddSalesNy = pddSalesNy;
+	}
+	public String getCgiSeq() {
+		return cgiSeq;
+	}
+	public void setCgiSeq(String cgiSeq) {
+		this.cgiSeq = cgiSeq;
+	}
+	public Integer getCgiDefaultly() {
+		return cgiDefaultly;
+	}
+	public void setCgiDefaultly(Integer cgiDefaultly) {
+		this.cgiDefaultly = cgiDefaultly;
+	}
+	public Integer getCgiUseNy() {
+		return cgiUseNy;
+	}
+	public void setCgiUseNy(Integer cgiUseNy) {
+		this.cgiUseNy = cgiUseNy;
+	}
+	public Integer getCgiDelNy() {
+		return cgiDelNy;
+	}
+	public void setCgiDelNy(Integer cgiDelNy) {
+		this.cgiDelNy = cgiDelNy;
+	}
+	public Integer getCgiOrder() {
+		return cgiOrder;
+	}
+	public void setCgiOrder(Integer cgiOrder) {
+		this.cgiOrder = cgiOrder;
+	}
+	public String getPath() {
+		return path;
+	}
+	public void setPath(String path) {
+		this.path = path;
+	}
+	public String getOriginalName() {
+		return originalName;
+	}
+	public void setOriginalName(String originalName) {
+		this.originalName = originalName;
+	}
+	public String getTableName() {
+		return tableName;
+	}
+	public void setTableName(String tableName) {
+		this.tableName = tableName;
+	}
+	public Integer getSort() {
+		return sort;
+	}
+	public void setSort(Integer sort) {
+		this.sort = sort;
+	}
+	public String getExt() {
+		return ext;
+	}
+	public void setExt(String ext) {
+		this.ext = ext;
+	}
+	public String getUuidName() {
+		return uuidName;
+	}
+	public void setUuidName(String uuidName) {
+		this.uuidName = uuidName;
+	}
+	public Long getSize() {
+		return Size;
+	}
+	public void setSize(Long size) {
+		Size = size;
+	}
+	public Integer getType() {
+		return type;
+	}
+	public void setType(Integer type) {
+		this.type = type;
+	}
+	public Integer getMaxNumber() {
+		return maxNumber;
+	}
+	public void setMaxNumber(Integer maxNumber) {
+		this.maxNumber = maxNumber;
+	}
+	public String getRegIp() {
+		return regIp;
+	}
+	public void setRegIp(String regIp) {
+		this.regIp = regIp;
+	}
+	public Date getRegDateTime() {
+		return regDateTime;
+	}
+	public void setRegDateTime(Date regDateTime) {
+		this.regDateTime = regDateTime;
+	}
+	public Date getRegDateTimeSvr() {
+		return regDateTimeSvr;
+	}
+	public void setRegDateTimeSvr(Date regDateTimeSvr) {
+		this.regDateTimeSvr = regDateTimeSvr;
+	}
+	public String getpSeq() {
+		return pSeq;
+	}
+	public void setpSeq(String pSeq) {
+		this.pSeq = pSeq;
 	}
 	
 	
