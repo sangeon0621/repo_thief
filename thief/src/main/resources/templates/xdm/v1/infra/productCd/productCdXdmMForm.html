@@ -524,11 +524,30 @@
 												<textarea name = "pddDesc" th:text="${item.pddDesc}" class="form-control" rows="5"></textarea>
 											</div>
 										</div>
+									</div>
+									<div class="row">
 										<div class="col-sm-3 col-3">
 											<label for="validationCustom04" class="form-label">할인 여부<font color ="red">*</font></label>
 											<select name = "pddSalesNy" class="form-select" id="validationCustom04" >
+												<option value ="" th:selected = "${item?.pddSalesNy == null}">선택하세요</option>
 												<option value ="1" th:selected = "${item?.pddSalesNy == 1}">할인중</option>
 												<option value ="0" th:selected = "${item?.pddSalesNy == 0}">미할인</option>
+											</select>
+										</div>
+										<div class="col-sm-3 col-3">
+											<label for="pddHotNy" class="form-label">인기상품 여부<font color ="red">*</font></label>
+											<select name = "pddHotNy" class="form-select" id="pddHotNy" >
+												<option value ="" th:selected = "${item?.pddHotNy == null}">선택하세요</option>
+												<option value ="1" th:selected = "${item?.pddHotNy == 1}">인기상품</option>
+												<option value ="0" th:selected = "${item?.pddHotNy == 0}">미인기상품</option>
+											</select>
+										</div>
+										<div class="col-sm-3 col-3">
+											<label for="pddNewNy" class="form-label">신상품 여부<font color ="red">*</font></label>
+											<select name = "pddNewNy" class="form-select" id="pddNewNy" >
+												<option value ="" th:selected = "${item?.pddNewNy == null}">선택하세요</option>
+												<option value ="1" th:selected = "${item?.pddNewNy == 1}">신상품</option>
+												<option value ="0" th:selected = "${item?.pddNewNy == 0}">미신상품</option>
 											</select>
 										</div>
 									</div>

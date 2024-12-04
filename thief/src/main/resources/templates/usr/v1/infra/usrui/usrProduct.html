@@ -49,39 +49,39 @@
                     <div class="product-details-img">
                         <div class="tab-content jump"> 
                             <div id="shop-details-1" class="tab-pane active large-img-style">
-                                <img src="/usr/v1/template/flone/assets/img/slider/deeprock_2.png" alt="">
+                                <img th:src="${item.mainImg}" alt="">
                                 <span class="dec-price" th:if="${item.pddsales == null}">Hot</span>
                                 <span class="dec-price" th:if="${item.pddsales != null}" th:text="${'-'+ item.pddsales + '%'}"></span>
                                 <div class="img-popup-wrap">
-                                    <a class="img-popup" href="/usr/v1/template/flone/assets/img/game/deeprock_3.png"><i class="pe-7s-expand1"></i></a>
+                                    <a class="img-popup" th:href="${item.subImg1}"><i class="pe-7s-expand1"></i></a>
                                 </div>
                             </div>
                             <div id="shop-details-2" class="tab-pane large-img-style">
-                                <img src="/usr/v1/template/flone/assets/img/slider/deeprock_2.png" alt="">
+                                <img th:src="${item.mainImg}"  alt="">
                                 <span class="dec-price" th:if="${item.pddsales == null}">Hot</span>
                                 <span class="dec-price" th:if="${item.pddsales != null}" th:text="${'-'+ item.pddsales + '%'}"></span>
                                 <div class="img-popup-wrap">
-                                    <a class="img-popup" href="/usr/v1/template/flone/assets/img/game/deeprock_4.png"><i class="pe-7s-expand1"></i></a>
+                                    <a class="img-popup" th:href="${item.subImg3}"><i class="pe-7s-expand1"></i></a>
                                 </div>
                             </div>
                             <div id="shop-details-3" class="tab-pane large-img-style">
-                                <img src="/usr/v1/template/flone/assets/img/slider/deeprock_2.png" alt="">
+                                <img th:src="${item.mainImg}" alt="">
                                 <span class="dec-price" th:if="${item.pddsales == null}">Hot</span>
                                 <span class="dec-price" th:if="${item.pddsales != null}" th:text="${'-'+ item.pddsales + '%'}"></span>
                                 <div class="img-popup-wrap">
-                                    <a class="img-popup" href="/usr/v1/template/flone/assets/img/game/deeprock_5.png"><i class="pe-7s-expand1"></i></a>
+                                    <a class="img-popup" th:href="${item.subImg2}"><i class="pe-7s-expand1"></i></a>
                                 </div>
                             </div>
                         </div>
                         <div class="shop-details-tab nav">
                             <a class="shop-details-overly" href="#shop-details-1" data-bs-toggle="tab">
-                                <img src="/usr/v1/template/flone/assets/img/game/deeprock_3.png" alt="">
+                                <img th:src="${item.subImg1}"  alt="">
                             </a>
                             <a class="shop-details-overly" href="#shop-details-2" data-bs-toggle="tab">
-                                <img src="/usr/v1/template/flone/assets/img/game/deeprock_4.png" alt="">
+                                <img th:src="${item.subImg2}" alt="">
                             </a>
                             <a class="shop-details-overly" href="#shop-details-3" data-bs-toggle="tab">
-                                <img src="/usr/v1/template/flone/assets/img/game/deeprock_5.png" alt="">
+                                <img th:src="${item.subImg3}" alt="">
                             </a>
                         </div>
                     </div>

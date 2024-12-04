@@ -95,12 +95,19 @@ public class UsrProductDto {
 	private String ext;
 	private String uuidName;
 	private String pSeq;
+	private Integer cgiDefaultly;
 	
 	private String tid; // 결제 고유 번호
     private String next_redirect_mobile_url; // 모바일 웹일 경우 받는 결제페이지 url
     private String next_redirect_pc_url; // pc 웹일 경우 받는 결제 페이지
     private String created_at;
-	
+    
+    private String mainImg;
+    private String mainImg2;
+    private String subImg1;
+    private String subImg2;
+    private String subImg3;
+    
 //	-----
 	public String getPddSeq() {
 		return pddSeq;
@@ -629,6 +636,42 @@ public class UsrProductDto {
 	}
 	public void setpSeq(String pSeq) {
 		this.pSeq = pSeq;
+	}
+	public Integer getCgiDefaultly() {
+		return cgiDefaultly;
+	}
+	public void setCgiDefaultly(Integer cgiDefaultly) {
+		this.cgiDefaultly = cgiDefaultly;
+	}
+	public String getMainImg() {
+		return mainImg;
+	}
+	public void setMainImg(String mainImg) {
+		this.mainImg = mainImg;
+	}
+	public String getMainImg2() {
+		return mainImg2;
+	}
+	public void setMainImg2(String mainImg2) {
+		this.mainImg2 = mainImg2;
+	}
+	public String getSubImg1() {
+		return subImg1;
+	}
+	public void setSubImg1(String subImg1) {
+		this.subImg1 = subImg1;
+	}
+	public String getSubImg2() {
+		return subImg2;
+	}
+	public void setSubImg2(String subImg2) {
+		this.subImg2 = subImg2;
+	}
+	public String getSubImg3() {
+		return subImg3;
+	}
+	public void setSubImg3(String subImg3) {
+		this.subImg3 = subImg3;
 	}
 	
 	

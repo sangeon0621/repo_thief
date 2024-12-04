@@ -381,7 +381,7 @@
 	                                        <div class="product-wrap">
 	                                            <div class="product-img">
 	                                                <a th:href = "@{/usrProduct(pddSeq= ${list.pddSeq})}">
-	                                                    <img class="default-img" src="/usr/v1/template/flone/assets/img/slider/deeprock_2.png" alt="">
+	                                                    <img class="default-img" th:src="${list.mainImg}" alt="">
 	                                                </a>
 	                                                <th:block th:if="${list.pddSalesNy == 1}">
 	                                                	<span class="purple" th:text="${'-'+list.pddsales}+'%'"></span>

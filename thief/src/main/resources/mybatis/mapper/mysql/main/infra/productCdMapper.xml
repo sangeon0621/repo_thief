@@ -48,6 +48,8 @@
 				,b.pddDatetimeSvr
 				,b.pddDelNy
 				,b.pddSalesNy
+				,b.pddHotNy
+				,b.pddNewNy
 				,b.pddProgramer
 				,b.pddDistributor
 				,b.pddPlus
@@ -93,6 +95,8 @@
 		    ,pddDatetimeSvr
 		    ,pddDelNy
 		    ,pddSalesNy
+		    ,pddHotNy
+			,pddNewNy
 		    ,pddDatetimeRel
 			,pddProgramer
 			,pddDistributor
@@ -130,6 +134,8 @@
 		    ,now()
 		    ,0
 		    ,#{pddSalesNy}
+		    ,#{pddHotNy}
+		    ,#{pddNewNy}
 		    ,now()
 		    ,#{pddProgramer}
 		    ,#{pddDistributor}
@@ -215,6 +221,8 @@
 	  		,pddSalesPrice = #{pddSalesPrice}
 	  		,pddCount = #{pddCount}
 	  		,pddSalesNy = #{pddSalesNy}
+	  		,pddHotNy = #{pddHotNy}
+	  		,pddNewNy = #{pddNewNy}
 	  		,pddDatetime = now()
 	  		,pddDatetimeSvr = now()
 	  		,pddProgramer = #{pddProgramer}
@@ -273,7 +281,7 @@
 			,#{regIp}
 			,now()
 			,now()
-			,2
+			,#{pSeq}
 		)
 	</insert>
 	  

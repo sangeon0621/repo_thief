@@ -13,6 +13,8 @@ public class ProductCdDto {
 	private Integer pddUseNy;
 	private Integer pddDelNy;
 	private Integer pddSalesNy;
+	private Integer pddHotNy;
+	private Integer pddNewNy;
 	private Integer pddOrder;
 	private Integer pddPrice;
 	private Integer pddsales;
@@ -452,6 +454,18 @@ public class ProductCdDto {
 	}
 	public void setpSeq(String pSeq) {
 		this.pSeq = pSeq;
+	}
+	public Integer getPddHotNy() {
+		return pddHotNy;
+	}
+	public void setPddHotNy(Integer pddHotNy) {
+		this.pddHotNy = pddHotNy;
+	}
+	public Integer getPddNewNy() {
+		return pddNewNy;
+	}
+	public void setPddNewNy(Integer pddNewNy) {
+		this.pddNewNy = pddNewNy;
 	}
 	
 	
