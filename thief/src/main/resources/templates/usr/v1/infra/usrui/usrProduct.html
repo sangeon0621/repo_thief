@@ -303,7 +303,8 @@
                         </div>
                         <div class="col-lg-5">
                             <div class="ratting-form-wrapper pl-50">
-                                <h3>리뷰 작성하기</h3>
+                                <h3 th:text="${item.pddName} + '리뷰 작성하기'"></h3>
+                                <input type="hidden" id="productCd_pddSeq" name="productCd_pddSeq" th:value="${item.pddSeq}">
                                 <div class="ratting-form">
 	                                <div class="star-box">
 	                                    <span>평점 :</span>
@@ -323,7 +324,8 @@
 	                                <div class="row">
 	                                    <div class="col-md-6">
 	                                        <div class="rating-form-style mb-10">
-	                                            <input readonly type="text" id="prName" name="prName" th:value="${session.sessNickNameUsr}">
+	                                            <input readonly type="text" id="prName" name="prName" th:value="${session.sessNickNameUsr}" required="">
+	                                            <div id="prNameError" class="text-danger" style="display: none;"></div>
 	                                        </div>
 	                                    </div>
 	                                    <div class="col-md-12">
@@ -396,55 +398,40 @@
 	}
 	
 		document.getElementById("btnReview").onclick = function (){
-			const id = document.getElementById("id");
-			const idValue = document.getElementById("id").value.trim();
-			const idError = document.getElementById("idError");
+			const prName = document.getElementById("prName");
+			const prNameValue = document.getElementById("prName").value.trim();
+			const prNameError = document.getElementById("prNameError");
 			
-			var idRegExp = /^[a-zA-Z][0-9a-zA-Z]{0,11}$/;
-			if(!idRegExp.test(idValue)){
-				idError.innerText = "아이디 입력해주세요.";
-				idError.style.display="";
-				id.classList.add("is-invalid");
-				id.classList.remove("is-valid");
-				id.focus();
+			var prNameRegExp = /^[가-힣0-9a-zA-Z]{2,6}$/;
+			if(!prNameRegExp.test(prNameValue)){
+				prNameError.innerText = "로그인이 필요합니다";
+				prNameError.style.display="";
+				prName.classList.add("is-invalid");
+				prName.classList.remove("is-valid");
+				prName.focus();
 				return false;
 		    } else {
-		    	idError.style.display = "none";
-		    	id.classList.remove("is-invalid");
-		    	id.classList.add("is-valid");
+		    	prNameError.style.display = "none";
+		    	prName.classList.remove("is-invalid");
+		    	prName.classList.add("is-valid");
 		    }
 			
-			const password = document.getElementById("password");
-			const passwordValue = document.getElementById("password").value.trim();
-			const passwordError = document.getElementById("passwordError");
+			var checked_radio = $('input:radio[name=prReview]:checked').val(); // 선택된 radio의 value 가져오기
 			
-			var passwordRegExp = /^(?=.*[a-zA-Z])(?=.*[!@])(?=.*[0-9]).{8,15}$/
-			if(!passwordRegExp.test(passwordValue)){
-				passwordError.innerText = "비밀번호 입력해주세요.";
-				passwordError.style.display="";
-				password.classList.add("is-invalid");
-				password.classList.remove("is-valid");
-				password.focus();
-				return false;
-		    } else {
-		    	passwordError.style.display = "none";
-		    	password.classList.remove("is-invalid");
-		    	password.classList.add("is-valid");
-		    }
 			$.ajax({
 				async: true 
 				,cache: false
 				,type: "post"
 				/* ,dataType:"json" */
-				,url: "/v1/infra/member/signinXdmProc"
+				,url: "/usrProductInst"
 				/* ,data : $("#formLogin").serialize() */
-				,data : { "id" : $("#id").val(), "password" : $("#password").val()}
+				,data : { "prName" : $("#prName").val(), "prReviewDesc" : $("#prReviewDesc").val(), "prReview" : checked_radio, "productCd_pddSeq" : $("#productCd_pddSeq").val()}
 				,success: function(response) {
 					if(response.rt == "success") {
 						if(response.changePwd == "true") {
-							location.href = "/v1/infra/member/memberXdmindex";
+							location.href = "/usrProduct";
 						} else {
-							location.href = "/v1/infra/member/memberXdmindex";
+							location.href = "/usrProduct";
 						}
 					} else {
 				 		document.getElementById("verticallyCenteredLabel").innerText = "확 인";
@@ -458,12 +445,12 @@
 			});	
 		}
 		
-		var input = document.getElementById("password");
+		var input = document.getElementById("prReviewDesc");
 
 		input.addEventListener("keypress", function(event) {
 		  if (event.key === "Enter") {
 		    event.preventDefault();
-		    document.getElementById("btnSubmit").click();
+		    document.getElementById("btnReview").click();
 		  }
 		});
 		

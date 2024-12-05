@@ -4,11 +4,15 @@ package com.maple.infra.usrproduct;
 
 
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 
 @Controller
@@ -36,7 +40,7 @@ public class UsrProductController {
 	}
 	
 	@RequestMapping(value="/usrProduct")
-	public String usrProduct(@ModelAttribute("vo") UsrProductVo vo, UsrProductDto usrProductDto, Model model) {
+	public String usrProduct(@ModelAttribute("vo") UsrProductVo vo, @ModelAttribute("dto") UsrProductDto usrProductDto, Model model) {
 		
 		vo.setParamsPaging(usrProductService.selectReviewCount(vo));
 		model.addAttribute("item", usrProductService.selectOne(usrProductDto));
@@ -54,10 +58,22 @@ public class UsrProductController {
 		return "usr/v1/infra/usrui/usrProduct";
 	}
 	
+	@ResponseBody
 	@RequestMapping(value="/usrProductInst")
-	public String usrProductInst(UsrProductDto usrProductDto) {
-		usrProductService.insert(usrProductDto);
-		return "redirect:/usrProduct";
+	public Map<String, Object> usrProductInst(UsrProductDto usrProductDto) throws Exception {
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+		
+		UsrProductDto rtProduct = usrProductService.selectOneReview(usrProductDto);
+		
+		if (rtProduct != null) {
+			usrProductService.insert(usrProductDto);
+			returnMap.put("rt", "success");
+			
+		} else {
+			usrProductService.insert(usrProductDto);
+			returnMap.put("rt", "success");
+		}
+		return returnMap;
 	}
 	
 	@RequestMapping(value="/usrProductUpdt")

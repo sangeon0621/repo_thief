@@ -38,6 +38,10 @@ public class UsrProductService {
 		return usrProductDao.insert(usrProductDto);
 	}
 	
+	public UsrProductDto selectOneReview(UsrProductDto usrProductDto) {
+		return usrProductDao.selectOneReview(usrProductDto);
+	}
+	
 	public UsrProductDto selectOne(UsrProductDto usrProductDto) {
 		return usrProductDao.selectOne(usrProductDto);
 	}

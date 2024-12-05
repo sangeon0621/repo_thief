@@ -17,6 +17,8 @@ public interface UsrProductDao {
 	
 	public int insert(UsrProductDto usrProductDto);
 	
+	public UsrProductDto selectOneReview(UsrProductDto usrProductDto);
+	
 	public UsrProductDto selectOne(UsrProductDto usrProductDto);
 	
 	public int update(UsrProductDto usrProductDto);

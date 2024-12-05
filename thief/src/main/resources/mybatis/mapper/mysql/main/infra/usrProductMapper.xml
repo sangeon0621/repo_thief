@@ -185,6 +185,17 @@
 		
 	</select>
 	
+	<select id="selectOneReview" resultMap="productObj">
+		select
+			d.prSeq
+			,d.prName
+		    ,d.prReview
+		    ,d.prReviewDesc
+		from
+			pddreview d
+		where 1=1 and d.prReviewDesc = #{prReviewDesc}
+	</select>
+	
 	<select id="selectListImage" resultMap = "productObj">
 		select
 			g.cgiSeq
