@@ -309,15 +309,15 @@
 	                                <div class="star-box">
 	                                    <span>평점 :</span>
 	                                    <fieldset>
-											<input type="radio" name="prReview" value="1" id="rate1"><label
+											<input type="radio" name="prReview" value="5" id="rate1"><label
 												for="rate1">★</label>
-											<input type="radio" name="prReview" value="2" id="rate2"><label
+											<input type="radio" name="prReview" value="4" id="rate2"><label
 												for="rate2">★</label>
 											<input type="radio" name="prReview" value="3" id="rate3"><label
 												for="rate3">★</label>
-											<input type="radio" name="prReview" value="4" id="rate4"><label
+											<input type="radio" name="prReview" value="2" id="rate4"><label
 												for="rate4">★</label>
-											<input type="radio" name="prReview" value="5" id="rate5"><label
+											<input type="radio" name="prReview" value="1" id="rate5"><label
 												for="rate5">★</label>
 										</fieldset>
 	                                </div>
@@ -429,9 +429,9 @@
 				,success: function(response) {
 					if(response.rt == "success") {
 						if(response.changePwd == "true") {
-							location.href = "/usrProduct";
+							location.href = "redirect:/usrProduct";
 						} else {
-							location.href = "/usrProduct";
+							location.href = "redirect:/usrProduct";
 						}
 					} else {
 				 		document.getElementById("verticallyCenteredLabel").innerText = "확 인";
