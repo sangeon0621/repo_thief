@@ -397,62 +397,62 @@
 		});	
 	}
 	
-		document.getElementById("btnReview").onclick = function (){
-			const prName = document.getElementById("prName");
-			const prNameValue = document.getElementById("prName").value.trim();
-			const prNameError = document.getElementById("prNameError");
-			
-			var prNameRegExp = /^[가-힣0-9a-zA-Z]{2,6}$/;
-			if(!prNameRegExp.test(prNameValue)){
-				prNameError.innerText = "로그인이 필요합니다";
-				prNameError.style.display="";
-				prName.classList.add("is-invalid");
-				prName.classList.remove("is-valid");
-				prName.focus();
-				return false;
-		    } else {
-		    	prNameError.style.display = "none";
-		    	prName.classList.remove("is-invalid");
-		    	prName.classList.add("is-valid");
-		    }
-			
-			var checked_radio = $('input:radio[name=prReview]:checked').val(); // 선택된 radio의 value 가져오기
-			
-			$.ajax({
-				async: true 
-				,cache: false
-				,type: "post"
-				/* ,dataType:"json" */
-				,url: "/usrProductInst"
-				/* ,data : $("#formLogin").serialize() */
-				,data : { "prName" : $("#prName").val(), "prReviewDesc" : $("#prReviewDesc").val(), "prReview" : checked_radio, "productCd_pddSeq" : $("#productCd_pddSeq").val()}
-				,success: function(response) {
-					if(response.rt == "success") {
-						if(response.changePwd == "true") {
-							location.href = "redirect:/usrProduct";
-						} else {
-							location.href = "redirect:/usrProduct";
-						}
-					} else {
-				 		document.getElementById("verticallyCenteredLabel").innerText = "확 인";
-				 		document.getElementById("verticallyCenteredLabel2").innerText = "일치하는 회원이 존재 하지 않습니다!";
-				 		$("#verticallyCentered").modal("show");
-					}
-				}
-				,error : function(jqXHR, textStatus, errorThrown){
-					alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
-				}
-			});	
-		}
+	document.getElementById("btnReview").onclick = function (){
+		const prName = document.getElementById("prName");
+		const prNameValue = document.getElementById("prName").value.trim();
+		const prNameError = document.getElementById("prNameError");
 		
-		var input = document.getElementById("prReviewDesc");
+		var prNameRegExp = /^[가-힣0-9a-zA-Z]{2,6}$/;
+		if(!prNameRegExp.test(prNameValue)){
+			prNameError.innerText = "로그인이 필요합니다";
+			prNameError.style.display="";
+			prName.classList.add("is-invalid");
+			prName.classList.remove("is-valid");
+			prName.focus();
+			return false;
+	    } else {
+	    	prNameError.style.display = "none";
+	    	prName.classList.remove("is-invalid");
+	    	prName.classList.add("is-valid");
+	    }
+		
+		var checked_radio = $('input:radio[name=prReview]:checked').val(); // 선택된 radio의 value 가져오기
+		
+		$.ajax({
+			async: true 
+			,cache: false
+			,type: "post"
+			/* ,dataType:"json" */
+			,url: "/usrProductInst"
+			/* ,data : $("#formLogin").serialize() */
+			,data : { "prName" : $("#prName").val(), "prReviewDesc" : $("#prReviewDesc").val(), "prReview" : checked_radio, "productCd_pddSeq" : $("#productCd_pddSeq").val()}
+			,success: function(response) {
+				if(response.rt == "success") {
+					if(response.changePwd == "true") {
+						location.href = "redirect:/usrProduct";
+					} else {
+						location.href = "redirect:/usrProduct";
+					}
+				} else {
+			 		document.getElementById("verticallyCenteredLabel").innerText = "확 인";
+			 		document.getElementById("verticallyCenteredLabel2").innerText = "일치하는 회원이 존재 하지 않습니다!";
+			 		$("#verticallyCentered").modal("show");
+				}
+			}
+			,error : function(jqXHR, textStatus, errorThrown){
+				alert("ajaxUpdate " + jqXHR.textStatus + " : " + jqXHR.errorThrown);
+			}
+		});	
+	}
+	
+	var input = document.getElementById("prReviewDesc");
 
-		input.addEventListener("keypress", function(event) {
-		  if (event.key === "Enter") {
-		    event.preventDefault();
-		    document.getElementById("btnReview").click();
-		  }
-		});
+	input.addEventListener("keypress", function(event) {
+	  if (event.key === "Enter") {
+	    event.preventDefault();
+	    document.getElementById("btnReview").click();
+	  }
+	});
 		
 		
 		
