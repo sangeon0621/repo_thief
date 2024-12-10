@@ -1,0 +1,200 @@
+<!doctype html>
+<html class="no-js" lang="ko">
+
+<head>
+    
+</head>
+
+<body>
+
+<th:block th:fragment="sidebar">	
+<!-- Sidebar -->
+<div class="col-lg-3">
+                <div class="sidebar-style mr-30">
+                    <div class="sidebar-widget">
+                        <div class="pro-sidebar-search mb-50 mt-25">
+                            <form class="pro-sidebar-search-form" action="#">
+                                <input type="text" placeholder="검색">
+                                <button>
+                                    <i class="pe-7s-search"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="sidebar-widget">
+                        <h4 class="pro-sidebar-title">신규 및 특집 </h4>
+                        <div class="sidebar-widget-list mt-30">
+                            <ul>
+                                <li>
+                                    <div class="sidebar-widget-list-left">
+                                        <input type="checkbox"> <a href="#">세일 중<span>4</span> </a> 
+                                        <span class="checkmark"></span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="sidebar-widget-list-left">
+                                        <input type="checkbox" value=""> <a href="#">신제품 <span>4</span></a> 
+                                        <span class="checkmark"></span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="sidebar-widget-list-left">
+                                        <input type="checkbox" value=""> <a href="#">인기 게임 <span>4</span> </a>
+                                        <span class="checkmark"></span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="sidebar-widget mt-45">
+                        <h4 class="pro-sidebar-title">가격 </h4>
+                        <div class="price-filter mt-10">
+                            <div class="price-slider-amount">
+                                <input type="text" name="price"  placeholder="&#8361; 0" />
+                            </div>
+                            <div id="slider-range"></div>
+                        </div>
+                    </div>
+                    <div class="sidebar-widget mt-50">
+                        <h4 class="pro-sidebar-title">액션 </h4>
+                        <div class="sidebar-widget-list mt-20">
+                            <ul>
+                                <li>
+                                    <div class="sidebar-widget-list-left">
+                                        <input type="checkbox" value=""> <a href="#">슈팅 <span>4</span> </a>
+                                        <span class="checkmark"></span> 
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="sidebar-widget-list-left">
+                                        <input type="checkbox" value=""> <a href="#">격투 및 무술 <span>4</span> </a>
+                                        <span class="checkmark"></span> 
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="sidebar-widget-list-left">
+                                        <input type="checkbox" value=""> <a href="#">아케이드 및 리듬 <span>4</span> </a>
+                                        <span class="checkmark"></span> 
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="sidebar-widget-list-left">
+                                        <input type="checkbox" value=""> <a href="#">슛뎀업 <span>4</span> </a>
+                                        <span class="checkmark"></span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="sidebar-widget mt-40">
+                        <h4 class="pro-sidebar-title">롤플레잉 </h4>
+                        <div class="sidebar-widget-list mt-20">
+                            <ul>
+                                <li>
+                                    <div class="sidebar-widget-list-left">
+                                        <input type="checkbox" value=""> <a href="#">RPG</a>
+                                        <span class="checkmark"></span> 
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="sidebar-widget-list-left">
+                                        <input type="checkbox" value=""> <a href="#">로그라이크</a>
+                                        <span class="checkmark"></span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="sidebar-widget-list-left">
+                                        <input type="checkbox" value=""> <a href="#">파티기반</a>
+                                        <span class="checkmark"></span> 
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="sidebar-widget mt-40">
+                        <h4 class="pro-sidebar-title">전략/전술 </h4>
+                        <div class="sidebar-widget-list mt-20">
+                            <ul>
+                                <li>
+                                    <div class="sidebar-widget-list-left">
+                                        <input type="checkbox" value=""> <a href="#">전략</a>
+                                        <span class="checkmark"></span> 
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="sidebar-widget-list-left">
+                                        <input type="checkbox" value=""> <a href="#">군사</a>
+                                        <span class="checkmark"></span> 
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="sidebar-widget-list-left">
+                                        <input type="checkbox" value=""> <a href="#">도시 및 정착</a>
+                                        <span class="checkmark"></span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="sidebar-widget-list-left">
+                                        <input type="checkbox" value=""> <a href="#">카드 및 보드</a>
+                                        <span class="checkmark"></span> 
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="sidebar-widget-list-left">
+                                        <input type="checkbox" value=""> <a href="#">타워 디펜스</a>
+                                        <span class="checkmark"></span> 
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="sidebar-widget mt-40">
+                        <h4 class="pro-sidebar-title">어드벤처 </h4>
+                        <div class="sidebar-widget-list mt-20">
+                            <ul>
+                                <li>
+                                    <div class="sidebar-widget-list-left">
+                                        <input type="checkbox" value=""> <a href="#">캐주얼</a>
+                                        <span class="checkmark"></span> 
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="sidebar-widget-list-left">
+                                        <input type="checkbox" value=""> <a href="#">퍼즐</a>
+                                        <span class="checkmark"></span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="sidebar-widget mt-50">
+                        <h4 class="pro-sidebar-title">플레이어 지원 </h4>
+                        <div class="sidebar-widget-tag mt-25">
+                            <ul>
+                                <li><a href="#">로컬 및 파티</a></li>
+                                <li><a href="#">싱글플레이어</a></li>
+                                <li><a href="#">멀티플레이어</a></li>
+                                <li><a href="#">온라인 경쟁</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<!-- sidebar end -->
+</th:block>
+
+
+
+
+
+
+
+
+<!-- All JS is here
+============================================ -->
+
+
+
+</body>
+
+</html>

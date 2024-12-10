@@ -89,7 +89,7 @@
                                     <li><a href="/usrRegister">회원가입</a></li>
                                 </th:block>
                                 <th:block th:if="${session.sessSeqUsr != null}">
-                                	<li th:text="${session.sessNameUsr}"></li>
+                                	<li th:text="${session.sessNameUsr+'님'}"></li>
                                     <li><a href="/usrMypage">내 정보</a></li>
                                     <li><a href="/v1/infra/usrui/usrBuyList">구매 목록  </a></li>
                                     <button id="btnLogout" class="btn">로그아웃</button>

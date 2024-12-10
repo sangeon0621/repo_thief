@@ -30,6 +30,10 @@ public class UsrProductService {
 		return usrProductDao.selectList(vo);
 	}
 	
+	public List<UsrProductDto> selectList2() {
+		return usrProductDao.selectList2();
+	}
+	
 	public List<UsrProductDto> selectListImage() {
 		return usrProductDao.selectListImage();
 	}

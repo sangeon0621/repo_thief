@@ -68,6 +68,42 @@
 		) bb
 		limit #{rowNumToShow} offset #{startRnumForMysql}
 	</select>
+	
+	<select id = "selectList2" resultMap = "productObj">
+			select
+				b.pddSeq
+				,b.pddName
+				,b.pddCategory
+				,b.pddUseNy
+				,b.pddOrder
+				,b.pddDesc
+				,b.pddPrice
+				,b.pddsales
+				,b.pddSalesPrice
+				,b.pddCount
+				,b.pddTotalPrice
+				,b.pddDatetime
+				,b.pddDatetimeSvr
+				,b.pddDelNy
+				,b.pddSalesNy
+				,b.pddHotNy
+				,b.pddNewNy
+				,b.pddDatetimeRel
+				,b.pddProgramer
+				,b.pddDistributor
+				,b.pddPlus
+				,b.pddWish
+			    ,b.productCg_pdSeq
+			    ,a.pdCategory
+			    ,(select gg.path from codegroupimage gg where 1=1 and gg.pSeq = b.pddSeq and gg.cgiDefaultly = 1) as mainImg
+				,(select gg.path from codegroupimage gg where 1=1 and gg.pSeq = b.pddSeq and gg.cgiDefaultly = 2) as mainImg2
+				,(select gg.path from codegroupimage gg where 1=1 and gg.pSeq = b.pddSeq and gg.cgiDefaultly = 3) as subImg1
+				,(select gg.path from codegroupimage gg where 1=1 and gg.pSeq = b.pddSeq and gg.cgiDefaultly = 4) as subImg2
+				,(select gg.path from codegroupimage gg where 1=1 and gg.pSeq = b.pddSeq and gg.cgiDefaultly = 5	) as subImg3
+			    ,(select count(dd.prSeq) from pddreview dd where 1=1 and dd.productCd_pddSeq = b.pddSeq) as count
+			    ,(select ROUND(AVG(dd.prReview)) from pddreview dd where 1=1 and dd.productCd_pddSeq = b.pddSeq) as prReviewAvg
+			<include refid="selectCommon"></include>
+	</select>
 	  
 	  <insert id="insert">
 		  insert into pddreview (

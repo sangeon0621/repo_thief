@@ -12,6 +12,8 @@ public class UsrProductDto {
 	private Integer pddUseNy;
 	private Integer pddDelNy;
 	private Integer pddSalesNy;
+	private Integer pddNewNy;
+	private Integer pddHotNy;
 	private Integer pddOrder;
 	private String pddPrice;
 	private Integer pddsales;
@@ -672,6 +674,18 @@ public class UsrProductDto {
 	}
 	public void setSubImg3(String subImg3) {
 		this.subImg3 = subImg3;
+	}
+	public Integer getPddNewNy() {
+		return pddNewNy;
+	}
+	public void setPddNewNy(Integer pddNewNy) {
+		this.pddNewNy = pddNewNy;
+	}
+	public Integer getPddHotNy() {
+		return pddHotNy;
+	}
+	public void setPddHotNy(Integer pddHotNy) {
+		this.pddHotNy = pddHotNy;
 	}
 	
 	

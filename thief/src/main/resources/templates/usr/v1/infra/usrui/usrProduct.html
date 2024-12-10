@@ -173,6 +173,8 @@
                         <ul th:each = "list : ${player}" th:if = "${!#lists.isEmpty(list)}">
                             <li><a href="#" th:if="${list.ppPlayer == 1}">싱글플레이어 </a></li>
                             <li><a href="#" th:if="${list.ppPlayer == 2}">멀티플레이어</a></li>
+                            <li><a href="#" th:if="${list.ppPlayer == 3}">로컬 및 파티</a></li>
+                            <li><a href="#" th:if="${list.ppPlayer == 4}">온라인 경쟁</a></li>
                         </ul>
                     </div>
                 </div>
@@ -204,9 +206,9 @@
                         <p th:text="${item.pddDetail11}"></p>
                         <p style="color: blue;" th:text="${item.pddDetail12}"></p>
                         <p th:text="${item.pddDetail13}"></p>
-                        <p th:text="${item.pddDetail14}"></p>
+                        <p style="color: blue;" th:text="${item.pddDetail14}"></p>
                         <p th:text="${item.pddDetail15}"></p>
-                        <p th:text="${item.pddDetail16}"></p>
+                        <p style="color: blue;" th:text="${item.pddDetail16}"></p>
                     </div>
                 </div>
                 <div id="des-details1" class="tab-pane">
@@ -231,10 +233,10 @@
                 <div id="des-details3" class="tab-pane">
                     <div class="row">
                         <div class="col-lg-7">
-                            <div class="review-wrapper">
-                            <div th:if = "${#lists.isEmpty(review)}" class = "hover-actions-trigger btn-reveal-trigger position">
-                                <span class = "fs-0" style = "padding-top: 12px;">작성된 리뷰가 없습니다!</span>
-                            </div>
+                            <div class="review-wrapper" id="aaa">
+	                            <div th:if = "${#lists.isEmpty(review)}" class = "hover-actions-trigger btn-reveal-trigger position">
+	                                <span class = "fs-0" style = "padding-top: 12px;">작성된 리뷰가 없습니다!</span>
+	                            </div>
                                 <div class="single-review" th:each = "list : ${review}" th:if = "${!#lists.isEmpty(list)}">
                                     <div class="review-img">
                                         <img src="/usr/v1/template/flone/assets/img/testimonial/1.jpg" alt="">
@@ -278,7 +280,7 @@
                                             </div>
                                         </div>
                                         <div class="review-bottom">
-                                            <p th:text=${list.prReviewDesc}></p>
+                                            <p th:text="${list.prReviewDesc}"></p>
                                         </div>
                                     </div>
                                 </div>
@@ -397,6 +399,13 @@
 		});	
 	}
 	
+	
+		
+		
+		
+		
+		</script>
+	<script th:inline="javascript">
 	document.getElementById("btnReview").onclick = function (){
 		const prName = document.getElementById("prName");
 		const prNameValue = document.getElementById("prName").value.trim();
@@ -425,14 +434,66 @@
 			/* ,dataType:"json" */
 			,url: "/usrProductInst"
 			/* ,data : $("#formLogin").serialize() */
-			,data : { "prName" : $("#prName").val(), "prReviewDesc" : $("#prReviewDesc").val(), "prReview" : checked_radio, "productCd_pddSeq" : $("#productCd_pddSeq").val()}
+			,data : { [[prName]] : $("#prName").val(), [[prReviewDesc]] : $("#prReviewDesc").val(), [[prReview]] : checked_radio, [[productCd_pddSeq]] : $("#productCd_pddSeq").val()}
 			,success: function(response) {
 				if(response.rt == "success") {
-					if(response.changePwd == "true") {
-						location.href = "redirect:/usrProduct";
-					} else {
-						location.href = "redirect:/usrProduct";
-					}
+					
+					bbb='';
+					 
+					bbb += '<div class="single-review" th:each = "list : ${review}" th:if = "${!#lists.isEmpty(list)}">';
+					bbb += '	<div class="review-img">';
+					bbb += '    	<img src="/usr/v1/template/flone/assets/img/testimonial/1.jpg" alt="">';
+					bbb += '	</div>';
+					bbb += '	<div class="review-content">';
+					bbb += '    	<div class="review-top-wrap">';
+					bbb += '       		<div class="review-left">';
+					bbb += '            <div class="review-name">';
+					bbb += '                <h4 th:text="${list.prName}";></h4>';
+					bbb += '            </div>';
+					bbb += '           <div class="review-rating">';
+					bbb += '            	<th:block th:if="${list.prReview == 1}">';
+					bbb += '                   <i class="fa fa-star"></i>';
+					bbb += '               </th:block]>';
+					bbb += '               <th:block th:if="${list.prReview == 2}">';
+					bbb += '                   <i class="fa fa-star"></i>';
+					bbb += '                   <i class="fa fa-star"></i>';
+					bbb += '              </th:block>';
+					bbb += '              <th:block th:if="${list.prReview == 3}">' 
+					bbb += '                   <i class="fa fa-star"></i>';
+					bbb += '                    <i class="fa fa-star"></i>';
+					bbb += '                    <i class="fa fa-star"></i>';
+					bbb += '              	</th:block]>';
+					bbb += '              	<th:block th:if="${list.prReview == 4}">';
+					bbb += '                  <i class="fa fa-star"></i>';
+					bbb += '                  <i class="fa fa-star"></i>';
+					bbb += '                  <i class="fa fa-star"></i>';
+					bbb += '                  <i class="fa fa-star"></i>';
+					bbb += '             	</th:block]>';
+					bbb += '            	<th:block th:if="${list.prReview == 5}">'; 
+					bbb += '                 	<i class="fa fa-star"></i>';
+					bbb += '                 	<i class="fa fa-star"></i>';
+					bbb += '                	 <i class="fa fa-star"></i>';
+					bbb += '                 	<i class="fa fa-star"></i>';
+					bbb += '                 	<i class="fa fa-star"></i>';
+					bbb += '            	</th:block>';
+					bbb += '          </div>';
+					bbb += '      </div>';
+					bbb += '      	<div class="review-left">';
+					bbb += '          <a href="#">Reply</a>';
+					bbb += '      	</div>';
+					bbb += '  	</div>';
+					bbb += '   		<div class="review-bottom">';
+					bbb += '      		<p th:text="${list.prReviewDesc}"></p>';
+					bbb += '		</div>';
+					bbb += '	</div>';
+					bbb += '</div>';
+					
+					$("#aaa").append(bbb);
+// 					if(response.changePwd == "true") {
+// 						location.href = "redirect:/usrProduct";
+// 					} else {
+// 						location.href = "redirect:/usrProduct";
+// 					}
 				} else {
 			 		document.getElementById("verticallyCenteredLabel").innerText = "확 인";
 			 		document.getElementById("verticallyCenteredLabel2").innerText = "일치하는 회원이 존재 하지 않습니다!";
@@ -453,11 +514,7 @@
 	    document.getElementById("btnReview").click();
 	  }
 	});
-		
-		
-		
-		
-		</script>
+	</script>
 
 </body>
 

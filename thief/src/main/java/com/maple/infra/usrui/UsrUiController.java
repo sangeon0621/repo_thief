@@ -28,10 +28,6 @@ public class UsrUiController {
 	  return passwordEncoder.matches(planeText, hashValue);
 	}	
 
-	@RequestMapping(value="/usrUi")
-	public String usrUi() {
-		return "usr/v1/infra/usrui/usrUi";
-	}
 	
 	@RequestMapping(value="/usrMypage")
 	public String usrMyPage() {

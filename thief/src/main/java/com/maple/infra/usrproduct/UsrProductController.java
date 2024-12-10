@@ -39,6 +39,19 @@ public class UsrProductController {
 		return "usr/v1/infra/usrui/usrShop";
 	}
 	
+	@RequestMapping(value="/usrUi")
+	public String usrUi(Model model) {
+		
+		model.addAttribute("list", usrProductService.selectList2());
+		return "usr/v1/infra/usrui/usrUi";
+	}
+	
+//	@RequestMapping(value="/usrModal")
+//	public String usrModal(Model model, UsrProductDto UsrProductDto) {
+//		model.addAttribute("item", usrProductService.selectOne(UsrProductDto));
+//		return "usr/v1/infra/include/modal";
+//	}
+	
 	@RequestMapping(value="/usrProduct")
 	public String usrProduct(@ModelAttribute("vo") UsrProductVo vo, @ModelAttribute("dto") UsrProductDto usrProductDto, Model model) {
 		
@@ -67,10 +80,12 @@ public class UsrProductController {
 		
 		if (rtProduct != null) {
 			usrProductService.insert(usrProductDto);
+			System.out.println("1");
 			returnMap.put("rt", "success");
 			
 		} else {
 			usrProductService.insert(usrProductDto);
+			System.out.println("2");
 			returnMap.put("rt", "success");
 		}
 		return returnMap;
