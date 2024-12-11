@@ -47,13 +47,8 @@
                 <div class="billing-info-wrap">
                     <h3>구매자 정보</h3>
                     <div class="row">
-                   		<div class="col-lg-6 col-md-6">
-                            <div class="billing-info mb-20">
-                                <label></label>
-                                <input readonly type="text" name="member_seq" th:value="${session.sessSeqUsr}">
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6"></div>
+                    	<input type="hidden" id="member_seq" name="member_seq" th:value="${session.sessSeqUsr}">
+<!--                     	<input type="hidden" id="plImage" name="plImage" th:src="${item.mainImg}"> -->
                         <div class="col-lg-6 col-md-6">
                             <div class="billing-info mb-20">
                                 <label>이름</label>
@@ -63,7 +58,7 @@
                         <div class="col-lg-6 col-md-6">
                             <div class="billing-info mb-20">
                                 <label>생년월일</label>
-                                <input type="text" th:value="${session.sessBirthdayUsr}">
+                                <input disabled type="text" th:value="${session.sessBirthdayUsr}">
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6">
@@ -124,6 +119,7 @@
                                 <ul>
                                     <li>
 	                                    <span class="order-middle-left" name="plName" th:text="${item.pddName}"></span>
+	                                    <input type="hidden" id="plName" name="plName" th:value="${item.pddName}">
 	                                    <th:block th:if="${item.pddSalesNy == 1}">
 	                                    <span class="order-price" name="plPrice" th:text="${#numbers.formatInteger(item.pddSalesPrice, 3, 'COMMA')} + '원'"></span>
 	                                    </th:block>
@@ -138,9 +134,11 @@
                                     <li class="order-total">총 가격</li>
                                     <th:block th:if="${item.pddSalesNy == 1}">
                                     	<li name="plTotalPrice" th:text="${#numbers.formatInteger(item.pddSalesPrice, 3, 'COMMA')} + '원'"></li>
+                                    	<input type="hidden" id="plTotalPrice" name="plTotalPrice" th:value="${item.pddSalesPrice}">
                                     </th:block>
                                     <th:block th:if="${item.pddSalesNy == 0}">
                                     	<li name="plTotalPrice" th:text="${#numbers.formatInteger(item.pddPrice, 3, 'COMMA')} + '원'"></li>
+                                    	<input type="hidden" id="plTotalPrice" name="plTotalPrice" th:value="${item.pddPrice}">
                                     </th:block>
                                 </ul>
                             </div>
@@ -201,28 +199,15 @@
 		});	
 	}
 	
-    // 카카오페이 결제 팝업창 연결
-    $(function() {
-        $("#checkOut").click(function(e) {
-            // 아래 데이터 외에도 필요한 데이터를 원하는 대로 담고, Controller에서 @RequestBody로 받으면 됨
-            let data = {
-                name: '상품명',    // 카카오페이에 보낼 대표 상품명
-                totalPrice: 20000 // 총 결제금액
-            };
-          
-            $.ajax({
-                type: 'POST',
-                url: '/order/pay/ready',
-                data: JSON.stringify(data),
-                contentType: 'application/json',
-                success: function(response) {
-                    location.href = response.next_redirect_pc_url;
-                }
-            });
-        });
-    });
-	 
 	
+</script>
+
+<script>
+	document.getElementById("checkOut").onclick = function () {
+		let form = document.querySelector("form[name=form]")
+		form.action ="/usrpurchaseInst";
+		form.submit();
+	}
 </script>
 
 </body>

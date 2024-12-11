@@ -250,21 +250,31 @@
                                                 <div class="review-rating">
                                                 	<th:block th:if="${list.prReview == 1}">
 	                                                    <i class="fa fa-star"></i>
+	                                                    <i class="fa fa-star-o"></i>
+	                                                    <i class="fa fa-star-o"></i>
+	                                                    <i class="fa fa-star-o"></i>
+	                                                    <i class="fa fa-star-o"></i>
                                                     </th:block>
                                                     <th:block th:if="${list.prReview == 2}">
 	                                                    <i class="fa fa-star"></i>
 	                                                    <i class="fa fa-star"></i>
+	                                                    <i class="fa fa-star-o"></i>
+	                                                    <i class="fa fa-star-o"></i>
+	                                                    <i class="fa fa-star-o"></i>
                                                    </th:block>
                                                    <th:block th:if="${list.prReview == 3}"> 
 	                                                    <i class="fa fa-star"></i>
 	                                                    <i class="fa fa-star"></i>
 	                                                    <i class="fa fa-star"></i>
+	                                                    <i class="fa fa-star-o"></i>
+	                                                    <i class="fa fa-star-o"></i>
                                                   	</th:block>
                                                   	<th:block th:if="${list.prReview == 4}"> 
 	                                                    <i class="fa fa-star"></i>
 	                                                    <i class="fa fa-star"></i>
 	                                                    <i class="fa fa-star"></i>
 	                                                    <i class="fa fa-star"></i>
+	                                                    <i class="fa fa-star-o"></i>
                                                   	</th:block>
                                                   	<th:block th:if="${list.prReview == 5}"> 
 	                                                    <i class="fa fa-star"></i>
@@ -398,14 +408,9 @@
 			}
 		});	
 	}
-	
-	
-		
-		
-		
-		
 		</script>
 	<script th:inline="javascript">
+	/*<![CDATA[*/
 	document.getElementById("btnReview").onclick = function (){
 		const prName = document.getElementById("prName");
 		const prNameValue = document.getElementById("prName").value.trim();
@@ -426,7 +431,7 @@
 	    }
 		
 		var checked_radio = $('input:radio[name=prReview]:checked').val(); // 선택된 radio의 value 가져오기
-		
+	  	const textareaValue = document.getElementById('prReviewDesc').value;
 		$.ajax({
 			async: true 
 			,cache: false
@@ -434,66 +439,168 @@
 			/* ,dataType:"json" */
 			,url: "/usrProductInst"
 			/* ,data : $("#formLogin").serialize() */
-			,data : { [[prName]] : $("#prName").val(), [[prReviewDesc]] : $("#prReviewDesc").val(), [[prReview]] : checked_radio, [[productCd_pddSeq]] : $("#productCd_pddSeq").val()}
+			,data : { "prName" : $("#prName").val(), "prReviewDesc" : $("#prReviewDesc").val(), "prReview" : checked_radio, "productCd_pddSeq" : $("#productCd_pddSeq").val()}
 			,success: function(response) {
 				if(response.rt == "success") {
 					
+					var username = /*[[${session.sessNickNameUsr}]]*/"prName";
+					
+					
 					bbb='';
-					 
-					bbb += '<div class="single-review" th:each = "list : ${review}" th:if = "${!#lists.isEmpty(list)}">';
-					bbb += '	<div class="review-img">';
-					bbb += '    	<img src="/usr/v1/template/flone/assets/img/testimonial/1.jpg" alt="">';
-					bbb += '	</div>';
-					bbb += '	<div class="review-content">';
-					bbb += '    	<div class="review-top-wrap">';
-					bbb += '       		<div class="review-left">';
-					bbb += '            <div class="review-name">';
-					bbb += '                <h4 th:text="${list.prName}";></h4>';
-					bbb += '            </div>';
-					bbb += '           <div class="review-rating">';
-					bbb += '            	<th:block th:if="${list.prReview == 1}">';
-					bbb += '                   <i class="fa fa-star"></i>';
-					bbb += '               </th:block]>';
-					bbb += '               <th:block th:if="${list.prReview == 2}">';
-					bbb += '                   <i class="fa fa-star"></i>';
-					bbb += '                   <i class="fa fa-star"></i>';
-					bbb += '              </th:block>';
-					bbb += '              <th:block th:if="${list.prReview == 3}">' 
-					bbb += '                   <i class="fa fa-star"></i>';
-					bbb += '                    <i class="fa fa-star"></i>';
-					bbb += '                    <i class="fa fa-star"></i>';
-					bbb += '              	</th:block]>';
-					bbb += '              	<th:block th:if="${list.prReview == 4}">';
-					bbb += '                  <i class="fa fa-star"></i>';
-					bbb += '                  <i class="fa fa-star"></i>';
-					bbb += '                  <i class="fa fa-star"></i>';
-					bbb += '                  <i class="fa fa-star"></i>';
-					bbb += '             	</th:block]>';
-					bbb += '            	<th:block th:if="${list.prReview == 5}">'; 
-					bbb += '                 	<i class="fa fa-star"></i>';
-					bbb += '                 	<i class="fa fa-star"></i>';
-					bbb += '                	 <i class="fa fa-star"></i>';
-					bbb += '                 	<i class="fa fa-star"></i>';
-					bbb += '                 	<i class="fa fa-star"></i>';
-					bbb += '            	</th:block>';
-					bbb += '          </div>';
-					bbb += '      </div>';
-					bbb += '      	<div class="review-left">';
-					bbb += '          <a href="#">Reply</a>';
-					bbb += '      	</div>';
-					bbb += '  	</div>';
-					bbb += '   		<div class="review-bottom">';
-					bbb += '      		<p th:text="${list.prReviewDesc}"></p>';
-					bbb += '		</div>';
-					bbb += '	</div>';
-					bbb += '</div>';
+					
+					if(checked_radio == 1) {
+						bbb += '<div class="single-review" th:each = "list : ${review}" th:if = "${!#lists.isEmpty(list)}">';
+						bbb += '	<div class="review-img">';
+						bbb += '    	<img src="/usr/v1/template/flone/assets/img/testimonial/1.jpg" alt="">';
+						bbb += '	</div>';
+						bbb += '	<div class="review-content">';
+						bbb += '    	<div class="review-top-wrap">';
+						bbb += '       		<div class="review-left">';
+						bbb += '            <div class="review-name">';
+						bbb += '                <h4>'+username+'</h4>';
+						bbb += '            </div>';
+						bbb += '         <div class="review-rating">';
+						bbb += '            	<th:block th:if='+checked_radio+' == 1}">';
+						bbb += '                   <i class="fa fa-star"></i>';
+						bbb += '                   <i class="fa fa-star-o"></i>';
+						bbb += '                   <i class="fa fa-star-o"></i>';
+						bbb += '                   <i class="fa fa-star-o"></i>';
+						bbb += '                   <i class="fa fa-star-o"></i>';
+						bbb += '               </th:block]>';
+						bbb += '      	</div>';
+						bbb += '      	<div class="review-left">';
+						bbb += '          <a href="#">Reply</a>';
+						bbb += '      	</div>';
+						bbb += '  		</div>';
+						bbb += '   		<div class="review-bottom">';
+						bbb += '      		<p>'+textareaValue+'</p>';
+						bbb += '		</div>';
+						bbb += '	</div>';
+						bbb += '</div>';
+					} else if(checked_radio == 2) {
+						bbb += '<div class="single-review" th:each = "list : ${review}" th:if = "${!#lists.isEmpty(list)}">';
+						bbb += '	<div class="review-img">';
+						bbb += '    	<img src="/usr/v1/template/flone/assets/img/testimonial/1.jpg" alt="">';
+						bbb += '	</div>';
+						bbb += '	<div class="review-content">';
+						bbb += '    	<div class="review-top-wrap">';
+						bbb += '       		<div class="review-left">';
+						bbb += '            <div class="review-name">';
+						bbb += '                <h4>'+username+'</h4>';
+						bbb += '            </div>';
+						bbb += '         <div class="review-rating">';
+						bbb += '               <th:block th:if='+checked_radio+' == 2}">';
+						bbb += '                   <i class="fa fa-star"></i>';
+						bbb += '                   <i class="fa fa-star"></i>';
+						bbb += '                   <i class="fa fa-star-o"></i>';
+						bbb += '                   <i class="fa fa-star-o"></i>';
+						bbb += '                   <i class="fa fa-star-o"></i>';
+						bbb += '              </th:block>';
+						bbb += '          </div>';
+						bbb += '      </div>';
+						bbb += '      	<div class="review-left">';
+						bbb += '          <a href="#">Reply</a>';
+						bbb += '      	</div>';
+						bbb += '  	</div>';
+						bbb += '   		<div class="review-bottom">';
+						bbb += '      		<p>'+textareaValue+'</p>';
+						bbb += '		</div>';
+						bbb += '	</div>';
+						bbb += '</div>';
+					} else if(checked_radio == 3) {
+						bbb += '<div class="single-review" th:each = "list : ${review}" th:if = "${!#lists.isEmpty(list)}">';
+						bbb += '	<div class="review-img">';
+						bbb += '    	<img src="/usr/v1/template/flone/assets/img/testimonial/1.jpg" alt="">';
+						bbb += '	</div>';
+						bbb += '	<div class="review-content">';
+						bbb += '    	<div class="review-top-wrap">';
+						bbb += '       		<div class="review-left">';
+						bbb += '            <div class="review-name">';
+						bbb += '                <h4>'+username+'</h4>';
+						bbb += '            </div>';
+						bbb += '           <div class="review-rating">';
+						bbb += '              <th:block th:if='+checked_radio+' == 3}">' 
+						bbb += '                   <i class="fa fa-star"></i>';
+						bbb += '                    <i class="fa fa-star"></i>';
+						bbb += '                    <i class="fa fa-star"></i>';
+						bbb += '                    <i class="fa fa-star-o"></i>';
+						bbb += '                    <i class="fa fa-star-o"></i>';
+						bbb += '              	</th:block]>';
+						bbb += '          </div>';
+						bbb += '      </div>';
+						bbb += '      	<div class="review-left">';
+						bbb += '          <a href="#">Reply</a>';
+						bbb += '      	</div>';
+						bbb += '  	</div>';
+						bbb += '   		<div class="review-bottom">';
+						bbb += '      		<p>'+textareaValue+'</p>';
+						bbb += '		</div>';
+						bbb += '	</div>';
+						bbb += '</div>';
+					} else if(checked_radio == 4) {
+						bbb += '<div class="single-review" th:each = "list : ${review}" th:if = "${!#lists.isEmpty(list)}">';
+						bbb += '	<div class="review-img">';
+						bbb += '    	<img src="/usr/v1/template/flone/assets/img/testimonial/1.jpg" alt="">';
+						bbb += '	</div>';
+						bbb += '	<div class="review-content">';
+						bbb += '    	<div class="review-top-wrap">';
+						bbb += '       		<div class="review-left">';
+						bbb += '            <div class="review-name">';
+						bbb += '                <h4>'+username+'</h4>';
+						bbb += '            </div>';
+						bbb += '           <div class="review-rating">';
+						bbb += '              	<th:block th:if='+checked_radio+' == 4}">';
+						bbb += '                  <i class="fa fa-star"></i>';
+						bbb += '                  <i class="fa fa-star"></i>';
+						bbb += '                  <i class="fa fa-star"></i>';
+						bbb += '                  <i class="fa fa-star"></i>';
+						bbb += '                  <i class="fa fa-star-o"></i>';
+						bbb += '             	</th:block]>';
+						bbb += '          </div>';
+						bbb += '      </div>';
+						bbb += '      	<div class="review-left">';
+						bbb += '          <a href="#">Reply</a>';
+						bbb += '      	</div>';
+						bbb += '  	</div>';
+						bbb += '   		<div class="review-bottom">';
+						bbb += '      		<p>'+textareaValue+'</p>';
+						bbb += '		</div>';
+						bbb += '	</div>';
+						bbb += '</div>';
+					} else {
+						bbb += '<div class="single-review" th:each = "list : ${review}" th:if = "${!#lists.isEmpty(list)}">';
+						bbb += '	<div class="review-img">';
+						bbb += '    	<img src="/usr/v1/template/flone/assets/img/testimonial/1.jpg" alt="">';
+						bbb += '	</div>';
+						bbb += '	<div class="review-content">';
+						bbb += '    	<div class="review-top-wrap">';
+						bbb += '       		<div class="review-left">';
+						bbb += '            	<div class="review-name">';
+						bbb += '                	<h4>'+username+'</h4>';
+						bbb += '            	</div>';
+						bbb += '           		<div class="review-rating">';
+						bbb += '            		<th:block th:if='+checked_radio+' == 5}">'; 
+						bbb += '                 		<i class="fa fa-star"></i>';
+						bbb += '                 		<i class="fa fa-star"></i>';
+						bbb += '                		<i class="fa fa-star"></i>';
+						bbb += '                 		<i class="fa fa-star"></i>';
+						bbb += '                 		<i class="fa fa-star"></i>';
+						bbb += '            		</th:block>';
+						bbb += '          		</div>';
+						bbb += '      		</div>';
+						bbb += '      		<div class="review-left">';
+						bbb += '          		<a href="#">Reply</a>';
+						bbb += '      		</div>';
+						bbb += '  		</div>';
+						bbb += '   		<div class="review-bottom">';
+						bbb += '      		<p>'+textareaValue+'</p>';
+						bbb += '		</div>';
+						bbb += '	</div>';
+						bbb += '</div>';
+					}
 					
 					$("#aaa").append(bbb);
-// 					if(response.changePwd == "true") {
-// 						location.href = "redirect:/usrProduct";
-// 					} else {
-// 						location.href = "redirect:/usrProduct";
-// 					}
+					
 				} else {
 			 		document.getElementById("verticallyCenteredLabel").innerText = "확 인";
 			 		document.getElementById("verticallyCenteredLabel2").innerText = "일치하는 회원이 존재 하지 않습니다!";
@@ -514,6 +621,7 @@
 	    document.getElementById("btnReview").click();
 	  }
 	});
+	/*]]>*/
 	</script>
 
 </body>

@@ -62,10 +62,10 @@
                                	</tr>
                                 <tr th:each = "list : ${list}" th:if = "${!#lists.isEmpty(list)}">
                                     <td class="product-thumbnail">
-                                        <a href="#"><img src="/usr/v1/template/flone/assets/img/slider/deeprock.png" alt=""></a>
+                                        <a href="#"><img  alt=""></a>
                                     </td>
                                     <td th:text="${list.plName}" class="product-name"><a href="#"></a></td>
-                                    <td th:text="${list.plPrice}" class="product-price-cart"></td>
+                                    <td th:text="${#numbers.formatInteger(list.plTotalPrice, 3, 'COMMA')} + '원'" class="product-price-cart"></td>
                                 </tr>
                             </tbody>
                         </table>

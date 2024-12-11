@@ -5,6 +5,7 @@ package com.maple.infra.usrproduct;
 
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import jakarta.servlet.http.HttpSession;
 
 
 @Controller
@@ -73,20 +76,20 @@ public class UsrProductController {
 	
 	@ResponseBody
 	@RequestMapping(value="/usrProductInst")
-	public Map<String, Object> usrProductInst(UsrProductDto usrProductDto) throws Exception {
+	public Map<String, Object> usrProductInst(UsrProductDto usrProductDto, Model model, HttpSession httpSession) throws Exception {
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 		
-		UsrProductDto rtProduct = usrProductService.selectOneReview(usrProductDto);
+		
+		List<UsrProductDto> rtProduct = usrProductService.selectListReview(usrProductDto);
 		
 		if (rtProduct != null) {
 			usrProductService.insert(usrProductDto);
-			System.out.println("1");
 			returnMap.put("rt", "success");
-			
+			System.out.println("1");
 		} else {
 			usrProductService.insert(usrProductDto);
-			System.out.println("2");
 			returnMap.put("rt", "success");
+			System.out.println("12");
 		}
 		return returnMap;
 	}
