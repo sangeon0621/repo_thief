@@ -545,17 +545,20 @@
 			});	
 		}
 		
-		goList = function (thisPage) {
-		    document.querySelector("input[name=thisPage]").value = thisPage;
-		    document.querySelector("form[name=form]").action = "/usrShop";
-		    document.querySelector("form[name=form]").submit();
-		}
 		
 // 		document.getElementById("changeRowNum").onchange = function () {
 //  	    document.getElementById("rowNumToShow").value = document.getElementById("changeRowNum").value;
 // 		    form.action = "/usrShop";
 // 		    form.submit();
 // 		}
+</script>
+
+<script>
+	goList = function (thisPage) {
+	    document.querySelector("input[name=thisPage]").value = thisPage;
+	    document.querySelector("form[name=form]").action = "/usrShop";
+	    document.querySelector("form[name=form]").submit();
+	}
 </script>
 
 </body>

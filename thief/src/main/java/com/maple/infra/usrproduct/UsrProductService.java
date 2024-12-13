@@ -71,8 +71,8 @@ public class UsrProductService {
 		return usrProductDao.uelete(usrProductDto);
 	}
 	
-	public int delete(UsrProductDto usrProductDto) {
-		return usrProductDao.delete(usrProductDto);
+	public int deleteBuyList(UsrProductDto usrProductDto) {
+		return usrProductDao.deleteBuyList(usrProductDto);
 	}
 	
 	public UsrProductDto reviewAvg(UsrProductDto usrProductDto) {

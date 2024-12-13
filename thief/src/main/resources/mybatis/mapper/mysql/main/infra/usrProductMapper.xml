@@ -291,10 +291,10 @@
 	  		and pddSeq = #{pddSeq}
 	</update>
 	  
-	<delete id="delete">
-		delete from productcd
+	<delete id="deleteBuyList">
+		delete from purchaselist
 	  	where 1=1
-	  		and pddSeq = #{pddSeq}
+	  		and plSeq = #{plSeq}
 	</delete>
 	
 	<select id = "selectListBuy" resultMap = "productObj">

@@ -33,7 +33,7 @@ public interface UsrProductDao {
 	
 	public int uelete(UsrProductDto usrProductDto);
 	
-	public int delete(UsrProductDto usrProductDto);
+	public int deleteBuyList(UsrProductDto usrProductDto);
 	
 	public UsrProductDto reviewAvg(UsrProductDto usrProductDto);
 	

@@ -277,7 +277,7 @@
 	                                <a th:href="@{/usrProduct(pddSeq= ${list.pddSeq})}"><i class="pe-7s-cart"></i> 구매 하기</a>
 	                            </div>
 	                            <div class="pro-same-action pro-quickview">
-	                                <a title="빨리 보기" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="pe-7s-look"></i></a>
+	                                <a title="빨리 보기" th:href="@{/usrModal(pddSeq= ${list.pddSeq})}" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="pe-7s-look"></i></a>
 	                            </div>
 	                        </div>
 	                    </div>

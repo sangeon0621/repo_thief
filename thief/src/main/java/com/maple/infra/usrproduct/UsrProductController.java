@@ -43,17 +43,18 @@ public class UsrProductController {
 	}
 	
 	@RequestMapping(value="/usrUi")
-	public String usrUi(Model model) {
+	public String usrUi(Model model, UsrProductDto usrProductDto) {
 		
 		model.addAttribute("list", usrProductService.selectList2());
+		
 		return "usr/v1/infra/usrui/usrUi";
 	}
 	
-//	@RequestMapping(value="/usrModal")
-//	public String usrModal(Model model, UsrProductDto UsrProductDto) {
-//		model.addAttribute("item", usrProductService.selectOne(UsrProductDto));
-//		return "usr/v1/infra/include/modal";
-//	}
+	@RequestMapping(value="/usrModal")
+	public String usrModal(Model model, UsrProductDto UsrProductDto) {
+		model.addAttribute("item", usrProductService.selectOne(UsrProductDto));
+		return "usr/v1/infra/include/modal";
+	}
 	
 	@RequestMapping(value="/usrProduct")
 	public String usrProduct(@ModelAttribute("vo") UsrProductVo vo, @ModelAttribute("dto") UsrProductDto usrProductDto, Model model) {
@@ -92,6 +93,14 @@ public class UsrProductController {
 			System.out.println("12");
 		}
 		return returnMap;
+	}
+	
+	@RequestMapping(value="/usrProductDele")
+	public String usrProductDele(Model model, UsrProductDto usrProductDto) {
+		
+		usrProductService.deleteBuyList(usrProductDto);
+		
+		return "redirect:/v1/infra/usrui/usrBuyList";
 	}
 	
 	@RequestMapping(value="/usrProductUpdt")
